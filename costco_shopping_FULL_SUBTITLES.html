@@ -1,0 +1,1660 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Why You Spend So Much Money at Costco</title><style>
+:root{
+ --bg:#f3f0eb;--paper:#fffdf9;--ink:#252321;--muted:#706a65;--line:#ddd5cd;
+ --accent:#d85b38;--accent2:#fff1e9;--ok:#28734d;--bad:#b44339;--blue:#eef6fa;
+ --shadow:0 10px 28px rgba(49,38,28,.07)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#ebe6e0 0,#f7f4f0 340px);color:var(--ink);
+font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+button,input,textarea,select{font:inherit}button{cursor:pointer}
+.wrap{width:min(1060px,100%);margin:auto;padding:16px clamp(10px,3vw,26px) 72px}
+.hero,.section{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.hero{padding:clamp(18px,4vw,30px);margin-bottom:15px}
+.kicker{font-size:.78rem;font-weight:900;letter-spacing:.075em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:Georgia,serif;font-size:clamp(2rem,6vw,3.5rem);line-height:1.05;margin:.25rem 0 .55rem}
+h2{font-size:1.36rem;margin:0 0 7px} h3{font-size:1.06rem;margin:.2rem 0 .55rem}
+p{margin:.45rem 0}.muted,.instruction{color:var(--muted)}
+.section{padding:clamp(15px,3vw,24px);margin:15px 0}
+.badge{display:inline-block;background:var(--accent);color:#fff;font-weight:900;font-size:.76rem;padding:3px 8px;border-radius:7px;margin-right:6px}
+.nav{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 17px}
+.nav a{color:var(--ink);background:var(--paper);border:1px solid var(--line);text-decoration:none;border-radius:999px;padding:8px 11px;font-size:.88rem}
+.note{background:#fff3ec;border-left:4px solid var(--accent);padding:11px 13px;border-radius:9px;margin:12px 0}
+.subnote{background:var(--blue);border:1px solid #d3e3ea;border-radius:12px;padding:11px 12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:760px){.grid2,.grid3{grid-template-columns:1fr}}
+.card,.part{border:1px solid var(--line);border-radius:14px;padding:13px;background:#fff;margin:10px 0}
+.video-wrap{position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;background:#111;margin:12px 0}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.controls,.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.btn{border:0;border-radius:10px;min-height:44px;padding:9px 13px;font-weight:800;background:var(--accent);color:white}
+.btn.secondary{background:#eee8e2;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.vocab-grid{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}
+.vocab,.subword{border:1px solid #e6cbbb;background:#fff3ec;color:#71351f;border-radius:999px;padding:6px 9px}
+.subword{display:inline;border-radius:6px;padding:1px 4px;font:inherit}
+.flash{min-height:118px;display:flex;align-items:center;justify-content:center;text-align:center;border:1px solid var(--line);
+border-radius:14px;padding:14px;background:#fff}
+.flash .main{font-size:1.07rem;font-weight:800}.flash .back{display:none}.flash.revealed .front{display:none}.flash.revealed .back{display:block}
+.flash small{display:block;color:var(--muted);font-weight:500;margin-top:5px}
+.part{border-radius:17px;padding:15px;margin:14px 0}
+.part-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.time{background:#272321;color:#fff;border-radius:999px;padding:5px 9px;font-weight:800;font-size:.83rem}
+.collocs{display:flex;flex-wrap:wrap;gap:6px;margin:7px 0}.colloc{background:#edf4f7;border:1px solid #d7e2e7;border-radius:999px;padding:5px 8px;font-size:.85rem}
+.q{padding:10px 0;border-top:1px dashed var(--line)}.q:first-child{border-top:0}
+.options{display:grid;gap:7px;margin-top:7px}.opt{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:8px;background:#fff}
+.opt input{margin-top:4px;width:19px;height:19px}.feedback{font-weight:800;margin-top:7px;min-height:1.3em}.good{color:var(--ok)}.bad{color:var(--bad)}
+textarea,input[type=text],input[type=search]{width:100%;min-height:44px;border:1.5px solid #cec5bd;border-radius:10px;padding:10px;background:#fff;color:var(--ink)}
+textarea{min-height:92px;resize:vertical}
+.sample{display:none;background:#f7f4f0;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:8px}.sample.show{display:block}
+.subtitle-box{display:none;border:1px solid var(--line);border-radius:12px;background:#faf8f5;margin-top:10px;max-height:520px;overflow:auto}
+.subtitle-box.show{display:block}
+.subrow{display:grid;grid-template-columns:58px minmax(0,1fr);gap:8px;padding:7px 9px;border-top:1px solid #e8e1db;align-items:start}
+.subrow:first-child{border-top:0}.subtime{font-variant-numeric:tabular-nums;font-size:.78rem;color:var(--muted);padding-top:3px}.subtext{min-width:0}
+.gapline{padding:8px 0;border-top:1px dashed var(--line)}.gapline:first-child{border-top:0}.gapline input{margin-top:6px}
+.progress-shell{height:9px;background:#e7dfd8;border-radius:999px;overflow:hidden;margin-top:12px}.progress{height:100%;width:0;background:var(--accent)}
+.pop{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);width:min(540px,calc(100% - 22px));background:#242120;color:#fff;padding:11px 13px;border-radius:12px;display:none;z-index:30;box-shadow:0 12px 35px rgba(0,0,0,.25)}
+.pop.show{display:block}.pop small{display:block;color:#ddd;margin-top:2px}
+.searchbar{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}.searchbar .btn{min-width:110px}
+details.raw{margin-top:12px}details.raw summary{cursor:pointer;font-weight:800}
+.rawpre{white-space:pre-wrap;word-break:break-word;background:#f7f4f0;border:1px solid var(--line);border-radius:12px;padding:12px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.8rem;max-height:520px;overflow:auto}
+.footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:22px}
+@media(max-width:430px){
+ .wrap{padding-left:9px;padding-right:9px}.hero,.section{border-radius:15px;padding:14px}h1{font-size:2.05rem}
+ .nav a{font-size:.82rem}.btn{width:100%}.controls .btn,.actions .btn{width:auto;flex:1 1 135px}.subrow{grid-template-columns:50px minmax(0,1fr)}
+ .searchbar{grid-template-columns:1fr}
+}
+</style></head>
+<body>
+<div class="wrap" id="app" data-video="mz4Mkq6uYQI">
+<header class="hero">
+  <div class="kicker">Elena · B1–B2 VIDEO WORKSHOP · FULL SUBTITLES</div>
+  <h1>Why You Spend So Much Money at Costco</h1>
+  <p>This version is rebuilt directly from the supplied subtitle file. Target vocabulary, gap sentences and listening sections are grounded in those subtitles.</p>
+  <div class="progress-shell"><div class="progress" id="progress"></div></div><div class="instruction" id="progressText">0 checked activities</div>
+</header>
+<nav class="nav"><a href="#revision">Revision</a><a href="#vocab">Subtitle vocabulary</a><a href="#video">Video</a>
+<a href="#part1">Part 1</a><a href="#part2">Part 2</a><a href="#part3">Part 3</a><a href="#part4">Part 4</a><a href="#part5">Part 5</a>
+<a href="#discussion">Discussion</a><a href="#fullsubs">Full subtitles</a></nav>
+
+<section class="section" id="revision">
+<h2><span class="badge">1</span>Revision</h2>
+<p class="instruction">Recycle a small number of useful items before the new video. Tap only after trying to recall the answer.</p>
+<h3>EN → RU</h3><div class="grid3">
+        <button type="button" class="flash">
+          <span class="front"><span class="main">buy in bulk</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">покупать большими упаковками</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">get a good deal</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">выгодно купить</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">make an impulse purchase</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">совершить импульсивную покупку</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">stick to a shopping list</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">придерживаться списка покупок</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">compare prices</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">сравнивать цены</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">be worth the money</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">стоить своих денег</span><small>Tap to return</small></span>
+        </button></div>
+<h3 style="margin-top:16px">RU → EN</h3><div class="grid3">
+        <button type="button" class="flash">
+          <span class="front"><span class="main">покупать большими упаковками</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">buy in bulk</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">выгодно купить</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">get a good deal</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">совершить импульсивную покупку</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">make an impulse purchase</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">придерживаться списка покупок</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">stick to a shopping list</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">сравнивать цены</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">compare prices</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">стоить своих денег</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">be worth the money</span><small>Tap to return</small></span>
+        </button></div>
+</section>
+
+<section class="section" id="vocab">
+<h2><span class="badge">2</span>Vocabulary from the subtitles</h2>
+<div class="note"><b>40 target items.</b> Every English item below was checked against the uploaded SRT and occurs in that subtitle text.</div>
+<div class="vocab-grid"><button type="button" class="vocab" data-en="customer base" data-ru="клиентская база">customer base</button><button type="button" class="vocab" data-en="absolutely addicted to Costco" data-ru="буквально одержимы Costco">absolutely addicted to Costco</button><button type="button" class="vocab" data-en="sense of scale" data-ru="ощущение масштаба">sense of scale</button><button type="button" class="vocab" data-en="no frills model" data-ru="модель без излишеств">no frills model</button><button type="button" class="vocab" data-en="placed by accident" data-ru="размещено случайно">placed by accident</button><button type="button" class="vocab" data-en="treasure hunting" data-ru="поиск сокровищ">treasure hunting</button><button type="button" class="vocab" data-en="end up putting in your cart" data-ru="в итоге положить в корзину">end up putting in your cart</button><button type="button" class="vocab" data-en="buying in bulk" data-ru="покупка большими партиями">buying in bulk</button><button type="button" class="vocab" data-en="waste of money" data-ru="пустая трата денег">waste of money</button><button type="button" class="vocab" data-en="worth it" data-ru="того стоит">worth it</button><button type="button" class="vocab" data-en="average Costco transaction" data-ru="средняя покупка в Costco">average Costco transaction</button><button type="button" class="vocab" data-en="loyal membership base" data-ru="лояльная база участников">loyal membership base</button><button type="button" class="vocab" data-en="renew their membership" data-ru="продлевать членство">renew their membership</button><button type="button" class="vocab" data-en="comes at a price" data-ru="имеет свою цену">comes at a price</button><button type="button" class="vocab" data-en="frictionless experience" data-ru="максимально беспроблемный опыт">frictionless experience</button><button type="button" class="vocab" data-en="pretty seamless" data-ru="довольно гладкий / без препятствий">pretty seamless</button><button type="button" class="vocab" data-en="minimal signage" data-ru="минимум указателей">minimal signage</button><button type="button" class="vocab" data-en="encouraged to wander" data-ru="поощряют ходить и осматриваться">encouraged to wander</button><button type="button" class="vocab" data-en="take your time" data-ru="не спешить">take your time</button><button type="button" class="vocab" data-en="direct correlation" data-ru="прямая корреляция">direct correlation</button><button type="button" class="vocab" data-en="in-house brand" data-ru="собственный бренд компании">in-house brand</button><button type="button" class="vocab" data-en="dig a little deeper" data-ru="копнуть немного глубже">dig a little deeper</button><button type="button" class="vocab" data-en="affluent consumer" data-ru="обеспеченный потребитель">affluent consumer</button><button type="button" class="vocab" data-en="overwhelming majority of wealth" data-ru="подавляющая часть богатства">overwhelming majority of wealth</button><button type="button" class="vocab" data-en="embedded in the whole Costco ecosystem" data-ru="встроен во всю экосистему Costco">embedded in the whole Costco ecosystem</button><button type="button" class="vocab" data-en="share of wallet" data-ru="доля расходов клиента у конкретной компании">share of wallet</button><button type="button" class="vocab" data-en="keep coming back" data-ru="продолжать возвращаться">keep coming back</button><button type="button" class="vocab" data-en="value, quality, and consistency" data-ru="ценность, качество и стабильность">value, quality, and consistency</button><button type="button" class="vocab" data-en="better deal" data-ru="более выгодная покупка">better deal</button><button type="button" class="vocab" data-en="fine wine" data-ru="дорогое / качественное вино">fine wine</button><button type="button" class="vocab" data-en="extremely efficient" data-ru="чрезвычайно эффективный">extremely efficient</button><button type="button" class="vocab" data-en="curated assortment" data-ru="тщательно отобранный ассортимент">curated assortment</button><button type="button" class="vocab" data-en="working capital" data-ru="оборотный капитал">working capital</button><button type="button" class="vocab" data-en="direct relationships with all of their suppliers" data-ru="прямые отношения со всеми поставщиками">direct relationships with all of their suppliers</button><button type="button" class="vocab" data-en="hold up in the age of Amazon" data-ru="выдерживать конкуренцию в эпоху Amazon">hold up in the age of Amazon</button><button type="button" class="vocab" data-en="online presence" data-ru="присутствие онлайн">online presence</button><button type="button" class="vocab" data-en="consuming future" data-ru="будущее потребления">consuming future</button><button type="button" class="vocab" data-en="sustainability of their supply chains" data-ru="устойчивость цепочек поставок">sustainability of their supply chains</button><button type="button" class="vocab" data-en="single use plastics" data-ru="одноразовый пластик">single use plastics</button><button type="button" class="vocab" data-en="remain loyal" data-ru="оставаться лояльными">remain loyal</button></div>
+<div class="card"><b>Prediction</b><p>Why might a store deliberately make customers walk past many products before reaching basic items such as milk or eggs?</p><textarea placeholder="Use at least 4 target expressions if possible."></textarea></div>
+</section>
+
+<section class="section" id="video">
+<h2><span class="badge">3</span>Video</h2>
+<div class="subnote"><b>Subtitles are now genuinely inside this workbook.</b> You can watch with YouTube CC, but you no longer depend on it: every subtitle cue from the supplied SRT is embedded below and divided into the same study parts.</div>
+<div class="video-wrap"><iframe id="player" src="https://www.youtube-nocookie.com/embed/mz4Mkq6uYQI?rel=0&cc_load_policy=1&cc_lang_pref=en" title="Why You Spend So Much Money at Costco" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+</section>
+
+<section class="section">
+<h2><span class="badge">4</span>Watch in parts</h2>
+<p class="instruction">Recommended sequence: ① watch without transcript; ② answer; ③ replay; ④ open full subtitles only if necessary; ⑤ complete the exact-line task.</p>
+
+        <article class="part" id="part1">
+          <div class="part-head">
+            <div><h3>Part 1 · Scale, treasure hunting and bulk buying</h3>
+            <p class="instruction">Costco uses enormous scale and strategic product placement. &#x27;Treasure hunting&#x27; encourages customers to see more and put more into their carts, although bulk buying is not economical for everyone.</p></div>
+            <span class="time">00:00–02:09</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn playpart" data-start="0" data-end="129">▶ Play this part</button>
+            <button type="button" class="btn ghost subtoggle">Show full subtitles for this part</button>
+          </div>
+          <div class="card">
+            <b>Vocabulary actually used in this part</b>
+            <div class="vocab-grid"><button type="button" class="vocab" data-en="customer base" data-ru="клиентская база">customer base</button><button type="button" class="vocab" data-en="absolutely addicted to Costco" data-ru="буквально одержимы Costco">absolutely addicted to Costco</button><button type="button" class="vocab" data-en="sense of scale" data-ru="ощущение масштаба">sense of scale</button><button type="button" class="vocab" data-en="no frills model" data-ru="модель без излишеств">no frills model</button><button type="button" class="vocab" data-en="placed by accident" data-ru="размещено случайно">placed by accident</button><button type="button" class="vocab" data-en="treasure hunting" data-ru="поиск сокровищ">treasure hunting</button><button type="button" class="vocab" data-en="end up putting in your cart" data-ru="в итоге положить в корзину">end up putting in your cart</button><button type="button" class="vocab" data-en="buying in bulk" data-ru="покупка большими партиями">buying in bulk</button><button type="button" class="vocab" data-en="waste of money" data-ru="пустая трата денег">waste of money</button><button type="button" class="vocab" data-en="worth it" data-ru="того стоит">worth it</button><button type="button" class="vocab" data-en="average Costco transaction" data-ru="средняя покупка в Costco">average Costco transaction</button><button type="button" class="vocab" data-en="loyal membership base" data-ru="лояльная база участников">loyal membership base</button><button type="button" class="vocab" data-en="renew their membership" data-ru="продлевать членство">renew their membership</button></div>
+          </div>
+          <div class="card quizq" data-answer="0">
+            <b>What does Costco call the process of discovering products while walking through the store?</b><div class="options"><label class="opt"><input type="radio" name="costco_q0" value="0"><span>Treasure hunting</span></label><label class="opt"><input type="radio" name="costco_q0" value="1"><span>Price anchoring</span></label><label class="opt"><input type="radio" name="costco_q0" value="2"><span>Shelf mapping</span></label></div>
+            <button type="button" class="btn secondary checkone" style="margin-top:8px">Check</button>
+            <div class="feedback"></div>
+          </div>
+          <div class="card"><b>Complete the exact subtitle line</b><p class="instruction">Listen first. Type the missing expression exactly as it appears in the subtitles.</p><div class="gapline gapq" data-answer="customer base">I think some of their
+__________ is absolutely<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><div class="gapline gapq" data-answer="absolutely addicted to Costco">I think some of their
+customer base is __________.<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><button type="button" class="btn secondary checkgaps">Check subtitle lines</button></div>
+          <div class="subtitle-box">
+            <div class="subnote"><b>Complete subtitle text for this segment.</b> These lines come from the SRT file you supplied. Auto-generated SRTs are preserved as supplied and may contain recognition errors.</div>
+            <div class="subrow" data-search="now i am an executive member at the costco"><span class="subtime">00:03</span><span class="subtext">Now I am
+an executive member at the Costco</span></div><div class="subrow" data-search="very berry with extra berries"><span class="subtime">00:06</span><span class="subtext">Very Berry with extra berries.</span></div><div class="subrow" data-search="we came for pumpkin pie actually"><span class="subtime">00:08</span><span class="subtext">We came for
+pumpkin pie, actually.</span></div><div class="subrow" data-search="and the king crab legs"><span class="subtime">00:09</span><span class="subtext">And the king crab legs.</span></div><div class="subrow" data-search="i think some of their customer base is absolutely"><span class="subtime">00:11</span><span class="subtext">I think some of their
+<button type="button" class="subword" data-en="customer base" data-ru="клиентская база">customer base</button> is absolutely</span></div><div class="subrow" data-search="addicted to costco"><span class="subtime">00:14</span><span class="subtext">addicted to Costco.</span></div><div class="subrow" data-search="welcome to costco where everything is huge and"><span class="subtime">00:26</span><span class="subtext">Welcome to Costco where
+everything is huge and</span></div><div class="subrow" data-search="it&#x27;s been like this for 30 years"><span class="subtime">00:31</span><span class="subtext">it&#x27;s been like this
+for 30 years.</span></div><div class="subrow" data-search="from the carts to the warehouses to the products"><span class="subtime">00:34</span><span class="subtext">From the carts to the
+warehouses to the products</span></div><div class="subrow" data-search="themselves it&#x27;s a store fit for giants"><span class="subtime">00:37</span><span class="subtext">themselves. It&#x27;s a store
+fit for giants.</span></div><div class="subrow" data-search="it&#x27;s designed as much for a forklift truck as it"><span class="subtime">00:40</span><span class="subtext">It&#x27;s designed as much for
+a forklift truck as it</span></div><div class="subrow" data-search="is for people"><span class="subtime">00:44</span><span class="subtext">is for people.</span></div><div class="subrow" data-search="that sense of scale is part of what the costco"><span class="subtime">00:45</span><span class="subtext">That <button type="button" class="subword" data-en="sense of scale" data-ru="ощущение масштаба">sense of scale</button> is
+part of what the Costco</span></div><div class="subrow" data-search="experience and the warehouse experience is all"><span class="subtime">00:48</span><span class="subtext">experience and the warehouse
+experience is all</span></div><div class="subrow" data-search="about"><span class="subtime">00:50</span><span class="subtext">about.</span></div><div class="subrow" data-search="and costco has made billions in revenue from"><span class="subtime">00:51</span><span class="subtext">And Costco has made
+billions in revenue from</span></div><div class="subrow" data-search="its no frills model significantly more than its"><span class="subtime">00:54</span><span class="subtext">its <button type="button" class="subword" data-en="no frills model" data-ru="модель без излишеств">no frills model</button>
+significantly more than its</span></div><div class="subrow" data-search="u s competitors"><span class="subtime">00:57</span><span class="subtext">U.S. competitors.</span></div><div class="subrow" data-search="nothing in a store is placed by accident"><span class="subtime">00:58</span><span class="subtext">Nothing in a store
+is <button type="button" class="subword" data-en="placed by accident" data-ru="размещено случайно">placed by accident</button>.</span></div><div class="subrow" data-search="take for instance staples like milk and eggs"><span class="subtime">01:03</span><span class="subtext">Take for instance staples
+like milk and eggs.</span></div><div class="subrow" data-search="you have to travel all this way just to find the"><span class="subtime">01:07</span><span class="subtext">You have to travel all this
+way just to find the</span></div><div class="subrow" data-search="dairy this leads to something costco calls"><span class="subtime">01:11</span><span class="subtext">dairy. This leads to
+something Costco calls</span></div><div class="subrow" data-search="treasure hunting"><span class="subtime">01:14</span><span class="subtext">&quot;<button type="button" class="subword" data-en="treasure hunting" data-ru="поиск сокровищ">treasure hunting</button>.&quot;</span></div><div class="subrow" data-search="the more you see the more you discover the more"><span class="subtime">01:15</span><span class="subtext">The more you see, the
+more you discover, the more</span></div><div class="subrow" data-search="you end up putting in your cart"><span class="subtime">01:19</span><span class="subtext">you end up putting
+in your cart.</span></div><div class="subrow" data-search="you end up buying other things you probably don&#x27;t"><span class="subtime">01:21</span><span class="subtext">You end up buying other
+things you probably don&#x27;t</span></div><div class="subrow" data-search="really need"><span class="subtime">01:23</span><span class="subtext">really need.</span></div><div class="subrow" data-search="you almost have to go in with blinders on and"><span class="subtime">01:24</span><span class="subtext">You almost have to go
+in with blinders on and</span></div><div class="subrow" data-search="walk right past the things that you are tempted"><span class="subtime">01:26</span><span class="subtext">walk right past the things
+that you are tempted</span></div><div class="subrow" data-search="to buy"><span class="subtime">01:30</span><span class="subtext">to buy.</span></div><div class="subrow" data-search="but buying in bulk isn&#x27;t for everyone"><span class="subtime">01:30</span><span class="subtext">But <button type="button" class="subword" data-en="buying in bulk" data-ru="покупка большими партиями">buying in bulk</button>
+isn&#x27;t for everyone.</span></div><div class="subrow" data-search="for me personally it would be a waste of money to"><span class="subtime">01:33</span><span class="subtext">For me personally it would be
+a <button type="button" class="subword" data-en="waste of money" data-ru="пустая трата денег">waste of money</button> to</span></div><div class="subrow" data-search="get a costco membership because i can&#x27;t use up 25"><span class="subtime">01:36</span><span class="subtext">get a Costco membership because
+I can&#x27;t use up 25</span></div><div class="subrow" data-search="pounds of flour or you know some of the really"><span class="subtime">01:40</span><span class="subtext">pounds of flour or, you
+know, some of the really</span></div><div class="subrow" data-search="big bulk items"><span class="subtime">01:44</span><span class="subtext">big bulk items.</span></div><div class="subrow" data-search="it just isn&#x27;t worth it for me"><span class="subtime">01:45</span><span class="subtext">It just isn&#x27;t worth
+it for me.</span></div><div class="subrow" data-search="the average costco transaction is between"><span class="subtime">01:47</span><span class="subtext">The average Costco
+transaction is between</span></div><div class="subrow" data-search="$130 and $140 but members have been known to"><span class="subtime">01:49</span><span class="subtext">$130 and $140. But members
+have been known to</span></div><div class="subrow" data-search="spend much more"><span class="subtime">01:52</span><span class="subtext">spend much more.</span></div><div class="subrow" data-search="i thought i would spend about $25"><span class="subtime">01:54</span><span class="subtext">I thought I would
+spend about $25.</span></div><div class="subrow" data-search="and i ended up spending over $700"><span class="subtime">01:57</span><span class="subtext">And I ended up
+spending over $700.</span></div><div class="subrow" data-search="$187 65"><span class="subtime">02:00</span><span class="subtext">$187.65.</span></div><div class="subrow" data-search="$221 and change you can come in here and spend"><span class="subtime">02:02</span><span class="subtext">$221 and change. You can
+come in here and spend</span></div><div class="subrow" data-search="about $250 $300 easy"><span class="subtime">02:05</span><span class="subtext">about $250, $300 easy.</span></div><div class="subrow" data-search="they have a very loyal membership base"><span class="subtime">02:08</span><span class="subtext">They have a very
+<button type="button" class="subword" data-en="loyal membership base" data-ru="лояльная база участников">loyal membership base</button>.</span></div>
+          </div>
+        </article>
+        
+        <article class="part" id="part2">
+          <div class="part-head">
+            <div><h3>Part 2 · Loyalty, frictionless shopping and samples</h3>
+            <p class="instruction">Membership renewal is very high. The store is designed to feel frictionless and encourages shoppers to wander, sample food and spend time inside.</p></div>
+            <span class="time">02:09–04:01</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn playpart" data-start="129" data-end="241">▶ Play this part</button>
+            <button type="button" class="btn ghost subtoggle">Show full subtitles for this part</button>
+          </div>
+          <div class="card">
+            <b>Vocabulary actually used in this part</b>
+            <div class="vocab-grid"><button type="button" class="vocab" data-en="comes at a price" data-ru="имеет свою цену">comes at a price</button><button type="button" class="vocab" data-en="frictionless experience" data-ru="максимально беспроблемный опыт">frictionless experience</button><button type="button" class="vocab" data-en="pretty seamless" data-ru="довольно гладкий / без препятствий">pretty seamless</button><button type="button" class="vocab" data-en="minimal signage" data-ru="минимум указателей">minimal signage</button><button type="button" class="vocab" data-en="encouraged to wander" data-ru="поощряют ходить и осматриваться">encouraged to wander</button><button type="button" class="vocab" data-en="take your time" data-ru="не спешить">take your time</button><button type="button" class="vocab" data-en="direct correlation" data-ru="прямая корреляция">direct correlation</button><button type="button" class="vocab" data-en="in-house brand" data-ru="собственный бренд компании">in-house brand</button></div>
+          </div>
+          <div class="card quizq" data-answer="0">
+            <b>What percentage of members renew their membership according to the video?</b><div class="options"><label class="opt"><input type="radio" name="costco_q1" value="0"><span>About 90%</span></label><label class="opt"><input type="radio" name="costco_q1" value="1"><span>About 20%</span></label><label class="opt"><input type="radio" name="costco_q1" value="2"><span>About 50%</span></label></div>
+            <button type="button" class="btn secondary checkone" style="margin-top:8px">Check</button>
+            <div class="feedback"></div>
+          </div>
+          <div class="card"><b>Complete the exact subtitle line</b><p class="instruction">Listen first. Type the missing expression exactly as it appears in the subtitles.</p><div class="gapline gapq" data-answer="comes at a price">Being a wholesale club member
+__________.<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><div class="gapline gapq" data-answer="frictionless experience">It is a
+very __________.<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><button type="button" class="btn secondary checkgaps">Check subtitle lines</button></div>
+          <div class="subtitle-box">
+            <div class="subnote"><b>Complete subtitle text for this segment.</b> These lines come from the SRT file you supplied. Auto-generated SRTs are preserved as supplied and may contain recognition errors.</div>
+            <div class="subrow" data-search="ninety percent of their members renew their"><span class="subtime">02:13</span><span class="subtext">Ninety percent of their
+members renew their</span></div><div class="subrow" data-search="membership"><span class="subtime">02:15</span><span class="subtext">membership.</span></div><div class="subrow" data-search="being a wholesale club member comes at a price"><span class="subtime">02:18</span><span class="subtext">Being a wholesale club member
+<button type="button" class="subword" data-en="comes at a price" data-ru="имеет свою цену">comes at a price</button>.</span></div><div class="subrow" data-search="the interesting thing about costco is that when"><span class="subtime">02:23</span><span class="subtext">The interesting thing about
+Costco is that when</span></div><div class="subrow" data-search="you speak to a consumer they go quite"><span class="subtime">02:26</span><span class="subtext">you speak to a
+consumer, they go quite</span></div><div class="subrow" data-search="frequently"><span class="subtime">02:28</span><span class="subtext">frequently.</span></div><div class="subrow" data-search="and i have spoken to people that go and drop into"><span class="subtime">02:29</span><span class="subtext">And I have spoken to people
+that go and drop into</span></div><div class="subrow" data-search="a costco three four times a week"><span class="subtime">02:31</span><span class="subtext">a Costco three, four
+times a week.</span></div><div class="subrow" data-search="it is a very frictionless experience"><span class="subtime">02:34</span><span class="subtext">It is a
+very <button type="button" class="subword" data-en="frictionless experience" data-ru="максимально беспроблемный опыт">frictionless experience</button>.</span></div><div class="subrow" data-search="moving through a costco is pretty seamless"><span class="subtime">02:37</span><span class="subtext">Moving through a Costco
+is <button type="button" class="subword" data-en="pretty seamless" data-ru="довольно гладкий / без препятствий">pretty seamless</button>.</span></div><div class="subrow" data-search="there&#x27;s minimal signage"><span class="subtime">02:40</span><span class="subtext">There&#x27;s <button type="button" class="subword" data-en="minimal signage" data-ru="минимум указателей">minimal signage</button>,</span></div><div class="subrow" data-search="the aisles are super wide and the carts glide on"><span class="subtime">02:41</span><span class="subtext">the aisles are super wide,
+and the carts glide on</span></div><div class="subrow" data-search="the concrete floors"><span class="subtime">02:45</span><span class="subtext">the concrete floors.</span></div><div class="subrow" data-search="there are free samples and even the occasional"><span class="subtime">02:47</span><span class="subtext">There are free samples
+and even the occasional</span></div><div class="subrow" data-search="massage demonstration"><span class="subtime">02:49</span><span class="subtext">massage demonstration.</span></div><div class="subrow" data-search="you&#x27;re free nay encouraged to wander and take"><span class="subtime">02:51</span><span class="subtext">You&#x27;re free nay, encouraged
+to wander and take</span></div><div class="subrow" data-search="your time"><span class="subtime">02:56</span><span class="subtext">your time.</span></div><div class="subrow" data-search="i have so many memories of being a kid with my"><span class="subtime">02:57</span><span class="subtext">I have so many memories of
+being a kid with my</span></div><div class="subrow" data-search="sister like running around the store playing tag"><span class="subtime">03:00</span><span class="subtext">sister like running around
+the store playing tag</span></div><div class="subrow" data-search="or like hide and seek because it&#x27;s so easy to"><span class="subtime">03:03</span><span class="subtext">or like hide and seek
+because it&#x27;s so easy to</span></div><div class="subrow" data-search="hide in there"><span class="subtime">03:05</span><span class="subtext">hide in there.</span></div><div class="subrow" data-search="my parents would leave me on the couch there and"><span class="subtime">03:10</span><span class="subtext">My parents would leave me
+on the couch there and</span></div><div class="subrow" data-search="i&#x27;d go through all the books"><span class="subtime">03:12</span><span class="subtext">I&#x27;d go through
+all the books.</span></div><div class="subrow" data-search="they&#x27;d come back to pick me up when it&#x27;s time to"><span class="subtime">03:14</span><span class="subtext">They&#x27;d come back to pick me
+up when it&#x27;s time to</span></div><div class="subrow" data-search="leave the longer i can hold you in the store"><span class="subtime">03:16</span><span class="subtext">leave. The longer I can
+hold you in the store,</span></div><div class="subrow" data-search="the more likely i&#x27;m going to get more money out of"><span class="subtime">03:20</span><span class="subtext">the more likely I&#x27;m going to
+get more money out of</span></div><div class="subrow" data-search="your pocket"><span class="subtime">03:23</span><span class="subtext">your pocket.</span></div><div class="subrow" data-search="i&#x27;m a huge fan of the costco food court"><span class="subtime">03:24</span><span class="subtext">I&#x27;m a huge fan of
+the Costco food court.</span></div><div class="subrow" data-search="the food court"><span class="subtime">03:26</span><span class="subtext">The food court.</span></div><div class="subrow" data-search="food court"><span class="subtime">03:26</span><span class="subtext">Food court.</span></div><div class="subrow" data-search="i only went to costco with my parents just to go"><span class="subtime">03:27</span><span class="subtext">I only went to Costco with
+my parents just to go</span></div><div class="subrow" data-search="the food court"><span class="subtime">03:29</span><span class="subtext">the food court.</span></div><div class="subrow" data-search="that front snack bar is both a snack bar but it"><span class="subtime">03:30</span><span class="subtext">That front snack bar is both
+a snack bar, but it</span></div><div class="subrow" data-search="is also a parking lot and it&#x27;s a parking lot for"><span class="subtime">03:34</span><span class="subtext">is also a parking lot and
+it&#x27;s a parking lot for</span></div><div class="subrow" data-search="your two-legged pets called often children and"><span class="subtime">03:37</span><span class="subtext">your two-legged pets called
+often children and</span></div><div class="subrow" data-search="husbands this is my favorite type of samples"><span class="subtime">03:39</span><span class="subtext">husbands. This is my
+favorite type of samples.</span></div><div class="subrow" data-search="what is it like the big"><span class="subtime">03:41</span><span class="subtext">What is it? Like the big</span></div><div class="subrow" data-search="ones the big ones right there&#x27;s"><span class="subtime">03:43</span><span class="subtext">ones? The big
+ones, right? There&#x27;s</span></div><div class="subrow" data-search="a direct correlation between people who sample"><span class="subtime">03:45</span><span class="subtext">a <button type="button" class="subword" data-en="direct correlation" data-ru="прямая корреляция">direct correlation</button> between
+people who sample</span></div><div class="subrow" data-search="and the amount of money you spend"><span class="subtime">03:49</span><span class="subtext">and the amount of
+money you spend.</span></div><div class="subrow" data-search="aside from their famous $1 50"><span class="subtime">03:52</span><span class="subtext">Aside from their
+famous $1.50</span></div><div class="subrow" data-search="hotdog combo costco is well-known for its"><span class="subtime">03:54</span><span class="subtext">hotdog combo, Costco is
+well-known for its</span></div><div class="subrow" data-search="in-house brand kirkland signature"><span class="subtime">03:57</span><span class="subtext"><button type="button" class="subword" data-en="in-house brand" data-ru="собственный бренд компании">in-house brand</button>
+Kirkland Signature.</span></div><div class="subrow" data-search="kirkland paper goods bottled water and olive oil"><span class="subtime">04:00</span><span class="subtext">Kirkland paper goods, bottled
+water, and olive oil</span></div>
+          </div>
+        </article>
+        
+        <article class="part" id="part3">
+          <div class="part-head">
+            <div><h3>Part 3 · Kirkland, affluent shoppers and the Costco ecosystem</h3>
+            <p class="instruction">The video moves from Costco&#x27;s own brand to luxury products and describes how loyal customers gradually direct more categories of spending toward the Costco ecosystem.</p></div>
+            <span class="time">04:01–06:34</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn playpart" data-start="241" data-end="394">▶ Play this part</button>
+            <button type="button" class="btn ghost subtoggle">Show full subtitles for this part</button>
+          </div>
+          <div class="card">
+            <b>Vocabulary actually used in this part</b>
+            <div class="vocab-grid"><button type="button" class="vocab" data-en="dig a little deeper" data-ru="копнуть немного глубже">dig a little deeper</button><button type="button" class="vocab" data-en="affluent consumer" data-ru="обеспеченный потребитель">affluent consumer</button><button type="button" class="vocab" data-en="overwhelming majority of wealth" data-ru="подавляющая часть богатства">overwhelming majority of wealth</button><button type="button" class="vocab" data-en="embedded in the whole Costco ecosystem" data-ru="встроен во всю экосистему Costco">embedded in the whole Costco ecosystem</button><button type="button" class="vocab" data-en="share of wallet" data-ru="доля расходов клиента у конкретной компании">share of wallet</button><button type="button" class="vocab" data-en="keep coming back" data-ru="продолжать возвращаться">keep coming back</button><button type="button" class="vocab" data-en="value, quality, and consistency" data-ru="ценность, качество и стабильность">value, quality, and consistency</button><button type="button" class="vocab" data-en="better deal" data-ru="более выгодная покупка">better deal</button><button type="button" class="vocab" data-en="fine wine" data-ru="дорогое / качественное вино">fine wine</button></div>
+          </div>
+          <div class="card quizq" data-answer="0">
+            <b>What three brand qualities are explicitly named?</b><div class="options"><label class="opt"><input type="radio" name="costco_q2" value="0"><span>Value, quality and consistency</span></label><label class="opt"><input type="radio" name="costco_q2" value="1"><span>Luxury, speed and exclusivity</span></label><label class="opt"><input type="radio" name="costco_q2" value="2"><span>Novelty, scarcity and fashion</span></label></div>
+            <button type="button" class="btn secondary checkone" style="margin-top:8px">Check</button>
+            <div class="feedback"></div>
+          </div>
+          <div class="card"><b>Complete the exact subtitle line</b><p class="instruction">Listen first. Type the missing expression exactly as it appears in the subtitles.</p><div class="gapline gapq" data-answer="dig a little deeper">If you __________, it actually
+makes sense.<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><div class="gapline gapq" data-answer="affluent consumer">older American
+__________.<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><button type="button" class="btn secondary checkgaps">Check subtitle lines</button></div>
+          <div class="subtitle-box">
+            <div class="subnote"><b>Complete subtitle text for this segment.</b> These lines come from the SRT file you supplied. Auto-generated SRTs are preserved as supplied and may contain recognition errors.</div>
+            <div class="subrow" data-search="are some of their most beloved products"><span class="subtime">04:03</span><span class="subtext">are some of their
+most beloved products.</span></div><div class="subrow" data-search="but costco isn&#x27;t all bulk toilet paper and coffee"><span class="subtime">04:05</span><span class="subtext">But Costco isn&#x27;t all bulk
+toilet paper and coffee</span></div><div class="subrow" data-search="beans it also carries luxury items like this"><span class="subtime">04:08</span><span class="subtext">beans. It also carries
+luxury items like this</span></div><div class="subrow" data-search="engagement ring that cost nearly $28 000"><span class="subtime">04:11</span><span class="subtext">engagement ring that
+cost nearly $28,000.</span></div><div class="subrow" data-search="at first it seems asinine"><span class="subtime">04:15</span><span class="subtext">At first it
+seems asinine.</span></div><div class="subrow" data-search="why on earth would costco be selling diamonds"><span class="subtime">04:18</span><span class="subtext">Why on earth would
+Costco be selling diamonds?</span></div><div class="subrow" data-search="if you dig a little"><span class="subtime">04:21</span><span class="subtext">If you dig a little</span></div><div class="subrow" data-search="deeper it actually makes sense"><span class="subtime">04:22</span><span class="subtext">deeper, it actually
+makes sense.</span></div><div class="subrow" data-search="costco&#x27;s also built its franchise with an"><span class="subtime">04:25</span><span class="subtext">Costco&#x27;s also built its
+franchise with an</span></div><div class="subrow" data-search="older american affluent consumer"><span class="subtime">04:29</span><span class="subtext">older American
+<button type="button" class="subword" data-en="affluent consumer" data-ru="обеспеченный потребитель">affluent consumer</button>.</span></div><div class="subrow" data-search="it is the baby boomer generation that has the"><span class="subtime">04:32</span><span class="subtext">It is the baby boomer
+generation that has the</span></div><div class="subrow" data-search="money in their pockets and the incentive to save"><span class="subtime">04:35</span><span class="subtext">money in their pockets and
+the incentive to save.</span></div><div class="subrow" data-search="that baby boomer generation controls the"><span class="subtime">04:39</span><span class="subtext">That baby boomer
+generation controls the</span></div><div class="subrow" data-search="overwhelming majority of wealth in north america"><span class="subtime">04:42</span><span class="subtext"><button type="button" class="subword" data-en="overwhelming majority of wealth" data-ru="подавляющая часть богатства">overwhelming majority of wealth</button>
+in North America.</span></div><div class="subrow" data-search="and you know what"><span class="subtime">04:45</span><span class="subtext">And you know what?</span></div><div class="subrow" data-search="they&#x27;re going to be around for a while longer"><span class="subtime">04:46</span><span class="subtext">They&#x27;re going to be around
+for a while longer.</span></div><div class="subrow" data-search="costco isn&#x27;t just a store it&#x27;s an ecosystem"><span class="subtime">04:49</span><span class="subtext">Costco isn&#x27;t just a
+store it&#x27;s an ecosystem.</span></div><div class="subrow" data-search="my mom&#x27;s a master of costco"><span class="subtime">04:54</span><span class="subtext">My mom&#x27;s a
+master of Costco.</span></div><div class="subrow" data-search="she even bought curtains there"><span class="subtime">04:56</span><span class="subtext">She even bought
+curtains there.</span></div><div class="subrow" data-search="and she gets gas there"><span class="subtime">04:58</span><span class="subtext">And she gets gas there.</span></div><div class="subrow" data-search="she&#x27;s embedded in the whole costco ecosystem"><span class="subtime">05:00</span><span class="subtext">She&#x27;s embedded in the
+whole Costco ecosystem.</span></div><div class="subrow" data-search="the most loyal consumers have been dedicating"><span class="subtime">05:02</span><span class="subtext">The most loyal consumers
+have been dedicating</span></div><div class="subrow" data-search="more and more share of wallet towards costco so"><span class="subtime">05:05</span><span class="subtext">more and more share of
+wallet towards Costco so</span></div><div class="subrow" data-search="they might have started with household goods and"><span class="subtime">05:08</span><span class="subtext">they might have started
+with household goods, and</span></div><div class="subrow" data-search="then they went into grocery"><span class="subtime">05:12</span><span class="subtext">then they went
+into grocery.</span></div><div class="subrow" data-search="then they started buying appliances before they"><span class="subtime">05:14</span><span class="subtext">Then they started buying
+appliances, before they</span></div><div class="subrow" data-search="know they were getting all of their furniture"><span class="subtime">05:16</span><span class="subtext">know they were getting
+all of their furniture</span></div><div class="subrow" data-search="from costco"><span class="subtime">05:18</span><span class="subtext">from Costco.</span></div><div class="subrow" data-search="and now you see a lot of people also"><span class="subtime">05:19</span><span class="subtext">And now you see a
+lot of people also</span></div><div class="subrow" data-search="participating in their car and hotel programs"><span class="subtime">05:22</span><span class="subtext">participating in their car
+and hotel programs,</span></div><div class="subrow" data-search="for instance"><span class="subtime">05:24</span><span class="subtext">for instance.</span></div><div class="subrow" data-search="if i think about why people keep coming back to"><span class="subtime">05:25</span><span class="subtext">If I think about why
+people <button type="button" class="subword" data-en="keep coming back" data-ru="продолжать возвращаться">keep coming back</button> to</span></div><div class="subrow" data-search="costco there are three things that are part of"><span class="subtime">05:29</span><span class="subtext">Costco, there are three things
+that are part of</span></div><div class="subrow" data-search="who they are as a brand that is very well known"><span class="subtime">05:33</span><span class="subtext">who they are as a brand
+that is very well known</span></div><div class="subrow" data-search="which is value quality and consistency"><span class="subtime">05:35</span><span class="subtext">which is value,
+quality, and consistency.</span></div><div class="subrow" data-search="at costco you save money"><span class="subtime">05:38</span><span class="subtext">At Costco,
+you save money.</span></div><div class="subrow" data-search="members love costco for their cheap high-quality"><span class="subtime">05:44</span><span class="subtext">Members love Costco for
+their cheap, high-quality</span></div><div class="subrow" data-search="products like peanut butter"><span class="subtime">05:47</span><span class="subtext">products like
+peanut butter.</span></div><div class="subrow" data-search="for new yorkers it&#x27;s clearly a better deal to"><span class="subtime">05:49</span><span class="subtext">For New Yorkers it&#x27;s clearly
+a <button type="button" class="subword" data-en="better deal" data-ru="более выгодная покупка">better deal</button> to</span></div><div class="subrow" data-search="shop at costco"><span class="subtime">05:52</span><span class="subtext">shop at Costco.</span></div><div class="subrow" data-search="and let&#x27;s not forget about the wine"><span class="subtime">05:54</span><span class="subtext">And let&#x27;s not forget
+about the wine.</span></div><div class="subrow" data-search="my favorite part of the costco experience is"><span class="subtime">05:56</span><span class="subtext">My favorite part of
+the Costco experience is</span></div><div class="subrow" data-search="probably their wine section which i know sounds a"><span class="subtime">05:59</span><span class="subtext">probably their wine section which
+I know sounds a</span></div><div class="subrow" data-search="little weird"><span class="subtime">06:01</span><span class="subtext">little weird.</span></div><div class="subrow" data-search="costco it does obviously have some really great"><span class="subtime">06:02</span><span class="subtext">Costco, it does obviously
+have some really great,</span></div><div class="subrow" data-search="beautiful expensive wines"><span class="subtime">06:06</span><span class="subtext">beautiful, expensive
+wines.</span></div><div class="subrow" data-search="but it also gives you a lot of value-friendly"><span class="subtime">06:08</span><span class="subtext">But it also gives you
+a lot of value-friendly</span></div><div class="subrow" data-search="wines which are really really nice"><span class="subtime">06:11</span><span class="subtext">wines which are
+really, really nice.</span></div><div class="subrow" data-search="costco is the largest seller of fine wine and"><span class="subtime">06:13</span><span class="subtext">Costco is the largest seller
+of <button type="button" class="subword" data-en="fine wine" data-ru="дорогое / качественное вино">fine wine</button> and</span></div><div class="subrow" data-search="expensive spirits in north america"><span class="subtime">06:17</span><span class="subtext">expensive spirits in
+North America.</span></div><div class="subrow" data-search="they make their money getting you to buy 200"><span class="subtime">06:20</span><span class="subtext">They make their money getting
+you to buy 200</span></div><div class="subrow" data-search="garbage bags all at the same time"><span class="subtime">06:23</span><span class="subtext">garbage bags all at
+the same time.</span></div><div class="subrow" data-search="they make money getting you to buy 10 pounds of"><span class="subtime">06:25</span><span class="subtext">They make money getting you
+to buy 10 pounds of</span></div><div class="subrow" data-search="coffee rather than two"><span class="subtime">06:29</span><span class="subtext">coffee rather than two.</span></div><div class="subrow" data-search="but stocking all those garbage bags isn&#x27;t free"><span class="subtime">06:31</span><span class="subtext">But stocking all those
+garbage bags isn&#x27;t free.</span></div>
+          </div>
+        </article>
+        
+        <article class="part" id="part4">
+          <div class="part-head">
+            <div><h3>Part 4 · How the low-cost business model works</h3>
+            <p class="instruction">Costco carries a relatively small assortment, keeps operations efficient and can often sell inventory before paying suppliers, reducing working-capital needs.</p></div>
+            <span class="time">06:34–08:15</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn playpart" data-start="394" data-end="495">▶ Play this part</button>
+            <button type="button" class="btn ghost subtoggle">Show full subtitles for this part</button>
+          </div>
+          <div class="card">
+            <b>Vocabulary actually used in this part</b>
+            <div class="vocab-grid"><button type="button" class="vocab" data-en="extremely efficient" data-ru="чрезвычайно эффективный">extremely efficient</button><button type="button" class="vocab" data-en="curated assortment" data-ru="тщательно отобранный ассортимент">curated assortment</button><button type="button" class="vocab" data-en="working capital" data-ru="оборотный капитал">working capital</button><button type="button" class="vocab" data-en="direct relationships with all of their suppliers" data-ru="прямые отношения со всеми поставщиками">direct relationships with all of their suppliers</button><button type="button" class="vocab" data-en="hold up in the age of Amazon" data-ru="выдерживать конкуренцию в эпоху Amazon">hold up in the age of Amazon</button><button type="button" class="vocab" data-en="online presence" data-ru="присутствие онлайн">online presence</button><button type="button" class="vocab" data-en="consuming future" data-ru="будущее потребления">consuming future</button></div>
+          </div>
+          <div class="card quizq" data-answer="0">
+            <b>Why can Costco keep working-capital needs relatively low?</b><div class="options"><label class="opt"><input type="radio" name="costco_q3" value="0"><span>It can often sell inventory before it has to pay for it</span></label><label class="opt"><input type="radio" name="costco_q3" value="1"><span>It never pays suppliers</span></label><label class="opt"><input type="radio" name="costco_q3" value="2"><span>It only sells digital products</span></label></div>
+            <button type="button" class="btn secondary checkone" style="margin-top:8px">Check</button>
+            <div class="feedback"></div>
+          </div>
+          <div class="card"><b>Complete the exact subtitle line</b><p class="instruction">Listen first. Type the missing expression exactly as it appears in the subtitles.</p><div class="gapline gapq" data-answer="extremely efficient">per warehouse, which allows
+them to be __________. Employees don&#x27;t
+waste time restocking<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><div class="gapline gapq" data-answer="curated assortment">The other upside of
+having such a __________ of fast-selling items
+shows up in<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><button type="button" class="btn secondary checkgaps">Check subtitle lines</button></div>
+          <div class="subtitle-box">
+            <div class="subnote"><b>Complete subtitle text for this segment.</b> These lines come from the SRT file you supplied. Auto-generated SRTs are preserved as supplied and may contain recognition errors.</div>
+            <div class="subrow" data-search="so how is costco making a profit selling wholesale"><span class="subtime">06:34</span><span class="subtext">So how is Costco making
+a profit selling wholesale</span></div><div class="subrow" data-search="goods costco runs about 4 000 items on average"><span class="subtime">06:37</span><span class="subtext">goods? Costco runs about
+4,000 items on average</span></div><div class="subrow" data-search="per warehouse which allows them to be extremely"><span class="subtime">06:41</span><span class="subtext">per warehouse, which allows
+them to be extremely</span></div><div class="subrow" data-search="efficient employees don&#x27;t waste time restocking"><span class="subtime">06:45</span><span class="subtext">efficient. Employees don&#x27;t
+waste time restocking</span></div><div class="subrow" data-search="shelves because of the store&#x27;s design"><span class="subtime">06:48</span><span class="subtext">shelves because of
+the store&#x27;s design.</span></div><div class="subrow" data-search="the other upside of having such a curated"><span class="subtime">06:50</span><span class="subtext">The other upside of
+having such a curated</span></div><div class="subrow" data-search="assortment of fast-selling items shows up in"><span class="subtime">06:54</span><span class="subtext">assortment of fast-selling items
+shows up in</span></div><div class="subrow" data-search="their balance sheet"><span class="subtime">06:57</span><span class="subtext">their balance sheet.</span></div><div class="subrow" data-search="they&#x27;re able typically to sell their inventory"><span class="subtime">06:58</span><span class="subtext">They&#x27;re able typically to
+sell their inventory</span></div><div class="subrow" data-search="before they actually have to pay it which keeps"><span class="subtime">07:01</span><span class="subtext">before they actually have to
+pay it which keeps</span></div><div class="subrow" data-search="the needs for working capital pretty low"><span class="subtime">07:03</span><span class="subtext">the needs for working
+capital pretty low.</span></div><div class="subrow" data-search="they have direct relationships with all of their"><span class="subtime">07:06</span><span class="subtext">They have direct relationships
+with all of their</span></div><div class="subrow" data-search="suppliers and then have a logistics setup where"><span class="subtime">07:08</span><span class="subtext">suppliers and then have
+a logistics setup where</span></div><div class="subrow" data-search="they - the goods are delivered directly to their"><span class="subtime">07:11</span><span class="subtext">they — the goods are
+delivered directly to their</span></div><div class="subrow" data-search="warehouse so that keeps the sg a at a very"><span class="subtime">07:13</span><span class="subtext">warehouse. So that keeps the
+SG&amp;A at a very</span></div><div class="subrow" data-search="minimal level"><span class="subtime">07:16</span><span class="subtext">minimal level.</span></div><div class="subrow" data-search="costco plays by the golden rule"><span class="subtime">07:18</span><span class="subtext">Costco plays by
+the Golden Rule.</span></div><div class="subrow" data-search="you treat your suppliers and employees well they"><span class="subtime">07:21</span><span class="subtext">You treat your suppliers
+and employees well, they</span></div><div class="subrow" data-search="treat the customer well and you make tons of"><span class="subtime">07:24</span><span class="subtext">treat the customer well, and
+you make tons of</span></div><div class="subrow" data-search="money that&#x27;s the costco secret"><span class="subtime">07:27</span><span class="subtext">money. That&#x27;s the
+Costco secret.</span></div><div class="subrow" data-search="so how does this model hold up in the age of"><span class="subtime">07:31</span><span class="subtext">So how does this model hold
+up in the age of</span></div><div class="subrow" data-search="amazon"><span class="subtime">07:33</span><span class="subtext">Amazon.</span></div><div class="subrow" data-search="the surgence of amazon has not hurt costco&#x27;s"><span class="subtime">07:34</span><span class="subtext">The surgence of Amazon
+has not hurt Costco&#x27;s</span></div><div class="subrow" data-search="business and there are many consumer tests or"><span class="subtime">07:40</span><span class="subtext">business and there are
+many consumer tests or</span></div><div class="subrow" data-search="retail tests out there that compare if you&#x27;re"><span class="subtime">07:43</span><span class="subtext">retail tests out there
+that compare if you&#x27;re</span></div><div class="subrow" data-search="buying bulk at amazon versus buying in bulk at"><span class="subtime">07:46</span><span class="subtext">buying bulk at Amazon versus
+<button type="button" class="subword" data-en="buying in bulk" data-ru="покупка большими партиями">buying in bulk</button> at</span></div><div class="subrow" data-search="costco where do you get the best deal"><span class="subtime">07:49</span><span class="subtext">Costco, where do you
+get the best deal?</span></div><div class="subrow" data-search="70% to 80% of the time you&#x27;re still getting the"><span class="subtime">07:51</span><span class="subtext">70% to 80% of the
+time you&#x27;re still getting the</span></div><div class="subrow" data-search="best deal at costco"><span class="subtime">07:53</span><span class="subtext">best deal at Costco.</span></div><div class="subrow" data-search="almost all major big box merchants have some form"><span class="subtime">07:55</span><span class="subtext">Almost all major big box
+merchants have some form</span></div><div class="subrow" data-search="of online presence"><span class="subtime">08:00</span><span class="subtext">of <button type="button" class="subword" data-en="online presence" data-ru="присутствие онлайн">online presence</button>.</span></div><div class="subrow" data-search="having some form of physical place for us to be"><span class="subtime">08:01</span><span class="subtext">Having some form of physical
+place for us to be</span></div><div class="subrow" data-search="able to do our drive by and pick something up is"><span class="subtime">08:06</span><span class="subtext">able to do our drive by
+and pick something up is</span></div><div class="subrow" data-search="going to be part of our consuming future for at"><span class="subtime">08:09</span><span class="subtext">going to be part of
+our <button type="button" class="subword" data-en="consuming future" data-ru="будущее потребления">consuming future</button> for at</span></div><div class="subrow" data-search="least the next 50 years"><span class="subtime">08:12</span><span class="subtext">least the next 50 years.</span></div>
+          </div>
+        </article>
+        
+        <article class="part" id="part5">
+          <div class="part-head">
+            <div><h3>Part 5 · Amazon, sustainability and the final question</h3>
+            <p class="instruction">The final section considers competition with Amazon, physical retail, supply-chain sustainability and plastic waste, before returning to the appeal of a good deal.</p></div>
+            <span class="time">08:15–09:13</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn playpart" data-start="495" data-end="553">▶ Play this part</button>
+            <button type="button" class="btn ghost subtoggle">Show full subtitles for this part</button>
+          </div>
+          <div class="card">
+            <b>Vocabulary actually used in this part</b>
+            <div class="vocab-grid"><button type="button" class="vocab" data-en="sustainability of their supply chains" data-ru="устойчивость цепочек поставок">sustainability of their supply chains</button><button type="button" class="vocab" data-en="single use plastics" data-ru="одноразовый пластик">single use plastics</button><button type="button" class="vocab" data-en="remain loyal" data-ru="оставаться лояльными">remain loyal</button></div>
+          </div>
+          <div class="card quizq" data-answer="0">
+            <b>What environmental issue is mentioned at the end?</b><div class="options"><label class="opt"><input type="radio" name="costco_q4" value="0"><span>Single-use plastics</span></label><label class="opt"><input type="radio" name="costco_q4" value="1"><span>Airline emissions</span></label><label class="opt"><input type="radio" name="costco_q4" value="2"><span>Fast fashion</span></label></div>
+            <button type="button" class="btn secondary checkone" style="margin-top:8px">Check</button>
+            <div class="feedback"></div>
+          </div>
+          <div class="card"><b>Complete the exact subtitle line</b><p class="instruction">Listen first. Type the missing expression exactly as it appears in the subtitles.</p><div class="gapline gapq" data-answer="sustainability of their supply chains">at how to improve
+the __________.<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><div class="gapline gapq" data-answer="single use plastics">__________
+would be great.<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><button type="button" class="btn secondary checkgaps">Check subtitle lines</button></div>
+          <div class="subtitle-box">
+            <div class="subnote"><b>Complete subtitle text for this segment.</b> These lines come from the SRT file you supplied. Auto-generated SRTs are preserved as supplied and may contain recognition errors.</div>
+            <div class="subrow" data-search="it seems costco nailed the formula when it opened"><span class="subtime">08:15</span><span class="subtext">It seems Costco nailed the
+formula when it opened</span></div><div class="subrow" data-search="30 years ago but it isn&#x27;t perfect"><span class="subtime">08:17</span><span class="subtext">30 years ago, but
+it isn&#x27;t perfect.</span></div><div class="subrow" data-search="costco has been traditionally a leader in looking"><span class="subtime">08:21</span><span class="subtext">Costco has been traditionally
+a leader in looking</span></div><div class="subrow" data-search="at how to improve the sustainability of their"><span class="subtime">08:24</span><span class="subtext">at how to improve
+the sustainability of their</span></div><div class="subrow" data-search="supply chains"><span class="subtime">08:26</span><span class="subtext">supply chains.</span></div><div class="subrow" data-search="they actually have done a great job at leading"><span class="subtime">08:27</span><span class="subtext">They actually have done a
+great job at leading</span></div><div class="subrow" data-search="the way toward sustainable seafood and i know"><span class="subtime">08:30</span><span class="subtext">the way toward sustainable
+seafood and I know</span></div><div class="subrow" data-search="we&#x27;re working currently on sustainable beef"><span class="subtime">08:32</span><span class="subtext">we&#x27;re working currently
+on sustainable beef,</span></div><div class="subrow" data-search="among other things"><span class="subtime">08:36</span><span class="subtext">among other things.</span></div><div class="subrow" data-search="one of the things that they could be doing to"><span class="subtime">08:37</span><span class="subtext">One of the things that
+they could be doing to</span></div><div class="subrow" data-search="improve their performance is respond to one of"><span class="subtime">08:39</span><span class="subtext">improve their performance is
+respond to one of</span></div><div class="subrow" data-search="the most pressing issues at the moment which is"><span class="subtime">08:41</span><span class="subtext">the most pressing issues at
+the moment which is</span></div><div class="subrow" data-search="how to reduce our plastic use and plastic waste"><span class="subtime">08:44</span><span class="subtext">how to reduce our plastic
+use and plastic waste</span></div><div class="subrow" data-search="globally so"><span class="subtime">08:47</span><span class="subtext">globally. So</span></div><div class="subrow" data-search="anything they could do to to improve their"><span class="subtime">08:48</span><span class="subtext">anything they could do
+to to improve their</span></div><div class="subrow" data-search="packaging improve their their alternative"><span class="subtime">08:50</span><span class="subtext">packaging, improve their
+their alternative</span></div><div class="subrow" data-search="offerings to help customers eliminate the use of"><span class="subtime">08:53</span><span class="subtext">offerings to help customers
+eliminate the use of</span></div><div class="subrow" data-search="single use plastics would be great"><span class="subtime">08:56</span><span class="subtext"><button type="button" class="subword" data-en="single use plastics" data-ru="одноразовый пластик">single use plastics</button>
+would be great.</span></div><div class="subrow" data-search="despite the criticism costco members remain loyal"><span class="subtime">08:58</span><span class="subtext">Despite the criticism, Costco
+members <button type="button" class="subword" data-en="remain loyal" data-ru="оставаться лояльными">remain loyal</button></span></div><div class="subrow" data-search="for one simple reason everyone loves a good"><span class="subtime">09:01</span><span class="subtext">for one simple reason:
+everyone loves a good</span></div><div class="subrow" data-search="deal"><span class="subtime">09:05</span><span class="subtext">deal.</span></div><div class="subrow" data-search="are you a costco shopper"><span class="subtime">09:07</span><span class="subtext">Are you a Costco shopper?</span></div><div class="subrow" data-search="do you think it&#x27;s worth it"><span class="subtime">09:09</span><span class="subtext">Do you think it&#x27;s <button type="button" class="subword" data-en="worth it" data-ru="того стоит">worth it</button>?</span></div><div class="subrow" data-search="let us know in the comments below"><span class="subtime">09:10</span><span class="subtext">Let us know in the comments below.</span></div>
+          </div>
+        </article>
+        
+</section>
+
+<section class="section" id="discussion">
+<h2><span class="badge">5</span>Discussion and transfer</h2>
+<p class="instruction">Discuss with ChatGPT, DeepSeek or a person. Use the suggested expressions, but do not read the sample before answering.</p>
+
+        <div class="card">
+          <b>1. Does buying in bulk genuinely save money?</b>
+          <div class="collocs"><span class="colloc">buying in bulk</span><span class="colloc">worth it</span><span class="colloc">average transaction</span><span class="colloc">waste of money</span></div>
+          <textarea placeholder="TRY TO DO ORALLY first. Optional notes..."></textarea>
+          <button type="button" class="btn ghost sampletoggle">Show sample answer</button>
+          <div class="sample"><b>Sample:</b> It can save money per unit, but it is not worth it if the customer cannot use the quantity and ends up wasting products.</div>
+        </div>
+        <div class="card">
+          <b>2. Which parts of the Costco experience encourage people to spend more?</b>
+          <div class="collocs"><span class="colloc">treasure hunting</span><span class="colloc">frictionless experience</span><span class="colloc">encouraged to wander</span><span class="colloc">direct correlation</span></div>
+          <textarea placeholder="TRY TO DO ORALLY first. Optional notes..."></textarea>
+          <button type="button" class="btn ghost sampletoggle">Show sample answer</button>
+          <div class="sample"><b>Sample:</b> Treasure hunting and a frictionless experience encourage shoppers to wander. The longer they stay, the more likely they are to add unplanned items.</div>
+        </div>
+        <div class="card">
+          <b>3. Is customer loyalty mainly rational or emotional?</b>
+          <div class="collocs"><span class="colloc">loyal membership base</span><span class="colloc">keep coming back</span><span class="colloc">value, quality, and consistency</span><span class="colloc">Costco ecosystem</span></div>
+          <textarea placeholder="TRY TO DO ORALLY first. Optional notes..."></textarea>
+          <button type="button" class="btn ghost sampletoggle">Show sample answer</button>
+          <div class="sample"><b>Sample:</b> It is both. Customers may rationally value price and quality, but habits, memories and the sense of belonging to an ecosystem also strengthen loyalty.</div>
+        </div>
+<div class="card"><b>Final task</b><p>Explain two psychological mechanisms that can increase spending in a warehouse store and two strategies a consumer can use to resist unnecessary purchases.</p><textarea placeholder="Plan with keywords only; then speak."></textarea></div>
+</section>
+
+<section class="section" id="fullsubs">
+<h2><span class="badge">6</span>Complete subtitles</h2>
+<div class="subnote"><b>Source:</b> English subtitles supplied by the user. The full subtitle text is included, not reconstructed from memory. For auto-generated captions, recognition errors are intentionally preserved rather than silently rewritten.</div>
+<div class="searchbar" style="margin-top:10px"><input type="search" id="subsearch" placeholder="Search the complete subtitles..."><button type="button" class="btn secondary" id="clearsearch">Clear</button></div>
+<div class="subtitle-box show" id="allsubs"><div class="subrow" data-search="now i am an executive member at the costco"><span class="subtime">00:03</span><span class="subtext">Now I am
+an executive member at the Costco</span></div><div class="subrow" data-search="very berry with extra berries"><span class="subtime">00:06</span><span class="subtext">Very Berry with extra berries.</span></div><div class="subrow" data-search="we came for pumpkin pie actually"><span class="subtime">00:08</span><span class="subtext">We came for
+pumpkin pie, actually.</span></div><div class="subrow" data-search="and the king crab legs"><span class="subtime">00:09</span><span class="subtext">And the king crab legs.</span></div><div class="subrow" data-search="i think some of their customer base is absolutely"><span class="subtime">00:11</span><span class="subtext">I think some of their
+<button type="button" class="subword" data-en="customer base" data-ru="клиентская база">customer base</button> is absolutely</span></div><div class="subrow" data-search="addicted to costco"><span class="subtime">00:14</span><span class="subtext">addicted to Costco.</span></div><div class="subrow" data-search="welcome to costco where everything is huge and"><span class="subtime">00:26</span><span class="subtext">Welcome to Costco where
+everything is huge and</span></div><div class="subrow" data-search="it&#x27;s been like this for 30 years"><span class="subtime">00:31</span><span class="subtext">it&#x27;s been like this
+for 30 years.</span></div><div class="subrow" data-search="from the carts to the warehouses to the products"><span class="subtime">00:34</span><span class="subtext">From the carts to the
+warehouses to the products</span></div><div class="subrow" data-search="themselves it&#x27;s a store fit for giants"><span class="subtime">00:37</span><span class="subtext">themselves. It&#x27;s a store
+fit for giants.</span></div><div class="subrow" data-search="it&#x27;s designed as much for a forklift truck as it"><span class="subtime">00:40</span><span class="subtext">It&#x27;s designed as much for
+a forklift truck as it</span></div><div class="subrow" data-search="is for people"><span class="subtime">00:44</span><span class="subtext">is for people.</span></div><div class="subrow" data-search="that sense of scale is part of what the costco"><span class="subtime">00:45</span><span class="subtext">That <button type="button" class="subword" data-en="sense of scale" data-ru="ощущение масштаба">sense of scale</button> is
+part of what the Costco</span></div><div class="subrow" data-search="experience and the warehouse experience is all"><span class="subtime">00:48</span><span class="subtext">experience and the warehouse
+experience is all</span></div><div class="subrow" data-search="about"><span class="subtime">00:50</span><span class="subtext">about.</span></div><div class="subrow" data-search="and costco has made billions in revenue from"><span class="subtime">00:51</span><span class="subtext">And Costco has made
+billions in revenue from</span></div><div class="subrow" data-search="its no frills model significantly more than its"><span class="subtime">00:54</span><span class="subtext">its <button type="button" class="subword" data-en="no frills model" data-ru="модель без излишеств">no frills model</button>
+significantly more than its</span></div><div class="subrow" data-search="u s competitors"><span class="subtime">00:57</span><span class="subtext">U.S. competitors.</span></div><div class="subrow" data-search="nothing in a store is placed by accident"><span class="subtime">00:58</span><span class="subtext">Nothing in a store
+is <button type="button" class="subword" data-en="placed by accident" data-ru="размещено случайно">placed by accident</button>.</span></div><div class="subrow" data-search="take for instance staples like milk and eggs"><span class="subtime">01:03</span><span class="subtext">Take for instance staples
+like milk and eggs.</span></div><div class="subrow" data-search="you have to travel all this way just to find the"><span class="subtime">01:07</span><span class="subtext">You have to travel all this
+way just to find the</span></div><div class="subrow" data-search="dairy this leads to something costco calls"><span class="subtime">01:11</span><span class="subtext">dairy. This leads to
+something Costco calls</span></div><div class="subrow" data-search="treasure hunting"><span class="subtime">01:14</span><span class="subtext">&quot;<button type="button" class="subword" data-en="treasure hunting" data-ru="поиск сокровищ">treasure hunting</button>.&quot;</span></div><div class="subrow" data-search="the more you see the more you discover the more"><span class="subtime">01:15</span><span class="subtext">The more you see, the
+more you discover, the more</span></div><div class="subrow" data-search="you end up putting in your cart"><span class="subtime">01:19</span><span class="subtext">you end up putting
+in your cart.</span></div><div class="subrow" data-search="you end up buying other things you probably don&#x27;t"><span class="subtime">01:21</span><span class="subtext">You end up buying other
+things you probably don&#x27;t</span></div><div class="subrow" data-search="really need"><span class="subtime">01:23</span><span class="subtext">really need.</span></div><div class="subrow" data-search="you almost have to go in with blinders on and"><span class="subtime">01:24</span><span class="subtext">You almost have to go
+in with blinders on and</span></div><div class="subrow" data-search="walk right past the things that you are tempted"><span class="subtime">01:26</span><span class="subtext">walk right past the things
+that you are tempted</span></div><div class="subrow" data-search="to buy"><span class="subtime">01:30</span><span class="subtext">to buy.</span></div><div class="subrow" data-search="but buying in bulk isn&#x27;t for everyone"><span class="subtime">01:30</span><span class="subtext">But <button type="button" class="subword" data-en="buying in bulk" data-ru="покупка большими партиями">buying in bulk</button>
+isn&#x27;t for everyone.</span></div><div class="subrow" data-search="for me personally it would be a waste of money to"><span class="subtime">01:33</span><span class="subtext">For me personally it would be
+a <button type="button" class="subword" data-en="waste of money" data-ru="пустая трата денег">waste of money</button> to</span></div><div class="subrow" data-search="get a costco membership because i can&#x27;t use up 25"><span class="subtime">01:36</span><span class="subtext">get a Costco membership because
+I can&#x27;t use up 25</span></div><div class="subrow" data-search="pounds of flour or you know some of the really"><span class="subtime">01:40</span><span class="subtext">pounds of flour or, you
+know, some of the really</span></div><div class="subrow" data-search="big bulk items"><span class="subtime">01:44</span><span class="subtext">big bulk items.</span></div><div class="subrow" data-search="it just isn&#x27;t worth it for me"><span class="subtime">01:45</span><span class="subtext">It just isn&#x27;t worth
+it for me.</span></div><div class="subrow" data-search="the average costco transaction is between"><span class="subtime">01:47</span><span class="subtext">The average Costco
+transaction is between</span></div><div class="subrow" data-search="$130 and $140 but members have been known to"><span class="subtime">01:49</span><span class="subtext">$130 and $140. But members
+have been known to</span></div><div class="subrow" data-search="spend much more"><span class="subtime">01:52</span><span class="subtext">spend much more.</span></div><div class="subrow" data-search="i thought i would spend about $25"><span class="subtime">01:54</span><span class="subtext">I thought I would
+spend about $25.</span></div><div class="subrow" data-search="and i ended up spending over $700"><span class="subtime">01:57</span><span class="subtext">And I ended up
+spending over $700.</span></div><div class="subrow" data-search="$187 65"><span class="subtime">02:00</span><span class="subtext">$187.65.</span></div><div class="subrow" data-search="$221 and change you can come in here and spend"><span class="subtime">02:02</span><span class="subtext">$221 and change. You can
+come in here and spend</span></div><div class="subrow" data-search="about $250 $300 easy"><span class="subtime">02:05</span><span class="subtext">about $250, $300 easy.</span></div><div class="subrow" data-search="they have a very loyal membership base"><span class="subtime">02:08</span><span class="subtext">They have a very
+<button type="button" class="subword" data-en="loyal membership base" data-ru="лояльная база участников">loyal membership base</button>.</span></div><div class="subrow" data-search="ninety percent of their members renew their"><span class="subtime">02:13</span><span class="subtext">Ninety percent of their
+members renew their</span></div><div class="subrow" data-search="membership"><span class="subtime">02:15</span><span class="subtext">membership.</span></div><div class="subrow" data-search="being a wholesale club member comes at a price"><span class="subtime">02:18</span><span class="subtext">Being a wholesale club member
+<button type="button" class="subword" data-en="comes at a price" data-ru="имеет свою цену">comes at a price</button>.</span></div><div class="subrow" data-search="the interesting thing about costco is that when"><span class="subtime">02:23</span><span class="subtext">The interesting thing about
+Costco is that when</span></div><div class="subrow" data-search="you speak to a consumer they go quite"><span class="subtime">02:26</span><span class="subtext">you speak to a
+consumer, they go quite</span></div><div class="subrow" data-search="frequently"><span class="subtime">02:28</span><span class="subtext">frequently.</span></div><div class="subrow" data-search="and i have spoken to people that go and drop into"><span class="subtime">02:29</span><span class="subtext">And I have spoken to people
+that go and drop into</span></div><div class="subrow" data-search="a costco three four times a week"><span class="subtime">02:31</span><span class="subtext">a Costco three, four
+times a week.</span></div><div class="subrow" data-search="it is a very frictionless experience"><span class="subtime">02:34</span><span class="subtext">It is a
+very <button type="button" class="subword" data-en="frictionless experience" data-ru="максимально беспроблемный опыт">frictionless experience</button>.</span></div><div class="subrow" data-search="moving through a costco is pretty seamless"><span class="subtime">02:37</span><span class="subtext">Moving through a Costco
+is <button type="button" class="subword" data-en="pretty seamless" data-ru="довольно гладкий / без препятствий">pretty seamless</button>.</span></div><div class="subrow" data-search="there&#x27;s minimal signage"><span class="subtime">02:40</span><span class="subtext">There&#x27;s <button type="button" class="subword" data-en="minimal signage" data-ru="минимум указателей">minimal signage</button>,</span></div><div class="subrow" data-search="the aisles are super wide and the carts glide on"><span class="subtime">02:41</span><span class="subtext">the aisles are super wide,
+and the carts glide on</span></div><div class="subrow" data-search="the concrete floors"><span class="subtime">02:45</span><span class="subtext">the concrete floors.</span></div><div class="subrow" data-search="there are free samples and even the occasional"><span class="subtime">02:47</span><span class="subtext">There are free samples
+and even the occasional</span></div><div class="subrow" data-search="massage demonstration"><span class="subtime">02:49</span><span class="subtext">massage demonstration.</span></div><div class="subrow" data-search="you&#x27;re free nay encouraged to wander and take"><span class="subtime">02:51</span><span class="subtext">You&#x27;re free nay, encouraged
+to wander and take</span></div><div class="subrow" data-search="your time"><span class="subtime">02:56</span><span class="subtext">your time.</span></div><div class="subrow" data-search="i have so many memories of being a kid with my"><span class="subtime">02:57</span><span class="subtext">I have so many memories of
+being a kid with my</span></div><div class="subrow" data-search="sister like running around the store playing tag"><span class="subtime">03:00</span><span class="subtext">sister like running around
+the store playing tag</span></div><div class="subrow" data-search="or like hide and seek because it&#x27;s so easy to"><span class="subtime">03:03</span><span class="subtext">or like hide and seek
+because it&#x27;s so easy to</span></div><div class="subrow" data-search="hide in there"><span class="subtime">03:05</span><span class="subtext">hide in there.</span></div><div class="subrow" data-search="my parents would leave me on the couch there and"><span class="subtime">03:10</span><span class="subtext">My parents would leave me
+on the couch there and</span></div><div class="subrow" data-search="i&#x27;d go through all the books"><span class="subtime">03:12</span><span class="subtext">I&#x27;d go through
+all the books.</span></div><div class="subrow" data-search="they&#x27;d come back to pick me up when it&#x27;s time to"><span class="subtime">03:14</span><span class="subtext">They&#x27;d come back to pick me
+up when it&#x27;s time to</span></div><div class="subrow" data-search="leave the longer i can hold you in the store"><span class="subtime">03:16</span><span class="subtext">leave. The longer I can
+hold you in the store,</span></div><div class="subrow" data-search="the more likely i&#x27;m going to get more money out of"><span class="subtime">03:20</span><span class="subtext">the more likely I&#x27;m going to
+get more money out of</span></div><div class="subrow" data-search="your pocket"><span class="subtime">03:23</span><span class="subtext">your pocket.</span></div><div class="subrow" data-search="i&#x27;m a huge fan of the costco food court"><span class="subtime">03:24</span><span class="subtext">I&#x27;m a huge fan of
+the Costco food court.</span></div><div class="subrow" data-search="the food court"><span class="subtime">03:26</span><span class="subtext">The food court.</span></div><div class="subrow" data-search="food court"><span class="subtime">03:26</span><span class="subtext">Food court.</span></div><div class="subrow" data-search="i only went to costco with my parents just to go"><span class="subtime">03:27</span><span class="subtext">I only went to Costco with
+my parents just to go</span></div><div class="subrow" data-search="the food court"><span class="subtime">03:29</span><span class="subtext">the food court.</span></div><div class="subrow" data-search="that front snack bar is both a snack bar but it"><span class="subtime">03:30</span><span class="subtext">That front snack bar is both
+a snack bar, but it</span></div><div class="subrow" data-search="is also a parking lot and it&#x27;s a parking lot for"><span class="subtime">03:34</span><span class="subtext">is also a parking lot and
+it&#x27;s a parking lot for</span></div><div class="subrow" data-search="your two-legged pets called often children and"><span class="subtime">03:37</span><span class="subtext">your two-legged pets called
+often children and</span></div><div class="subrow" data-search="husbands this is my favorite type of samples"><span class="subtime">03:39</span><span class="subtext">husbands. This is my
+favorite type of samples.</span></div><div class="subrow" data-search="what is it like the big"><span class="subtime">03:41</span><span class="subtext">What is it? Like the big</span></div><div class="subrow" data-search="ones the big ones right there&#x27;s"><span class="subtime">03:43</span><span class="subtext">ones? The big
+ones, right? There&#x27;s</span></div><div class="subrow" data-search="a direct correlation between people who sample"><span class="subtime">03:45</span><span class="subtext">a <button type="button" class="subword" data-en="direct correlation" data-ru="прямая корреляция">direct correlation</button> between
+people who sample</span></div><div class="subrow" data-search="and the amount of money you spend"><span class="subtime">03:49</span><span class="subtext">and the amount of
+money you spend.</span></div><div class="subrow" data-search="aside from their famous $1 50"><span class="subtime">03:52</span><span class="subtext">Aside from their
+famous $1.50</span></div><div class="subrow" data-search="hotdog combo costco is well-known for its"><span class="subtime">03:54</span><span class="subtext">hotdog combo, Costco is
+well-known for its</span></div><div class="subrow" data-search="in-house brand kirkland signature"><span class="subtime">03:57</span><span class="subtext"><button type="button" class="subword" data-en="in-house brand" data-ru="собственный бренд компании">in-house brand</button>
+Kirkland Signature.</span></div><div class="subrow" data-search="kirkland paper goods bottled water and olive oil"><span class="subtime">04:00</span><span class="subtext">Kirkland paper goods, bottled
+water, and olive oil</span></div><div class="subrow" data-search="are some of their most beloved products"><span class="subtime">04:03</span><span class="subtext">are some of their
+most beloved products.</span></div><div class="subrow" data-search="but costco isn&#x27;t all bulk toilet paper and coffee"><span class="subtime">04:05</span><span class="subtext">But Costco isn&#x27;t all bulk
+toilet paper and coffee</span></div><div class="subrow" data-search="beans it also carries luxury items like this"><span class="subtime">04:08</span><span class="subtext">beans. It also carries
+luxury items like this</span></div><div class="subrow" data-search="engagement ring that cost nearly $28 000"><span class="subtime">04:11</span><span class="subtext">engagement ring that
+cost nearly $28,000.</span></div><div class="subrow" data-search="at first it seems asinine"><span class="subtime">04:15</span><span class="subtext">At first it
+seems asinine.</span></div><div class="subrow" data-search="why on earth would costco be selling diamonds"><span class="subtime">04:18</span><span class="subtext">Why on earth would
+Costco be selling diamonds?</span></div><div class="subrow" data-search="if you dig a little"><span class="subtime">04:21</span><span class="subtext">If you dig a little</span></div><div class="subrow" data-search="deeper it actually makes sense"><span class="subtime">04:22</span><span class="subtext">deeper, it actually
+makes sense.</span></div><div class="subrow" data-search="costco&#x27;s also built its franchise with an"><span class="subtime">04:25</span><span class="subtext">Costco&#x27;s also built its
+franchise with an</span></div><div class="subrow" data-search="older american affluent consumer"><span class="subtime">04:29</span><span class="subtext">older American
+<button type="button" class="subword" data-en="affluent consumer" data-ru="обеспеченный потребитель">affluent consumer</button>.</span></div><div class="subrow" data-search="it is the baby boomer generation that has the"><span class="subtime">04:32</span><span class="subtext">It is the baby boomer
+generation that has the</span></div><div class="subrow" data-search="money in their pockets and the incentive to save"><span class="subtime">04:35</span><span class="subtext">money in their pockets and
+the incentive to save.</span></div><div class="subrow" data-search="that baby boomer generation controls the"><span class="subtime">04:39</span><span class="subtext">That baby boomer
+generation controls the</span></div><div class="subrow" data-search="overwhelming majority of wealth in north america"><span class="subtime">04:42</span><span class="subtext"><button type="button" class="subword" data-en="overwhelming majority of wealth" data-ru="подавляющая часть богатства">overwhelming majority of wealth</button>
+in North America.</span></div><div class="subrow" data-search="and you know what"><span class="subtime">04:45</span><span class="subtext">And you know what?</span></div><div class="subrow" data-search="they&#x27;re going to be around for a while longer"><span class="subtime">04:46</span><span class="subtext">They&#x27;re going to be around
+for a while longer.</span></div><div class="subrow" data-search="costco isn&#x27;t just a store it&#x27;s an ecosystem"><span class="subtime">04:49</span><span class="subtext">Costco isn&#x27;t just a
+store it&#x27;s an ecosystem.</span></div><div class="subrow" data-search="my mom&#x27;s a master of costco"><span class="subtime">04:54</span><span class="subtext">My mom&#x27;s a
+master of Costco.</span></div><div class="subrow" data-search="she even bought curtains there"><span class="subtime">04:56</span><span class="subtext">She even bought
+curtains there.</span></div><div class="subrow" data-search="and she gets gas there"><span class="subtime">04:58</span><span class="subtext">And she gets gas there.</span></div><div class="subrow" data-search="she&#x27;s embedded in the whole costco ecosystem"><span class="subtime">05:00</span><span class="subtext">She&#x27;s embedded in the
+whole Costco ecosystem.</span></div><div class="subrow" data-search="the most loyal consumers have been dedicating"><span class="subtime">05:02</span><span class="subtext">The most loyal consumers
+have been dedicating</span></div><div class="subrow" data-search="more and more share of wallet towards costco so"><span class="subtime">05:05</span><span class="subtext">more and more share of
+wallet towards Costco so</span></div><div class="subrow" data-search="they might have started with household goods and"><span class="subtime">05:08</span><span class="subtext">they might have started
+with household goods, and</span></div><div class="subrow" data-search="then they went into grocery"><span class="subtime">05:12</span><span class="subtext">then they went
+into grocery.</span></div><div class="subrow" data-search="then they started buying appliances before they"><span class="subtime">05:14</span><span class="subtext">Then they started buying
+appliances, before they</span></div><div class="subrow" data-search="know they were getting all of their furniture"><span class="subtime">05:16</span><span class="subtext">know they were getting
+all of their furniture</span></div><div class="subrow" data-search="from costco"><span class="subtime">05:18</span><span class="subtext">from Costco.</span></div><div class="subrow" data-search="and now you see a lot of people also"><span class="subtime">05:19</span><span class="subtext">And now you see a
+lot of people also</span></div><div class="subrow" data-search="participating in their car and hotel programs"><span class="subtime">05:22</span><span class="subtext">participating in their car
+and hotel programs,</span></div><div class="subrow" data-search="for instance"><span class="subtime">05:24</span><span class="subtext">for instance.</span></div><div class="subrow" data-search="if i think about why people keep coming back to"><span class="subtime">05:25</span><span class="subtext">If I think about why
+people <button type="button" class="subword" data-en="keep coming back" data-ru="продолжать возвращаться">keep coming back</button> to</span></div><div class="subrow" data-search="costco there are three things that are part of"><span class="subtime">05:29</span><span class="subtext">Costco, there are three things
+that are part of</span></div><div class="subrow" data-search="who they are as a brand that is very well known"><span class="subtime">05:33</span><span class="subtext">who they are as a brand
+that is very well known</span></div><div class="subrow" data-search="which is value quality and consistency"><span class="subtime">05:35</span><span class="subtext">which is value,
+quality, and consistency.</span></div><div class="subrow" data-search="at costco you save money"><span class="subtime">05:38</span><span class="subtext">At Costco,
+you save money.</span></div><div class="subrow" data-search="members love costco for their cheap high-quality"><span class="subtime">05:44</span><span class="subtext">Members love Costco for
+their cheap, high-quality</span></div><div class="subrow" data-search="products like peanut butter"><span class="subtime">05:47</span><span class="subtext">products like
+peanut butter.</span></div><div class="subrow" data-search="for new yorkers it&#x27;s clearly a better deal to"><span class="subtime">05:49</span><span class="subtext">For New Yorkers it&#x27;s clearly
+a <button type="button" class="subword" data-en="better deal" data-ru="более выгодная покупка">better deal</button> to</span></div><div class="subrow" data-search="shop at costco"><span class="subtime">05:52</span><span class="subtext">shop at Costco.</span></div><div class="subrow" data-search="and let&#x27;s not forget about the wine"><span class="subtime">05:54</span><span class="subtext">And let&#x27;s not forget
+about the wine.</span></div><div class="subrow" data-search="my favorite part of the costco experience is"><span class="subtime">05:56</span><span class="subtext">My favorite part of
+the Costco experience is</span></div><div class="subrow" data-search="probably their wine section which i know sounds a"><span class="subtime">05:59</span><span class="subtext">probably their wine section which
+I know sounds a</span></div><div class="subrow" data-search="little weird"><span class="subtime">06:01</span><span class="subtext">little weird.</span></div><div class="subrow" data-search="costco it does obviously have some really great"><span class="subtime">06:02</span><span class="subtext">Costco, it does obviously
+have some really great,</span></div><div class="subrow" data-search="beautiful expensive wines"><span class="subtime">06:06</span><span class="subtext">beautiful, expensive
+wines.</span></div><div class="subrow" data-search="but it also gives you a lot of value-friendly"><span class="subtime">06:08</span><span class="subtext">But it also gives you
+a lot of value-friendly</span></div><div class="subrow" data-search="wines which are really really nice"><span class="subtime">06:11</span><span class="subtext">wines which are
+really, really nice.</span></div><div class="subrow" data-search="costco is the largest seller of fine wine and"><span class="subtime">06:13</span><span class="subtext">Costco is the largest seller
+of <button type="button" class="subword" data-en="fine wine" data-ru="дорогое / качественное вино">fine wine</button> and</span></div><div class="subrow" data-search="expensive spirits in north america"><span class="subtime">06:17</span><span class="subtext">expensive spirits in
+North America.</span></div><div class="subrow" data-search="they make their money getting you to buy 200"><span class="subtime">06:20</span><span class="subtext">They make their money getting
+you to buy 200</span></div><div class="subrow" data-search="garbage bags all at the same time"><span class="subtime">06:23</span><span class="subtext">garbage bags all at
+the same time.</span></div><div class="subrow" data-search="they make money getting you to buy 10 pounds of"><span class="subtime">06:25</span><span class="subtext">They make money getting you
+to buy 10 pounds of</span></div><div class="subrow" data-search="coffee rather than two"><span class="subtime">06:29</span><span class="subtext">coffee rather than two.</span></div><div class="subrow" data-search="but stocking all those garbage bags isn&#x27;t free"><span class="subtime">06:31</span><span class="subtext">But stocking all those
+garbage bags isn&#x27;t free.</span></div><div class="subrow" data-search="so how is costco making a profit selling wholesale"><span class="subtime">06:34</span><span class="subtext">So how is Costco making
+a profit selling wholesale</span></div><div class="subrow" data-search="goods costco runs about 4 000 items on average"><span class="subtime">06:37</span><span class="subtext">goods? Costco runs about
+4,000 items on average</span></div><div class="subrow" data-search="per warehouse which allows them to be extremely"><span class="subtime">06:41</span><span class="subtext">per warehouse, which allows
+them to be extremely</span></div><div class="subrow" data-search="efficient employees don&#x27;t waste time restocking"><span class="subtime">06:45</span><span class="subtext">efficient. Employees don&#x27;t
+waste time restocking</span></div><div class="subrow" data-search="shelves because of the store&#x27;s design"><span class="subtime">06:48</span><span class="subtext">shelves because of
+the store&#x27;s design.</span></div><div class="subrow" data-search="the other upside of having such a curated"><span class="subtime">06:50</span><span class="subtext">The other upside of
+having such a curated</span></div><div class="subrow" data-search="assortment of fast-selling items shows up in"><span class="subtime">06:54</span><span class="subtext">assortment of fast-selling items
+shows up in</span></div><div class="subrow" data-search="their balance sheet"><span class="subtime">06:57</span><span class="subtext">their balance sheet.</span></div><div class="subrow" data-search="they&#x27;re able typically to sell their inventory"><span class="subtime">06:58</span><span class="subtext">They&#x27;re able typically to
+sell their inventory</span></div><div class="subrow" data-search="before they actually have to pay it which keeps"><span class="subtime">07:01</span><span class="subtext">before they actually have to
+pay it which keeps</span></div><div class="subrow" data-search="the needs for working capital pretty low"><span class="subtime">07:03</span><span class="subtext">the needs for working
+capital pretty low.</span></div><div class="subrow" data-search="they have direct relationships with all of their"><span class="subtime">07:06</span><span class="subtext">They have direct relationships
+with all of their</span></div><div class="subrow" data-search="suppliers and then have a logistics setup where"><span class="subtime">07:08</span><span class="subtext">suppliers and then have
+a logistics setup where</span></div><div class="subrow" data-search="they - the goods are delivered directly to their"><span class="subtime">07:11</span><span class="subtext">they — the goods are
+delivered directly to their</span></div><div class="subrow" data-search="warehouse so that keeps the sg a at a very"><span class="subtime">07:13</span><span class="subtext">warehouse. So that keeps the
+SG&amp;A at a very</span></div><div class="subrow" data-search="minimal level"><span class="subtime">07:16</span><span class="subtext">minimal level.</span></div><div class="subrow" data-search="costco plays by the golden rule"><span class="subtime">07:18</span><span class="subtext">Costco plays by
+the Golden Rule.</span></div><div class="subrow" data-search="you treat your suppliers and employees well they"><span class="subtime">07:21</span><span class="subtext">You treat your suppliers
+and employees well, they</span></div><div class="subrow" data-search="treat the customer well and you make tons of"><span class="subtime">07:24</span><span class="subtext">treat the customer well, and
+you make tons of</span></div><div class="subrow" data-search="money that&#x27;s the costco secret"><span class="subtime">07:27</span><span class="subtext">money. That&#x27;s the
+Costco secret.</span></div><div class="subrow" data-search="so how does this model hold up in the age of"><span class="subtime">07:31</span><span class="subtext">So how does this model hold
+up in the age of</span></div><div class="subrow" data-search="amazon"><span class="subtime">07:33</span><span class="subtext">Amazon.</span></div><div class="subrow" data-search="the surgence of amazon has not hurt costco&#x27;s"><span class="subtime">07:34</span><span class="subtext">The surgence of Amazon
+has not hurt Costco&#x27;s</span></div><div class="subrow" data-search="business and there are many consumer tests or"><span class="subtime">07:40</span><span class="subtext">business and there are
+many consumer tests or</span></div><div class="subrow" data-search="retail tests out there that compare if you&#x27;re"><span class="subtime">07:43</span><span class="subtext">retail tests out there
+that compare if you&#x27;re</span></div><div class="subrow" data-search="buying bulk at amazon versus buying in bulk at"><span class="subtime">07:46</span><span class="subtext">buying bulk at Amazon versus
+<button type="button" class="subword" data-en="buying in bulk" data-ru="покупка большими партиями">buying in bulk</button> at</span></div><div class="subrow" data-search="costco where do you get the best deal"><span class="subtime">07:49</span><span class="subtext">Costco, where do you
+get the best deal?</span></div><div class="subrow" data-search="70% to 80% of the time you&#x27;re still getting the"><span class="subtime">07:51</span><span class="subtext">70% to 80% of the
+time you&#x27;re still getting the</span></div><div class="subrow" data-search="best deal at costco"><span class="subtime">07:53</span><span class="subtext">best deal at Costco.</span></div><div class="subrow" data-search="almost all major big box merchants have some form"><span class="subtime">07:55</span><span class="subtext">Almost all major big box
+merchants have some form</span></div><div class="subrow" data-search="of online presence"><span class="subtime">08:00</span><span class="subtext">of <button type="button" class="subword" data-en="online presence" data-ru="присутствие онлайн">online presence</button>.</span></div><div class="subrow" data-search="having some form of physical place for us to be"><span class="subtime">08:01</span><span class="subtext">Having some form of physical
+place for us to be</span></div><div class="subrow" data-search="able to do our drive by and pick something up is"><span class="subtime">08:06</span><span class="subtext">able to do our drive by
+and pick something up is</span></div><div class="subrow" data-search="going to be part of our consuming future for at"><span class="subtime">08:09</span><span class="subtext">going to be part of
+our <button type="button" class="subword" data-en="consuming future" data-ru="будущее потребления">consuming future</button> for at</span></div><div class="subrow" data-search="least the next 50 years"><span class="subtime">08:12</span><span class="subtext">least the next 50 years.</span></div><div class="subrow" data-search="it seems costco nailed the formula when it opened"><span class="subtime">08:15</span><span class="subtext">It seems Costco nailed the
+formula when it opened</span></div><div class="subrow" data-search="30 years ago but it isn&#x27;t perfect"><span class="subtime">08:17</span><span class="subtext">30 years ago, but
+it isn&#x27;t perfect.</span></div><div class="subrow" data-search="costco has been traditionally a leader in looking"><span class="subtime">08:21</span><span class="subtext">Costco has been traditionally
+a leader in looking</span></div><div class="subrow" data-search="at how to improve the sustainability of their"><span class="subtime">08:24</span><span class="subtext">at how to improve
+the sustainability of their</span></div><div class="subrow" data-search="supply chains"><span class="subtime">08:26</span><span class="subtext">supply chains.</span></div><div class="subrow" data-search="they actually have done a great job at leading"><span class="subtime">08:27</span><span class="subtext">They actually have done a
+great job at leading</span></div><div class="subrow" data-search="the way toward sustainable seafood and i know"><span class="subtime">08:30</span><span class="subtext">the way toward sustainable
+seafood and I know</span></div><div class="subrow" data-search="we&#x27;re working currently on sustainable beef"><span class="subtime">08:32</span><span class="subtext">we&#x27;re working currently
+on sustainable beef,</span></div><div class="subrow" data-search="among other things"><span class="subtime">08:36</span><span class="subtext">among other things.</span></div><div class="subrow" data-search="one of the things that they could be doing to"><span class="subtime">08:37</span><span class="subtext">One of the things that
+they could be doing to</span></div><div class="subrow" data-search="improve their performance is respond to one of"><span class="subtime">08:39</span><span class="subtext">improve their performance is
+respond to one of</span></div><div class="subrow" data-search="the most pressing issues at the moment which is"><span class="subtime">08:41</span><span class="subtext">the most pressing issues at
+the moment which is</span></div><div class="subrow" data-search="how to reduce our plastic use and plastic waste"><span class="subtime">08:44</span><span class="subtext">how to reduce our plastic
+use and plastic waste</span></div><div class="subrow" data-search="globally so"><span class="subtime">08:47</span><span class="subtext">globally. So</span></div><div class="subrow" data-search="anything they could do to to improve their"><span class="subtime">08:48</span><span class="subtext">anything they could do
+to to improve their</span></div><div class="subrow" data-search="packaging improve their their alternative"><span class="subtime">08:50</span><span class="subtext">packaging, improve their
+their alternative</span></div><div class="subrow" data-search="offerings to help customers eliminate the use of"><span class="subtime">08:53</span><span class="subtext">offerings to help customers
+eliminate the use of</span></div><div class="subrow" data-search="single use plastics would be great"><span class="subtime">08:56</span><span class="subtext"><button type="button" class="subword" data-en="single use plastics" data-ru="одноразовый пластик">single use plastics</button>
+would be great.</span></div><div class="subrow" data-search="despite the criticism costco members remain loyal"><span class="subtime">08:58</span><span class="subtext">Despite the criticism, Costco
+members <button type="button" class="subword" data-en="remain loyal" data-ru="оставаться лояльными">remain loyal</button></span></div><div class="subrow" data-search="for one simple reason everyone loves a good"><span class="subtime">09:01</span><span class="subtext">for one simple reason:
+everyone loves a good</span></div><div class="subrow" data-search="deal"><span class="subtime">09:05</span><span class="subtext">deal.</span></div><div class="subrow" data-search="are you a costco shopper"><span class="subtime">09:07</span><span class="subtext">Are you a Costco shopper?</span></div><div class="subrow" data-search="do you think it&#x27;s worth it"><span class="subtime">09:09</span><span class="subtext">Do you think it&#x27;s <button type="button" class="subword" data-en="worth it" data-ru="того стоит">worth it</button>?</span></div><div class="subrow" data-search="let us know in the comments below"><span class="subtime">09:10</span><span class="subtext">Let us know in the comments below.</span></div></div>
+<details class="raw"><summary>Show original raw SRT file</summary><pre class="rawpre">1
+00:00:03,760 --&gt; 00:00:06,180
+Now I am
+an executive member at the Costco
+
+2
+00:00:06,420 --&gt; 00:00:08,000
+Very Berry with extra berries.
+
+3
+00:00:08,040 --&gt; 00:00:09,700
+We came for
+pumpkin pie, actually.
+
+4
+00:00:09,760 --&gt; 00:00:10,890
+And the king crab legs.
+
+5
+00:00:11,140 --&gt; 00:00:14,560
+I think some of their
+customer base is absolutely
+
+6
+00:00:14,740 --&gt; 00:00:16,030
+addicted to Costco.
+
+7
+00:00:26,520 --&gt; 00:00:31,680
+Welcome to Costco where
+everything is huge and
+
+8
+00:00:31,680 --&gt; 00:00:34,260
+it&#x27;s been like this
+for 30 years.
+
+9
+00:00:34,440 --&gt; 00:00:37,410
+From the carts to the
+warehouses to the products
+
+10
+00:00:37,410 --&gt; 00:00:40,560
+themselves. It&#x27;s a store
+fit for giants.
+
+11
+00:00:40,830 --&gt; 00:00:44,430
+It&#x27;s designed as much for
+a forklift truck as it
+
+12
+00:00:44,430 --&gt; 00:00:45,120
+is for people.
+
+13
+00:00:45,240 --&gt; 00:00:48,360
+That sense of scale is
+part of what the Costco
+
+14
+00:00:48,360 --&gt; 00:00:50,550
+experience and the warehouse
+experience is all
+
+15
+00:00:50,730 --&gt; 00:00:51,000
+about.
+
+16
+00:00:51,450 --&gt; 00:00:54,690
+And Costco has made
+billions in revenue from
+
+17
+00:00:54,690 --&gt; 00:00:57,240
+its no frills model
+significantly more than its
+
+18
+00:00:57,240 --&gt; 00:00:58,170
+U.S. competitors.
+
+19
+00:00:58,440 --&gt; 00:01:02,100
+Nothing in a store
+is placed by accident.
+
+20
+00:01:03,420 --&gt; 00:01:06,210
+Take for instance staples
+like milk and eggs.
+
+21
+00:01:07,290 --&gt; 00:01:11,730
+You have to travel all this
+way just to find the
+
+22
+00:01:11,730 --&gt; 00:01:14,460
+dairy. This leads to
+something Costco calls
+
+23
+00:01:14,490 --&gt; 00:01:15,570
+&quot;treasure hunting.&quot;
+
+24
+00:01:15,870 --&gt; 00:01:19,170
+The more you see, the
+more you discover, the more
+
+25
+00:01:19,170 --&gt; 00:01:20,370
+you end up putting
+in your cart.
+
+26
+00:01:21,030 --&gt; 00:01:23,280
+You end up buying other
+things you probably don&#x27;t
+
+27
+00:01:23,280 --&gt; 00:01:23,970
+really need.
+
+28
+00:01:24,300 --&gt; 00:01:26,940
+You almost have to go
+in with blinders on and
+
+29
+00:01:26,940 --&gt; 00:01:30,000
+walk right past the things
+that you are tempted
+
+30
+00:01:30,000 --&gt; 00:01:30,480
+to buy.
+
+31
+00:01:30,810 --&gt; 00:01:33,090
+But buying in bulk
+isn&#x27;t for everyone.
+
+32
+00:01:33,600 --&gt; 00:01:36,870
+For me personally it would be
+a waste of money to
+
+33
+00:01:36,870 --&gt; 00:01:40,740
+get a Costco membership because
+I can&#x27;t use up 25
+
+34
+00:01:40,800 --&gt; 00:01:44,040
+pounds of flour or, you
+know, some of the really
+
+35
+00:01:44,280 --&gt; 00:01:45,570
+big bulk items.
+
+36
+00:01:45,700 --&gt; 00:01:47,160
+It just isn&#x27;t worth
+it for me.
+
+37
+00:01:47,520 --&gt; 00:01:49,290
+The average Costco
+transaction is between
+
+38
+00:01:49,290 --&gt; 00:01:52,920
+$130 and $140. But members
+have been known to
+
+39
+00:01:52,920 --&gt; 00:01:54,150
+spend much more.
+
+40
+00:01:54,420 --&gt; 00:01:57,060
+I thought I would
+spend about $25.
+
+41
+00:01:57,360 --&gt; 00:02:00,300
+And I ended up
+spending over $700.
+
+42
+00:02:00,670 --&gt; 00:02:02,170
+$187.65.
+
+43
+00:02:02,310 --&gt; 00:02:05,400
+$221 and change. You can
+come in here and spend
+
+44
+00:02:05,400 --&gt; 00:02:08,070
+about $250, $300 easy.
+
+45
+00:02:08,970 --&gt; 00:02:12,480
+They have a very
+loyal membership base.
+
+46
+00:02:13,200 --&gt; 00:02:15,630
+Ninety percent of their
+members renew their
+
+47
+00:02:15,630 --&gt; 00:02:16,320
+membership.
+
+48
+00:02:18,810 --&gt; 00:02:21,420
+Being a wholesale club member
+comes at a price.
+
+49
+00:02:23,800 --&gt; 00:02:26,410
+The interesting thing about
+Costco is that when
+
+50
+00:02:26,410 --&gt; 00:02:28,360
+you speak to a
+consumer, they go quite
+
+51
+00:02:28,360 --&gt; 00:02:29,110
+frequently.
+
+52
+00:02:29,290 --&gt; 00:02:31,910
+And I have spoken to people
+that go and drop into
+
+53
+00:02:31,930 --&gt; 00:02:33,970
+a Costco three, four
+times a week.
+
+54
+00:02:34,060 --&gt; 00:02:36,550
+It is a
+very frictionless experience.
+
+55
+00:02:37,360 --&gt; 00:02:39,850
+Moving through a Costco
+is pretty seamless.
+
+56
+00:02:40,300 --&gt; 00:02:41,560
+There&#x27;s minimal signage,
+
+57
+00:02:41,980 --&gt; 00:02:45,520
+the aisles are super wide,
+and the carts glide on
+
+58
+00:02:45,520 --&gt; 00:02:46,690
+the concrete floors.
+
+59
+00:02:47,250 --&gt; 00:02:49,870
+There are free samples
+and even the occasional
+
+60
+00:02:49,870 --&gt; 00:02:51,130
+massage demonstration.
+
+61
+00:02:51,960 --&gt; 00:02:56,380
+You&#x27;re free nay, encouraged
+to wander and take
+
+62
+00:02:56,380 --&gt; 00:02:56,860
+your time.
+
+63
+00:02:57,430 --&gt; 00:03:00,790
+I have so many memories of
+being a kid with my
+
+64
+00:03:00,790 --&gt; 00:03:03,430
+sister like running around
+the store playing tag
+
+65
+00:03:03,460 --&gt; 00:03:05,770
+or like hide and seek
+because it&#x27;s so easy to
+
+66
+00:03:05,770 --&gt; 00:03:06,360
+hide in there.
+
+67
+00:03:10,130 --&gt; 00:03:12,400
+My parents would leave me
+on the couch there and
+
+68
+00:03:12,410 --&gt; 00:03:14,060
+I&#x27;d go through
+all the books.
+
+69
+00:03:14,090 --&gt; 00:03:16,250
+They&#x27;d come back to pick me
+up when it&#x27;s time to
+
+70
+00:03:16,250 --&gt; 00:03:19,640
+leave. The longer I can
+hold you in the store,
+
+71
+00:03:20,270 --&gt; 00:03:23,120
+the more likely I&#x27;m going to
+get more money out of
+
+72
+00:03:23,120 --&gt; 00:03:23,720
+your pocket.
+
+73
+00:03:24,440 --&gt; 00:03:26,130
+I&#x27;m a huge fan of
+the Costco food court.
+
+74
+00:03:26,130 --&gt; 00:03:26,850
+The food court.
+
+75
+00:03:26,870 --&gt; 00:03:27,410
+Food court.
+
+76
+00:03:27,440 --&gt; 00:03:29,890
+I only went to Costco with
+my parents just to go
+
+77
+00:03:29,900 --&gt; 00:03:30,500
+the food court.
+
+78
+00:03:30,650 --&gt; 00:03:34,660
+That front snack bar is both
+a snack bar, but it
+
+79
+00:03:34,700 --&gt; 00:03:37,220
+is also a parking lot and
+it&#x27;s a parking lot for
+
+80
+00:03:37,220 --&gt; 00:03:39,770
+your two-legged pets called
+often children and
+
+81
+00:03:39,770 --&gt; 00:03:41,580
+husbands. This is my
+favorite type of samples.
+
+82
+00:03:41,960 --&gt; 00:03:43,820
+What is it? Like the big
+
+83
+00:03:43,840 --&gt; 00:03:45,830
+ones? The big
+ones, right? There&#x27;s
+
+84
+00:03:45,830 --&gt; 00:03:49,130
+a direct correlation between
+people who sample
+
+85
+00:03:49,620 --&gt; 00:03:50,710
+and the amount of
+money you spend.
+
+86
+00:03:52,610 --&gt; 00:03:54,170
+Aside from their
+famous $1.50
+
+87
+00:03:54,170 --&gt; 00:03:57,050
+hotdog combo, Costco is
+well-known for its
+
+88
+00:03:57,140 --&gt; 00:03:59,300
+in-house brand
+Kirkland Signature.
+
+89
+00:04:00,500 --&gt; 00:04:03,620
+Kirkland paper goods, bottled
+water, and olive oil
+
+90
+00:04:03,740 --&gt; 00:04:05,570
+are some of their
+most beloved products.
+
+91
+00:04:05,990 --&gt; 00:04:08,630
+But Costco isn&#x27;t all bulk
+toilet paper and coffee
+
+92
+00:04:08,630 --&gt; 00:04:11,870
+beans. It also carries
+luxury items like this
+
+93
+00:04:11,870 --&gt; 00:04:15,470
+engagement ring that
+cost nearly $28,000.
+
+94
+00:04:15,890 --&gt; 00:04:17,870
+At first it
+seems asinine.
+
+95
+00:04:18,410 --&gt; 00:04:21,440
+Why on earth would
+Costco be selling diamonds?
+
+96
+00:04:21,920 --&gt; 00:04:22,610
+If you dig a little
+
+97
+00:04:22,610 --&gt; 00:04:25,120
+deeper, it actually
+makes sense.
+
+98
+00:04:25,160 --&gt; 00:04:28,940
+Costco&#x27;s also built its
+franchise with an
+
+99
+00:04:29,180 --&gt; 00:04:32,420
+older American
+affluent consumer.
+
+100
+00:04:32,660 --&gt; 00:04:35,810
+It is the baby boomer
+generation that has the
+
+101
+00:04:35,810 --&gt; 00:04:38,780
+money in their pockets and
+the incentive to save.
+
+102
+00:04:39,230 --&gt; 00:04:42,020
+That baby boomer
+generation controls the
+
+103
+00:04:42,200 --&gt; 00:04:45,380
+overwhelming majority of wealth
+in North America.
+
+104
+00:04:45,920 --&gt; 00:04:46,520
+And you know what?
+
+105
+00:04:46,610 --&gt; 00:04:48,530
+They&#x27;re going to be around
+for a while longer.
+
+106
+00:04:49,810 --&gt; 00:04:52,870
+Costco isn&#x27;t just a
+store it&#x27;s an ecosystem.
+
+107
+00:04:54,580 --&gt; 00:04:56,380
+My mom&#x27;s a
+master of Costco.
+
+108
+00:04:56,530 --&gt; 00:04:57,980
+She even bought
+curtains there.
+
+109
+00:04:58,240 --&gt; 00:04:59,830
+And she gets gas there.
+
+110
+00:05:00,120 --&gt; 00:05:02,590
+She&#x27;s embedded in the
+whole Costco ecosystem.
+
+111
+00:05:02,890 --&gt; 00:05:05,740
+The most loyal consumers
+have been dedicating
+
+112
+00:05:05,740 --&gt; 00:05:08,650
+more and more share of
+wallet towards Costco so
+
+113
+00:05:08,650 --&gt; 00:05:12,160
+they might have started
+with household goods, and
+
+114
+00:05:12,160 --&gt; 00:05:14,050
+then they went
+into grocery.
+
+115
+00:05:14,110 --&gt; 00:05:16,870
+Then they started buying
+appliances, before they
+
+116
+00:05:16,870 --&gt; 00:05:18,580
+know they were getting
+all of their furniture
+
+117
+00:05:18,580 --&gt; 00:05:19,480
+from Costco.
+
+118
+00:05:19,880 --&gt; 00:05:22,000
+And now you see a
+lot of people also
+
+119
+00:05:22,360 --&gt; 00:05:24,880
+participating in their car
+and hotel programs,
+
+120
+00:05:24,910 --&gt; 00:05:25,570
+for instance.
+
+121
+00:05:25,870 --&gt; 00:05:29,380
+If I think about why
+people keep coming back to
+
+122
+00:05:29,410 --&gt; 00:05:33,070
+Costco, there are three things
+that are part of
+
+123
+00:05:33,070 --&gt; 00:05:35,800
+who they are as a brand
+that is very well known
+
+124
+00:05:35,800 --&gt; 00:05:38,560
+which is value,
+quality, and consistency.
+
+125
+00:05:38,740 --&gt; 00:05:43,440
+At Costco,
+you save money.
+
+126
+00:05:44,320 --&gt; 00:05:47,560
+Members love Costco for
+their cheap, high-quality
+
+127
+00:05:47,560 --&gt; 00:05:49,510
+products like
+peanut butter.
+
+128
+00:05:49,780 --&gt; 00:05:52,510
+For New Yorkers it&#x27;s clearly
+a better deal to
+
+129
+00:05:52,510 --&gt; 00:05:53,380
+shop at Costco.
+
+130
+00:05:54,070 --&gt; 00:05:56,650
+And let&#x27;s not forget
+about the wine.
+
+131
+00:05:56,920 --&gt; 00:05:59,170
+My favorite part of
+the Costco experience is
+
+132
+00:05:59,170 --&gt; 00:06:01,780
+probably their wine section which
+I know sounds a
+
+133
+00:06:01,780 --&gt; 00:06:02,500
+little weird.
+
+134
+00:06:02,710 --&gt; 00:06:06,220
+Costco, it does obviously
+have some really great,
+
+135
+00:06:06,250 --&gt; 00:06:08,250
+beautiful, expensive
+wines.
+
+136
+00:06:08,770 --&gt; 00:06:11,800
+But it also gives you
+a lot of value-friendly
+
+137
+00:06:11,800 --&gt; 00:06:13,360
+wines which are
+really, really nice.
+
+138
+00:06:13,660 --&gt; 00:06:17,680
+Costco is the largest seller
+of fine wine and
+
+139
+00:06:17,680 --&gt; 00:06:20,200
+expensive spirits in
+North America.
+
+140
+00:06:20,680 --&gt; 00:06:23,710
+They make their money getting
+you to buy 200
+
+141
+00:06:23,710 --&gt; 00:06:25,600
+garbage bags all at
+the same time.
+
+142
+00:06:25,840 --&gt; 00:06:29,050
+They make money getting you
+to buy 10 pounds of
+
+143
+00:06:29,050 --&gt; 00:06:30,730
+coffee rather than two.
+
+144
+00:06:31,330 --&gt; 00:06:33,850
+But stocking all those
+garbage bags isn&#x27;t free.
+
+145
+00:06:34,180 --&gt; 00:06:37,330
+So how is Costco making
+a profit selling wholesale
+
+146
+00:06:37,330 --&gt; 00:06:41,680
+goods? Costco runs about
+4,000 items on average
+
+147
+00:06:41,680 --&gt; 00:06:45,310
+per warehouse, which allows
+them to be extremely
+
+148
+00:06:45,310 --&gt; 00:06:48,400
+efficient. Employees don&#x27;t
+waste time restocking
+
+149
+00:06:48,400 --&gt; 00:06:50,500
+shelves because of
+the store&#x27;s design.
+
+150
+00:06:50,740 --&gt; 00:06:54,430
+The other upside of
+having such a curated
+
+151
+00:06:54,460 --&gt; 00:06:57,400
+assortment of fast-selling items
+shows up in
+
+152
+00:06:57,400 --&gt; 00:06:58,240
+their balance sheet.
+
+153
+00:06:58,270 --&gt; 00:07:01,720
+They&#x27;re able typically to
+sell their inventory
+
+154
+00:07:01,720 --&gt; 00:07:03,880
+before they actually have to
+pay it which keeps
+
+155
+00:07:03,880 --&gt; 00:07:06,250
+the needs for working
+capital pretty low.
+
+156
+00:07:06,820 --&gt; 00:07:08,920
+They have direct relationships
+with all of their
+
+157
+00:07:08,920 --&gt; 00:07:11,620
+suppliers and then have
+a logistics setup where
+
+158
+00:07:11,650 --&gt; 00:07:13,930
+they — the goods are
+delivered directly to their
+
+159
+00:07:13,930 --&gt; 00:07:16,900
+warehouse. So that keeps the
+SG&amp;A at a very
+
+160
+00:07:16,900 --&gt; 00:07:17,830
+minimal level.
+
+161
+00:07:18,700 --&gt; 00:07:20,410
+Costco plays by
+the Golden Rule.
+
+162
+00:07:21,340 --&gt; 00:07:24,160
+You treat your suppliers
+and employees well, they
+
+163
+00:07:24,160 --&gt; 00:07:27,790
+treat the customer well, and
+you make tons of
+
+164
+00:07:27,790 --&gt; 00:07:29,860
+money. That&#x27;s the
+Costco secret.
+
+165
+00:07:31,270 --&gt; 00:07:33,460
+So how does this model hold
+up in the age of
+
+166
+00:07:33,460 --&gt; 00:07:34,030
+Amazon.
+
+167
+00:07:34,960 --&gt; 00:07:40,120
+The surgence of Amazon
+has not hurt Costco&#x27;s
+
+168
+00:07:40,390 --&gt; 00:07:43,690
+business and there are
+many consumer tests or
+
+169
+00:07:43,900 --&gt; 00:07:46,420
+retail tests out there
+that compare if you&#x27;re
+
+170
+00:07:46,420 --&gt; 00:07:49,150
+buying bulk at Amazon versus
+buying in bulk at
+
+171
+00:07:49,150 --&gt; 00:07:51,250
+Costco, where do you
+get the best deal?
+
+172
+00:07:51,430 --&gt; 00:07:53,890
+70% to 80% of the
+time you&#x27;re still getting the
+
+173
+00:07:53,890 --&gt; 00:07:54,940
+best deal at Costco.
+
+174
+00:07:55,120 --&gt; 00:08:00,460
+Almost all major big box
+merchants have some form
+
+175
+00:08:00,580 --&gt; 00:08:01,900
+of online presence.
+
+176
+00:08:01,990 --&gt; 00:08:06,280
+Having some form of physical
+place for us to be
+
+177
+00:08:06,280 --&gt; 00:08:09,660
+able to do our drive by
+and pick something up is
+
+178
+00:08:09,730 --&gt; 00:08:12,880
+going to be part of
+our consuming future for at
+
+179
+00:08:12,880 --&gt; 00:08:14,290
+least the next 50 years.
+
+180
+00:08:15,460 --&gt; 00:08:17,920
+It seems Costco nailed the
+formula when it opened
+
+181
+00:08:17,920 --&gt; 00:08:20,950
+30 years ago, but
+it isn&#x27;t perfect.
+
+182
+00:08:21,700 --&gt; 00:08:24,880
+Costco has been traditionally
+a leader in looking
+
+183
+00:08:24,880 --&gt; 00:08:26,650
+at how to improve
+the sustainability of their
+
+184
+00:08:26,650 --&gt; 00:08:27,490
+supply chains.
+
+185
+00:08:27,910 --&gt; 00:08:30,100
+They actually have done a
+great job at leading
+
+186
+00:08:30,100 --&gt; 00:08:32,230
+the way toward sustainable
+seafood and I know
+
+187
+00:08:32,230 --&gt; 00:08:35,380
+we&#x27;re working currently
+on sustainable beef,
+
+188
+00:08:36,130 --&gt; 00:08:37,030
+among other things.
+
+189
+00:08:37,540 --&gt; 00:08:39,040
+One of the things that
+they could be doing to
+
+190
+00:08:39,040 --&gt; 00:08:41,470
+improve their performance is
+respond to one of
+
+191
+00:08:41,470 --&gt; 00:08:44,170
+the most pressing issues at
+the moment which is
+
+192
+00:08:44,170 --&gt; 00:08:47,230
+how to reduce our plastic
+use and plastic waste
+
+193
+00:08:47,320 --&gt; 00:08:48,340
+globally. So
+
+194
+00:08:48,340 --&gt; 00:08:50,380
+anything they could do
+to to improve their
+
+195
+00:08:50,380 --&gt; 00:08:53,140
+packaging, improve their
+their alternative
+
+196
+00:08:53,140 --&gt; 00:08:56,160
+offerings to help customers
+eliminate the use of
+
+197
+00:08:56,170 --&gt; 00:08:57,970
+single use plastics
+would be great.
+
+198
+00:08:58,810 --&gt; 00:09:01,810
+Despite the criticism, Costco
+members remain loyal
+
+199
+00:09:01,820 --&gt; 00:09:05,950
+for one simple reason:
+everyone loves a good
+
+200
+00:09:05,950 --&gt; 00:09:07,000
+deal.
+
+201
+00:09:07,500 --&gt; 00:09:09,080
+Are you a Costco shopper?
+
+202
+00:09:09,540 --&gt; 00:09:10,640
+Do you think it&#x27;s worth it?
+
+203
+00:09:10,640 --&gt; 00:09:12,720
+Let us know in the comments below.</pre></details>
+</section>
+
+<div class="footer">Source video: CNBC Make It · Why You Spend So Much Money at Costco<br>Workbook vocabulary and subtitle-line exercises were generated from the user-supplied SRT.</div>
+</div>
+<div class="pop" id="pop" role="status" aria-live="polite"></div>
+<script>
+(() => {
+ const root=document.getElementById('app'), player=document.getElementById('player'), vid=root.dataset.video;
+ const base='https://www.youtube-nocookie.com/embed/'+vid+'?rel=0&cc_load_policy=1&cc_lang_pref=en';
+ const checked=new Set();
+ function updateProgress(){
+   const total=document.querySelectorAll('.checkone,.checkgaps').length;
+   const pct=total?Math.round(100*checked.size/total):0;
+   document.getElementById('progress').style.width=pct+'%';
+   document.getElementById('progressText').textContent=checked.size+' of '+total+' checked activities';
+ }
+ function speak(t){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.92;speechSynthesis.speak(u)}
+ const pop=document.getElementById('pop');
+ function showWord(en,ru){pop.innerHTML='<b>'+en+'</b><small>'+ru+'</small>';pop.classList.add('show');speak(en);clearTimeout(pop._t);pop._t=setTimeout(()=>pop.classList.remove('show'),3300)}
+ document.querySelectorAll('.vocab,.subword').forEach(b=>b.addEventListener('click',()=>showWord(b.dataset.en,b.dataset.ru)));
+ document.querySelectorAll('.flash').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('revealed')));
+ document.querySelectorAll('.playpart').forEach(b=>b.addEventListener('click',()=>{
+   const s=Math.floor(Number(b.dataset.start)||0), e=Math.floor(Number(b.dataset.end)||0);
+   player.src=base+'&autoplay=1&start='+s+'&end='+e;document.getElementById('video').scrollIntoView({behavior:'smooth',block:'start'});
+ }));
+ document.querySelectorAll('.subtoggle').forEach(b=>b.addEventListener('click',()=>{
+   const box=b.closest('.part').querySelector('.subtitle-box');box.classList.toggle('show');
+   b.textContent=box.classList.contains('show')?'Hide full subtitles for this part':'Show full subtitles for this part';
+ }));
+ document.querySelectorAll('.checkone').forEach(b=>b.addEventListener('click',()=>{
+   const q=b.closest('.quizq'), chosen=q.querySelector('input:checked'), fb=q.querySelector('.feedback');
+   const ok=chosen && Number(chosen.value)===Number(q.dataset.answer);fb.textContent=ok?'✓ Correct':'Try again';fb.className='feedback '+(ok?'good':'bad');checked.add(b);updateProgress();
+ }));
+ const n=s=>String(s||'').trim().toLowerCase().replace(/[’]/g,"'").replace(/[.,!?;:]/g,'').replace(/\s+/g,' ');
+ document.querySelectorAll('.checkgaps').forEach(b=>b.addEventListener('click',()=>{
+   const card=b.closest('.card');card.querySelectorAll('.gapq').forEach(q=>{const inp=q.querySelector('input'),fb=q.querySelector('.feedback');const ok=n(inp.value)===n(q.dataset.answer);fb.textContent=ok?'✓ Exact subtitle expression':'Try again';fb.className='feedback '+(ok?'good':'bad')});
+   checked.add(b);updateProgress();
+ }));
+ document.querySelectorAll('.sampletoggle').forEach(b=>b.addEventListener('click',()=>{const box=b.parentElement.querySelector('.sample');box.classList.toggle('show');b.textContent=box.classList.contains('show')?'Hide sample answer':'Show sample answer'}));
+ const search=document.getElementById('subsearch'), all=document.getElementById('allsubs');
+ search.addEventListener('input',()=>{const q=n(search.value);all.querySelectorAll('.subrow').forEach(r=>{r.style.display=!q||r.dataset.search.includes(q)?'grid':'none'})});
+ document.getElementById('clearsearch').addEventListener('click',()=>{search.value='';search.dispatchEvent(new Event('input'));search.focus()});
+ updateProgress();
+})();
+</script>
+</body></html>

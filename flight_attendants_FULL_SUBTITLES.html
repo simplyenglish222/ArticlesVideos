@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>How Flight Attendants Are Trained</title><style>
+:root{
+ --bg:#f3f0eb;--paper:#fffdf9;--ink:#252321;--muted:#706a65;--line:#ddd5cd;
+ --accent:#d85b38;--accent2:#fff1e9;--ok:#28734d;--bad:#b44339;--blue:#eef6fa;
+ --shadow:0 10px 28px rgba(49,38,28,.07)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#ebe6e0 0,#f7f4f0 340px);color:var(--ink);
+font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+button,input,textarea,select{font:inherit}button{cursor:pointer}
+.wrap{width:min(1060px,100%);margin:auto;padding:16px clamp(10px,3vw,26px) 72px}
+.hero,.section{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.hero{padding:clamp(18px,4vw,30px);margin-bottom:15px}
+.kicker{font-size:.78rem;font-weight:900;letter-spacing:.075em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:Georgia,serif;font-size:clamp(2rem,6vw,3.5rem);line-height:1.05;margin:.25rem 0 .55rem}
+h2{font-size:1.36rem;margin:0 0 7px} h3{font-size:1.06rem;margin:.2rem 0 .55rem}
+p{margin:.45rem 0}.muted,.instruction{color:var(--muted)}
+.section{padding:clamp(15px,3vw,24px);margin:15px 0}
+.badge{display:inline-block;background:var(--accent);color:#fff;font-weight:900;font-size:.76rem;padding:3px 8px;border-radius:7px;margin-right:6px}
+.nav{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 17px}
+.nav a{color:var(--ink);background:var(--paper);border:1px solid var(--line);text-decoration:none;border-radius:999px;padding:8px 11px;font-size:.88rem}
+.note{background:#fff3ec;border-left:4px solid var(--accent);padding:11px 13px;border-radius:9px;margin:12px 0}
+.subnote{background:var(--blue);border:1px solid #d3e3ea;border-radius:12px;padding:11px 12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:760px){.grid2,.grid3{grid-template-columns:1fr}}
+.card,.part{border:1px solid var(--line);border-radius:14px;padding:13px;background:#fff;margin:10px 0}
+.video-wrap{position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;background:#111;margin:12px 0}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.controls,.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.btn{border:0;border-radius:10px;min-height:44px;padding:9px 13px;font-weight:800;background:var(--accent);color:white}
+.btn.secondary{background:#eee8e2;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.vocab-grid{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}
+.vocab,.subword{border:1px solid #e6cbbb;background:#fff3ec;color:#71351f;border-radius:999px;padding:6px 9px}
+.subword{display:inline;border-radius:6px;padding:1px 4px;font:inherit}
+.flash{min-height:118px;display:flex;align-items:center;justify-content:center;text-align:center;border:1px solid var(--line);
+border-radius:14px;padding:14px;background:#fff}
+.flash .main{font-size:1.07rem;font-weight:800}.flash .back{display:none}.flash.revealed .front{display:none}.flash.revealed .back{display:block}
+.flash small{display:block;color:var(--muted);font-weight:500;margin-top:5px}
+.part{border-radius:17px;padding:15px;margin:14px 0}
+.part-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.time{background:#272321;color:#fff;border-radius:999px;padding:5px 9px;font-weight:800;font-size:.83rem}
+.collocs{display:flex;flex-wrap:wrap;gap:6px;margin:7px 0}.colloc{background:#edf4f7;border:1px solid #d7e2e7;border-radius:999px;padding:5px 8px;font-size:.85rem}
+.q{padding:10px 0;border-top:1px dashed var(--line)}.q:first-child{border-top:0}
+.options{display:grid;gap:7px;margin-top:7px}.opt{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:8px;background:#fff}
+.opt input{margin-top:4px;width:19px;height:19px}.feedback{font-weight:800;margin-top:7px;min-height:1.3em}.good{color:var(--ok)}.bad{color:var(--bad)}
+textarea,input[type=text],input[type=search]{width:100%;min-height:44px;border:1.5px solid #cec5bd;border-radius:10px;padding:10px;background:#fff;color:var(--ink)}
+textarea{min-height:92px;resize:vertical}
+.sample{display:none;background:#f7f4f0;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:8px}.sample.show{display:block}
+.subtitle-box{display:none;border:1px solid var(--line);border-radius:12px;background:#faf8f5;margin-top:10px;max-height:520px;overflow:auto}
+.subtitle-box.show{display:block}
+.subrow{display:grid;grid-template-columns:58px minmax(0,1fr);gap:8px;padding:7px 9px;border-top:1px solid #e8e1db;align-items:start}
+.subrow:first-child{border-top:0}.subtime{font-variant-numeric:tabular-nums;font-size:.78rem;color:var(--muted);padding-top:3px}.subtext{min-width:0}
+.gapline{padding:8px 0;border-top:1px dashed var(--line)}.gapline:first-child{border-top:0}.gapline input{margin-top:6px}
+.progress-shell{height:9px;background:#e7dfd8;border-radius:999px;overflow:hidden;margin-top:12px}.progress{height:100%;width:0;background:var(--accent)}
+.pop{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);width:min(540px,calc(100% - 22px));background:#242120;color:#fff;padding:11px 13px;border-radius:12px;display:none;z-index:30;box-shadow:0 12px 35px rgba(0,0,0,.25)}
+.pop.show{display:block}.pop small{display:block;color:#ddd;margin-top:2px}
+.searchbar{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}.searchbar .btn{min-width:110px}
+details.raw{margin-top:12px}details.raw summary{cursor:pointer;font-weight:800}
+.rawpre{white-space:pre-wrap;word-break:break-word;background:#f7f4f0;border:1px solid var(--line);border-radius:12px;padding:12px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.8rem;max-height:520px;overflow:auto}
+.footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:22px}
+@media(max-width:430px){
+ .wrap{padding-left:9px;padding-right:9px}.hero,.section{border-radius:15px;padding:14px}h1{font-size:2.05rem}
+ .nav a{font-size:.82rem}.btn{width:100%}.controls .btn,.actions .btn{width:auto;flex:1 1 135px}.subrow{grid-template-columns:50px minmax(0,1fr)}
+ .searchbar{grid-template-columns:1fr}
+}
+</style></head>
+<body>
+<div class="wrap" id="app" data-video="a8lbitoBhP4">
+<header class="hero">
+  <div class="kicker">Tatiana · B1–B2 VIDEO WORKSHOP · FULL SUBTITLES</div>
+  <h1>How Flight Attendants Are Trained</h1>
+  <p>This version is rebuilt directly from the supplied subtitle file. Target vocabulary, gap sentences and listening sections are grounded in those subtitles.</p>
+  <div class="progress-shell"><div class="progress" id="progress"></div></div><div class="instruction" id="progressText">0 checked activities</div>
+</header>
+<nav class="nav"><a href="#revision">Revision</a><a href="#vocab">Subtitle vocabulary</a><a href="#video">Video</a>
+<a href="#part1">Part 1</a><a href="#part2">Part 2</a><a href="#part3">Part 3</a><a href="#part4">Part 4</a>
+<a href="#discussion">Discussion</a><a href="#fullsubs">Full subtitles</a></nav>
+
+<section class="section" id="revision">
+<h2><span class="badge">1</span>Revision</h2>
+<p class="instruction">Recycle a small number of useful items before the new video. Tap only after trying to recall the answer.</p>
+<h3>EN → RU</h3><div class="grid3">
+        <button type="button" class="flash">
+          <span class="front"><span class="main">taking care of people</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">забота о людях</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">following instructions</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">следование инструкциям</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">making decisions</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">принятие решений</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">be able to stay calm</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">уметь сохранять спокойствие</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">solve problems</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">решать проблемы</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">explain things clearly</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">ясно объяснять</span><small>Tap to return</small></span>
+        </button></div>
+<h3 style="margin-top:16px">RU → EN</h3><div class="grid3">
+        <button type="button" class="flash">
+          <span class="front"><span class="main">забота о людях</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">taking care of people</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">следование инструкциям</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">following instructions</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">принятие решений</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">making decisions</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">уметь сохранять спокойствие</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">be able to stay calm</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">решать проблемы</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">solve problems</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">ясно объяснять</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">explain things clearly</span><small>Tap to return</small></span>
+        </button></div>
+</section>
+
+<section class="section" id="vocab">
+<h2><span class="badge">2</span>Vocabulary from the subtitles</h2>
+<div class="note"><b>34 target items.</b> Every English item below was checked against the uploaded SRT and occurs in that subtitle text.</div>
+<div class="vocab-grid"><button type="button" class="vocab" data-en="first and foremost" data-ru="прежде всего">first and foremost</button><button type="button" class="vocab" data-en="safety professionals" data-ru="специалисты по безопасности">safety professionals</button><button type="button" class="vocab" data-en="on board the aircraft" data-ru="на борту самолёта">on board the aircraft</button><button type="button" class="vocab" data-en="intense training" data-ru="интенсивная подготовка">intense training</button><button type="button" class="vocab" data-en="emergency management" data-ru="действия в чрезвычайных ситуациях">emergency management</button><button type="button" class="vocab" data-en="medical situations" data-ru="медицинские ситуации">medical situations</button><button type="button" class="vocab" data-en="fully rounded" data-ru="всесторонне подготовленный">fully rounded</button><button type="button" class="vocab" data-en="practice different types of scenarios" data-ru="отрабатывать разные сценарии">practice different types of scenarios</button><button type="button" class="vocab" data-en="customer service driven" data-ru="ориентированный на обслуживание клиентов">customer service driven</button><button type="button" class="vocab" data-en="being mindful of" data-ru="учитывая / помня о">being mindful of</button><button type="button" class="vocab" data-en="slide deployment" data-ru="раскрытие аварийного трапа">slide deployment</button><button type="button" class="vocab" data-en="practice our evacuation" data-ru="отрабатывать эвакуацию">practice our evacuation</button><button type="button" class="vocab" data-en="operate those exits" data-ru="управлять этими выходами">operate those exits</button><button type="button" class="vocab" data-en="emergency equipment" data-ru="аварийное оборудование">emergency equipment</button><button type="button" class="vocab" data-en="need her assistance" data-ru="нуждаться в её помощи">need her assistance</button><button type="button" class="vocab" data-en="come down to a judgement call" data-ru="сводиться к решению по ситуации">come down to a judgement call</button><button type="button" class="vocab" data-en="make good judgment calls" data-ru="принимать правильные решения по ситуации">make good judgment calls</button><button type="button" class="vocab" data-en="respond to emergencies" data-ru="реагировать на чрезвычайные ситуации">respond to emergencies</button><button type="button" class="vocab" data-en="stay calm" data-ru="сохранять спокойствие">stay calm</button><button type="button" class="vocab" data-en="feed off of" data-ru="подпитываться от / усиливаться из-за">feed off of</button><button type="button" class="vocab" data-en="work together as a team" data-ru="работать вместе как команда">work together as a team</button><button type="button" class="vocab" data-en="handle ditching" data-ru="справляться с аварийной посадкой на воду">handle ditching</button><button type="button" class="vocab" data-en="waiting for rescue" data-ru="ожидая спасения">waiting for rescue</button><button type="button" class="vocab" data-en="transfer it out to a real live aircraft" data-ru="перенести это на реальную работу в самолёте">transfer it out to a real live aircraft</button><button type="button" class="vocab" data-en="training kicks in" data-ru="срабатывает подготовка / включаются навыки">training kicks in</button><button type="button" class="vocab" data-en="medical emergencies" data-ru="медицинские чрезвычайные ситуации">medical emergencies</button><button type="button" class="vocab" data-en="medical assistance" data-ru="медицинская помощь">medical assistance</button><button type="button" class="vocab" data-en="maintain a 90 percent average" data-ru="поддерживать средний результат 90%">maintain a 90 percent average</button><button type="button" class="vocab" data-en="continuing qualification" data-ru="регулярное подтверждение квалификации">continuing qualification</button><button type="button" class="vocab" data-en="every eighteen months" data-ru="каждые восемнадцать месяцев">every eighteen months</button><button type="button" class="vocab" data-en="be proficient in" data-ru="быть компетентным / хорошо владеть">be proficient in</button><button type="button" class="vocab" data-en="hold them to a pretty high standard" data-ru="предъявлять к ним довольно высокие требования">hold them to a pretty high standard</button><button type="button" class="vocab" data-en="give feedback" data-ru="давать обратную связь">give feedback</button><button type="button" class="vocab" data-en="handle any situation" data-ru="справляться с любой ситуацией">handle any situation</button></div>
+<div class="card"><b>Prediction</b><p>Which abilities matter most in an emergency: memory, communication, physical skill, calmness or judgement? Rank them.</p><textarea placeholder="Use at least 4 target expressions if possible."></textarea></div>
+</section>
+
+<section class="section" id="video">
+<h2><span class="badge">3</span>Video</h2>
+<div class="subnote"><b>Subtitles are now genuinely inside this workbook.</b> You can watch with YouTube CC, but you no longer depend on it: every subtitle cue from the supplied SRT is embedded below and divided into the same study parts.</div>
+<div class="video-wrap"><iframe id="player" src="https://www.youtube-nocookie.com/embed/a8lbitoBhP4?rel=0&cc_load_policy=1&cc_lang_pref=en" title="How Flight Attendants Are Trained" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+</section>
+
+<section class="section">
+<h2><span class="badge">4</span>Watch in parts</h2>
+<p class="instruction">Recommended sequence: ① watch without transcript; ② answer; ③ replay; ④ open full subtitles only if necessary; ⑤ complete the exact-line task.</p>
+
+        <article class="part" id="part1">
+          <div class="part-head">
+            <div><h3>Part 1 · Safety first and the six-week programme</h3>
+            <p class="instruction">The video immediately challenges the stereotype that cabin crew are mainly &#x27;waitresses in the sky&#x27;. Delta describes them first as safety professionals and explains the six-week training programme.</p></div>
+            <span class="time">00:00–01:18</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn playpart" data-start="0" data-end="78">▶ Play this part</button>
+            <button type="button" class="btn ghost subtoggle">Show full subtitles for this part</button>
+          </div>
+          <div class="card">
+            <b>Vocabulary actually used in this part</b>
+            <div class="vocab-grid"><button type="button" class="vocab" data-en="first and foremost" data-ru="прежде всего">first and foremost</button><button type="button" class="vocab" data-en="safety professionals" data-ru="специалисты по безопасности">safety professionals</button><button type="button" class="vocab" data-en="on board the aircraft" data-ru="на борту самолёта">on board the aircraft</button><button type="button" class="vocab" data-en="intense training" data-ru="интенсивная подготовка">intense training</button><button type="button" class="vocab" data-en="emergency management" data-ru="действия в чрезвычайных ситуациях">emergency management</button><button type="button" class="vocab" data-en="medical situations" data-ru="медицинские ситуации">medical situations</button><button type="button" class="vocab" data-en="fully rounded" data-ru="всесторонне подготовленный">fully rounded</button></div>
+          </div>
+          <div class="card quizq" data-answer="0">
+            <b>How long is initial flight-attendant training in the video?</b><div class="options"><label class="opt"><input type="radio" name="flight_q0" value="0"><span>Six weeks</span></label><label class="opt"><input type="radio" name="flight_q0" value="1"><span>Six months</span></label><label class="opt"><input type="radio" name="flight_q0" value="2"><span>Three days</span></label></div>
+            <button type="button" class="btn secondary checkone" style="margin-top:8px">Check</button>
+            <div class="feedback"></div>
+          </div>
+          <div class="card"><b>Complete the exact subtitle line</b><p class="instruction">Listen first. Type the missing expression exactly as it appears in the subtitles.</p><div class="gapline gapq" data-answer="first and foremost">the sky __________ we are safety<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><div class="gapline gapq" data-answer="safety professionals">the sky first and foremost we are __________ anything that can happen<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><button type="button" class="btn secondary checkgaps">Check subtitle lines</button></div>
+          <div class="subtitle-box">
+            <div class="subnote"><b>Complete subtitle text for this segment.</b> These lines come from the SRT file you supplied. Auto-generated SRTs are preserved as supplied and may contain recognition errors.</div>
+            <div class="subrow" data-search="hey zack you late you could have no"><span class="subtime">00:00</span><span class="subtext">hey Zack you late you could have no</span></div><div class="subrow" data-search="obstruction no fire no water go to open"><span class="subtime">00:11</span><span class="subtext">obstruction no fire no water go to open</span></div><div class="subrow" data-search="your exit and it doesn&#x27;t work it&#x27;s a"><span class="subtime">00:13</span><span class="subtext">your exit and it doesn&#x27;t work it&#x27;s a</span></div><div class="subrow" data-search="jammed a lot of the times i think the"><span class="subtime">00:16</span><span class="subtext">jammed a lot of the times I think the</span></div><div class="subrow" data-search="perception is that we&#x27;re waitresses in"><span class="subtime">00:18</span><span class="subtext">perception is that we&#x27;re waitresses in</span></div><div class="subrow" data-search="the sky first and foremost we are safety"><span class="subtime">00:20</span><span class="subtext">the sky <button type="button" class="subword" data-en="first and foremost" data-ru="прежде всего">first and foremost</button> we are safety</span></div><div class="subrow" data-search="professionals anything that can happen"><span class="subtime">00:23</span><span class="subtext">professionals anything that can happen</span></div><div class="subrow" data-search="on the ground can happen in the air come"><span class="subtime">00:25</span><span class="subtext">on the ground can happen in the air come</span></div><div class="subrow" data-search="this way"><span class="subtime">00:27</span><span class="subtext">this way</span></div><div class="subrow" data-search="leave everything my name is patrice"><span class="subtime">00:28</span><span class="subtext">leave everything my name is Patrice</span></div><div class="subrow" data-search="hillis hey my name is trill any bundrage"><span class="subtime">00:29</span><span class="subtext">Hillis hey my name is trill any Bundrage</span></div><div class="subrow" data-search="my nickname is truck we&#x27;re here to show"><span class="subtime">00:31</span><span class="subtext">my nickname is truck we&#x27;re here to show</span></div><div class="subrow" data-search="you what it takes to be a delta airlines"><span class="subtime">00:33</span><span class="subtext">you what it takes to be a Delta Airlines</span></div><div class="subrow" data-search="flight it&#x27;s in it a lot of magic happens"><span class="subtime">00:35</span><span class="subtext">flight it&#x27;s in it a lot of magic happens</span></div><div class="subrow" data-search="down here in the training center over"><span class="subtime">00:37</span><span class="subtext">down here in the training center over</span></div><div class="subrow" data-search="195 thousand applications come in to"><span class="subtime">00:39</span><span class="subtext">195 thousand applications come in to</span></div><div class="subrow" data-search="delta airlines and of those 3 000 for"><span class="subtime">00:42</span><span class="subtext">Delta Airlines and of those 3,000 for</span></div><div class="subrow" data-search="this year alone we&#x27;ll get to come"><span class="subtime">00:45</span><span class="subtext">this year alone we&#x27;ll get to come</span></div><div class="subrow" data-search="through these doors and be a delta"><span class="subtime">00:47</span><span class="subtext">through these doors and be a Delta</span></div><div class="subrow" data-search="airlines flight attendant initial flight"><span class="subtime">00:49</span><span class="subtext">Airlines flight attendant initial flight</span></div><div class="subrow" data-search="attendant training is six weeks of"><span class="subtime">00:51</span><span class="subtext">attendant training is six weeks of</span></div><div class="subrow" data-search="intense training they start here in week"><span class="subtime">00:53</span><span class="subtext"><button type="button" class="subword" data-en="intense training" data-ru="интенсивная подготовка">intense training</button> they start here in week</span></div><div class="subrow" data-search="one and they learn about the foundations"><span class="subtime">00:56</span><span class="subtext">one and they learn about the foundations</span></div><div class="subrow" data-search="of delta airlines and then we go to week"><span class="subtime">00:58</span><span class="subtext">of Delta Airlines and then we go to week</span></div><div class="subrow" data-search="three and those are non phase specific"><span class="subtime">01:01</span><span class="subtext">three and those are non phase specific</span></div><div class="subrow" data-search="things like security emergency"><span class="subtime">01:03</span><span class="subtext">things like security emergency</span></div><div class="subrow" data-search="management medical situations that can"><span class="subtime">01:05</span><span class="subtext">management <button type="button" class="subword" data-en="medical situations" data-ru="медицинские ситуации">medical situations</button> that can</span></div><div class="subrow" data-search="happen on board the aircraft and then"><span class="subtime">01:08</span><span class="subtext">happen <button type="button" class="subword" data-en="on board the aircraft" data-ru="на борту самолёта">on board the aircraft</button> and then</span></div><div class="subrow" data-search="week six it&#x27;s all about customer service"><span class="subtime">01:09</span><span class="subtext">week six it&#x27;s all about customer service</span></div><div class="subrow" data-search="and so within those six weeks we have a"><span class="subtime">01:11</span><span class="subtext">and so within those six weeks we have a</span></div><div class="subrow" data-search="fully rounded delta airlines flight"><span class="subtime">01:14</span><span class="subtext"><button type="button" class="subword" data-en="fully rounded" data-ru="всесторонне подготовленный">fully rounded</button> Delta Airlines flight</span></div><div class="subrow" data-search="isn&#x27;t it who is ready to go out there on"><span class="subtime">01:16</span><span class="subtext">isn&#x27;t it who is ready to go out there on</span></div>
+          </div>
+        </article>
+        
+        <article class="part" id="part2">
+          <div class="part-head">
+            <div><h3>Part 2 · Mock-ups, exits and judgement calls</h3>
+            <p class="instruction">Trainees use aircraft mock-ups to practise exits and evacuations. They follow checklists but also need judgement, memory and awareness of passengers who may need assistance.</p></div>
+            <span class="time">01:18–02:59</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn playpart" data-start="78" data-end="179">▶ Play this part</button>
+            <button type="button" class="btn ghost subtoggle">Show full subtitles for this part</button>
+          </div>
+          <div class="card">
+            <b>Vocabulary actually used in this part</b>
+            <div class="vocab-grid"><button type="button" class="vocab" data-en="practice different types of scenarios" data-ru="отрабатывать разные сценарии">practice different types of scenarios</button><button type="button" class="vocab" data-en="customer service driven" data-ru="ориентированный на обслуживание клиентов">customer service driven</button><button type="button" class="vocab" data-en="being mindful of" data-ru="учитывая / помня о">being mindful of</button><button type="button" class="vocab" data-en="slide deployment" data-ru="раскрытие аварийного трапа">slide deployment</button><button type="button" class="vocab" data-en="practice our evacuation" data-ru="отрабатывать эвакуацию">practice our evacuation</button><button type="button" class="vocab" data-en="operate those exits" data-ru="управлять этими выходами">operate those exits</button><button type="button" class="vocab" data-en="emergency equipment" data-ru="аварийное оборудование">emergency equipment</button><button type="button" class="vocab" data-en="need her assistance" data-ru="нуждаться в её помощи">need her assistance</button><button type="button" class="vocab" data-en="come down to a judgement call" data-ru="сводиться к решению по ситуации">come down to a judgement call</button><button type="button" class="vocab" data-en="make good judgment calls" data-ru="принимать правильные решения по ситуации">make good judgment calls</button><button type="button" class="vocab" data-en="respond to emergencies" data-ru="реагировать на чрезвычайные ситуации">respond to emergencies</button></div>
+          </div>
+          <div class="card quizq" data-answer="1">
+            <b>Why are judgement calls important?</b><div class="options"><label class="opt"><input type="radio" name="flight_q1" value="0"><span>Every emergency exactly matches a checklist</span></label><label class="opt"><input type="radio" name="flight_q1" value="1"><span>Some situations require thinking beyond a checklist</span></label><label class="opt"><input type="radio" name="flight_q1" value="2"><span>Flight attendants do not use procedures</span></label></div>
+            <button type="button" class="btn secondary checkone" style="margin-top:8px">Check</button>
+            <div class="feedback"></div>
+          </div>
+          <div class="card"><b>Complete the exact subtitle line</b><p class="instruction">Listen first. Type the missing expression exactly as it appears in the subtitles.</p><div class="gapline gapq" data-answer="practice different types of scenarios">they __________ a lot of what we do is very<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><div class="gapline gapq" data-answer="customer service driven">__________ flight<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><button type="button" class="btn secondary checkgaps">Check subtitle lines</button></div>
+          <div class="subtitle-box">
+            <div class="subnote"><b>Complete subtitle text for this segment.</b> These lines come from the SRT file you supplied. Auto-generated SRTs are preserved as supplied and may contain recognition errors.</div>
+            <div class="subrow" data-search="any aircraft this area is what we call"><span class="subtime">01:18</span><span class="subtext">any aircraft this area is what we call</span></div><div class="subrow" data-search="our mock-up areas and these are aircraft"><span class="subtime">01:23</span><span class="subtext">our mock-up areas and these are aircraft</span></div><div class="subrow" data-search="that have been cut out from the desert"><span class="subtime">01:26</span><span class="subtext">that have been cut out from the desert</span></div><div class="subrow" data-search="they&#x27;ve shipped them here and our flight"><span class="subtime">01:28</span><span class="subtext">they&#x27;ve shipped them here and our flight</span></div><div class="subrow" data-search="attendants go into these mock-ups and"><span class="subtime">01:29</span><span class="subtext">attendants go into these mock-ups and</span></div><div class="subrow" data-search="they practice different types of"><span class="subtime">01:31</span><span class="subtext">they practice different types of</span></div><div class="subrow" data-search="scenarios a lot of what we do is very"><span class="subtime">01:33</span><span class="subtext">scenarios a lot of what we do is very</span></div><div class="subrow" data-search="customer service driven flight"><span class="subtime">01:35</span><span class="subtext"><button type="button" class="subword" data-en="customer service driven" data-ru="ориентированный на обслуживание клиентов">customer service driven</button> flight</span></div><div class="subrow" data-search="attendants are able to balance that"><span class="subtime">01:36</span><span class="subtext">attendants are able to balance that</span></div><div class="subrow" data-search="customer service piece as well as being"><span class="subtime">01:38</span><span class="subtext">customer service piece as well as being</span></div><div class="subrow" data-search="mindful of any type of emergency"><span class="subtime">01:41</span><span class="subtext">mindful of any type of emergency</span></div><div class="subrow" data-search="situation that could happen on board the"><span class="subtime">01:42</span><span class="subtext">situation that could happen on board the</span></div><div class="subrow" data-search="aircraft studio is where we have all of"><span class="subtime">01:44</span><span class="subtext">aircraft studio is where we have all of</span></div><div class="subrow" data-search="our doors windows tail cone exits i&#x27;ll"><span class="subtime">01:47</span><span class="subtext">our doors windows tail cone exits I&#x27;ll</span></div><div class="subrow" data-search="talk through the new vacuum here after"><span class="subtime">01:50</span><span class="subtext">talk through the new vacuum here after</span></div><div class="subrow" data-search="we&#x27;ve boarded the aircraft and we&#x27;re"><span class="subtime">01:53</span><span class="subtext">we&#x27;ve boarded the aircraft and we&#x27;re</span></div><div class="subrow" data-search="ready to go trill is going to armed this"><span class="subtime">01:54</span><span class="subtext">ready to go trill is going to armed this</span></div><div class="subrow" data-search="store which means if we open the door"><span class="subtime">01:56</span><span class="subtext">store which means if we open the door</span></div><div class="subrow" data-search="armed"><span class="subtime">01:59</span><span class="subtext">armed</span></div><div class="subrow" data-search="going to get slide deployment when we"><span class="subtime">01:59</span><span class="subtext">going to get <button type="button" class="subword" data-en="slide deployment" data-ru="раскрытие аварийного трапа">slide deployment</button> when we</span></div><div class="subrow" data-search="practice our evacuation we want the door"><span class="subtime">02:01</span><span class="subtext"><button type="button" class="subword" data-en="practice our evacuation" data-ru="отрабатывать эвакуацию">practice our evacuation</button> we want the door</span></div><div class="subrow" data-search="to be armed all right charlie you ready"><span class="subtime">02:03</span><span class="subtext">to be armed all right Charlie you ready</span></div><div class="subrow" data-search="no pressure no pressure here we go"><span class="subtime">02:05</span><span class="subtext">no pressure no pressure here we go</span></div><div class="subrow" data-search="bend over stay down stay seated stay"><span class="subtime">02:08</span><span class="subtext">bend over stay down stay seated stay</span></div><div class="subrow" data-search="seated she&#x27;s thinking about her commands"><span class="subtime">02:14</span><span class="subtext">seated she&#x27;s thinking about her commands</span></div><div class="subrow" data-search="where her exits are she&#x27;s thinking about"><span class="subtime">02:16</span><span class="subtext">where her exits are she&#x27;s thinking about</span></div><div class="subrow" data-search="how to operate those exits where her"><span class="subtime">02:18</span><span class="subtext">how to <button type="button" class="subword" data-en="operate those exits" data-ru="управлять этими выходами">operate those exits</button> where her</span></div><div class="subrow" data-search="emergency equipment is she&#x27;s also"><span class="subtime">02:20</span><span class="subtext"><button type="button" class="subword" data-en="emergency equipment" data-ru="аварийное оборудование">emergency equipment</button> is she&#x27;s also</span></div><div class="subrow" data-search="thinking about people that got on board"><span class="subtime">02:21</span><span class="subtext">thinking about people that got on board</span></div><div class="subrow" data-search="that could help her in an emergency you"><span class="subtime">02:23</span><span class="subtext">that could help her in an emergency you</span></div><div class="subrow" data-search="helped at the bottom you helped at the"><span class="subtime">02:25</span><span class="subtext">helped at the bottom you helped at the</span></div><div class="subrow" data-search="bottom and she&#x27;s also gonna think about"><span class="subtime">02:28</span><span class="subtext">bottom and she&#x27;s also gonna think about</span></div><div class="subrow" data-search="the people that got on who might need"><span class="subtime">02:30</span><span class="subtext">the people that got on who might need</span></div><div class="subrow" data-search="her assistance"><span class="subtime">02:31</span><span class="subtext">her assistance</span></div><div class="subrow" data-search="we do want thinking flight attendants we"><span class="subtime">02:32</span><span class="subtext">we do want thinking flight attendants we</span></div><div class="subrow" data-search="do operate with a lot of checklists but"><span class="subtime">02:35</span><span class="subtext">do operate with a lot of checklists but</span></div><div class="subrow" data-search="in the end sometimes things come down to"><span class="subtime">02:37</span><span class="subtext">in the end sometimes things come down to</span></div><div class="subrow" data-search="a judgement call"><span class="subtime">02:39</span><span class="subtext">a judgement call</span></div><div class="subrow" data-search="we travel the different time zones"><span class="subtime">02:40</span><span class="subtext">we travel the different time zones</span></div><div class="subrow" data-search="different countries and maybe we can&#x27;t"><span class="subtime">02:41</span><span class="subtext">different countries and maybe we can&#x27;t</span></div><div class="subrow" data-search="sleep and then you&#x27;re expected to make"><span class="subtime">02:44</span><span class="subtext">sleep and then you&#x27;re expected to make</span></div><div class="subrow" data-search="good judgment calls and you&#x27;re expected"><span class="subtime">02:45</span><span class="subtext">good judgment calls and you&#x27;re expected</span></div><div class="subrow" data-search="to remember all your training and"><span class="subtime">02:47</span><span class="subtext">to remember all your training and</span></div><div class="subrow" data-search="respond to emergencies and be delta"><span class="subtime">02:48</span><span class="subtext"><button type="button" class="subword" data-en="respond to emergencies" data-ru="реагировать на чрезвычайные ситуации">respond to emergencies</button> and be Delta</span></div><div class="subrow" data-search="gracious and patient and all of that"><span class="subtime">02:51</span><span class="subtext">gracious and patient and all of that</span></div><div class="subrow" data-search="unlike asleep as well sometimes"><span class="subtime">02:53</span><span class="subtext">unlike asleep as well sometimes</span></div><div class="subrow" data-search="music"><span class="subtime">02:56</span><span class="subtext">[Music]</span></div><div class="subrow" data-search="we are gonna head to our motion based"><span class="subtime">02:58</span><span class="subtext">we are gonna head to our motion based</span></div>
+          </div>
+        </article>
+        
+        <article class="part" id="part3">
+          <div class="part-head">
+            <div><h3>Part 3 · Motion trainer and ditching</h3>
+            <p class="instruction">The motion trainer and ditching scenario create realistic pressure. Trainees practise commands, teamwork, rafts and staying calm.</p></div>
+            <span class="time">02:59–04:05</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn playpart" data-start="179" data-end="245">▶ Play this part</button>
+            <button type="button" class="btn ghost subtoggle">Show full subtitles for this part</button>
+          </div>
+          <div class="card">
+            <b>Vocabulary actually used in this part</b>
+            <div class="vocab-grid"><button type="button" class="vocab" data-en="stay calm" data-ru="сохранять спокойствие">stay calm</button><button type="button" class="vocab" data-en="feed off of" data-ru="подпитываться от / усиливаться из-за">feed off of</button><button type="button" class="vocab" data-en="work together as a team" data-ru="работать вместе как команда">work together as a team</button><button type="button" class="vocab" data-en="handle ditching" data-ru="справляться с аварийной посадкой на воду">handle ditching</button><button type="button" class="vocab" data-en="waiting for rescue" data-ru="ожидая спасения">waiting for rescue</button><button type="button" class="vocab" data-en="transfer it out to a real live aircraft" data-ru="перенести это на реальную работу в самолёте">transfer it out to a real live aircraft</button><button type="button" class="vocab" data-en="training kicks in" data-ru="срабатывает подготовка / включаются навыки">training kicks in</button></div>
+          </div>
+          <div class="card quizq" data-answer="0">
+            <b>What do trainees practise in the ditching scenario?</b><div class="options"><label class="opt"><input type="radio" name="flight_q2" value="0"><span>Getting into a raft and working as a team</span></label><label class="opt"><input type="radio" name="flight_q2" value="1"><span>Checking boarding passes</span></label><label class="opt"><input type="radio" name="flight_q2" value="2"><span>Selling duty-free products</span></label></div>
+            <button type="button" class="btn secondary checkone" style="margin-top:8px">Check</button>
+            <div class="feedback"></div>
+          </div>
+          <div class="card"><b>Complete the exact subtitle line</b><p class="instruction">Listen first. Type the missing expression exactly as it appears in the subtitles.</p><div class="gapline gapq" data-answer="stay calm">don&#x27;t __________ then your anxiety will<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><div class="gapline gapq" data-answer="feed off of">__________ that person it&#x27;s definitely<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><button type="button" class="btn secondary checkgaps">Check subtitle lines</button></div>
+          <div class="subtitle-box">
+            <div class="subnote"><b>Complete subtitle text for this segment.</b> These lines come from the SRT file you supplied. Auto-generated SRTs are preserved as supplied and may contain recognition errors.</div>
+            <div class="subrow" data-search="trainer it is our one and only trainer"><span class="subtime">03:01</span><span class="subtext">trainer it is our one and only trainer</span></div><div class="subrow" data-search="that does shake does move our flight"><span class="subtime">03:03</span><span class="subtext">that does shake does move our flight</span></div><div class="subrow" data-search="attendants have a week of training for"><span class="subtime">03:05</span><span class="subtext">attendants have a week of training for</span></div><div class="subrow" data-search="emergency that could happen onboard the"><span class="subtime">03:09</span><span class="subtext">emergency that could happen onboard the</span></div><div class="subrow" data-search="aircraft and learning our different"><span class="subtime">03:11</span><span class="subtext">aircraft and learning our different</span></div><div class="subrow" data-search="types of commands this is one of those"><span class="subtime">03:13</span><span class="subtext">types of commands this is one of those</span></div><div class="subrow" data-search="come this way"><span class="subtime">03:23</span><span class="subtext">come this way</span></div><div class="subrow" data-search="leave everything jump and slide if you"><span class="subtime">03:24</span><span class="subtext">leave everything jump and slide if you</span></div><div class="subrow" data-search="don&#x27;t stay calm then your anxiety will"><span class="subtime">03:27</span><span class="subtext">don&#x27;t <button type="button" class="subword" data-en="stay calm" data-ru="сохранять спокойствие">stay calm</button> then your anxiety will</span></div><div class="subrow" data-search="feed off of that person it&#x27;s definitely"><span class="subtime">03:30</span><span class="subtext"><button type="button" class="subword" data-en="feed off of" data-ru="подпитываться от / усиливаться из-за">feed off of</button> that person it&#x27;s definitely</span></div><div class="subrow" data-search="important to make sure you stay calm now"><span class="subtime">03:33</span><span class="subtext">important to make sure you <button type="button" class="subword" data-en="stay calm" data-ru="сохранять спокойствие">stay calm</button> now</span></div><div class="subrow" data-search="welcome to our ditching maka"><span class="subtime">03:37</span><span class="subtext">welcome to our ditching maka</span></div><div class="subrow" data-search="we have a 767 mock up and the flight"><span class="subtime">03:39</span><span class="subtext">we have a 767 mock up and the flight</span></div><div class="subrow" data-search="attendants have a little light bet and"><span class="subtime">03:42</span><span class="subtext">attendants have a little light bet and</span></div><div class="subrow" data-search="they jump right in and they work"><span class="subtime">03:43</span><span class="subtext">they jump right in and they work</span></div><div class="subrow" data-search="together as a team to handle ditching"><span class="subtime">03:45</span><span class="subtext">together as a team to <button type="button" class="subword" data-en="handle ditching" data-ru="справляться с аварийной посадкой на воду">handle ditching</button></span></div><div class="subrow" data-search="getting into a raft helping each other"><span class="subtime">03:47</span><span class="subtext">getting into a raft helping each other</span></div><div class="subrow" data-search="stay warm while they&#x27;re waiting for"><span class="subtime">03:50</span><span class="subtext">stay warm while they&#x27;re waiting for</span></div><div class="subrow" data-search="rescue we like to take flight attendants"><span class="subtime">03:53</span><span class="subtext">rescue we like to take flight attendants</span></div><div class="subrow" data-search="train them in these particular scenarios"><span class="subtime">03:55</span><span class="subtext">train them in these particular scenarios</span></div><div class="subrow" data-search="with the hope that they can take that"><span class="subtime">03:57</span><span class="subtext">with the hope that they can take that</span></div><div class="subrow" data-search="knowledge and transfer it out to a real"><span class="subtime">03:58</span><span class="subtext">knowledge and transfer it out to a real</span></div><div class="subrow" data-search="live aircraft and when those situations"><span class="subtime">04:01</span><span class="subtext">live aircraft and when those situations</span></div><div class="subrow" data-search="happen in real life their training kicks"><span class="subtime">04:03</span><span class="subtext">happen in real life their training kicks</span></div><div class="subrow" data-search="in one of our most common emergencies is"><span class="subtime">04:04</span><span class="subtext">in one of our most common emergencies is</span></div>
+          </div>
+        </article>
+        
+        <article class="part" id="part4">
+          <div class="part-head">
+            <div><h3>Part 4 · Medical emergencies and continuing qualification</h3>
+            <p class="instruction">The final section shows a medical emergency team and explains continuing qualification. Flight attendants must maintain high assessment scores and requalify every eighteen months.</p></div>
+            <span class="time">04:05–05:52</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn playpart" data-start="245" data-end="352">▶ Play this part</button>
+            <button type="button" class="btn ghost subtoggle">Show full subtitles for this part</button>
+          </div>
+          <div class="card">
+            <b>Vocabulary actually used in this part</b>
+            <div class="vocab-grid"><button type="button" class="vocab" data-en="medical emergencies" data-ru="медицинские чрезвычайные ситуации">medical emergencies</button><button type="button" class="vocab" data-en="medical assistance" data-ru="медицинская помощь">medical assistance</button><button type="button" class="vocab" data-en="maintain a 90 percent average" data-ru="поддерживать средний результат 90%">maintain a 90 percent average</button><button type="button" class="vocab" data-en="continuing qualification" data-ru="регулярное подтверждение квалификации">continuing qualification</button><button type="button" class="vocab" data-en="every eighteen months" data-ru="каждые восемнадцать месяцев">every eighteen months</button><button type="button" class="vocab" data-en="be proficient in" data-ru="быть компетентным / хорошо владеть">be proficient in</button><button type="button" class="vocab" data-en="hold them to a pretty high standard" data-ru="предъявлять к ним довольно высокие требования">hold them to a pretty high standard</button><button type="button" class="vocab" data-en="give feedback" data-ru="давать обратную связь">give feedback</button><button type="button" class="vocab" data-en="handle any situation" data-ru="справляться с любой ситуацией">handle any situation</button></div>
+          </div>
+          <div class="card quizq" data-answer="0">
+            <b>How often do qualified flight attendants requalify?</b><div class="options"><label class="opt"><input type="radio" name="flight_q3" value="0"><span>Every eighteen months</span></label><label class="opt"><input type="radio" name="flight_q3" value="1"><span>Every five years</span></label><label class="opt"><input type="radio" name="flight_q3" value="2"><span>Every month</span></label></div>
+            <button type="button" class="btn secondary checkone" style="margin-top:8px">Check</button>
+            <div class="feedback"></div>
+          </div>
+          <div class="card"><b>Complete the exact subtitle line</b><p class="instruction">Listen first. Type the missing expression exactly as it appears in the subtitles.</p><div class="gapline gapq" data-answer="medical emergencies">__________ when there&#x27;s someone<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><div class="gapline gapq" data-answer="medical assistance">to be filling out our __________<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><button type="button" class="btn secondary checkgaps">Check subtitle lines</button></div>
+          <div class="subtitle-box">
+            <div class="subnote"><b>Complete subtitle text for this segment.</b> These lines come from the SRT file you supplied. Auto-generated SRTs are preserved as supplied and may contain recognition errors.</div>
+            <div class="subrow" data-search="medical emergencies when there&#x27;s someone"><span class="subtime">04:07</span><span class="subtext"><button type="button" class="subword" data-en="medical emergencies" data-ru="медицинские чрезвычайные ситуации">medical emergencies</button> when there&#x27;s someone</span></div><div class="subrow" data-search="who has a heart attack in the aisle i"><span class="subtime">04:10</span><span class="subtext">who has a heart attack in the aisle I</span></div><div class="subrow" data-search="know where the medical equipment is on"><span class="subtime">04:12</span><span class="subtext">know where the medical equipment is on</span></div><div class="subrow" data-search="board the aircraft and i&#x27;m fully able to"><span class="subtime">04:14</span><span class="subtext">board the aircraft and I&#x27;m fully able to</span></div><div class="subrow" data-search="handle those types of situations are you"><span class="subtime">04:16</span><span class="subtext">handle those types of situations are you</span></div><div class="subrow" data-search="okay are you okay i&#x27;m patrice i&#x27;m a"><span class="subtime">04:18</span><span class="subtext">okay are you okay I&#x27;m Patrice I&#x27;m a</span></div><div class="subrow" data-search="flight attendant i can help typically on"><span class="subtime">04:21</span><span class="subtext">flight attendant I can help typically on</span></div><div class="subrow" data-search="the aircraft there would be three of us"><span class="subtime">04:23</span><span class="subtext">the aircraft there would be three of us</span></div><div class="subrow" data-search="involved in this scenario there would be"><span class="subtime">04:25</span><span class="subtext">involved in this scenario there would be</span></div><div class="subrow" data-search="an assessor a collector in a"><span class="subtime">04:26</span><span class="subtext">an Assessor a collector in a</span></div><div class="subrow" data-search="communicator i was the assessor trol was"><span class="subtime">04:28</span><span class="subtext">communicator I was the Assessor trol was</span></div><div class="subrow" data-search="my collector she brought me my equipment"><span class="subtime">04:31</span><span class="subtext">my collector she brought me my equipment</span></div><div class="subrow" data-search="and then she stayed with me the whole"><span class="subtime">04:33</span><span class="subtext">and then she stayed with me the whole</span></div><div class="subrow" data-search="time"><span class="subtime">04:35</span><span class="subtext">time</span></div><div class="subrow" data-search="the third person that we would usually"><span class="subtime">04:36</span><span class="subtext">the third person that we would usually</span></div><div class="subrow" data-search="have is our communicator communicator is"><span class="subtime">04:37</span><span class="subtext">have is our communicator communicator is</span></div><div class="subrow" data-search="going to be talking to the flight deck"><span class="subtime">04:40</span><span class="subtext">going to be talking to the flight deck</span></div><div class="subrow" data-search="they&#x27;re going to be paging for medical"><span class="subtime">04:41</span><span class="subtext">they&#x27;re going to be paging for medical</span></div><div class="subrow" data-search="assistance they&#x27;re going to be trying to"><span class="subtime">04:43</span><span class="subtext">assistance they&#x27;re going to be trying to</span></div><div class="subrow" data-search="get in touch with statmd they&#x27;re going"><span class="subtime">04:45</span><span class="subtext">get in touch with statmd they&#x27;re going</span></div><div class="subrow" data-search="to be filling out our medical assistance"><span class="subtime">04:46</span><span class="subtext">to be filling out our <button type="button" class="subword" data-en="medical assistance" data-ru="медицинская помощь">medical assistance</button></span></div><div class="subrow" data-search="form or helping us to do that in some"><span class="subtime">04:48</span><span class="subtext">form or helping us to do that in some</span></div><div class="subrow" data-search="way clear clear not touch the patient"><span class="subtime">04:51</span><span class="subtext">way clear clear not touch the patient</span></div><div class="subrow" data-search="anything that can happen on the ground"><span class="subtime">04:55</span><span class="subtext">anything that can happen on the ground</span></div><div class="subrow" data-search="can happen in the air so we have to be"><span class="subtime">04:57</span><span class="subtext">can happen in the air so we have to be</span></div><div class="subrow" data-search="mindful of always being gracious but in"><span class="subtime">04:59</span><span class="subtext">mindful of always being gracious but in</span></div><div class="subrow" data-search="the back of our mind always thinking of"><span class="subtime">05:01</span><span class="subtext">the back of our mind always thinking of</span></div><div class="subrow" data-search="the other things that could possibly"><span class="subtime">05:03</span><span class="subtext">the other things that could possibly</span></div><div class="subrow" data-search="happen on board the"><span class="subtime">05:04</span><span class="subtext">happen on board the</span></div><div class="subrow" data-search="and knowing that we&#x27;re fully trained to"><span class="subtime">05:06</span><span class="subtext">and knowing that we&#x27;re fully trained to</span></div><div class="subrow" data-search="handle any type of situation flight"><span class="subtime">05:07</span><span class="subtext">handle any type of situation flight</span></div><div class="subrow" data-search="attendants have to maintain a 90 percent"><span class="subtime">05:09</span><span class="subtext">attendants have to maintain a 90 percent</span></div><div class="subrow" data-search="average within the six assessments that"><span class="subtime">05:12</span><span class="subtext">average within the six assessments that</span></div><div class="subrow" data-search="they take but once a flight attendant"><span class="subtime">05:14</span><span class="subtext">they take but once a flight attendant</span></div><div class="subrow" data-search="leaves and graduates is a flight"><span class="subtime">05:16</span><span class="subtext">leaves and graduates is a flight</span></div><div class="subrow" data-search="attendant flying out there on the line"><span class="subtime">05:18</span><span class="subtext">attendant flying out there on the line</span></div><div class="subrow" data-search="their training isn&#x27;t over we have"><span class="subtime">05:19</span><span class="subtext">their training isn&#x27;t over we have</span></div><div class="subrow" data-search="something called continuing"><span class="subtime">05:20</span><span class="subtext">something called continuing</span></div><div class="subrow" data-search="qualification and that is where flight"><span class="subtime">05:21</span><span class="subtext">qualification and that is where flight</span></div><div class="subrow" data-search="attendants that are qualified and out"><span class="subtime">05:23</span><span class="subtext">attendants that are qualified and out</span></div><div class="subrow" data-search="there flying have to reek wala phi every"><span class="subtime">05:25</span><span class="subtext">there flying have to reek wala Phi every</span></div><div class="subrow" data-search="eighteen months"><span class="subtime">05:27</span><span class="subtext">eighteen months</span></div><div class="subrow" data-search="they come back to training and they do"><span class="subtime">05:28</span><span class="subtext">they come back to training and they do</span></div><div class="subrow" data-search="have to be proficient in their door"><span class="subtime">05:30</span><span class="subtext">have to <button type="button" class="subword" data-en="be proficient in" data-ru="быть компетентным / хорошо владеть">be proficient in</button> their door</span></div><div class="subrow" data-search="evacuations in their emv scenarios cpr"><span class="subtime">05:32</span><span class="subtext">evacuations in their EMV scenarios CPR</span></div><div class="subrow" data-search="security we do hold them to a pretty"><span class="subtime">05:36</span><span class="subtext">security we do hold them to a pretty</span></div><div class="subrow" data-search="high standard and so being calm being"><span class="subtime">05:38</span><span class="subtext">high standard and so being calm being</span></div><div class="subrow" data-search="patient is something that we learn and"><span class="subtime">05:41</span><span class="subtext">patient is something that we learn and</span></div><div class="subrow" data-search="we also give feedback on so that when"><span class="subtime">05:43</span><span class="subtext">we also <button type="button" class="subword" data-en="give feedback" data-ru="давать обратную связь">give feedback</button> on so that when</span></div><div class="subrow" data-search="they are on the line is an active flight"><span class="subtime">05:46</span><span class="subtext">they are on the line is an active flight</span></div><div class="subrow" data-search="attendant they&#x27;re able to handle any"><span class="subtime">05:47</span><span class="subtext">attendant they&#x27;re able to handle any</span></div><div class="subrow" data-search="situation"><span class="subtime">05:49</span><span class="subtext">situation</span></div>
+          </div>
+        </article>
+        
+</section>
+
+<section class="section" id="discussion">
+<h2><span class="badge">5</span>Discussion and transfer</h2>
+<p class="instruction">Discuss with ChatGPT, DeepSeek or a person. Use the suggested expressions, but do not read the sample before answering.</p>
+
+        <div class="card">
+          <b>1. Which personal qualities would make someone a strong flight attendant?</b>
+          <div class="collocs"><span class="colloc">stay calm</span><span class="colloc">make good judgment calls</span><span class="colloc">give feedback</span><span class="colloc">handle any situation</span></div>
+          <textarea placeholder="TRY TO DO ORALLY first. Optional notes..."></textarea>
+          <button type="button" class="btn ghost sampletoggle">Show sample answer</button>
+          <div class="sample"><b>Sample:</b> A strong flight attendant should stay calm, communicate clearly and be able to make good judgement calls under pressure.</div>
+        </div>
+        <div class="card">
+          <b>2. Can simulations prepare people for real emergencies?</b>
+          <div class="collocs"><span class="colloc">practice different types of scenarios</span><span class="colloc">training kicks in</span><span class="colloc">work together as a team</span><span class="colloc">respond to emergencies</span></div>
+          <textarea placeholder="TRY TO DO ORALLY first. Optional notes..."></textarea>
+          <button type="button" class="btn ghost sampletoggle">Show sample answer</button>
+          <div class="sample"><b>Sample:</b> Simulations cannot reproduce every detail, but repeated scenarios can make important actions more automatic when training kicks in.</div>
+        </div>
+        <div class="card">
+          <b>3. Which other jobs require similar preparation?</b>
+          <div class="collocs"><span class="colloc">emergency management</span><span class="colloc">medical situations</span><span class="colloc">be proficient in</span><span class="colloc">high standard</span></div>
+          <textarea placeholder="TRY TO DO ORALLY first. Optional notes..."></textarea>
+          <button type="button" class="btn ghost sampletoggle">Show sample answer</button>
+          <div class="sample"><b>Sample:</b> Paramedics, firefighters and some industrial workers need similar preparation because they must follow procedures while adapting to unpredictable situations.</div>
+        </div>
+<div class="card"><b>Final task</b><p>Create a 60–90 second profile of the ideal flight attendant: abilities, personality, training and one difficult situation they must be able to handle.</p><textarea placeholder="Plan with keywords only; then speak."></textarea></div>
+</section>
+
+<section class="section" id="fullsubs">
+<h2><span class="badge">6</span>Complete subtitles</h2>
+<div class="subnote"><b>Source:</b> English auto-generated subtitles supplied by the user. The full subtitle text is included, not reconstructed from memory. For auto-generated captions, recognition errors are intentionally preserved rather than silently rewritten.</div>
+<div class="searchbar" style="margin-top:10px"><input type="search" id="subsearch" placeholder="Search the complete subtitles..."><button type="button" class="btn secondary" id="clearsearch">Clear</button></div>
+<div class="subtitle-box show" id="allsubs"><div class="subrow" data-search="hey zack you late you could have no"><span class="subtime">00:00</span><span class="subtext">hey Zack you late you could have no</span></div><div class="subrow" data-search="obstruction no fire no water go to open"><span class="subtime">00:11</span><span class="subtext">obstruction no fire no water go to open</span></div><div class="subrow" data-search="your exit and it doesn&#x27;t work it&#x27;s a"><span class="subtime">00:13</span><span class="subtext">your exit and it doesn&#x27;t work it&#x27;s a</span></div><div class="subrow" data-search="jammed a lot of the times i think the"><span class="subtime">00:16</span><span class="subtext">jammed a lot of the times I think the</span></div><div class="subrow" data-search="perception is that we&#x27;re waitresses in"><span class="subtime">00:18</span><span class="subtext">perception is that we&#x27;re waitresses in</span></div><div class="subrow" data-search="the sky first and foremost we are safety"><span class="subtime">00:20</span><span class="subtext">the sky <button type="button" class="subword" data-en="first and foremost" data-ru="прежде всего">first and foremost</button> we are safety</span></div><div class="subrow" data-search="professionals anything that can happen"><span class="subtime">00:23</span><span class="subtext">professionals anything that can happen</span></div><div class="subrow" data-search="on the ground can happen in the air come"><span class="subtime">00:25</span><span class="subtext">on the ground can happen in the air come</span></div><div class="subrow" data-search="this way"><span class="subtime">00:27</span><span class="subtext">this way</span></div><div class="subrow" data-search="leave everything my name is patrice"><span class="subtime">00:28</span><span class="subtext">leave everything my name is Patrice</span></div><div class="subrow" data-search="hillis hey my name is trill any bundrage"><span class="subtime">00:29</span><span class="subtext">Hillis hey my name is trill any Bundrage</span></div><div class="subrow" data-search="my nickname is truck we&#x27;re here to show"><span class="subtime">00:31</span><span class="subtext">my nickname is truck we&#x27;re here to show</span></div><div class="subrow" data-search="you what it takes to be a delta airlines"><span class="subtime">00:33</span><span class="subtext">you what it takes to be a Delta Airlines</span></div><div class="subrow" data-search="flight it&#x27;s in it a lot of magic happens"><span class="subtime">00:35</span><span class="subtext">flight it&#x27;s in it a lot of magic happens</span></div><div class="subrow" data-search="down here in the training center over"><span class="subtime">00:37</span><span class="subtext">down here in the training center over</span></div><div class="subrow" data-search="195 thousand applications come in to"><span class="subtime">00:39</span><span class="subtext">195 thousand applications come in to</span></div><div class="subrow" data-search="delta airlines and of those 3 000 for"><span class="subtime">00:42</span><span class="subtext">Delta Airlines and of those 3,000 for</span></div><div class="subrow" data-search="this year alone we&#x27;ll get to come"><span class="subtime">00:45</span><span class="subtext">this year alone we&#x27;ll get to come</span></div><div class="subrow" data-search="through these doors and be a delta"><span class="subtime">00:47</span><span class="subtext">through these doors and be a Delta</span></div><div class="subrow" data-search="airlines flight attendant initial flight"><span class="subtime">00:49</span><span class="subtext">Airlines flight attendant initial flight</span></div><div class="subrow" data-search="attendant training is six weeks of"><span class="subtime">00:51</span><span class="subtext">attendant training is six weeks of</span></div><div class="subrow" data-search="intense training they start here in week"><span class="subtime">00:53</span><span class="subtext"><button type="button" class="subword" data-en="intense training" data-ru="интенсивная подготовка">intense training</button> they start here in week</span></div><div class="subrow" data-search="one and they learn about the foundations"><span class="subtime">00:56</span><span class="subtext">one and they learn about the foundations</span></div><div class="subrow" data-search="of delta airlines and then we go to week"><span class="subtime">00:58</span><span class="subtext">of Delta Airlines and then we go to week</span></div><div class="subrow" data-search="three and those are non phase specific"><span class="subtime">01:01</span><span class="subtext">three and those are non phase specific</span></div><div class="subrow" data-search="things like security emergency"><span class="subtime">01:03</span><span class="subtext">things like security emergency</span></div><div class="subrow" data-search="management medical situations that can"><span class="subtime">01:05</span><span class="subtext">management <button type="button" class="subword" data-en="medical situations" data-ru="медицинские ситуации">medical situations</button> that can</span></div><div class="subrow" data-search="happen on board the aircraft and then"><span class="subtime">01:08</span><span class="subtext">happen <button type="button" class="subword" data-en="on board the aircraft" data-ru="на борту самолёта">on board the aircraft</button> and then</span></div><div class="subrow" data-search="week six it&#x27;s all about customer service"><span class="subtime">01:09</span><span class="subtext">week six it&#x27;s all about customer service</span></div><div class="subrow" data-search="and so within those six weeks we have a"><span class="subtime">01:11</span><span class="subtext">and so within those six weeks we have a</span></div><div class="subrow" data-search="fully rounded delta airlines flight"><span class="subtime">01:14</span><span class="subtext"><button type="button" class="subword" data-en="fully rounded" data-ru="всесторонне подготовленный">fully rounded</button> Delta Airlines flight</span></div><div class="subrow" data-search="isn&#x27;t it who is ready to go out there on"><span class="subtime">01:16</span><span class="subtext">isn&#x27;t it who is ready to go out there on</span></div><div class="subrow" data-search="any aircraft this area is what we call"><span class="subtime">01:18</span><span class="subtext">any aircraft this area is what we call</span></div><div class="subrow" data-search="our mock-up areas and these are aircraft"><span class="subtime">01:23</span><span class="subtext">our mock-up areas and these are aircraft</span></div><div class="subrow" data-search="that have been cut out from the desert"><span class="subtime">01:26</span><span class="subtext">that have been cut out from the desert</span></div><div class="subrow" data-search="they&#x27;ve shipped them here and our flight"><span class="subtime">01:28</span><span class="subtext">they&#x27;ve shipped them here and our flight</span></div><div class="subrow" data-search="attendants go into these mock-ups and"><span class="subtime">01:29</span><span class="subtext">attendants go into these mock-ups and</span></div><div class="subrow" data-search="they practice different types of"><span class="subtime">01:31</span><span class="subtext">they practice different types of</span></div><div class="subrow" data-search="scenarios a lot of what we do is very"><span class="subtime">01:33</span><span class="subtext">scenarios a lot of what we do is very</span></div><div class="subrow" data-search="customer service driven flight"><span class="subtime">01:35</span><span class="subtext"><button type="button" class="subword" data-en="customer service driven" data-ru="ориентированный на обслуживание клиентов">customer service driven</button> flight</span></div><div class="subrow" data-search="attendants are able to balance that"><span class="subtime">01:36</span><span class="subtext">attendants are able to balance that</span></div><div class="subrow" data-search="customer service piece as well as being"><span class="subtime">01:38</span><span class="subtext">customer service piece as well as being</span></div><div class="subrow" data-search="mindful of any type of emergency"><span class="subtime">01:41</span><span class="subtext">mindful of any type of emergency</span></div><div class="subrow" data-search="situation that could happen on board the"><span class="subtime">01:42</span><span class="subtext">situation that could happen on board the</span></div><div class="subrow" data-search="aircraft studio is where we have all of"><span class="subtime">01:44</span><span class="subtext">aircraft studio is where we have all of</span></div><div class="subrow" data-search="our doors windows tail cone exits i&#x27;ll"><span class="subtime">01:47</span><span class="subtext">our doors windows tail cone exits I&#x27;ll</span></div><div class="subrow" data-search="talk through the new vacuum here after"><span class="subtime">01:50</span><span class="subtext">talk through the new vacuum here after</span></div><div class="subrow" data-search="we&#x27;ve boarded the aircraft and we&#x27;re"><span class="subtime">01:53</span><span class="subtext">we&#x27;ve boarded the aircraft and we&#x27;re</span></div><div class="subrow" data-search="ready to go trill is going to armed this"><span class="subtime">01:54</span><span class="subtext">ready to go trill is going to armed this</span></div><div class="subrow" data-search="store which means if we open the door"><span class="subtime">01:56</span><span class="subtext">store which means if we open the door</span></div><div class="subrow" data-search="armed"><span class="subtime">01:59</span><span class="subtext">armed</span></div><div class="subrow" data-search="going to get slide deployment when we"><span class="subtime">01:59</span><span class="subtext">going to get <button type="button" class="subword" data-en="slide deployment" data-ru="раскрытие аварийного трапа">slide deployment</button> when we</span></div><div class="subrow" data-search="practice our evacuation we want the door"><span class="subtime">02:01</span><span class="subtext"><button type="button" class="subword" data-en="practice our evacuation" data-ru="отрабатывать эвакуацию">practice our evacuation</button> we want the door</span></div><div class="subrow" data-search="to be armed all right charlie you ready"><span class="subtime">02:03</span><span class="subtext">to be armed all right Charlie you ready</span></div><div class="subrow" data-search="no pressure no pressure here we go"><span class="subtime">02:05</span><span class="subtext">no pressure no pressure here we go</span></div><div class="subrow" data-search="bend over stay down stay seated stay"><span class="subtime">02:08</span><span class="subtext">bend over stay down stay seated stay</span></div><div class="subrow" data-search="seated she&#x27;s thinking about her commands"><span class="subtime">02:14</span><span class="subtext">seated she&#x27;s thinking about her commands</span></div><div class="subrow" data-search="where her exits are she&#x27;s thinking about"><span class="subtime">02:16</span><span class="subtext">where her exits are she&#x27;s thinking about</span></div><div class="subrow" data-search="how to operate those exits where her"><span class="subtime">02:18</span><span class="subtext">how to <button type="button" class="subword" data-en="operate those exits" data-ru="управлять этими выходами">operate those exits</button> where her</span></div><div class="subrow" data-search="emergency equipment is she&#x27;s also"><span class="subtime">02:20</span><span class="subtext"><button type="button" class="subword" data-en="emergency equipment" data-ru="аварийное оборудование">emergency equipment</button> is she&#x27;s also</span></div><div class="subrow" data-search="thinking about people that got on board"><span class="subtime">02:21</span><span class="subtext">thinking about people that got on board</span></div><div class="subrow" data-search="that could help her in an emergency you"><span class="subtime">02:23</span><span class="subtext">that could help her in an emergency you</span></div><div class="subrow" data-search="helped at the bottom you helped at the"><span class="subtime">02:25</span><span class="subtext">helped at the bottom you helped at the</span></div><div class="subrow" data-search="bottom and she&#x27;s also gonna think about"><span class="subtime">02:28</span><span class="subtext">bottom and she&#x27;s also gonna think about</span></div><div class="subrow" data-search="the people that got on who might need"><span class="subtime">02:30</span><span class="subtext">the people that got on who might need</span></div><div class="subrow" data-search="her assistance"><span class="subtime">02:31</span><span class="subtext">her assistance</span></div><div class="subrow" data-search="we do want thinking flight attendants we"><span class="subtime">02:32</span><span class="subtext">we do want thinking flight attendants we</span></div><div class="subrow" data-search="do operate with a lot of checklists but"><span class="subtime">02:35</span><span class="subtext">do operate with a lot of checklists but</span></div><div class="subrow" data-search="in the end sometimes things come down to"><span class="subtime">02:37</span><span class="subtext">in the end sometimes things come down to</span></div><div class="subrow" data-search="a judgement call"><span class="subtime">02:39</span><span class="subtext">a judgement call</span></div><div class="subrow" data-search="we travel the different time zones"><span class="subtime">02:40</span><span class="subtext">we travel the different time zones</span></div><div class="subrow" data-search="different countries and maybe we can&#x27;t"><span class="subtime">02:41</span><span class="subtext">different countries and maybe we can&#x27;t</span></div><div class="subrow" data-search="sleep and then you&#x27;re expected to make"><span class="subtime">02:44</span><span class="subtext">sleep and then you&#x27;re expected to make</span></div><div class="subrow" data-search="good judgment calls and you&#x27;re expected"><span class="subtime">02:45</span><span class="subtext">good judgment calls and you&#x27;re expected</span></div><div class="subrow" data-search="to remember all your training and"><span class="subtime">02:47</span><span class="subtext">to remember all your training and</span></div><div class="subrow" data-search="respond to emergencies and be delta"><span class="subtime">02:48</span><span class="subtext"><button type="button" class="subword" data-en="respond to emergencies" data-ru="реагировать на чрезвычайные ситуации">respond to emergencies</button> and be Delta</span></div><div class="subrow" data-search="gracious and patient and all of that"><span class="subtime">02:51</span><span class="subtext">gracious and patient and all of that</span></div><div class="subrow" data-search="unlike asleep as well sometimes"><span class="subtime">02:53</span><span class="subtext">unlike asleep as well sometimes</span></div><div class="subrow" data-search="music"><span class="subtime">02:56</span><span class="subtext">[Music]</span></div><div class="subrow" data-search="we are gonna head to our motion based"><span class="subtime">02:58</span><span class="subtext">we are gonna head to our motion based</span></div><div class="subrow" data-search="trainer it is our one and only trainer"><span class="subtime">03:01</span><span class="subtext">trainer it is our one and only trainer</span></div><div class="subrow" data-search="that does shake does move our flight"><span class="subtime">03:03</span><span class="subtext">that does shake does move our flight</span></div><div class="subrow" data-search="attendants have a week of training for"><span class="subtime">03:05</span><span class="subtext">attendants have a week of training for</span></div><div class="subrow" data-search="emergency that could happen onboard the"><span class="subtime">03:09</span><span class="subtext">emergency that could happen onboard the</span></div><div class="subrow" data-search="aircraft and learning our different"><span class="subtime">03:11</span><span class="subtext">aircraft and learning our different</span></div><div class="subrow" data-search="types of commands this is one of those"><span class="subtime">03:13</span><span class="subtext">types of commands this is one of those</span></div><div class="subrow" data-search="come this way"><span class="subtime">03:23</span><span class="subtext">come this way</span></div><div class="subrow" data-search="leave everything jump and slide if you"><span class="subtime">03:24</span><span class="subtext">leave everything jump and slide if you</span></div><div class="subrow" data-search="don&#x27;t stay calm then your anxiety will"><span class="subtime">03:27</span><span class="subtext">don&#x27;t <button type="button" class="subword" data-en="stay calm" data-ru="сохранять спокойствие">stay calm</button> then your anxiety will</span></div><div class="subrow" data-search="feed off of that person it&#x27;s definitely"><span class="subtime">03:30</span><span class="subtext"><button type="button" class="subword" data-en="feed off of" data-ru="подпитываться от / усиливаться из-за">feed off of</button> that person it&#x27;s definitely</span></div><div class="subrow" data-search="important to make sure you stay calm now"><span class="subtime">03:33</span><span class="subtext">important to make sure you <button type="button" class="subword" data-en="stay calm" data-ru="сохранять спокойствие">stay calm</button> now</span></div><div class="subrow" data-search="welcome to our ditching maka"><span class="subtime">03:37</span><span class="subtext">welcome to our ditching maka</span></div><div class="subrow" data-search="we have a 767 mock up and the flight"><span class="subtime">03:39</span><span class="subtext">we have a 767 mock up and the flight</span></div><div class="subrow" data-search="attendants have a little light bet and"><span class="subtime">03:42</span><span class="subtext">attendants have a little light bet and</span></div><div class="subrow" data-search="they jump right in and they work"><span class="subtime">03:43</span><span class="subtext">they jump right in and they work</span></div><div class="subrow" data-search="together as a team to handle ditching"><span class="subtime">03:45</span><span class="subtext">together as a team to <button type="button" class="subword" data-en="handle ditching" data-ru="справляться с аварийной посадкой на воду">handle ditching</button></span></div><div class="subrow" data-search="getting into a raft helping each other"><span class="subtime">03:47</span><span class="subtext">getting into a raft helping each other</span></div><div class="subrow" data-search="stay warm while they&#x27;re waiting for"><span class="subtime">03:50</span><span class="subtext">stay warm while they&#x27;re waiting for</span></div><div class="subrow" data-search="rescue we like to take flight attendants"><span class="subtime">03:53</span><span class="subtext">rescue we like to take flight attendants</span></div><div class="subrow" data-search="train them in these particular scenarios"><span class="subtime">03:55</span><span class="subtext">train them in these particular scenarios</span></div><div class="subrow" data-search="with the hope that they can take that"><span class="subtime">03:57</span><span class="subtext">with the hope that they can take that</span></div><div class="subrow" data-search="knowledge and transfer it out to a real"><span class="subtime">03:58</span><span class="subtext">knowledge and transfer it out to a real</span></div><div class="subrow" data-search="live aircraft and when those situations"><span class="subtime">04:01</span><span class="subtext">live aircraft and when those situations</span></div><div class="subrow" data-search="happen in real life their training kicks"><span class="subtime">04:03</span><span class="subtext">happen in real life their training kicks</span></div><div class="subrow" data-search="in one of our most common emergencies is"><span class="subtime">04:04</span><span class="subtext">in one of our most common emergencies is</span></div><div class="subrow" data-search="medical emergencies when there&#x27;s someone"><span class="subtime">04:07</span><span class="subtext"><button type="button" class="subword" data-en="medical emergencies" data-ru="медицинские чрезвычайные ситуации">medical emergencies</button> when there&#x27;s someone</span></div><div class="subrow" data-search="who has a heart attack in the aisle i"><span class="subtime">04:10</span><span class="subtext">who has a heart attack in the aisle I</span></div><div class="subrow" data-search="know where the medical equipment is on"><span class="subtime">04:12</span><span class="subtext">know where the medical equipment is on</span></div><div class="subrow" data-search="board the aircraft and i&#x27;m fully able to"><span class="subtime">04:14</span><span class="subtext">board the aircraft and I&#x27;m fully able to</span></div><div class="subrow" data-search="handle those types of situations are you"><span class="subtime">04:16</span><span class="subtext">handle those types of situations are you</span></div><div class="subrow" data-search="okay are you okay i&#x27;m patrice i&#x27;m a"><span class="subtime">04:18</span><span class="subtext">okay are you okay I&#x27;m Patrice I&#x27;m a</span></div><div class="subrow" data-search="flight attendant i can help typically on"><span class="subtime">04:21</span><span class="subtext">flight attendant I can help typically on</span></div><div class="subrow" data-search="the aircraft there would be three of us"><span class="subtime">04:23</span><span class="subtext">the aircraft there would be three of us</span></div><div class="subrow" data-search="involved in this scenario there would be"><span class="subtime">04:25</span><span class="subtext">involved in this scenario there would be</span></div><div class="subrow" data-search="an assessor a collector in a"><span class="subtime">04:26</span><span class="subtext">an Assessor a collector in a</span></div><div class="subrow" data-search="communicator i was the assessor trol was"><span class="subtime">04:28</span><span class="subtext">communicator I was the Assessor trol was</span></div><div class="subrow" data-search="my collector she brought me my equipment"><span class="subtime">04:31</span><span class="subtext">my collector she brought me my equipment</span></div><div class="subrow" data-search="and then she stayed with me the whole"><span class="subtime">04:33</span><span class="subtext">and then she stayed with me the whole</span></div><div class="subrow" data-search="time"><span class="subtime">04:35</span><span class="subtext">time</span></div><div class="subrow" data-search="the third person that we would usually"><span class="subtime">04:36</span><span class="subtext">the third person that we would usually</span></div><div class="subrow" data-search="have is our communicator communicator is"><span class="subtime">04:37</span><span class="subtext">have is our communicator communicator is</span></div><div class="subrow" data-search="going to be talking to the flight deck"><span class="subtime">04:40</span><span class="subtext">going to be talking to the flight deck</span></div><div class="subrow" data-search="they&#x27;re going to be paging for medical"><span class="subtime">04:41</span><span class="subtext">they&#x27;re going to be paging for medical</span></div><div class="subrow" data-search="assistance they&#x27;re going to be trying to"><span class="subtime">04:43</span><span class="subtext">assistance they&#x27;re going to be trying to</span></div><div class="subrow" data-search="get in touch with statmd they&#x27;re going"><span class="subtime">04:45</span><span class="subtext">get in touch with statmd they&#x27;re going</span></div><div class="subrow" data-search="to be filling out our medical assistance"><span class="subtime">04:46</span><span class="subtext">to be filling out our <button type="button" class="subword" data-en="medical assistance" data-ru="медицинская помощь">medical assistance</button></span></div><div class="subrow" data-search="form or helping us to do that in some"><span class="subtime">04:48</span><span class="subtext">form or helping us to do that in some</span></div><div class="subrow" data-search="way clear clear not touch the patient"><span class="subtime">04:51</span><span class="subtext">way clear clear not touch the patient</span></div><div class="subrow" data-search="anything that can happen on the ground"><span class="subtime">04:55</span><span class="subtext">anything that can happen on the ground</span></div><div class="subrow" data-search="can happen in the air so we have to be"><span class="subtime">04:57</span><span class="subtext">can happen in the air so we have to be</span></div><div class="subrow" data-search="mindful of always being gracious but in"><span class="subtime">04:59</span><span class="subtext">mindful of always being gracious but in</span></div><div class="subrow" data-search="the back of our mind always thinking of"><span class="subtime">05:01</span><span class="subtext">the back of our mind always thinking of</span></div><div class="subrow" data-search="the other things that could possibly"><span class="subtime">05:03</span><span class="subtext">the other things that could possibly</span></div><div class="subrow" data-search="happen on board the"><span class="subtime">05:04</span><span class="subtext">happen on board the</span></div><div class="subrow" data-search="and knowing that we&#x27;re fully trained to"><span class="subtime">05:06</span><span class="subtext">and knowing that we&#x27;re fully trained to</span></div><div class="subrow" data-search="handle any type of situation flight"><span class="subtime">05:07</span><span class="subtext">handle any type of situation flight</span></div><div class="subrow" data-search="attendants have to maintain a 90 percent"><span class="subtime">05:09</span><span class="subtext">attendants have to maintain a 90 percent</span></div><div class="subrow" data-search="average within the six assessments that"><span class="subtime">05:12</span><span class="subtext">average within the six assessments that</span></div><div class="subrow" data-search="they take but once a flight attendant"><span class="subtime">05:14</span><span class="subtext">they take but once a flight attendant</span></div><div class="subrow" data-search="leaves and graduates is a flight"><span class="subtime">05:16</span><span class="subtext">leaves and graduates is a flight</span></div><div class="subrow" data-search="attendant flying out there on the line"><span class="subtime">05:18</span><span class="subtext">attendant flying out there on the line</span></div><div class="subrow" data-search="their training isn&#x27;t over we have"><span class="subtime">05:19</span><span class="subtext">their training isn&#x27;t over we have</span></div><div class="subrow" data-search="something called continuing"><span class="subtime">05:20</span><span class="subtext">something called continuing</span></div><div class="subrow" data-search="qualification and that is where flight"><span class="subtime">05:21</span><span class="subtext">qualification and that is where flight</span></div><div class="subrow" data-search="attendants that are qualified and out"><span class="subtime">05:23</span><span class="subtext">attendants that are qualified and out</span></div><div class="subrow" data-search="there flying have to reek wala phi every"><span class="subtime">05:25</span><span class="subtext">there flying have to reek wala Phi every</span></div><div class="subrow" data-search="eighteen months"><span class="subtime">05:27</span><span class="subtext">eighteen months</span></div><div class="subrow" data-search="they come back to training and they do"><span class="subtime">05:28</span><span class="subtext">they come back to training and they do</span></div><div class="subrow" data-search="have to be proficient in their door"><span class="subtime">05:30</span><span class="subtext">have to <button type="button" class="subword" data-en="be proficient in" data-ru="быть компетентным / хорошо владеть">be proficient in</button> their door</span></div><div class="subrow" data-search="evacuations in their emv scenarios cpr"><span class="subtime">05:32</span><span class="subtext">evacuations in their EMV scenarios CPR</span></div><div class="subrow" data-search="security we do hold them to a pretty"><span class="subtime">05:36</span><span class="subtext">security we do hold them to a pretty</span></div><div class="subrow" data-search="high standard and so being calm being"><span class="subtime">05:38</span><span class="subtext">high standard and so being calm being</span></div><div class="subrow" data-search="patient is something that we learn and"><span class="subtime">05:41</span><span class="subtext">patient is something that we learn and</span></div><div class="subrow" data-search="we also give feedback on so that when"><span class="subtime">05:43</span><span class="subtext">we also <button type="button" class="subword" data-en="give feedback" data-ru="давать обратную связь">give feedback</button> on so that when</span></div><div class="subrow" data-search="they are on the line is an active flight"><span class="subtime">05:46</span><span class="subtext">they are on the line is an active flight</span></div><div class="subrow" data-search="attendant they&#x27;re able to handle any"><span class="subtime">05:47</span><span class="subtext">attendant they&#x27;re able to handle any</span></div><div class="subrow" data-search="situation"><span class="subtime">05:49</span><span class="subtext">situation</span></div></div>
+<details class="raw"><summary>Show original raw SRT file</summary><pre class="rawpre">1
+00:00:00,000 --&gt; 00:00:11,099
+hey Zack you late you could have no
+
+2
+00:00:11,099 --&gt; 00:00:13,860
+obstruction no fire no water go to open
+
+3
+00:00:13,860 --&gt; 00:00:16,109
+your exit and it doesn&#x27;t work it&#x27;s a
+
+4
+00:00:16,109 --&gt; 00:00:18,570
+jammed a lot of the times I think the
+
+5
+00:00:18,570 --&gt; 00:00:20,699
+perception is that we&#x27;re waitresses in
+
+6
+00:00:20,699 --&gt; 00:00:23,519
+the sky first and foremost we are safety
+
+7
+00:00:23,519 --&gt; 00:00:25,260
+professionals anything that can happen
+
+8
+00:00:25,260 --&gt; 00:00:27,359
+on the ground can happen in the air come
+
+9
+00:00:27,359 --&gt; 00:00:28,140
+this way
+
+10
+00:00:28,140 --&gt; 00:00:29,970
+leave everything my name is Patrice
+
+11
+00:00:29,970 --&gt; 00:00:31,650
+Hillis hey my name is trill any Bundrage
+
+12
+00:00:31,650 --&gt; 00:00:33,329
+my nickname is truck we&#x27;re here to show
+
+13
+00:00:33,329 --&gt; 00:00:35,010
+you what it takes to be a Delta Airlines
+
+14
+00:00:35,010 --&gt; 00:00:37,590
+flight it&#x27;s in it a lot of magic happens
+
+15
+00:00:37,590 --&gt; 00:00:39,480
+down here in the training center over
+
+16
+00:00:39,480 --&gt; 00:00:42,480
+195 thousand applications come in to
+
+17
+00:00:42,480 --&gt; 00:00:45,510
+Delta Airlines and of those 3,000 for
+
+18
+00:00:45,510 --&gt; 00:00:47,789
+this year alone we&#x27;ll get to come
+
+19
+00:00:47,789 --&gt; 00:00:49,620
+through these doors and be a Delta
+
+20
+00:00:49,620 --&gt; 00:00:51,719
+Airlines flight attendant initial flight
+
+21
+00:00:51,719 --&gt; 00:00:53,850
+attendant training is six weeks of
+
+22
+00:00:53,850 --&gt; 00:00:56,879
+intense training they start here in week
+
+23
+00:00:56,879 --&gt; 00:00:58,980
+one and they learn about the foundations
+
+24
+00:00:58,980 --&gt; 00:01:01,469
+of Delta Airlines and then we go to week
+
+25
+00:01:01,469 --&gt; 00:01:03,870
+three and those are non phase specific
+
+26
+00:01:03,870 --&gt; 00:01:05,460
+things like security emergency
+
+27
+00:01:05,460 --&gt; 00:01:08,310
+management medical situations that can
+
+28
+00:01:08,310 --&gt; 00:01:09,869
+happen on board the aircraft and then
+
+29
+00:01:09,869 --&gt; 00:01:11,970
+week six it&#x27;s all about customer service
+
+30
+00:01:11,970 --&gt; 00:01:14,159
+and so within those six weeks we have a
+
+31
+00:01:14,159 --&gt; 00:01:16,680
+fully rounded Delta Airlines flight
+
+32
+00:01:16,680 --&gt; 00:01:18,330
+isn&#x27;t it who is ready to go out there on
+
+33
+00:01:18,330 --&gt; 00:01:23,250
+any aircraft this area is what we call
+
+34
+00:01:23,250 --&gt; 00:01:26,070
+our mock-up areas and these are aircraft
+
+35
+00:01:26,070 --&gt; 00:01:28,020
+that have been cut out from the desert
+
+36
+00:01:28,020 --&gt; 00:01:29,820
+they&#x27;ve shipped them here and our flight
+
+37
+00:01:29,820 --&gt; 00:01:31,710
+attendants go into these mock-ups and
+
+38
+00:01:31,710 --&gt; 00:01:33,150
+they practice different types of
+
+39
+00:01:33,150 --&gt; 00:01:35,130
+scenarios a lot of what we do is very
+
+40
+00:01:35,130 --&gt; 00:01:36,930
+customer service driven flight
+
+41
+00:01:36,930 --&gt; 00:01:38,700
+attendants are able to balance that
+
+42
+00:01:38,700 --&gt; 00:01:41,369
+customer service piece as well as being
+
+43
+00:01:41,369 --&gt; 00:01:42,899
+mindful of any type of emergency
+
+44
+00:01:42,899 --&gt; 00:01:44,880
+situation that could happen on board the
+
+45
+00:01:44,880 --&gt; 00:01:47,130
+aircraft studio is where we have all of
+
+46
+00:01:47,130 --&gt; 00:01:50,820
+our doors windows tail cone exits I&#x27;ll
+
+47
+00:01:50,820 --&gt; 00:01:53,100
+talk through the new vacuum here after
+
+48
+00:01:53,100 --&gt; 00:01:54,390
+we&#x27;ve boarded the aircraft and we&#x27;re
+
+49
+00:01:54,390 --&gt; 00:01:56,759
+ready to go trill is going to armed this
+
+50
+00:01:56,759 --&gt; 00:01:59,070
+store which means if we open the door
+
+51
+00:01:59,070 --&gt; 00:01:59,730
+armed
+
+52
+00:01:59,730 --&gt; 00:02:01,560
+going to get slide deployment when we
+
+53
+00:02:01,560 --&gt; 00:02:03,150
+practice our evacuation we want the door
+
+54
+00:02:03,150 --&gt; 00:02:05,010
+to be armed all right Charlie you ready
+
+55
+00:02:05,010 --&gt; 00:02:08,900
+no pressure no pressure here we go
+
+56
+00:02:08,900 --&gt; 00:02:14,190
+bend over stay down stay seated stay
+
+57
+00:02:14,190 --&gt; 00:02:16,710
+seated she&#x27;s thinking about her commands
+
+58
+00:02:16,710 --&gt; 00:02:18,570
+where her exits are she&#x27;s thinking about
+
+59
+00:02:18,570 --&gt; 00:02:20,190
+how to operate those exits where her
+
+60
+00:02:20,190 --&gt; 00:02:21,900
+emergency equipment is she&#x27;s also
+
+61
+00:02:21,900 --&gt; 00:02:23,490
+thinking about people that got on board
+
+62
+00:02:23,490 --&gt; 00:02:25,350
+that could help her in an emergency you
+
+63
+00:02:25,350 --&gt; 00:02:28,140
+helped at the bottom you helped at the
+
+64
+00:02:28,140 --&gt; 00:02:30,000
+bottom and she&#x27;s also gonna think about
+
+65
+00:02:30,000 --&gt; 00:02:31,920
+the people that got on who might need
+
+66
+00:02:31,920 --&gt; 00:02:32,760
+her assistance
+
+67
+00:02:32,760 --&gt; 00:02:35,250
+we do want thinking flight attendants we
+
+68
+00:02:35,250 --&gt; 00:02:37,470
+do operate with a lot of checklists but
+
+69
+00:02:37,470 --&gt; 00:02:39,330
+in the end sometimes things come down to
+
+70
+00:02:39,330 --&gt; 00:02:40,110
+a judgement call
+
+71
+00:02:40,110 --&gt; 00:02:41,820
+we travel the different time zones
+
+72
+00:02:41,820 --&gt; 00:02:44,010
+different countries and maybe we can&#x27;t
+
+73
+00:02:44,010 --&gt; 00:02:45,390
+sleep and then you&#x27;re expected to make
+
+74
+00:02:45,390 --&gt; 00:02:47,040
+good judgment calls and you&#x27;re expected
+
+75
+00:02:47,040 --&gt; 00:02:48,930
+to remember all your training and
+
+76
+00:02:48,930 --&gt; 00:02:51,090
+respond to emergencies and be Delta
+
+77
+00:02:51,090 --&gt; 00:02:53,430
+gracious and patient and all of that
+
+78
+00:02:53,430 --&gt; 00:02:56,990
+unlike asleep as well sometimes
+
+79
+00:02:56,990 --&gt; 00:02:58,700
+[Music]
+
+80
+00:02:58,700 --&gt; 00:03:01,010
+we are gonna head to our motion based
+
+81
+00:03:01,010 --&gt; 00:03:03,590
+trainer it is our one and only trainer
+
+82
+00:03:03,590 --&gt; 00:03:05,810
+that does shake does move our flight
+
+83
+00:03:05,810 --&gt; 00:03:09,080
+attendants have a week of training for
+
+84
+00:03:09,080 --&gt; 00:03:11,269
+emergency that could happen onboard the
+
+85
+00:03:11,269 --&gt; 00:03:13,310
+aircraft and learning our different
+
+86
+00:03:13,310 --&gt; 00:03:17,170
+types of commands this is one of those
+
+87
+00:03:23,140 --&gt; 00:03:24,830
+come this way
+
+88
+00:03:24,830 --&gt; 00:03:27,380
+leave everything jump and slide if you
+
+89
+00:03:27,380 --&gt; 00:03:30,799
+don&#x27;t stay calm then your anxiety will
+
+90
+00:03:30,799 --&gt; 00:03:33,560
+feed off of that person it&#x27;s definitely
+
+91
+00:03:33,560 --&gt; 00:03:37,099
+important to make sure you stay calm now
+
+92
+00:03:37,099 --&gt; 00:03:39,829
+welcome to our ditching maka
+
+93
+00:03:39,829 --&gt; 00:03:42,319
+we have a 767 mock up and the flight
+
+94
+00:03:42,319 --&gt; 00:03:43,700
+attendants have a little light bet and
+
+95
+00:03:43,700 --&gt; 00:03:45,349
+they jump right in and they work
+
+96
+00:03:45,349 --&gt; 00:03:47,569
+together as a team to handle ditching
+
+97
+00:03:47,569 --&gt; 00:03:50,390
+getting into a raft helping each other
+
+98
+00:03:50,390 --&gt; 00:03:53,060
+stay warm while they&#x27;re waiting for
+
+99
+00:03:53,060 --&gt; 00:03:55,250
+rescue we like to take flight attendants
+
+100
+00:03:55,250 --&gt; 00:03:57,170
+train them in these particular scenarios
+
+101
+00:03:57,170 --&gt; 00:03:58,849
+with the hope that they can take that
+
+102
+00:03:58,849 --&gt; 00:04:01,340
+knowledge and transfer it out to a real
+
+103
+00:04:01,340 --&gt; 00:04:03,230
+live aircraft and when those situations
+
+104
+00:04:03,230 --&gt; 00:04:04,910
+happen in real life their training kicks
+
+105
+00:04:04,910 --&gt; 00:04:07,880
+in one of our most common emergencies is
+
+106
+00:04:07,880 --&gt; 00:04:10,040
+medical emergencies when there&#x27;s someone
+
+107
+00:04:10,040 --&gt; 00:04:12,500
+who has a heart attack in the aisle I
+
+108
+00:04:12,500 --&gt; 00:04:14,269
+know where the medical equipment is on
+
+109
+00:04:14,269 --&gt; 00:04:16,489
+board the aircraft and I&#x27;m fully able to
+
+110
+00:04:16,489 --&gt; 00:04:18,380
+handle those types of situations are you
+
+111
+00:04:18,380 --&gt; 00:04:21,289
+okay are you okay I&#x27;m Patrice I&#x27;m a
+
+112
+00:04:21,289 --&gt; 00:04:23,270
+flight attendant I can help typically on
+
+113
+00:04:23,270 --&gt; 00:04:25,039
+the aircraft there would be three of us
+
+114
+00:04:25,039 --&gt; 00:04:26,750
+involved in this scenario there would be
+
+115
+00:04:26,750 --&gt; 00:04:28,940
+an Assessor a collector in a
+
+116
+00:04:28,940 --&gt; 00:04:31,280
+communicator I was the Assessor trol was
+
+117
+00:04:31,280 --&gt; 00:04:33,740
+my collector she brought me my equipment
+
+118
+00:04:33,740 --&gt; 00:04:35,570
+and then she stayed with me the whole
+
+119
+00:04:35,570 --&gt; 00:04:36,080
+time
+
+120
+00:04:36,080 --&gt; 00:04:37,460
+the third person that we would usually
+
+121
+00:04:37,460 --&gt; 00:04:40,370
+have is our communicator communicator is
+
+122
+00:04:40,370 --&gt; 00:04:41,419
+going to be talking to the flight deck
+
+123
+00:04:41,419 --&gt; 00:04:43,430
+they&#x27;re going to be paging for medical
+
+124
+00:04:43,430 --&gt; 00:04:45,139
+assistance they&#x27;re going to be trying to
+
+125
+00:04:45,139 --&gt; 00:04:46,849
+get in touch with statmd they&#x27;re going
+
+126
+00:04:46,849 --&gt; 00:04:48,620
+to be filling out our medical assistance
+
+127
+00:04:48,620 --&gt; 00:04:51,169
+form or helping us to do that in some
+
+128
+00:04:51,169 --&gt; 00:04:55,510
+way clear clear not touch the patient
+
+129
+00:04:55,510 --&gt; 00:04:57,530
+anything that can happen on the ground
+
+130
+00:04:57,530 --&gt; 00:04:59,539
+can happen in the air so we have to be
+
+131
+00:04:59,539 --&gt; 00:05:01,430
+mindful of always being gracious but in
+
+132
+00:05:01,430 --&gt; 00:05:03,050
+the back of our mind always thinking of
+
+133
+00:05:03,050 --&gt; 00:05:04,760
+the other things that could possibly
+
+134
+00:05:04,760 --&gt; 00:05:06,030
+happen on board the
+
+135
+00:05:06,030 --&gt; 00:05:07,379
+and knowing that we&#x27;re fully trained to
+
+136
+00:05:07,379 --&gt; 00:05:09,780
+handle any type of situation flight
+
+137
+00:05:09,780 --&gt; 00:05:12,060
+attendants have to maintain a 90 percent
+
+138
+00:05:12,060 --&gt; 00:05:14,370
+average within the six assessments that
+
+139
+00:05:14,370 --&gt; 00:05:16,349
+they take but once a flight attendant
+
+140
+00:05:16,349 --&gt; 00:05:18,120
+leaves and graduates is a flight
+
+141
+00:05:18,120 --&gt; 00:05:19,409
+attendant flying out there on the line
+
+142
+00:05:19,409 --&gt; 00:05:20,909
+their training isn&#x27;t over we have
+
+143
+00:05:20,909 --&gt; 00:05:21,930
+something called continuing
+
+144
+00:05:21,930 --&gt; 00:05:23,759
+qualification and that is where flight
+
+145
+00:05:23,759 --&gt; 00:05:25,169
+attendants that are qualified and out
+
+146
+00:05:25,169 --&gt; 00:05:27,659
+there flying have to reek wala Phi every
+
+147
+00:05:27,659 --&gt; 00:05:28,680
+eighteen months
+
+148
+00:05:28,680 --&gt; 00:05:30,120
+they come back to training and they do
+
+149
+00:05:30,120 --&gt; 00:05:32,849
+have to be proficient in their door
+
+150
+00:05:32,849 --&gt; 00:05:36,229
+evacuations in their EMV scenarios CPR
+
+151
+00:05:36,229 --&gt; 00:05:38,879
+security we do hold them to a pretty
+
+152
+00:05:38,879 --&gt; 00:05:41,279
+high standard and so being calm being
+
+153
+00:05:41,279 --&gt; 00:05:43,979
+patient is something that we learn and
+
+154
+00:05:43,979 --&gt; 00:05:46,050
+we also give feedback on so that when
+
+155
+00:05:46,050 --&gt; 00:05:47,580
+they are on the line is an active flight
+
+156
+00:05:47,580 --&gt; 00:05:49,229
+attendant they&#x27;re able to handle any
+
+157
+00:05:49,229 --&gt; 00:05:51,439
+situation</pre></details>
+</section>
+
+<div class="footer">Source video: Business Insider · How Flight Attendants Are Trained<br>Workbook vocabulary and subtitle-line exercises were generated from the user-supplied SRT.</div>
+</div>
+<div class="pop" id="pop" role="status" aria-live="polite"></div>
+<script>
+(() => {
+ const root=document.getElementById('app'), player=document.getElementById('player'), vid=root.dataset.video;
+ const base='https://www.youtube-nocookie.com/embed/'+vid+'?rel=0&cc_load_policy=1&cc_lang_pref=en';
+ const checked=new Set();
+ function updateProgress(){
+   const total=document.querySelectorAll('.checkone,.checkgaps').length;
+   const pct=total?Math.round(100*checked.size/total):0;
+   document.getElementById('progress').style.width=pct+'%';
+   document.getElementById('progressText').textContent=checked.size+' of '+total+' checked activities';
+ }
+ function speak(t){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.92;speechSynthesis.speak(u)}
+ const pop=document.getElementById('pop');
+ function showWord(en,ru){pop.innerHTML='<b>'+en+'</b><small>'+ru+'</small>';pop.classList.add('show');speak(en);clearTimeout(pop._t);pop._t=setTimeout(()=>pop.classList.remove('show'),3300)}
+ document.querySelectorAll('.vocab,.subword').forEach(b=>b.addEventListener('click',()=>showWord(b.dataset.en,b.dataset.ru)));
+ document.querySelectorAll('.flash').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('revealed')));
+ document.querySelectorAll('.playpart').forEach(b=>b.addEventListener('click',()=>{
+   const s=Math.floor(Number(b.dataset.start)||0), e=Math.floor(Number(b.dataset.end)||0);
+   player.src=base+'&autoplay=1&start='+s+'&end='+e;document.getElementById('video').scrollIntoView({behavior:'smooth',block:'start'});
+ }));
+ document.querySelectorAll('.subtoggle').forEach(b=>b.addEventListener('click',()=>{
+   const box=b.closest('.part').querySelector('.subtitle-box');box.classList.toggle('show');
+   b.textContent=box.classList.contains('show')?'Hide full subtitles for this part':'Show full subtitles for this part';
+ }));
+ document.querySelectorAll('.checkone').forEach(b=>b.addEventListener('click',()=>{
+   const q=b.closest('.quizq'), chosen=q.querySelector('input:checked'), fb=q.querySelector('.feedback');
+   const ok=chosen && Number(chosen.value)===Number(q.dataset.answer);fb.textContent=ok?'✓ Correct':'Try again';fb.className='feedback '+(ok?'good':'bad');checked.add(b);updateProgress();
+ }));
+ const n=s=>String(s||'').trim().toLowerCase().replace(/[’]/g,"'").replace(/[.,!?;:]/g,'').replace(/\s+/g,' ');
+ document.querySelectorAll('.checkgaps').forEach(b=>b.addEventListener('click',()=>{
+   const card=b.closest('.card');card.querySelectorAll('.gapq').forEach(q=>{const inp=q.querySelector('input'),fb=q.querySelector('.feedback');const ok=n(inp.value)===n(q.dataset.answer);fb.textContent=ok?'✓ Exact subtitle expression':'Try again';fb.className='feedback '+(ok?'good':'bad')});
+   checked.add(b);updateProgress();
+ }));
+ document.querySelectorAll('.sampletoggle').forEach(b=>b.addEventListener('click',()=>{const box=b.parentElement.querySelector('.sample');box.classList.toggle('show');b.textContent=box.classList.contains('show')?'Hide sample answer':'Show sample answer'}));
+ const search=document.getElementById('subsearch'), all=document.getElementById('allsubs');
+ search.addEventListener('input',()=>{const q=n(search.value);all.querySelectorAll('.subrow').forEach(r=>{r.style.display=!q||r.dataset.search.includes(q)?'grid':'none'})});
+ document.getElementById('clearsearch').addEventListener('click',()=>{search.value='';search.dispatchEvent(new Event('input'));search.focus()});
+ updateProgress();
+})();
+</script>
+</body></html>

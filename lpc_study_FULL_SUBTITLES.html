@@ -1,0 +1,1940 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>How to Double Your Learning Speed – The LPC Method</title><style>
+:root{
+ --bg:#f3f0eb;--paper:#fffdf9;--ink:#252321;--muted:#706a65;--line:#ddd5cd;
+ --accent:#d85b38;--accent2:#fff1e9;--ok:#28734d;--bad:#b44339;--blue:#eef6fa;
+ --shadow:0 10px 28px rgba(49,38,28,.07)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#ebe6e0 0,#f7f4f0 340px);color:var(--ink);
+font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+button,input,textarea,select{font:inherit}button{cursor:pointer}
+.wrap{width:min(1060px,100%);margin:auto;padding:16px clamp(10px,3vw,26px) 72px}
+.hero,.section{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.hero{padding:clamp(18px,4vw,30px);margin-bottom:15px}
+.kicker{font-size:.78rem;font-weight:900;letter-spacing:.075em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:Georgia,serif;font-size:clamp(2rem,6vw,3.5rem);line-height:1.05;margin:.25rem 0 .55rem}
+h2{font-size:1.36rem;margin:0 0 7px} h3{font-size:1.06rem;margin:.2rem 0 .55rem}
+p{margin:.45rem 0}.muted,.instruction{color:var(--muted)}
+.section{padding:clamp(15px,3vw,24px);margin:15px 0}
+.badge{display:inline-block;background:var(--accent);color:#fff;font-weight:900;font-size:.76rem;padding:3px 8px;border-radius:7px;margin-right:6px}
+.nav{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 17px}
+.nav a{color:var(--ink);background:var(--paper);border:1px solid var(--line);text-decoration:none;border-radius:999px;padding:8px 11px;font-size:.88rem}
+.note{background:#fff3ec;border-left:4px solid var(--accent);padding:11px 13px;border-radius:9px;margin:12px 0}
+.subnote{background:var(--blue);border:1px solid #d3e3ea;border-radius:12px;padding:11px 12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:760px){.grid2,.grid3{grid-template-columns:1fr}}
+.card,.part{border:1px solid var(--line);border-radius:14px;padding:13px;background:#fff;margin:10px 0}
+.video-wrap{position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;background:#111;margin:12px 0}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.controls,.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.btn{border:0;border-radius:10px;min-height:44px;padding:9px 13px;font-weight:800;background:var(--accent);color:white}
+.btn.secondary{background:#eee8e2;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.vocab-grid{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}
+.vocab,.subword{border:1px solid #e6cbbb;background:#fff3ec;color:#71351f;border-radius:999px;padding:6px 9px}
+.subword{display:inline;border-radius:6px;padding:1px 4px;font:inherit}
+.flash{min-height:118px;display:flex;align-items:center;justify-content:center;text-align:center;border:1px solid var(--line);
+border-radius:14px;padding:14px;background:#fff}
+.flash .main{font-size:1.07rem;font-weight:800}.flash .back{display:none}.flash.revealed .front{display:none}.flash.revealed .back{display:block}
+.flash small{display:block;color:var(--muted);font-weight:500;margin-top:5px}
+.part{border-radius:17px;padding:15px;margin:14px 0}
+.part-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.time{background:#272321;color:#fff;border-radius:999px;padding:5px 9px;font-weight:800;font-size:.83rem}
+.collocs{display:flex;flex-wrap:wrap;gap:6px;margin:7px 0}.colloc{background:#edf4f7;border:1px solid #d7e2e7;border-radius:999px;padding:5px 8px;font-size:.85rem}
+.q{padding:10px 0;border-top:1px dashed var(--line)}.q:first-child{border-top:0}
+.options{display:grid;gap:7px;margin-top:7px}.opt{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:8px;background:#fff}
+.opt input{margin-top:4px;width:19px;height:19px}.feedback{font-weight:800;margin-top:7px;min-height:1.3em}.good{color:var(--ok)}.bad{color:var(--bad)}
+textarea,input[type=text],input[type=search]{width:100%;min-height:44px;border:1.5px solid #cec5bd;border-radius:10px;padding:10px;background:#fff;color:var(--ink)}
+textarea{min-height:92px;resize:vertical}
+.sample{display:none;background:#f7f4f0;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:8px}.sample.show{display:block}
+.subtitle-box{display:none;border:1px solid var(--line);border-radius:12px;background:#faf8f5;margin-top:10px;max-height:520px;overflow:auto}
+.subtitle-box.show{display:block}
+.subrow{display:grid;grid-template-columns:58px minmax(0,1fr);gap:8px;padding:7px 9px;border-top:1px solid #e8e1db;align-items:start}
+.subrow:first-child{border-top:0}.subtime{font-variant-numeric:tabular-nums;font-size:.78rem;color:var(--muted);padding-top:3px}.subtext{min-width:0}
+.gapline{padding:8px 0;border-top:1px dashed var(--line)}.gapline:first-child{border-top:0}.gapline input{margin-top:6px}
+.progress-shell{height:9px;background:#e7dfd8;border-radius:999px;overflow:hidden;margin-top:12px}.progress{height:100%;width:0;background:var(--accent)}
+.pop{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);width:min(540px,calc(100% - 22px));background:#242120;color:#fff;padding:11px 13px;border-radius:12px;display:none;z-index:30;box-shadow:0 12px 35px rgba(0,0,0,.25)}
+.pop.show{display:block}.pop small{display:block;color:#ddd;margin-top:2px}
+.searchbar{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}.searchbar .btn{min-width:110px}
+details.raw{margin-top:12px}details.raw summary{cursor:pointer;font-weight:800}
+.rawpre{white-space:pre-wrap;word-break:break-word;background:#f7f4f0;border:1px solid var(--line);border-radius:12px;padding:12px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.8rem;max-height:520px;overflow:auto}
+.footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:22px}
+@media(max-width:430px){
+ .wrap{padding-left:9px;padding-right:9px}.hero,.section{border-radius:15px;padding:14px}h1{font-size:2.05rem}
+ .nav a{font-size:.82rem}.btn{width:100%}.controls .btn,.actions .btn{width:auto;flex:1 1 135px}.subrow{grid-template-columns:50px minmax(0,1fr)}
+ .searchbar{grid-template-columns:1fr}
+}
+</style></head>
+<body>
+<div class="wrap" id="app" data-video="B8V5EfJLX9U">
+<header class="hero">
+  <div class="kicker">Tatiana · B1–B2 VIDEO WORKSHOP · FULL SUBTITLES</div>
+  <h1>How to Double Your Learning Speed – The LPC Method</h1>
+  <p>This version is rebuilt directly from the supplied subtitle file. Target vocabulary, gap sentences and listening sections are grounded in those subtitles.</p>
+  <div class="progress-shell"><div class="progress" id="progress"></div></div><div class="instruction" id="progressText">0 checked activities</div>
+</header>
+<nav class="nav"><a href="#revision">Revision</a><a href="#vocab">Subtitle vocabulary</a><a href="#video">Video</a>
+<a href="#part1">Part 1</a><a href="#part2">Part 2</a><a href="#part3">Part 3</a><a href="#part4">Part 4</a><a href="#part5">Part 5</a><a href="#part6">Part 6</a>
+<a href="#discussion">Discussion</a><a href="#fullsubs">Full subtitles</a></nav>
+
+<section class="section" id="revision">
+<h2><span class="badge">1</span>Revision</h2>
+<p class="instruction">Recycle a small number of useful items before the new video. Tap only after trying to recall the answer.</p>
+<h3>EN → RU</h3><div class="grid3">
+        <button type="button" class="flash">
+          <span class="front"><span class="main">be able to explain</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">уметь объяснить</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">remember information</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">запоминать информацию</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">improve your memory</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">улучшить память</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">You should practise</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">Тебе следует практиковаться</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">solve a problem</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">решить проблему</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">be good at learning</span><small>Tap to reveal Russian</small></span>
+          <span class="back"><span class="main">хорошо уметь учиться</span><small>Tap to return</small></span>
+        </button></div>
+<h3 style="margin-top:16px">RU → EN</h3><div class="grid3">
+        <button type="button" class="flash">
+          <span class="front"><span class="main">уметь объяснить</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">be able to explain</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">запоминать информацию</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">remember information</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">улучшить память</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">improve your memory</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">Тебе следует практиковаться</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">You should practise</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">решить проблему</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">solve a problem</span><small>Tap to return</small></span>
+        </button>
+        <button type="button" class="flash">
+          <span class="front"><span class="main">хорошо уметь учиться</span><small>Say it in English first</small></span>
+          <span class="back"><span class="main">be good at learning</span><small>Tap to return</small></span>
+        </button></div>
+</section>
+
+<section class="section" id="vocab">
+<h2><span class="badge">2</span>Vocabulary from the subtitles</h2>
+<div class="note"><b>37 target items.</b> Every English item below was checked against the uploaded SRT and occurs in that subtitle text.</div>
+<div class="vocab-grid"><button type="button" class="vocab" data-en="highly effective study technique" data-ru="очень эффективная учебная техника">highly effective study technique</button><button type="button" class="vocab" data-en="deepen your own understanding" data-ru="углубить собственное понимание">deepen your own understanding</button><button type="button" class="vocab" data-en="simplify it" data-ru="упростить это">simplify it</button><button type="button" class="vocab" data-en="independent learning projects" data-ru="самостоятельные учебные проекты">independent learning projects</button><button type="button" class="vocab" data-en="in execution" data-ru="на практике / в исполнении">in execution</button><button type="button" class="vocab" data-en="stands for" data-ru="расшифровывается как">stands for</button><button type="button" class="vocab" data-en="high ROI" data-ru="высокая отдача от затраченных усилий/времени">high ROI</button><button type="button" class="vocab" data-en="retain lots of information" data-ru="удерживать много информации в памяти">retain lots of information</button><button type="button" class="vocab" data-en="walk you through" data-ru="пошагово объяснить / провести через процесс">walk you through</button><button type="button" class="vocab" data-en="break down a concept" data-ru="разобрать концепцию на части">break down a concept</button><button type="button" class="vocab" data-en="lay person" data-ru="неспециалист">lay person</button><button type="button" class="vocab" data-en="expose gaps in your understanding" data-ru="выявить пробелы в понимании">expose gaps in your understanding</button><button type="button" class="vocab" data-en="shore up" data-ru="укрепить / восполнить слабое место">shore up</button><button type="button" class="vocab" data-en="present a concept" data-ru="представить / объяснить концепцию">present a concept</button><button type="button" class="vocab" data-en="as if you&#x27;re explaining it to a friend" data-ru="как будто вы объясняете это другу">as if you&#x27;re explaining it to a friend</button><button type="button" class="vocab" data-en="factual errors" data-ru="фактические ошибки">factual errors</button><button type="button" class="vocab" data-en="add clarification" data-ru="добавить уточнение">add clarification</button><button type="button" class="vocab" data-en="supplemental material" data-ru="дополнительный материал">supplemental material</button><button type="button" class="vocab" data-en="revisiting the actual material" data-ru="повторно вернуться к исходному материалу">revisiting the actual material</button><button type="button" class="vocab" data-en="take advantage of multimodal learning" data-ru="использовать преимущества мультимодального обучения">take advantage of multimodal learning</button><button type="button" class="vocab" data-en="pick a concept" data-ru="выбрать концепцию">pick a concept</button><button type="button" class="vocab" data-en="unlisted copy" data-ru="видео по ссылке, не в общем доступе">unlisted copy</button><button type="button" class="vocab" data-en="deepen my understanding" data-ru="углубить моё понимание">deepen my understanding</button><button type="button" class="vocab" data-en="in terms of ROI" data-ru="с точки зрения отдачи">in terms of ROI</button><button type="button" class="vocab" data-en="mode of active learning" data-ru="форма активного обучения">mode of active learning</button><button type="button" class="vocab" data-en="body language" data-ru="язык тела">body language</button><button type="button" class="vocab" data-en="retention of information" data-ru="удержание информации">retention of information</button><button type="button" class="vocab" data-en="multimodal learning strategy" data-ru="мультимодальная стратегия обучения">multimodal learning strategy</button><button type="button" class="vocab" data-en="levels of abstraction" data-ru="уровни абстракции">levels of abstraction</button><button type="button" class="vocab" data-en="hands-on experience" data-ru="практический опыт">hands-on experience</button><button type="button" class="vocab" data-en="higher order learning concepts" data-ru="концепции более высокого уровня">higher order learning concepts</button><button type="button" class="vocab" data-en="long-term memory" data-ru="долговременная память">long-term memory</button><button type="button" class="vocab" data-en="retain and recall" data-ru="удерживать и вспоминать">retain and recall</button><button type="button" class="vocab" data-en="passive supplemental resources" data-ru="пассивные дополнительные ресурсы">passive supplemental resources</button><button type="button" class="vocab" data-en="actively engaged" data-ru="активно вовлечённый">actively engaged</button><button type="button" class="vocab" data-en="master the material" data-ru="овладеть материалом">master the material</button><button type="button" class="vocab" data-en="problem solver overall" data-ru="в целом лучше решать проблемы">problem solver overall</button></div>
+<div class="card"><b>Prediction</b><p>Before watching, explain why teaching or presenting a topic might improve your own learning.</p><textarea placeholder="Use at least 4 target expressions if possible."></textarea></div>
+</section>
+
+<section class="section" id="video">
+<h2><span class="badge">3</span>Video</h2>
+<div class="subnote"><b>Subtitles are now genuinely inside this workbook.</b> You can watch with YouTube CC, but you no longer depend on it: every subtitle cue from the supplied SRT is embedded below and divided into the same study parts.</div>
+<div class="video-wrap"><iframe id="player" src="https://www.youtube-nocookie.com/embed/B8V5EfJLX9U?rel=0&cc_load_policy=1&cc_lang_pref=en" title="How to Double Your Learning Speed – The LPC Method" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+</section>
+
+<section class="section">
+<h2><span class="badge">4</span>Watch in parts</h2>
+<p class="instruction">Recommended sequence: ① watch without transcript; ② answer; ③ replay; ④ open full subtitles only if necessary; ⑤ complete the exact-line task.</p>
+
+        <article class="part" id="part1">
+          <div class="part-head">
+            <div><h3>Part 1 · The Feynman idea and the purpose of LPC</h3>
+            <p class="instruction">Thomas introduces a modified Feynman Technique. The core idea is to simplify a concept enough to explain it, because explanation exposes gaps in understanding.</p></div>
+            <span class="time">00:00–01:55</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn playpart" data-start="0" data-end="115">▶ Play this part</button>
+            <button type="button" class="btn ghost subtoggle">Show full subtitles for this part</button>
+          </div>
+          <div class="card">
+            <b>Vocabulary actually used in this part</b>
+            <div class="vocab-grid"><button type="button" class="vocab" data-en="highly effective study technique" data-ru="очень эффективная учебная техника">highly effective study technique</button><button type="button" class="vocab" data-en="deepen your own understanding" data-ru="углубить собственное понимание">deepen your own understanding</button><button type="button" class="vocab" data-en="simplify it" data-ru="упростить это">simplify it</button><button type="button" class="vocab" data-en="independent learning projects" data-ru="самостоятельные учебные проекты">independent learning projects</button><button type="button" class="vocab" data-en="in execution" data-ru="на практике / в исполнении">in execution</button><button type="button" class="vocab" data-en="stands for" data-ru="расшифровывается как">stands for</button><button type="button" class="vocab" data-en="high ROI" data-ru="высокая отдача от затраченных усилий/времени">high ROI</button><button type="button" class="vocab" data-en="retain lots of information" data-ru="удерживать много информации в памяти">retain lots of information</button><button type="button" class="vocab" data-en="walk you through" data-ru="пошагово объяснить / провести через процесс">walk you through</button><button type="button" class="vocab" data-en="break down a concept" data-ru="разобрать концепцию на части">break down a concept</button><button type="button" class="vocab" data-en="lay person" data-ru="неспециалист">lay person</button><button type="button" class="vocab" data-en="expose gaps in your understanding" data-ru="выявить пробелы в понимании">expose gaps in your understanding</button><button type="button" class="vocab" data-en="shore up" data-ru="укрепить / восполнить слабое место">shore up</button></div>
+          </div>
+          <div class="card quizq" data-answer="1">
+            <b>What is the central purpose of explaining a concept simply?</b><div class="options"><label class="opt"><input type="radio" name="lpc_q0" value="0"><span>To make the notes longer</span></label><label class="opt"><input type="radio" name="lpc_q0" value="1"><span>To expose gaps in understanding</span></label><label class="opt"><input type="radio" name="lpc_q0" value="2"><span>To avoid studying the material</span></label></div>
+            <button type="button" class="btn secondary checkone" style="margin-top:8px">Check</button>
+            <div class="feedback"></div>
+          </div>
+          <div class="card"><b>Complete the exact subtitle line</b><p class="instruction">Listen first. Type the missing expression exactly as it appears in the subtitles.</p><div class="gapline gapq" data-answer="simplify it">by attempting to __________
+and explain it to someone else.<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><div class="gapline gapq" data-answer="independent learning projects">Feynman Technique that I&#x27;ve
+been using in my own __________ as of late.<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><button type="button" class="btn secondary checkgaps">Check subtitle lines</button></div>
+          <div class="subtitle-box">
+            <div class="subnote"><b>Complete subtitle text for this segment.</b> These lines come from the SRT file you supplied. Auto-generated SRTs are preserved as supplied and may contain recognition errors.</div>
+            <div class="subrow" data-search="- thomas thanks to brilliant for sponsoring this video"><span class="subtime">00:00</span><span class="subtext">- [Thomas] Thanks to brilliant
+for sponsoring this video</span></div><div class="subrow" data-search="and supporting my channel"><span class="subtime">00:01</span><span class="subtext">and supporting my channel.</span></div><div class="subrow" data-search="a few years ago"><span class="subtime">00:02</span><span class="subtext">A few years ago,</span></div><div class="subrow" data-search="i made a video about something called the feynman technique"><span class="subtime">00:03</span><span class="subtext">I made a video about something
+called the Feynman Technique.</span></div><div class="subrow" data-search="this is a simple but highly effective study technique"><span class="subtime">00:06</span><span class="subtext">This is a simple but highly
+effective study technique,</span></div><div class="subrow" data-search="where you deepen your own understanding of a concept"><span class="subtime">00:08</span><span class="subtext">where you deepen your own
+understanding of a concept</span></div><div class="subrow" data-search="by attempting to simplify it and explain it to someone else"><span class="subtime">00:11</span><span class="subtext">by attempting to <button type="button" class="subword" data-en="simplify it" data-ru="упростить это">simplify it</button>
+and explain it to someone else.</span></div><div class="subrow" data-search="in other words you teach to learn"><span class="subtime">00:14</span><span class="subtext">In other words, you teach to learn.</span></div><div class="subrow" data-search="in this video"><span class="subtime">00:16</span><span class="subtext">In this video,</span></div><div class="subrow" data-search="i want to present a modified version of that original"><span class="subtime">00:17</span><span class="subtext">I want to present a modified
+version of that original,</span></div><div class="subrow" data-search="feynman technique that i&#x27;ve been using in my own independent"><span class="subtime">00:19</span><span class="subtext">Feynman Technique that I&#x27;ve
+been using in my own independent</span></div><div class="subrow" data-search="learning projects as of late"><span class="subtime">00:22</span><span class="subtext">learning projects as of late.</span></div><div class="subrow" data-search="conceptually it is very similar"><span class="subtime">00:23</span><span class="subtext">Conceptually, it is very similar</span></div><div class="subrow" data-search="to the original feynman technique"><span class="subtime">00:25</span><span class="subtext">to the original Feynman Technique</span></div><div class="subrow" data-search="but in execution it is quite different"><span class="subtime">00:26</span><span class="subtext">but <button type="button" class="subword" data-en="in execution" data-ru="на практике / в исполнении">in execution</button>, it is quite different.</span></div><div class="subrow" data-search="so i&#x27;m going to give it its own name"><span class="subtime">00:29</span><span class="subtext">So I&#x27;m going to give it its own name,</span></div><div class="subrow" data-search="to keep things distinct"><span class="subtime">00:30</span><span class="subtext">to keep things distinct.</span></div><div class="subrow" data-search="and that name is the lpc method"><span class="subtime">00:31</span><span class="subtext">And that name is the LPC method,</span></div><div class="subrow" data-search="which stands for learn present critique"><span class="subtime">00:33</span><span class="subtext">which <button type="button" class="subword" data-en="stands for" data-ru="расшифровывается как">stands for</button> learn, present, critique.</span></div><div class="subrow" data-search="and i&#x27;ve been using this lpc method in my own studies"><span class="subtime">00:36</span><span class="subtext">And I&#x27;ve been using this
+LPC method in my own studies</span></div><div class="subrow" data-search="of anatomy biomechanics and bioenergetics"><span class="subtime">00:38</span><span class="subtext">of anatomy, biomechanics,
+and bioenergetics,</span></div><div class="subrow" data-search="as part of my goal to earn both cscs and pbc certifications"><span class="subtime">00:41</span><span class="subtext">as part of my goal to earn both
+CSCS and PBC certifications,</span></div><div class="subrow" data-search="which if you&#x27;re curious are certifications in the strength"><span class="subtime">00:44</span><span class="subtext">which if you&#x27;re curious are
+certifications in the strength</span></div><div class="subrow" data-search="training and coaching industry"><span class="subtime">00:47</span><span class="subtext">training and coaching industry.</span></div><div class="subrow" data-search="and i&#x27;ve learned through using this"><span class="subtime">00:48</span><span class="subtext">And I&#x27;ve learned through using this,</span></div><div class="subrow" data-search="that this technique has a very high roi on helping me retain"><span class="subtime">00:50</span><span class="subtext">that this technique has a very
+<button type="button" class="subword" data-en="high ROI" data-ru="высокая отдача от затраченных усилий/времени">high ROI</button> on helping me retain</span></div><div class="subrow" data-search="lots of information without having to spend a lot of time"><span class="subtime">00:54</span><span class="subtext">lots of information without
+having to spend a lot of time</span></div><div class="subrow" data-search="actually studying it"><span class="subtime">00:57</span><span class="subtext">actually studying it.</span></div><div class="subrow" data-search="so in this video"><span class="subtime">00:58</span><span class="subtext">So in this video,</span></div><div class="subrow" data-search="i&#x27;m going to walk you through exactly how to use the lpc"><span class="subtime">00:59</span><span class="subtext">I&#x27;m going to <button type="button" class="subword" data-en="walk you through" data-ru="пошагово объяснить / провести через процесс">walk you through</button>
+exactly how to use the LPC</span></div><div class="subrow" data-search="method along with some examples"><span class="subtime">01:01</span><span class="subtext">method along with some examples.</span></div><div class="subrow" data-search="and i&#x27;m also going to compare it"><span class="subtime">01:02</span><span class="subtext">And I&#x27;m also going to compare it</span></div><div class="subrow" data-search="to the original feynman technique"><span class="subtime">01:03</span><span class="subtext">to the original Feynman Technique.</span></div><div class="subrow" data-search="and you can see in the timestamps below exactly"><span class="subtime">01:05</span><span class="subtext">And you can see in the
+timestamps below exactly</span></div><div class="subrow" data-search="where those sections are"><span class="subtime">01:06</span><span class="subtext">where those sections are.</span></div><div class="subrow" data-search="but first"><span class="subtime">01:08</span><span class="subtext">But first,</span></div><div class="subrow" data-search="if you haven&#x27;t seen my original video"><span class="subtime">01:08</span><span class="subtext">if you haven&#x27;t seen my original video,</span></div><div class="subrow" data-search="or if it&#x27;s been a while"><span class="subtime">01:10</span><span class="subtext">or if it&#x27;s been a while,</span></div><div class="subrow" data-search="i want to give you a very quick refresher"><span class="subtime">01:10</span><span class="subtext">I want to give you a very quick refresher</span></div><div class="subrow" data-search="on what the feynman technique is"><span class="subtime">01:12</span><span class="subtext">on what the Feynman Technique is.</span></div><div class="subrow" data-search="the heart of this technique can be found in a quote"><span class="subtime">01:14</span><span class="subtext">The heart of this technique
+can be found in a quote</span></div><div class="subrow" data-search="that is often attributed to albert einstein"><span class="subtime">01:15</span><span class="subtext">that is often attributed
+to Albert Einstein,</span></div><div class="subrow" data-search="though he probably didn&#x27;t actually say it"><span class="subtime">01:17</span><span class="subtext">though he probably didn&#x27;t actually say it,</span></div><div class="subrow" data-search="but it goes like this"><span class="subtime">01:19</span><span class="subtext">but it goes like this.</span></div><div class="subrow" data-search="if you can&#x27;t explain it simply"><span class="subtime">01:20</span><span class="subtext">If you can&#x27;t explain it simply,</span></div><div class="subrow" data-search="then you don&#x27;t understand it well enough"><span class="subtime">01:22</span><span class="subtext">then you don&#x27;t understand it well enough.</span></div><div class="subrow" data-search="the idea behind the feynman technique is to break down"><span class="subtime">01:24</span><span class="subtext">The idea behind the Feynman
+Technique is to break down</span></div><div class="subrow" data-search="a concept and simplify it"><span class="subtime">01:26</span><span class="subtext">a concept and <button type="button" class="subword" data-en="simplify it" data-ru="упростить это">simplify it</button></span></div><div class="subrow" data-search="to the point where you could easily"><span class="subtime">01:28</span><span class="subtext">to the point where you could easily</span></div><div class="subrow" data-search="explain it to a lay person"><span class="subtime">01:29</span><span class="subtext">explain it to a <button type="button" class="subword" data-en="lay person" data-ru="неспециалист">lay person</button>.</span></div><div class="subrow" data-search="if you can&#x27;t do that"><span class="subtime">01:31</span><span class="subtext">If you can&#x27;t do that,</span></div><div class="subrow" data-search="then you don&#x27;t understand it well enough yourself"><span class="subtime">01:32</span><span class="subtext">then you don&#x27;t understand
+it well enough yourself.</span></div><div class="subrow" data-search="and in going through this exercise"><span class="subtime">01:34</span><span class="subtext">And in going through this exercise,</span></div><div class="subrow" data-search="actually trying to explain it on a piece of paper"><span class="subtime">01:36</span><span class="subtext">actually trying to explain
+it on a piece of paper,</span></div><div class="subrow" data-search="you expose gaps in your understanding"><span class="subtime">01:38</span><span class="subtext">you <button type="button" class="subword" data-en="expose gaps in your understanding" data-ru="выявить пробелы в понимании">expose gaps in your understanding</button>,</span></div><div class="subrow" data-search="where you can then go and try to shore up"><span class="subtime">01:40</span><span class="subtext">where you can then go and try to <button type="button" class="subword" data-en="shore up" data-ru="укрепить / восполнить слабое место">shore up</button>.</span></div><div class="subrow" data-search="so again conceptually"><span class="subtime">01:42</span><span class="subtext">So again, conceptually,</span></div><div class="subrow" data-search="the lpc method is very similar to the feynman technique"><span class="subtime">01:43</span><span class="subtext">the LPC method is very similar
+to the Feynman Technique</span></div><div class="subrow" data-search="we&#x27;re trying to achieve the same goal except for replacing"><span class="subtime">01:46</span><span class="subtext">We&#x27;re trying to achieve the
+same goal except for replacing</span></div><div class="subrow" data-search="the act of writing on paper drawing diagrams"><span class="subtime">01:49</span><span class="subtext">the act of writing on
+paper, drawing diagrams,</span></div><div class="subrow" data-search="with actually presenting to a camera"><span class="subtime">01:52</span><span class="subtext">with actually presenting to a camera.</span></div><div class="subrow" data-search="here is the tldr version of the lpc method"><span class="subtime">01:54</span><span class="subtext">Here is the TLDR version
+of the LPC method.</span></div>
+          </div>
+        </article>
+        
+        <article class="part" id="part2">
+          <div class="part-head">
+            <div><h3>Part 2 · The three LPC steps</h3>
+            <p class="instruction">LPC means Learn, Present, Critique: study normally, explain the material to a camera, then review the recording.</p></div>
+            <span class="time">01:55–02:37</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn playpart" data-start="115" data-end="157">▶ Play this part</button>
+            <button type="button" class="btn ghost subtoggle">Show full subtitles for this part</button>
+          </div>
+          <div class="card">
+            <b>Vocabulary actually used in this part</b>
+            <div class="vocab-grid"><button type="button" class="vocab" data-en="present a concept" data-ru="представить / объяснить концепцию">present a concept</button><button type="button" class="vocab" data-en="as if you&#x27;re explaining it to a friend" data-ru="как будто вы объясняете это другу">as if you&#x27;re explaining it to a friend</button><button type="button" class="vocab" data-en="factual errors" data-ru="фактические ошибки">factual errors</button><button type="button" class="vocab" data-en="add clarification" data-ru="добавить уточнение">add clarification</button><button type="button" class="vocab" data-en="supplemental material" data-ru="дополнительный материал">supplemental material</button><button type="button" class="vocab" data-en="revisiting the actual material" data-ru="повторно вернуться к исходному материалу">revisiting the actual material</button></div>
+          </div>
+          <div class="card quizq" data-answer="0">
+            <b>What does LPC stand for?</b><div class="options"><label class="opt"><input type="radio" name="lpc_q1" value="0"><span>Learn, Present, Critique</span></label><label class="opt"><input type="radio" name="lpc_q1" value="1"><span>Listen, Practise, Correct</span></label><label class="opt"><input type="radio" name="lpc_q1" value="2"><span>Learn, Pause, Compare</span></label></div>
+            <button type="button" class="btn secondary checkone" style="margin-top:8px">Check</button>
+            <div class="feedback"></div>
+          </div>
+          <div class="card"><b>Complete the exact subtitle line</b><p class="instruction">Listen first. Type the missing expression exactly as it appears in the subtitles.</p><div class="gapline gapq" data-answer="present a concept">Second, __________,<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><div class="gapline gapq" data-answer="factual errors">Number one, any errors, __________<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><button type="button" class="btn secondary checkgaps">Check subtitle lines</button></div>
+          <div class="subtitle-box">
+            <div class="subnote"><b>Complete subtitle text for this segment.</b> These lines come from the SRT file you supplied. Auto-generated SRTs are preserved as supplied and may contain recognition errors.</div>
+            <div class="subrow" data-search="first you go out and learn"><span class="subtime">01:57</span><span class="subtext">First you go out and learn.</span></div><div class="subrow" data-search="go to the lecture material"><span class="subtime">01:59</span><span class="subtext">Go to the lecture material,</span></div><div class="subrow" data-search="watch a video read a book"><span class="subtime">02:00</span><span class="subtext">watch a video, read a book,</span></div><div class="subrow" data-search="take your notes as normal"><span class="subtime">02:02</span><span class="subtext">take your notes as normal.</span></div><div class="subrow" data-search="second present a concept"><span class="subtime">02:03</span><span class="subtext">Second, <button type="button" class="subword" data-en="present a concept" data-ru="представить / объяснить концепцию">present a concept</button>,</span></div><div class="subrow" data-search="present something you&#x27;ve learned to your phone camera"><span class="subtime">02:05</span><span class="subtext">present something you&#x27;ve
+learned to your phone camera</span></div><div class="subrow" data-search="as if you&#x27;re explaining it to a friend or explaining it"><span class="subtime">02:08</span><span class="subtext">as if you&#x27;re explaining it
+to a friend or explaining it</span></div><div class="subrow" data-search="to a classroom like a speech"><span class="subtime">02:10</span><span class="subtext">to a classroom like a speech.</span></div><div class="subrow" data-search="and third upload that video"><span class="subtime">02:12</span><span class="subtext">And third upload that video,</span></div><div class="subrow" data-search="paste it into your notes"><span class="subtime">02:14</span><span class="subtext">paste it into your notes</span></div><div class="subrow" data-search="and finally watch it and critique it"><span class="subtime">02:15</span><span class="subtext">and finally watch it and critique it.</span></div><div class="subrow" data-search="and in your critique"><span class="subtime">02:17</span><span class="subtext">And in your critique,</span></div><div class="subrow" data-search="you&#x27;re looking for three different things"><span class="subtime">02:18</span><span class="subtext">you&#x27;re looking for three different things.</span></div><div class="subrow" data-search="number one any errors factual errors"><span class="subtime">02:20</span><span class="subtext">Number one, any errors, <button type="button" class="subword" data-en="factual errors" data-ru="фактические ошибки">factual errors</button></span></div><div class="subrow" data-search="that you need to correct"><span class="subtime">02:22</span><span class="subtext">that you need to correct.</span></div><div class="subrow" data-search="number two any areas where you are vague"><span class="subtime">02:23</span><span class="subtext">Number two, any areas where you are vague,</span></div><div class="subrow" data-search="where you can add clarification and number three"><span class="subtime">02:25</span><span class="subtext">where you can add
+clarification and number three,</span></div><div class="subrow" data-search="any questions that your critique brings up after the fact"><span class="subtime">02:27</span><span class="subtext">any questions that your critique
+brings up after the fact,</span></div><div class="subrow" data-search="you can then go and learn about through supplemental"><span class="subtime">02:30</span><span class="subtext">you can then go and learn
+about through supplemental</span></div><div class="subrow" data-search="material or through revisiting the actual material"><span class="subtime">02:33</span><span class="subtext">material or through
+<button type="button" class="subword" data-en="revisiting the actual material" data-ru="повторно вернуться к исходному материалу">revisiting the actual material</button></span></div><div class="subrow" data-search="you&#x27;re learning from"><span class="subtime">02:35</span><span class="subtext">you&#x27;re learning from.</span></div><div class="subrow" data-search="so here&#x27;s a real world example from my own study"><span class="subtime">02:36</span><span class="subtext">So here&#x27;s a real world
+example from my own study</span></div>
+          </div>
+        </article>
+        
+        <article class="part" id="part3">
+          <div class="part-head">
+            <div><h3>Part 3 · A real study example</h3>
+            <p class="instruction">Thomas demonstrates the method with anatomy and biomechanics. He records explanations of joints and embeds the videos in his notes.</p></div>
+            <span class="time">02:37–04:10</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn playpart" data-start="157" data-end="250">▶ Play this part</button>
+            <button type="button" class="btn ghost subtoggle">Show full subtitles for this part</button>
+          </div>
+          <div class="card">
+            <b>Vocabulary actually used in this part</b>
+            <div class="vocab-grid"><button type="button" class="vocab" data-en="take advantage of multimodal learning" data-ru="использовать преимущества мультимодального обучения">take advantage of multimodal learning</button><button type="button" class="vocab" data-en="pick a concept" data-ru="выбрать концепцию">pick a concept</button><button type="button" class="vocab" data-en="unlisted copy" data-ru="видео по ссылке, не в общем доступе">unlisted copy</button></div>
+          </div>
+          <div class="card quizq" data-answer="0">
+            <b>What subject does Thomas use for his real-world example?</b><div class="options"><label class="opt"><input type="radio" name="lpc_q2" value="0"><span>Human anatomy</span></label><label class="opt"><input type="radio" name="lpc_q2" value="1"><span>World history</span></label><label class="opt"><input type="radio" name="lpc_q2" value="2"><span>Foreign languages</span></label></div>
+            <button type="button" class="btn secondary checkone" style="margin-top:8px">Check</button>
+            <div class="feedback"></div>
+          </div>
+          <div class="card"><b>Complete the exact subtitle line</b><p class="instruction">Listen first. Type the missing expression exactly as it appears in the subtitles.</p><div class="gapline gapq" data-answer="pick a concept">I want to put my phone on
+a tripod and __________<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><div class="gapline gapq" data-answer="unlisted copy">I use the YouTube app to
+upload an __________<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><button type="button" class="btn secondary checkgaps">Check subtitle lines</button></div>
+          <div class="subtitle-box">
+            <div class="subnote"><b>Complete subtitle text for this segment.</b> These lines come from the SRT file you supplied. Auto-generated SRTs are preserved as supplied and may contain recognition errors.</div>
+            <div class="subrow" data-search="of human anatomy"><span class="subtime">02:39</span><span class="subtext">of human anatomy.</span></div><div class="subrow" data-search="and if you look through my notes here on motion"><span class="subtime">02:39</span><span class="subtext">And if you look through
+my notes here on motion,</span></div><div class="subrow" data-search="you&#x27;ll see lots of different videos"><span class="subtime">02:40</span><span class="subtext">you&#x27;ll see lots of different videos</span></div><div class="subrow" data-search="where i&#x27;m explaining lots of concepts"><span class="subtime">02:42</span><span class="subtext">where I&#x27;m explaining lots of concepts,</span></div><div class="subrow" data-search="but the one that i want to show you here"><span class="subtime">02:44</span><span class="subtext">but the one that I want to show you here</span></div><div class="subrow" data-search="is my explanation of the different moving joints"><span class="subtime">02:45</span><span class="subtext">is my explanation of the
+different moving joints</span></div><div class="subrow" data-search="in the human body"><span class="subtime">02:47</span><span class="subtext">in the human body,</span></div><div class="subrow" data-search="which are called synovial joints"><span class="subtime">02:48</span><span class="subtext">which are called synovial joints.</span></div><div class="subrow" data-search="so at first i went through that learning process"><span class="subtime">02:50</span><span class="subtext">So at first I went through
+that learning process.</span></div><div class="subrow" data-search="in this case"><span class="subtime">02:52</span><span class="subtext">In this case,</span></div><div class="subrow" data-search="the material that i&#x27;m working through is barbell logic&#x27;s"><span class="subtime">02:53</span><span class="subtext">the material that I&#x27;m working
+through is Barbell Logic&#x27;s</span></div><div class="subrow" data-search="principles course"><span class="subtime">02:55</span><span class="subtext">principles course,</span></div><div class="subrow" data-search="which goes through pretty much everything you need to learn"><span class="subtime">02:56</span><span class="subtext">which goes through pretty much
+everything you need to learn</span></div><div class="subrow" data-search="to become a beginner strength coach"><span class="subtime">02:58</span><span class="subtext">to become a beginner strength coach,</span></div><div class="subrow" data-search="so biomechanics bioenergetics"><span class="subtime">03:00</span><span class="subtext">so biomechanics, bioenergetics,</span></div><div class="subrow" data-search="the basics of human anatomy"><span class="subtime">03:02</span><span class="subtext">the basics of human anatomy,</span></div><div class="subrow" data-search="as well as how to coach the four main power lifting lifts"><span class="subtime">03:03</span><span class="subtext">as well as how to coach the
+four main power lifting lifts.</span></div><div class="subrow" data-search="so i&#x27;m going through this course and i&#x27;m taking my notes"><span class="subtime">03:06</span><span class="subtext">So I&#x27;m going through this
+course and I&#x27;m taking my notes</span></div><div class="subrow" data-search="on the different joints in the body and how they move"><span class="subtime">03:08</span><span class="subtext">on the different joints in
+the body and how they move.</span></div><div class="subrow" data-search="and i use a pretty typical outline style note"><span class="subtime">03:11</span><span class="subtext">And I use a pretty
+typical outline style note</span></div><div class="subrow" data-search="taking technique here in notion"><span class="subtime">03:13</span><span class="subtext">taking technique here in notion</span></div><div class="subrow" data-search="with the one exception that i often will clip"><span class="subtime">03:15</span><span class="subtext">with the one exception
+that I often will clip</span></div><div class="subrow" data-search="a lot of screenshots and add"><span class="subtime">03:17</span><span class="subtext">a lot of screenshots and add</span></div><div class="subrow" data-search="a lot of multimedia elements"><span class="subtime">03:18</span><span class="subtext">a lot of multimedia elements</span></div><div class="subrow" data-search="into my notes to take advantage of multimodal learning"><span class="subtime">03:20</span><span class="subtext">into my notes to take advantage
+of multimodal learning.</span></div><div class="subrow" data-search="and i&#x27;ll touch on that a little bit later"><span class="subtime">03:22</span><span class="subtext">And I&#x27;ll touch on that a little bit later,</span></div><div class="subrow" data-search="but now it&#x27;s time to move on to step two"><span class="subtime">03:24</span><span class="subtext">but now it&#x27;s time to move on to step two,</span></div><div class="subrow" data-search="which is present"><span class="subtime">03:26</span><span class="subtext">which is present.</span></div><div class="subrow" data-search="at this point"><span class="subtime">03:27</span><span class="subtext">At this point.</span></div><div class="subrow" data-search="i want to put my phone on a tripod and pick a concept"><span class="subtime">03:28</span><span class="subtext">I want to put my phone on
+a tripod and <button type="button" class="subword" data-en="pick a concept" data-ru="выбрать концепцию">pick a concept</button></span></div><div class="subrow" data-search="or a set of facts to present and explain"><span class="subtime">03:31</span><span class="subtext">or a set of facts to present and explain</span></div><div class="subrow" data-search="to my phone as if i were explaining it to you"><span class="subtime">03:33</span><span class="subtext">to my phone as if I were
+explaining it to you</span></div><div class="subrow" data-search="or to a friend"><span class="subtime">03:35</span><span class="subtext">or to a friend.</span></div><div class="subrow" data-search="so in this case"><span class="subtime">03:36</span><span class="subtext">So in this case,</span></div><div class="subrow" data-search="i picked these six different diarthrodial joints in the body"><span class="subtime">03:37</span><span class="subtext">I picked these six different
+diarthrodial joints in the body</span></div><div class="subrow" data-search="and explain how they work in the video"><span class="subtime">03:39</span><span class="subtext">and explain how they work in the video.</span></div><div class="subrow" data-search="so a way to imagine a saddle type joint and how it moves"><span class="subtime">03:41</span><span class="subtext">So a way to imagine a saddle
+type joint and how it moves</span></div><div class="subrow" data-search="is if you took your knuckles here"><span class="subtime">03:45</span><span class="subtext">is if you took your knuckles here</span></div><div class="subrow" data-search="and took the other knuckles here"><span class="subtime">03:48</span><span class="subtext">and took the other knuckles here</span></div><div class="subrow" data-search="and sort of sandwiched them together"><span class="subtime">03:49</span><span class="subtext">and sort of sandwiched them together.</span></div><div class="subrow" data-search="now this is my own analogy"><span class="subtime">03:51</span><span class="subtext">Now, this is my own analogy.</span></div><div class="subrow" data-search="they did not teach this in the course"><span class="subtime">03:52</span><span class="subtext">They did not teach this in the course,</span></div><div class="subrow" data-search="but it sort of is analogous to how you&#x27;ll see illustration"><span class="subtime">03:53</span><span class="subtext">but it sort of is analogous to
+how you&#x27;ll see illustration.</span></div><div class="subrow" data-search="once i am recording"><span class="subtime">03:56</span><span class="subtext">Once I am recording,</span></div><div class="subrow" data-search="i use the youtube app to upload an unlisted copy"><span class="subtime">03:57</span><span class="subtext">I use the YouTube app to
+upload an <button type="button" class="subword" data-en="unlisted copy" data-ru="видео по ссылке, не в общем доступе">unlisted copy</button></span></div><div class="subrow" data-search="of this video to a second youtube channel"><span class="subtime">03:59</span><span class="subtext">of this video to a second YouTube channel.</span></div><div class="subrow" data-search="i have specifically for my own learning"><span class="subtime">04:01</span><span class="subtext">I have specifically for my own learning</span></div><div class="subrow" data-search="and for this lpc technique"><span class="subtime">04:04</span><span class="subtext">and for this LPC technique.</span></div><div class="subrow" data-search="and because it&#x27;s on youtube"><span class="subtime">04:05</span><span class="subtext">And because it&#x27;s on YouTube,</span></div><div class="subrow" data-search="i can then go ahead and paste it into my notion"><span class="subtime">04:06</span><span class="subtext">I can then go ahead and
+paste it into my notion,</span></div><div class="subrow" data-search="which will embed it"><span class="subtime">04:08</span><span class="subtext">which will embed it.</span></div><div class="subrow" data-search="and that brings us to step three critique"><span class="subtime">04:09</span><span class="subtext">And that brings us to
+step three, critique.</span></div>
+          </div>
+        </article>
+        
+        <article class="part" id="part4">
+          <div class="part-head">
+            <div><h3>Part 4 · Critique and why presenting can help</h3>
+            <p class="instruction">During critique he looks for factual errors, vague explanations and new questions. He argues that presenting can be efficient for topics that benefit from demonstration.</p></div>
+            <span class="time">04:10–06:28</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn playpart" data-start="250" data-end="388">▶ Play this part</button>
+            <button type="button" class="btn ghost subtoggle">Show full subtitles for this part</button>
+          </div>
+          <div class="card">
+            <b>Vocabulary actually used in this part</b>
+            <div class="vocab-grid"><button type="button" class="vocab" data-en="deepen my understanding" data-ru="углубить моё понимание">deepen my understanding</button><button type="button" class="vocab" data-en="in terms of ROI" data-ru="с точки зрения отдачи">in terms of ROI</button><button type="button" class="vocab" data-en="mode of active learning" data-ru="форма активного обучения">mode of active learning</button><button type="button" class="vocab" data-en="body language" data-ru="язык тела">body language</button><button type="button" class="vocab" data-en="retention of information" data-ru="удержание информации">retention of information</button></div>
+          </div>
+          <div class="card quizq" data-answer="0">
+            <b>What three things does Thomas look for during critique?</b><div class="options"><label class="opt"><input type="radio" name="lpc_q3" value="0"><span>Factual errors, vague areas and new questions</span></label><label class="opt"><input type="radio" name="lpc_q3" value="1"><span>Pronunciation, handwriting and speed</span></label><label class="opt"><input type="radio" name="lpc_q3" value="2"><span>Grades, deadlines and attendance</span></label></div>
+            <button type="button" class="btn secondary checkone" style="margin-top:8px">Check</button>
+            <div class="feedback"></div>
+          </div>
+          <div class="card"><b>Complete the exact subtitle line</b><p class="instruction">Listen first. Type the missing expression exactly as it appears in the subtitles.</p><div class="gapline gapq" data-answer="deepen my understanding">me to __________<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><div class="gapline gapq" data-answer="in terms of ROI">than the Feynman
+Technique __________.<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><button type="button" class="btn secondary checkgaps">Check subtitle lines</button></div>
+          <div class="subtitle-box">
+            <div class="subnote"><b>Complete subtitle text for this segment.</b> These lines come from the SRT file you supplied. Auto-generated SRTs are preserved as supplied and may contain recognition errors.</div>
+            <div class="subrow" data-search="at this point"><span class="subtime">04:12</span><span class="subtext">At this point,</span></div><div class="subrow" data-search="i&#x27;m going to watch through the video and i&#x27;m going to look"><span class="subtime">04:12</span><span class="subtext">I&#x27;m going to watch through the
+video and I&#x27;m going to look</span></div><div class="subrow" data-search="for again three things"><span class="subtime">04:14</span><span class="subtext">for, again, three things.</span></div><div class="subrow" data-search="number one factual errors"><span class="subtime">04:15</span><span class="subtext">Number one, <button type="button" class="subword" data-en="factual errors" data-ru="фактические ошибки">factual errors</button>.</span></div><div class="subrow" data-search="so for example at one point in the video"><span class="subtime">04:17</span><span class="subtext">So for example, at one point in the video,</span></div><div class="subrow" data-search="i mentioned the carpals of the hand"><span class="subtime">04:19</span><span class="subtext">I mentioned the carpals of the hand</span></div><div class="subrow" data-search="and the carpals of the feet"><span class="subtime">04:20</span><span class="subtext">and the carpals of the feet.</span></div><div class="subrow" data-search="those are the tarsals"><span class="subtime">04:22</span><span class="subtext">Those are the tarsals.</span></div><div class="subrow" data-search="i&#x27;m going to also look for anything"><span class="subtime">04:23</span><span class="subtext">I&#x27;m going to also look for anything</span></div><div class="subrow" data-search="where i could be a little bit more clear"><span class="subtime">04:24</span><span class="subtext">where I could be a little bit more clear</span></div><div class="subrow" data-search="or more correct in my explanation"><span class="subtime">04:26</span><span class="subtext">or more correct in my explanation.</span></div><div class="subrow" data-search="so at one point i mentioned the joint between the metacarpo"><span class="subtime">04:29</span><span class="subtext">So at one point I mentioned
+the joint between the metacarpo</span></div><div class="subrow" data-search="and the phalangeal bones here in the thumb"><span class="subtime">04:34</span><span class="subtext">and the phalangeal
+bones here in the thumb.</span></div><div class="subrow" data-search="well that is a joint"><span class="subtime">04:36</span><span class="subtext">Well, that is a joint,</span></div><div class="subrow" data-search="but it&#x27;s called the metacarpophalangeal joint"><span class="subtime">04:38</span><span class="subtext">but it&#x27;s called the
+metacarpophalangeal joint.</span></div><div class="subrow" data-search="so i should actually use the name of the joint"><span class="subtime">04:40</span><span class="subtext">So I should actually use
+the name of the joint.</span></div><div class="subrow" data-search="and finally number three"><span class="subtime">04:42</span><span class="subtext">And finally, number three,</span></div><div class="subrow" data-search="if i have any questions that come up"><span class="subtime">04:43</span><span class="subtext">if I have any questions that come up</span></div><div class="subrow" data-search="in this critique process and i almost always do"><span class="subtime">04:44</span><span class="subtext">in this critique process,
+and I almost always do,</span></div><div class="subrow" data-search="i want to go out and get answers to those questions"><span class="subtime">04:47</span><span class="subtext">I want to go out and get
+answers to those questions.</span></div><div class="subrow" data-search="and this is just another way that encourages"><span class="subtime">04:50</span><span class="subtext">And this is just another
+way that encourages</span></div><div class="subrow" data-search="me to deepen my understanding"><span class="subtime">04:52</span><span class="subtext">me to <button type="button" class="subword" data-en="deepen my understanding" data-ru="углубить моё понимание">deepen my understanding</button></span></div><div class="subrow" data-search="often by using supplemental resources"><span class="subtime">04:53</span><span class="subtext">often by using supplemental resources.</span></div><div class="subrow" data-search="so how is this method better than the original"><span class="subtime">04:56</span><span class="subtext">So how is this method
+better than the original</span></div><div class="subrow" data-search="feynman technique"><span class="subtime">04:58</span><span class="subtext">Feynman Technique?</span></div><div class="subrow" data-search="well i am not going to stand"><span class="subtime">04:58</span><span class="subtext">Well, I am not going to stand</span></div><div class="subrow" data-search="by that claim for every subject or every concept out there"><span class="subtime">05:00</span><span class="subtext">by that claim for every subject
+or every concept out there,</span></div><div class="subrow" data-search="but i do think that for certain types of information"><span class="subtime">05:03</span><span class="subtext">but I do think that for
+certain types of information,</span></div><div class="subrow" data-search="certain concepts this is much better"><span class="subtime">05:05</span><span class="subtext">certain concepts, this is much better</span></div><div class="subrow" data-search="than the feynman technique in terms of roi"><span class="subtime">05:07</span><span class="subtext">than the Feynman
+Technique <button type="button" class="subword" data-en="in terms of ROI" data-ru="с точки зрения отдачи">in terms of ROI</button>.</span></div><div class="subrow" data-search="and it&#x27;s because you&#x27;re using a different mode of learning"><span class="subtime">05:10</span><span class="subtext">And it&#x27;s because you&#x27;re using
+a different mode of learning</span></div><div class="subrow" data-search="or mode of active learning specifically to deepen"><span class="subtime">05:12</span><span class="subtext">or <button type="button" class="subword" data-en="mode of active learning" data-ru="форма активного обучения">mode of active learning</button>
+specifically to deepen</span></div><div class="subrow" data-search="your understanding of the subject material"><span class="subtime">05:15</span><span class="subtext">your understanding of
+the subject material.</span></div><div class="subrow" data-search="going back to my example of the synovial joints in the body"><span class="subtime">05:17</span><span class="subtext">Going back to my example of the
+synovial joints in the body,</span></div><div class="subrow" data-search="if i get on camera and i verbally explain"><span class="subtime">05:21</span><span class="subtext">if I get on camera and I verbally explain</span></div><div class="subrow" data-search="how these joints work"><span class="subtime">05:23</span><span class="subtext">how these joints work,</span></div><div class="subrow" data-search="but also use body language to demonstrate how they work"><span class="subtime">05:24</span><span class="subtext">but also use <button type="button" class="subword" data-en="body language" data-ru="язык тела">body language</button>
+to demonstrate how they work</span></div><div class="subrow" data-search="and point out where they are on my own anatomy"><span class="subtime">05:27</span><span class="subtext">and point out where they
+are on my own anatomy,</span></div><div class="subrow" data-search="i am using multimodal learning to deepen"><span class="subtime">05:29</span><span class="subtext">I am using multimodal learning to deepen</span></div><div class="subrow" data-search="my own understanding"><span class="subtime">05:32</span><span class="subtext">my own understanding.</span></div><div class="subrow" data-search="and if i wanted to do that with the feynman technique"><span class="subtime">05:33</span><span class="subtext">And if I wanted to do that
+with the Feynman Technique</span></div><div class="subrow" data-search="i would have two different options"><span class="subtime">05:35</span><span class="subtext">I would have two different options.</span></div><div class="subrow" data-search="i would either have to write out in text"><span class="subtime">05:37</span><span class="subtext">I would either have to write out in text</span></div><div class="subrow" data-search="how these things work"><span class="subtime">05:39</span><span class="subtext">how these things work.</span></div><div class="subrow" data-search="that&#x27;s a very abstract way of learning"><span class="subtime">05:40</span><span class="subtext">That&#x27;s a very abstract way of learning.</span></div><div class="subrow" data-search="it&#x27;s going to take me a lot longer"><span class="subtime">05:41</span><span class="subtext">It&#x27;s going to take me a lot longer.</span></div><div class="subrow" data-search="or i would have to draw them"><span class="subtime">05:43</span><span class="subtext">Or I would have to draw them.</span></div><div class="subrow" data-search="that is a more iconic type of learning using iconography"><span class="subtime">05:45</span><span class="subtext">That is a more iconic type of
+learning, using iconography.</span></div><div class="subrow" data-search="it&#x27;s much better in terms of me"><span class="subtime">05:48</span><span class="subtext">It&#x27;s much better in terms of me</span></div><div class="subrow" data-search="being able to visually see how something works"><span class="subtime">05:50</span><span class="subtext">being able to visually
+see how something works,</span></div><div class="subrow" data-search="but drawing takes a lot more time than just pointing out"><span class="subtime">05:52</span><span class="subtext">but drawing takes a lot more
+time than just pointing out</span></div><div class="subrow" data-search="and moving my arm to show a hinge joint works"><span class="subtime">05:55</span><span class="subtext">and moving my arm to
+show a hinge joint works.</span></div><div class="subrow" data-search="so in terms of time spent studying versus retention"><span class="subtime">05:58</span><span class="subtext">So in terms of time spent
+studying versus retention</span></div><div class="subrow" data-search="of information for certain kinds of topics"><span class="subtime">06:00</span><span class="subtext">of information for
+certain kinds of topics,</span></div><div class="subrow" data-search="this is going to be superior"><span class="subtime">06:02</span><span class="subtext">this is going to be superior.</span></div><div class="subrow" data-search="though i think the real improvement"><span class="subtime">06:04</span><span class="subtext">Though I think the real improvement</span></div><div class="subrow" data-search="to the five technique here is to combine"><span class="subtime">06:06</span><span class="subtext">to the five technique here is to combine</span></div><div class="subrow" data-search="your use of both of these techniques"><span class="subtime">06:08</span><span class="subtext">your use of both of these techniques,</span></div><div class="subrow" data-search="either separately based"><span class="subtime">06:10</span><span class="subtext">either separately based</span></div><div class="subrow" data-search="on the type of concept you&#x27;re studying"><span class="subtime">06:12</span><span class="subtext">on the type of concept you&#x27;re studying,</span></div><div class="subrow" data-search="or maybe even lumping them all into one big technique"><span class="subtime">06:13</span><span class="subtext">or maybe even lumping them
+all into one big technique.</span></div><div class="subrow" data-search="there is nothing stopping you from breaking out a whiteboard"><span class="subtime">06:16</span><span class="subtext">There is nothing stopping you
+from breaking out a whiteboard</span></div><div class="subrow" data-search="and actually writing out or diagramming"><span class="subtime">06:19</span><span class="subtext">and actually writing out or diagramming</span></div><div class="subrow" data-search="while you film yourself"><span class="subtime">06:21</span><span class="subtext">while you film yourself.</span></div><div class="subrow" data-search="but that extra step of critiquing yourself afterwards"><span class="subtime">06:22</span><span class="subtext">But that extra step of
+critiquing yourself afterwards</span></div><div class="subrow" data-search="is another thing that&#x27;s going"><span class="subtime">06:25</span><span class="subtext">is another thing that&#x27;s going</span></div><div class="subrow" data-search="to help deepen your understanding"><span class="subtime">06:26</span><span class="subtext">to help deepen your understanding.</span></div>
+          </div>
+        </article>
+        
+        <article class="part" id="part5">
+          <div class="part-head">
+            <div><h3>Part 5 · Multimodal learning and a learning myth</h3>
+            <p class="instruction">Thomas rejects the popular learning-pyramid percentages as invented and argues for mixing learning modes depending on the type of knowledge.</p></div>
+            <span class="time">06:28–08:00</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn playpart" data-start="388" data-end="480">▶ Play this part</button>
+            <button type="button" class="btn ghost subtoggle">Show full subtitles for this part</button>
+          </div>
+          <div class="card">
+            <b>Vocabulary actually used in this part</b>
+            <div class="vocab-grid"><button type="button" class="vocab" data-en="multimodal learning strategy" data-ru="мультимодальная стратегия обучения">multimodal learning strategy</button><button type="button" class="vocab" data-en="levels of abstraction" data-ru="уровни абстракции">levels of abstraction</button><button type="button" class="vocab" data-en="hands-on experience" data-ru="практический опыт">hands-on experience</button><button type="button" class="vocab" data-en="higher order learning concepts" data-ru="концепции более высокого уровня">higher order learning concepts</button><button type="button" class="vocab" data-en="long-term memory" data-ru="долговременная память">long-term memory</button><button type="button" class="vocab" data-en="retain and recall" data-ru="удерживать и вспоминать">retain and recall</button></div>
+          </div>
+          <div class="card quizq" data-answer="0">
+            <b>What does he say about the famous percentages in the learning pyramid?</b><div class="options"><label class="opt"><input type="radio" name="lpc_q4" value="0"><span>They are completely made up</span></label><label class="opt"><input type="radio" name="lpc_q4" value="1"><span>They are accurate for every learner</span></label><label class="opt"><input type="radio" name="lpc_q4" value="2"><span>They apply only to children</span></label></div>
+            <button type="button" class="btn secondary checkone" style="margin-top:8px">Check</button>
+            <div class="feedback"></div>
+          </div>
+          <div class="card"><b>Complete the exact subtitle line</b><p class="instruction">Listen first. Type the missing expression exactly as it appears in the subtitles.</p><div class="gapline gapq" data-answer="multimodal learning strategy">a __________<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><div class="gapline gapq" data-answer="levels of abstraction">a model that showed visually
+the differences in __________, between
+different methods of learning,<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><button type="button" class="btn secondary checkgaps">Check subtitle lines</button></div>
+          <div class="subtitle-box">
+            <div class="subnote"><b>Complete subtitle text for this segment.</b> These lines come from the SRT file you supplied. Auto-generated SRTs are preserved as supplied and may contain recognition errors.</div>
+            <div class="subrow" data-search="in general you want to pursue"><span class="subtime">06:28</span><span class="subtext">In general, you want to pursue</span></div><div class="subrow" data-search="a multimodal learning strategy"><span class="subtime">06:29</span><span class="subtext">a <button type="button" class="subword" data-en="multimodal learning strategy" data-ru="мультимодальная стратегия обучения">multimodal learning strategy</button></span></div><div class="subrow" data-search="because no one way of learning is better than any other"><span class="subtime">06:30</span><span class="subtext">because no one way of learning
+is better than any other.</span></div><div class="subrow" data-search="you may have seen this often cited learning pyramid"><span class="subtime">06:34</span><span class="subtext">You may have seen this
+often cited learning pyramid</span></div><div class="subrow" data-search="floating around the internet"><span class="subtime">06:36</span><span class="subtext">floating around the internet,</span></div><div class="subrow" data-search="where people will say things like you only retain 10%"><span class="subtime">06:37</span><span class="subtext">where people will say things
+like you only retain 10%</span></div><div class="subrow" data-search="of what you hear 20% of what you read etcetera"><span class="subtime">06:39</span><span class="subtext">of what you hear, 20% of
+what you read, etcetera.</span></div><div class="subrow" data-search="well as it turns out the original version of that pyramid"><span class="subtime">06:42</span><span class="subtext">Well, as it turns out the
+original version of that pyramid,</span></div><div class="subrow" data-search="number one it wasn&#x27;t even called a pyramid"><span class="subtime">06:44</span><span class="subtext">number one, it wasn&#x27;t
+even called a pyramid,</span></div><div class="subrow" data-search="it was a cone"><span class="subtime">06:46</span><span class="subtext">it was a cone.</span></div><div class="subrow" data-search="- it&#x27;s about the cones"><span class="subtime">06:47</span><span class="subtext">- It&#x27;s about the cones.</span></div><div class="subrow" data-search="- but number two it did not include"><span class="subtime">06:49</span><span class="subtext">- But number two, it did not include</span></div><div class="subrow" data-search="those percentages at all"><span class="subtime">06:51</span><span class="subtext">those percentages at all.</span></div><div class="subrow" data-search="and as far as research has been able to find"><span class="subtime">06:52</span><span class="subtext">And as far as research
+has been able to find</span></div><div class="subrow" data-search="those percentages are completely made up"><span class="subtime">06:54</span><span class="subtext">those percentages are completely made up.</span></div><div class="subrow" data-search="the original version of the cone"><span class="subtime">06:56</span><span class="subtext">The original version of the cone</span></div><div class="subrow" data-search="was called the cone of experience"><span class="subtime">06:58</span><span class="subtext">was called the cone of experience.</span></div><div class="subrow" data-search="it was created by edgar dale who was a very well-respected"><span class="subtime">06:59</span><span class="subtext">It was created by Edgar Dale
+who was a very well-respected</span></div><div class="subrow" data-search="education researcher"><span class="subtime">07:02</span><span class="subtext">education researcher.</span></div><div class="subrow" data-search="and his whole point in creating this cone was to just create"><span class="subtime">07:03</span><span class="subtext">And his whole point in creating
+this cone was to just create</span></div><div class="subrow" data-search="a model that showed visually the differences in levels"><span class="subtime">07:05</span><span class="subtext">a model that showed visually
+the differences in levels</span></div><div class="subrow" data-search="of abstraction between different methods of learning"><span class="subtime">07:08</span><span class="subtext">of abstraction, between
+different methods of learning,</span></div><div class="subrow" data-search="be it verbal or text-based or audiovisual"><span class="subtime">07:11</span><span class="subtext">be it verbal or text-based or audiovisual.</span></div><div class="subrow" data-search="and his whole point was that mixing up different methods"><span class="subtime">07:13</span><span class="subtext">And his whole point was that
+mixing up different methods</span></div><div class="subrow" data-search="of learning is more powerful than using any one"><span class="subtime">07:16</span><span class="subtext">of learning is more
+powerful than using any one.</span></div><div class="subrow" data-search="in fact back in 1969"><span class="subtime">07:19</span><span class="subtext">In fact, back in 1969,</span></div><div class="subrow" data-search="he wrote that direct hands-on experience"><span class="subtime">07:21</span><span class="subtext">he wrote that direct <button type="button" class="subword" data-en="hands-on experience" data-ru="практический опыт">hands-on experience</button>,</span></div><div class="subrow" data-search="what we often think of as the gold standard for learning"><span class="subtime">07:23</span><span class="subtext">what we often think of as the
+gold standard for learning</span></div><div class="subrow" data-search="anything is often not the best way to learn something"><span class="subtime">07:26</span><span class="subtext">anything is often not the
+best way to learn something.</span></div><div class="subrow" data-search="and more recent cognitive research has confirmed this"><span class="subtime">07:28</span><span class="subtext">And more recent cognitive
+research has confirmed this</span></div><div class="subrow" data-search="and shown that for basic concepts"><span class="subtime">07:31</span><span class="subtext">and shown that for basic concepts,</span></div><div class="subrow" data-search="a more abstract learning model"><span class="subtime">07:33</span><span class="subtext">a more abstract learning model</span></div><div class="subrow" data-search="is actually better"><span class="subtime">07:34</span><span class="subtext">is actually better.</span></div><div class="subrow" data-search="and once you get into higher order learning concepts"><span class="subtime">07:35</span><span class="subtext">And once you get into higher
+order learning concepts,</span></div><div class="subrow" data-search="then hands on experience is better"><span class="subtime">07:38</span><span class="subtext">then hands on experience is better.</span></div><div class="subrow" data-search="so as far as cognitive research has found"><span class="subtime">07:39</span><span class="subtext">So as far as cognitive research has found,</span></div><div class="subrow" data-search="a multimodal approach truly is the best"><span class="subtime">07:41</span><span class="subtext">a multimodal approach truly is the best.</span></div><div class="subrow" data-search="so talk about what you&#x27;re learning and demonstrate it"><span class="subtime">07:43</span><span class="subtext">So talk about what you&#x27;re
+learning and demonstrate it</span></div><div class="subrow" data-search="with body language draw it"><span class="subtime">07:46</span><span class="subtext">with <button type="button" class="subword" data-en="body language" data-ru="язык тела">body language</button>, draw it,</span></div><div class="subrow" data-search="find a way to get a new perspective"><span class="subtime">07:47</span><span class="subtext">find a way to get a new perspective</span></div><div class="subrow" data-search="and a new view on what you&#x27;re learning"><span class="subtime">07:50</span><span class="subtext">and a new view on what you&#x27;re learning.</span></div><div class="subrow" data-search="and you&#x27;re going to find your long-term memory"><span class="subtime">07:51</span><span class="subtext">And you&#x27;re going to find
+your <button type="button" class="subword" data-en="long-term memory" data-ru="долговременная память">long-term memory</button>,</span></div><div class="subrow" data-search="your long-term ability to retain and recall that information"><span class="subtime">07:53</span><span class="subtext">your long-term ability to retain
+and recall that information</span></div><div class="subrow" data-search="and master it truly understand it"><span class="subtime">07:56</span><span class="subtext">and master it truly understand it</span></div><div class="subrow" data-search="is going to improve as well"><span class="subtime">07:58</span><span class="subtext">is going to improve as well.</span></div>
+          </div>
+        </article>
+        
+        <article class="part" id="part6">
+          <div class="part-head">
+            <div><h3>Part 6 · Active learning and the final takeaway</h3>
+            <p class="instruction">The sponsored ending reinforces active learning: frequent quizzes and problem solving keep the learner actively engaged and can improve problem-solving ability.</p></div>
+            <span class="time">08:00–09:26</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn playpart" data-start="480" data-end="566">▶ Play this part</button>
+            <button type="button" class="btn ghost subtoggle">Show full subtitles for this part</button>
+          </div>
+          <div class="card">
+            <b>Vocabulary actually used in this part</b>
+            <div class="vocab-grid"><button type="button" class="vocab" data-en="passive supplemental resources" data-ru="пассивные дополнительные ресурсы">passive supplemental resources</button><button type="button" class="vocab" data-en="actively engaged" data-ru="активно вовлечённый">actively engaged</button><button type="button" class="vocab" data-en="master the material" data-ru="овладеть материалом">master the material</button><button type="button" class="vocab" data-en="problem solver overall" data-ru="в целом лучше решать проблемы">problem solver overall</button></div>
+          </div>
+          <div class="card quizq" data-answer="0">
+            <b>What makes the sponsored course an example of active learning?</b><div class="options"><label class="opt"><input type="radio" name="lpc_q5" value="0"><span>It repeatedly asks learners to solve problems</span></label><label class="opt"><input type="radio" name="lpc_q5" value="1"><span>It removes all quizzes</span></label><label class="opt"><input type="radio" name="lpc_q5" value="2"><span>It is based only on passive lectures</span></label></div>
+            <button type="button" class="btn secondary checkone" style="margin-top:8px">Check</button>
+            <div class="feedback"></div>
+          </div>
+          <div class="card"><b>Complete the exact subtitle line</b><p class="instruction">Listen first. Type the missing expression exactly as it appears in the subtitles.</p><div class="gapline gapq" data-answer="passive supplemental resources">And I&#x27;m also using some more
+__________,<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><div class="gapline gapq" data-answer="actively engaged">and interactive puzzles that
+keep you __________<input type="text" placeholder="Missing expression"><div class="feedback"></div></div><button type="button" class="btn secondary checkgaps">Check subtitle lines</button></div>
+          <div class="subtitle-box">
+            <div class="subnote"><b>Complete subtitle text for this segment.</b> These lines come from the SRT file you supplied. Auto-generated SRTs are preserved as supplied and may contain recognition errors.</div>
+            <div class="subrow" data-search="before i end this video"><span class="subtime">08:00</span><span class="subtext">Before I end this video,</span></div><div class="subrow" data-search="i want to let you know about one more resource"><span class="subtime">08:01</span><span class="subtext">I want to let you know
+about one more resource</span></div><div class="subrow" data-search="that i&#x27;m using in this independent learning project of mine"><span class="subtime">08:02</span><span class="subtext">that I&#x27;m using in this independent
+learning project of mine</span></div><div class="subrow" data-search="and that is brilliant"><span class="subtime">08:05</span><span class="subtext">and that is Brilliant.</span></div><div class="subrow" data-search="specifically their chemistry course"><span class="subtime">08:06</span><span class="subtext">Specifically their chemistry course.</span></div><div class="subrow" data-search="because believe it or not"><span class="subtime">08:08</span><span class="subtext">Because believe it or not,</span></div><div class="subrow" data-search="i never took chemistry in college"><span class="subtime">08:09</span><span class="subtext">I never took chemistry in college.</span></div><div class="subrow" data-search="and in my current study of bioenergetics"><span class="subtime">08:10</span><span class="subtext">And in my current study of bioenergetics,</span></div><div class="subrow" data-search="i am learning that a little bit of chemistry"><span class="subtime">08:13</span><span class="subtext">I am learning that a
+little bit of chemistry</span></div><div class="subrow" data-search="knowledge is actually very useful"><span class="subtime">08:15</span><span class="subtext">knowledge is actually very useful.</span></div><div class="subrow" data-search="so i&#x27;m currently going through brilliant&#x27;s chemistry course"><span class="subtime">08:16</span><span class="subtext">So I&#x27;m currently going through
+Brilliant&#x27;s chemistry course,</span></div><div class="subrow" data-search="and i&#x27;m finding it very helpful for understanding"><span class="subtime">08:18</span><span class="subtext">and I&#x27;m finding it very
+helpful for understanding</span></div><div class="subrow" data-search="how chemical reactions work"><span class="subtime">08:20</span><span class="subtext">how chemical reactions work.</span></div><div class="subrow" data-search="and i&#x27;m also using some more passive supplemental resources"><span class="subtime">08:22</span><span class="subtext">And I&#x27;m also using some more
+<button type="button" class="subword" data-en="passive supplemental resources" data-ru="пассивные дополнительные ресурсы">passive supplemental resources</button>,</span></div><div class="subrow" data-search="lecture materials videos"><span class="subtime">08:24</span><span class="subtext">lecture, materials, videos,</span></div><div class="subrow" data-search="but brilliant is built with active learning in mind"><span class="subtime">08:26</span><span class="subtext">but Brilliant is built with
+active learning in mind,</span></div><div class="subrow" data-search="which means while i&#x27;m going through their course"><span class="subtime">08:28</span><span class="subtext">which means while I&#x27;m
+going through their course,</span></div><div class="subrow" data-search="i&#x27;m constantly being quizzed"><span class="subtime">08:30</span><span class="subtext">I&#x27;m constantly being quizzed.</span></div><div class="subrow" data-search="i&#x27;m constantly being asked to solve problems"><span class="subtime">08:32</span><span class="subtext">I&#x27;m constantly being
+asked to solve problems.</span></div><div class="subrow" data-search="and if you know anything about the cognitive science"><span class="subtime">08:34</span><span class="subtext">And if you know anything
+about the cognitive science</span></div><div class="subrow" data-search="behind active learning"><span class="subtime">08:36</span><span class="subtext">behind active learning,</span></div><div class="subrow" data-search="you will know that this is a much more effective efficient"><span class="subtime">08:37</span><span class="subtext">you will know that this is a
+much more effective, efficient,</span></div><div class="subrow" data-search="and interesting way to learn"><span class="subtime">08:40</span><span class="subtext">and interesting way to learn</span></div><div class="subrow" data-search="and it is the methodology they use to build all the courses"><span class="subtime">08:41</span><span class="subtext">and it is the methodology they
+use to build all the courses</span></div><div class="subrow" data-search="in their library of which there are more than 60"><span class="subtime">08:44</span><span class="subtext">in their library of which
+there are more than 60.</span></div><div class="subrow" data-search="so if you want to get better"><span class="subtime">08:47</span><span class="subtext">So if you want to get better</span></div><div class="subrow" data-search="at math at science and computer science"><span class="subtime">08:48</span><span class="subtext">at math, at science and computer science,</span></div><div class="subrow" data-search="you&#x27;re going to want to check out brilliant"><span class="subtime">08:50</span><span class="subtext">you&#x27;re going to want
+to check out Brilliant.</span></div><div class="subrow" data-search="in all their courses"><span class="subtime">08:52</span><span class="subtext">In all their courses,</span></div><div class="subrow" data-search="you&#x27;re going to find logically sequenced bite-sized quizzes"><span class="subtime">08:52</span><span class="subtext">you&#x27;re going to find logically
+sequenced bite-sized quizzes</span></div><div class="subrow" data-search="and interactive puzzles that keep you actively engaged"><span class="subtime">08:55</span><span class="subtext">and interactive puzzles that
+keep you <button type="button" class="subword" data-en="actively engaged" data-ru="активно вовлечённый">actively engaged</button></span></div><div class="subrow" data-search="and help you to master the material more effectively"><span class="subtime">08:58</span><span class="subtext">and help you to master the
+material more effectively.</span></div><div class="subrow" data-search="and by solving problems more frequently"><span class="subtime">09:00</span><span class="subtext">And by solving problems more frequently,</span></div><div class="subrow" data-search="you become a better problem solver overall"><span class="subtime">09:03</span><span class="subtext">you become a better
+<button type="button" class="subword" data-en="problem solver overall" data-ru="в целом лучше решать проблемы">problem solver overall</button>.</span></div><div class="subrow" data-search="so if you wanna get started learning today"><span class="subtime">09:05</span><span class="subtext">So if you wanna get
+started learning today,</span></div><div class="subrow" data-search="go over to brilliant org thomasfrank"><span class="subtime">09:07</span><span class="subtext">go over to brilliant.org/ThomasFrank</span></div><div class="subrow" data-search="to sign up and to support this channel"><span class="subtime">09:09</span><span class="subtext">to sign up and to support this channel.</span></div><div class="subrow" data-search="hopefully you found this video helpful"><span class="subtime">09:11</span><span class="subtext">Hopefully you found this video helpful.</span></div><div class="subrow" data-search="i&#x27;m finding this very helpful in my own study"><span class="subtime">09:12</span><span class="subtext">I&#x27;m finding this very
+helpful in my own study,</span></div><div class="subrow" data-search="so hopefully you will as well"><span class="subtime">09:14</span><span class="subtext">so hopefully you will as well.</span></div><div class="subrow" data-search="if you enjoyed this video"><span class="subtime">09:15</span><span class="subtext">If you enjoyed this video,</span></div><div class="subrow" data-search="likes and comments definitely help the algorithm"><span class="subtime">09:16</span><span class="subtext">likes and comments definitely
+help the algorithm.</span></div><div class="subrow" data-search="and i&#x27;ll have one more video right here"><span class="subtime">09:18</span><span class="subtext">And I&#x27;ll have one more video right here</span></div><div class="subrow" data-search="and another one right here"><span class="subtime">09:20</span><span class="subtext">and another one right here,</span></div><div class="subrow" data-search="if you want to keep watching stuff on this channel"><span class="subtime">09:21</span><span class="subtext">if you want to keep watching
+stuff on this channel,</span></div><div class="subrow" data-search="thanks as always for watching"><span class="subtime">09:23</span><span class="subtext">thanks as always for watching,</span></div><div class="subrow" data-search="and i&#x27;ll see you in the next video"><span class="subtime">09:24</span><span class="subtext">and I&#x27;ll see you in the next video.</span></div>
+          </div>
+        </article>
+        
+</section>
+
+<section class="section" id="discussion">
+<h2><span class="badge">5</span>Discussion and transfer</h2>
+<p class="instruction">Discuss with ChatGPT, DeepSeek or a person. Use the suggested expressions, but do not read the sample before answering.</p>
+
+        <div class="card">
+          <b>1. Would recording yourself make studying more effective or simply slower?</b>
+          <div class="collocs"><span class="colloc">high ROI</span><span class="colloc">retain information</span><span class="colloc">expose gaps in your understanding</span><span class="colloc">active learning</span></div>
+          <textarea placeholder="TRY TO DO ORALLY first. Optional notes..."></textarea>
+          <button type="button" class="btn ghost sampletoggle">Show sample answer</button>
+          <div class="sample"><b>Sample:</b> For difficult concepts, recording could have a high ROI because it exposes gaps quickly. I would not use it for every small fact.</div>
+        </div>
+        <div class="card">
+          <b>2. What should a language learner do after noticing the same mistake repeatedly?</b>
+          <div class="collocs"><span class="colloc">revisit the material</span><span class="colloc">add clarification</span><span class="colloc">actively engaged</span><span class="colloc">master the material</span></div>
+          <textarea placeholder="TRY TO DO ORALLY first. Optional notes..."></textarea>
+          <button type="button" class="btn ghost sampletoggle">Show sample answer</button>
+          <div class="sample"><b>Sample:</b> They should isolate the mistake, practise the correct form in short answers, and then use it in free speech. They shouldn’t only reread the rule.</div>
+        </div>
+        <div class="card">
+          <b>3. Which parts of LPC could you realistically use for English?</b>
+          <div class="collocs"><span class="colloc">present a concept</span><span class="colloc">critique</span><span class="colloc">retain and recall</span><span class="colloc">long-term memory</span></div>
+          <textarea placeholder="TRY TO DO ORALLY first. Optional notes..."></textarea>
+          <button type="button" class="btn ghost sampletoggle">Show sample answer</button>
+          <div class="sample"><b>Sample:</b> I could explain vocabulary or grammar without notes, record myself, and then critique whether the explanation is accurate and clear.</div>
+        </div>
+<div class="card"><b>Final task</b><p>Design a 60–90 second plan for using Learn → Present → Critique with one English topic this week.</p><textarea placeholder="Plan with keywords only; then speak."></textarea></div>
+</section>
+
+<section class="section" id="fullsubs">
+<h2><span class="badge">6</span>Complete subtitles</h2>
+<div class="subnote"><b>Source:</b> English subtitles supplied by the user. The full subtitle text is included, not reconstructed from memory. For auto-generated captions, recognition errors are intentionally preserved rather than silently rewritten.</div>
+<div class="searchbar" style="margin-top:10px"><input type="search" id="subsearch" placeholder="Search the complete subtitles..."><button type="button" class="btn secondary" id="clearsearch">Clear</button></div>
+<div class="subtitle-box show" id="allsubs"><div class="subrow" data-search="- thomas thanks to brilliant for sponsoring this video"><span class="subtime">00:00</span><span class="subtext">- [Thomas] Thanks to brilliant
+for sponsoring this video</span></div><div class="subrow" data-search="and supporting my channel"><span class="subtime">00:01</span><span class="subtext">and supporting my channel.</span></div><div class="subrow" data-search="a few years ago"><span class="subtime">00:02</span><span class="subtext">A few years ago,</span></div><div class="subrow" data-search="i made a video about something called the feynman technique"><span class="subtime">00:03</span><span class="subtext">I made a video about something
+called the Feynman Technique.</span></div><div class="subrow" data-search="this is a simple but highly effective study technique"><span class="subtime">00:06</span><span class="subtext">This is a simple but highly
+effective study technique,</span></div><div class="subrow" data-search="where you deepen your own understanding of a concept"><span class="subtime">00:08</span><span class="subtext">where you deepen your own
+understanding of a concept</span></div><div class="subrow" data-search="by attempting to simplify it and explain it to someone else"><span class="subtime">00:11</span><span class="subtext">by attempting to <button type="button" class="subword" data-en="simplify it" data-ru="упростить это">simplify it</button>
+and explain it to someone else.</span></div><div class="subrow" data-search="in other words you teach to learn"><span class="subtime">00:14</span><span class="subtext">In other words, you teach to learn.</span></div><div class="subrow" data-search="in this video"><span class="subtime">00:16</span><span class="subtext">In this video,</span></div><div class="subrow" data-search="i want to present a modified version of that original"><span class="subtime">00:17</span><span class="subtext">I want to present a modified
+version of that original,</span></div><div class="subrow" data-search="feynman technique that i&#x27;ve been using in my own independent"><span class="subtime">00:19</span><span class="subtext">Feynman Technique that I&#x27;ve
+been using in my own independent</span></div><div class="subrow" data-search="learning projects as of late"><span class="subtime">00:22</span><span class="subtext">learning projects as of late.</span></div><div class="subrow" data-search="conceptually it is very similar"><span class="subtime">00:23</span><span class="subtext">Conceptually, it is very similar</span></div><div class="subrow" data-search="to the original feynman technique"><span class="subtime">00:25</span><span class="subtext">to the original Feynman Technique</span></div><div class="subrow" data-search="but in execution it is quite different"><span class="subtime">00:26</span><span class="subtext">but <button type="button" class="subword" data-en="in execution" data-ru="на практике / в исполнении">in execution</button>, it is quite different.</span></div><div class="subrow" data-search="so i&#x27;m going to give it its own name"><span class="subtime">00:29</span><span class="subtext">So I&#x27;m going to give it its own name,</span></div><div class="subrow" data-search="to keep things distinct"><span class="subtime">00:30</span><span class="subtext">to keep things distinct.</span></div><div class="subrow" data-search="and that name is the lpc method"><span class="subtime">00:31</span><span class="subtext">And that name is the LPC method,</span></div><div class="subrow" data-search="which stands for learn present critique"><span class="subtime">00:33</span><span class="subtext">which <button type="button" class="subword" data-en="stands for" data-ru="расшифровывается как">stands for</button> learn, present, critique.</span></div><div class="subrow" data-search="and i&#x27;ve been using this lpc method in my own studies"><span class="subtime">00:36</span><span class="subtext">And I&#x27;ve been using this
+LPC method in my own studies</span></div><div class="subrow" data-search="of anatomy biomechanics and bioenergetics"><span class="subtime">00:38</span><span class="subtext">of anatomy, biomechanics,
+and bioenergetics,</span></div><div class="subrow" data-search="as part of my goal to earn both cscs and pbc certifications"><span class="subtime">00:41</span><span class="subtext">as part of my goal to earn both
+CSCS and PBC certifications,</span></div><div class="subrow" data-search="which if you&#x27;re curious are certifications in the strength"><span class="subtime">00:44</span><span class="subtext">which if you&#x27;re curious are
+certifications in the strength</span></div><div class="subrow" data-search="training and coaching industry"><span class="subtime">00:47</span><span class="subtext">training and coaching industry.</span></div><div class="subrow" data-search="and i&#x27;ve learned through using this"><span class="subtime">00:48</span><span class="subtext">And I&#x27;ve learned through using this,</span></div><div class="subrow" data-search="that this technique has a very high roi on helping me retain"><span class="subtime">00:50</span><span class="subtext">that this technique has a very
+<button type="button" class="subword" data-en="high ROI" data-ru="высокая отдача от затраченных усилий/времени">high ROI</button> on helping me retain</span></div><div class="subrow" data-search="lots of information without having to spend a lot of time"><span class="subtime">00:54</span><span class="subtext">lots of information without
+having to spend a lot of time</span></div><div class="subrow" data-search="actually studying it"><span class="subtime">00:57</span><span class="subtext">actually studying it.</span></div><div class="subrow" data-search="so in this video"><span class="subtime">00:58</span><span class="subtext">So in this video,</span></div><div class="subrow" data-search="i&#x27;m going to walk you through exactly how to use the lpc"><span class="subtime">00:59</span><span class="subtext">I&#x27;m going to <button type="button" class="subword" data-en="walk you through" data-ru="пошагово объяснить / провести через процесс">walk you through</button>
+exactly how to use the LPC</span></div><div class="subrow" data-search="method along with some examples"><span class="subtime">01:01</span><span class="subtext">method along with some examples.</span></div><div class="subrow" data-search="and i&#x27;m also going to compare it"><span class="subtime">01:02</span><span class="subtext">And I&#x27;m also going to compare it</span></div><div class="subrow" data-search="to the original feynman technique"><span class="subtime">01:03</span><span class="subtext">to the original Feynman Technique.</span></div><div class="subrow" data-search="and you can see in the timestamps below exactly"><span class="subtime">01:05</span><span class="subtext">And you can see in the
+timestamps below exactly</span></div><div class="subrow" data-search="where those sections are"><span class="subtime">01:06</span><span class="subtext">where those sections are.</span></div><div class="subrow" data-search="but first"><span class="subtime">01:08</span><span class="subtext">But first,</span></div><div class="subrow" data-search="if you haven&#x27;t seen my original video"><span class="subtime">01:08</span><span class="subtext">if you haven&#x27;t seen my original video,</span></div><div class="subrow" data-search="or if it&#x27;s been a while"><span class="subtime">01:10</span><span class="subtext">or if it&#x27;s been a while,</span></div><div class="subrow" data-search="i want to give you a very quick refresher"><span class="subtime">01:10</span><span class="subtext">I want to give you a very quick refresher</span></div><div class="subrow" data-search="on what the feynman technique is"><span class="subtime">01:12</span><span class="subtext">on what the Feynman Technique is.</span></div><div class="subrow" data-search="the heart of this technique can be found in a quote"><span class="subtime">01:14</span><span class="subtext">The heart of this technique
+can be found in a quote</span></div><div class="subrow" data-search="that is often attributed to albert einstein"><span class="subtime">01:15</span><span class="subtext">that is often attributed
+to Albert Einstein,</span></div><div class="subrow" data-search="though he probably didn&#x27;t actually say it"><span class="subtime">01:17</span><span class="subtext">though he probably didn&#x27;t actually say it,</span></div><div class="subrow" data-search="but it goes like this"><span class="subtime">01:19</span><span class="subtext">but it goes like this.</span></div><div class="subrow" data-search="if you can&#x27;t explain it simply"><span class="subtime">01:20</span><span class="subtext">If you can&#x27;t explain it simply,</span></div><div class="subrow" data-search="then you don&#x27;t understand it well enough"><span class="subtime">01:22</span><span class="subtext">then you don&#x27;t understand it well enough.</span></div><div class="subrow" data-search="the idea behind the feynman technique is to break down"><span class="subtime">01:24</span><span class="subtext">The idea behind the Feynman
+Technique is to break down</span></div><div class="subrow" data-search="a concept and simplify it"><span class="subtime">01:26</span><span class="subtext">a concept and <button type="button" class="subword" data-en="simplify it" data-ru="упростить это">simplify it</button></span></div><div class="subrow" data-search="to the point where you could easily"><span class="subtime">01:28</span><span class="subtext">to the point where you could easily</span></div><div class="subrow" data-search="explain it to a lay person"><span class="subtime">01:29</span><span class="subtext">explain it to a <button type="button" class="subword" data-en="lay person" data-ru="неспециалист">lay person</button>.</span></div><div class="subrow" data-search="if you can&#x27;t do that"><span class="subtime">01:31</span><span class="subtext">If you can&#x27;t do that,</span></div><div class="subrow" data-search="then you don&#x27;t understand it well enough yourself"><span class="subtime">01:32</span><span class="subtext">then you don&#x27;t understand
+it well enough yourself.</span></div><div class="subrow" data-search="and in going through this exercise"><span class="subtime">01:34</span><span class="subtext">And in going through this exercise,</span></div><div class="subrow" data-search="actually trying to explain it on a piece of paper"><span class="subtime">01:36</span><span class="subtext">actually trying to explain
+it on a piece of paper,</span></div><div class="subrow" data-search="you expose gaps in your understanding"><span class="subtime">01:38</span><span class="subtext">you <button type="button" class="subword" data-en="expose gaps in your understanding" data-ru="выявить пробелы в понимании">expose gaps in your understanding</button>,</span></div><div class="subrow" data-search="where you can then go and try to shore up"><span class="subtime">01:40</span><span class="subtext">where you can then go and try to <button type="button" class="subword" data-en="shore up" data-ru="укрепить / восполнить слабое место">shore up</button>.</span></div><div class="subrow" data-search="so again conceptually"><span class="subtime">01:42</span><span class="subtext">So again, conceptually,</span></div><div class="subrow" data-search="the lpc method is very similar to the feynman technique"><span class="subtime">01:43</span><span class="subtext">the LPC method is very similar
+to the Feynman Technique</span></div><div class="subrow" data-search="we&#x27;re trying to achieve the same goal except for replacing"><span class="subtime">01:46</span><span class="subtext">We&#x27;re trying to achieve the
+same goal except for replacing</span></div><div class="subrow" data-search="the act of writing on paper drawing diagrams"><span class="subtime">01:49</span><span class="subtext">the act of writing on
+paper, drawing diagrams,</span></div><div class="subrow" data-search="with actually presenting to a camera"><span class="subtime">01:52</span><span class="subtext">with actually presenting to a camera.</span></div><div class="subrow" data-search="here is the tldr version of the lpc method"><span class="subtime">01:54</span><span class="subtext">Here is the TLDR version
+of the LPC method.</span></div><div class="subrow" data-search="first you go out and learn"><span class="subtime">01:57</span><span class="subtext">First you go out and learn.</span></div><div class="subrow" data-search="go to the lecture material"><span class="subtime">01:59</span><span class="subtext">Go to the lecture material,</span></div><div class="subrow" data-search="watch a video read a book"><span class="subtime">02:00</span><span class="subtext">watch a video, read a book,</span></div><div class="subrow" data-search="take your notes as normal"><span class="subtime">02:02</span><span class="subtext">take your notes as normal.</span></div><div class="subrow" data-search="second present a concept"><span class="subtime">02:03</span><span class="subtext">Second, <button type="button" class="subword" data-en="present a concept" data-ru="представить / объяснить концепцию">present a concept</button>,</span></div><div class="subrow" data-search="present something you&#x27;ve learned to your phone camera"><span class="subtime">02:05</span><span class="subtext">present something you&#x27;ve
+learned to your phone camera</span></div><div class="subrow" data-search="as if you&#x27;re explaining it to a friend or explaining it"><span class="subtime">02:08</span><span class="subtext">as if you&#x27;re explaining it
+to a friend or explaining it</span></div><div class="subrow" data-search="to a classroom like a speech"><span class="subtime">02:10</span><span class="subtext">to a classroom like a speech.</span></div><div class="subrow" data-search="and third upload that video"><span class="subtime">02:12</span><span class="subtext">And third upload that video,</span></div><div class="subrow" data-search="paste it into your notes"><span class="subtime">02:14</span><span class="subtext">paste it into your notes</span></div><div class="subrow" data-search="and finally watch it and critique it"><span class="subtime">02:15</span><span class="subtext">and finally watch it and critique it.</span></div><div class="subrow" data-search="and in your critique"><span class="subtime">02:17</span><span class="subtext">And in your critique,</span></div><div class="subrow" data-search="you&#x27;re looking for three different things"><span class="subtime">02:18</span><span class="subtext">you&#x27;re looking for three different things.</span></div><div class="subrow" data-search="number one any errors factual errors"><span class="subtime">02:20</span><span class="subtext">Number one, any errors, <button type="button" class="subword" data-en="factual errors" data-ru="фактические ошибки">factual errors</button></span></div><div class="subrow" data-search="that you need to correct"><span class="subtime">02:22</span><span class="subtext">that you need to correct.</span></div><div class="subrow" data-search="number two any areas where you are vague"><span class="subtime">02:23</span><span class="subtext">Number two, any areas where you are vague,</span></div><div class="subrow" data-search="where you can add clarification and number three"><span class="subtime">02:25</span><span class="subtext">where you can add
+clarification and number three,</span></div><div class="subrow" data-search="any questions that your critique brings up after the fact"><span class="subtime">02:27</span><span class="subtext">any questions that your critique
+brings up after the fact,</span></div><div class="subrow" data-search="you can then go and learn about through supplemental"><span class="subtime">02:30</span><span class="subtext">you can then go and learn
+about through supplemental</span></div><div class="subrow" data-search="material or through revisiting the actual material"><span class="subtime">02:33</span><span class="subtext">material or through
+<button type="button" class="subword" data-en="revisiting the actual material" data-ru="повторно вернуться к исходному материалу">revisiting the actual material</button></span></div><div class="subrow" data-search="you&#x27;re learning from"><span class="subtime">02:35</span><span class="subtext">you&#x27;re learning from.</span></div><div class="subrow" data-search="so here&#x27;s a real world example from my own study"><span class="subtime">02:36</span><span class="subtext">So here&#x27;s a real world
+example from my own study</span></div><div class="subrow" data-search="of human anatomy"><span class="subtime">02:39</span><span class="subtext">of human anatomy.</span></div><div class="subrow" data-search="and if you look through my notes here on motion"><span class="subtime">02:39</span><span class="subtext">And if you look through
+my notes here on motion,</span></div><div class="subrow" data-search="you&#x27;ll see lots of different videos"><span class="subtime">02:40</span><span class="subtext">you&#x27;ll see lots of different videos</span></div><div class="subrow" data-search="where i&#x27;m explaining lots of concepts"><span class="subtime">02:42</span><span class="subtext">where I&#x27;m explaining lots of concepts,</span></div><div class="subrow" data-search="but the one that i want to show you here"><span class="subtime">02:44</span><span class="subtext">but the one that I want to show you here</span></div><div class="subrow" data-search="is my explanation of the different moving joints"><span class="subtime">02:45</span><span class="subtext">is my explanation of the
+different moving joints</span></div><div class="subrow" data-search="in the human body"><span class="subtime">02:47</span><span class="subtext">in the human body,</span></div><div class="subrow" data-search="which are called synovial joints"><span class="subtime">02:48</span><span class="subtext">which are called synovial joints.</span></div><div class="subrow" data-search="so at first i went through that learning process"><span class="subtime">02:50</span><span class="subtext">So at first I went through
+that learning process.</span></div><div class="subrow" data-search="in this case"><span class="subtime">02:52</span><span class="subtext">In this case,</span></div><div class="subrow" data-search="the material that i&#x27;m working through is barbell logic&#x27;s"><span class="subtime">02:53</span><span class="subtext">the material that I&#x27;m working
+through is Barbell Logic&#x27;s</span></div><div class="subrow" data-search="principles course"><span class="subtime">02:55</span><span class="subtext">principles course,</span></div><div class="subrow" data-search="which goes through pretty much everything you need to learn"><span class="subtime">02:56</span><span class="subtext">which goes through pretty much
+everything you need to learn</span></div><div class="subrow" data-search="to become a beginner strength coach"><span class="subtime">02:58</span><span class="subtext">to become a beginner strength coach,</span></div><div class="subrow" data-search="so biomechanics bioenergetics"><span class="subtime">03:00</span><span class="subtext">so biomechanics, bioenergetics,</span></div><div class="subrow" data-search="the basics of human anatomy"><span class="subtime">03:02</span><span class="subtext">the basics of human anatomy,</span></div><div class="subrow" data-search="as well as how to coach the four main power lifting lifts"><span class="subtime">03:03</span><span class="subtext">as well as how to coach the
+four main power lifting lifts.</span></div><div class="subrow" data-search="so i&#x27;m going through this course and i&#x27;m taking my notes"><span class="subtime">03:06</span><span class="subtext">So I&#x27;m going through this
+course and I&#x27;m taking my notes</span></div><div class="subrow" data-search="on the different joints in the body and how they move"><span class="subtime">03:08</span><span class="subtext">on the different joints in
+the body and how they move.</span></div><div class="subrow" data-search="and i use a pretty typical outline style note"><span class="subtime">03:11</span><span class="subtext">And I use a pretty
+typical outline style note</span></div><div class="subrow" data-search="taking technique here in notion"><span class="subtime">03:13</span><span class="subtext">taking technique here in notion</span></div><div class="subrow" data-search="with the one exception that i often will clip"><span class="subtime">03:15</span><span class="subtext">with the one exception
+that I often will clip</span></div><div class="subrow" data-search="a lot of screenshots and add"><span class="subtime">03:17</span><span class="subtext">a lot of screenshots and add</span></div><div class="subrow" data-search="a lot of multimedia elements"><span class="subtime">03:18</span><span class="subtext">a lot of multimedia elements</span></div><div class="subrow" data-search="into my notes to take advantage of multimodal learning"><span class="subtime">03:20</span><span class="subtext">into my notes to take advantage
+of multimodal learning.</span></div><div class="subrow" data-search="and i&#x27;ll touch on that a little bit later"><span class="subtime">03:22</span><span class="subtext">And I&#x27;ll touch on that a little bit later,</span></div><div class="subrow" data-search="but now it&#x27;s time to move on to step two"><span class="subtime">03:24</span><span class="subtext">but now it&#x27;s time to move on to step two,</span></div><div class="subrow" data-search="which is present"><span class="subtime">03:26</span><span class="subtext">which is present.</span></div><div class="subrow" data-search="at this point"><span class="subtime">03:27</span><span class="subtext">At this point.</span></div><div class="subrow" data-search="i want to put my phone on a tripod and pick a concept"><span class="subtime">03:28</span><span class="subtext">I want to put my phone on
+a tripod and <button type="button" class="subword" data-en="pick a concept" data-ru="выбрать концепцию">pick a concept</button></span></div><div class="subrow" data-search="or a set of facts to present and explain"><span class="subtime">03:31</span><span class="subtext">or a set of facts to present and explain</span></div><div class="subrow" data-search="to my phone as if i were explaining it to you"><span class="subtime">03:33</span><span class="subtext">to my phone as if I were
+explaining it to you</span></div><div class="subrow" data-search="or to a friend"><span class="subtime">03:35</span><span class="subtext">or to a friend.</span></div><div class="subrow" data-search="so in this case"><span class="subtime">03:36</span><span class="subtext">So in this case,</span></div><div class="subrow" data-search="i picked these six different diarthrodial joints in the body"><span class="subtime">03:37</span><span class="subtext">I picked these six different
+diarthrodial joints in the body</span></div><div class="subrow" data-search="and explain how they work in the video"><span class="subtime">03:39</span><span class="subtext">and explain how they work in the video.</span></div><div class="subrow" data-search="so a way to imagine a saddle type joint and how it moves"><span class="subtime">03:41</span><span class="subtext">So a way to imagine a saddle
+type joint and how it moves</span></div><div class="subrow" data-search="is if you took your knuckles here"><span class="subtime">03:45</span><span class="subtext">is if you took your knuckles here</span></div><div class="subrow" data-search="and took the other knuckles here"><span class="subtime">03:48</span><span class="subtext">and took the other knuckles here</span></div><div class="subrow" data-search="and sort of sandwiched them together"><span class="subtime">03:49</span><span class="subtext">and sort of sandwiched them together.</span></div><div class="subrow" data-search="now this is my own analogy"><span class="subtime">03:51</span><span class="subtext">Now, this is my own analogy.</span></div><div class="subrow" data-search="they did not teach this in the course"><span class="subtime">03:52</span><span class="subtext">They did not teach this in the course,</span></div><div class="subrow" data-search="but it sort of is analogous to how you&#x27;ll see illustration"><span class="subtime">03:53</span><span class="subtext">but it sort of is analogous to
+how you&#x27;ll see illustration.</span></div><div class="subrow" data-search="once i am recording"><span class="subtime">03:56</span><span class="subtext">Once I am recording,</span></div><div class="subrow" data-search="i use the youtube app to upload an unlisted copy"><span class="subtime">03:57</span><span class="subtext">I use the YouTube app to
+upload an <button type="button" class="subword" data-en="unlisted copy" data-ru="видео по ссылке, не в общем доступе">unlisted copy</button></span></div><div class="subrow" data-search="of this video to a second youtube channel"><span class="subtime">03:59</span><span class="subtext">of this video to a second YouTube channel.</span></div><div class="subrow" data-search="i have specifically for my own learning"><span class="subtime">04:01</span><span class="subtext">I have specifically for my own learning</span></div><div class="subrow" data-search="and for this lpc technique"><span class="subtime">04:04</span><span class="subtext">and for this LPC technique.</span></div><div class="subrow" data-search="and because it&#x27;s on youtube"><span class="subtime">04:05</span><span class="subtext">And because it&#x27;s on YouTube,</span></div><div class="subrow" data-search="i can then go ahead and paste it into my notion"><span class="subtime">04:06</span><span class="subtext">I can then go ahead and
+paste it into my notion,</span></div><div class="subrow" data-search="which will embed it"><span class="subtime">04:08</span><span class="subtext">which will embed it.</span></div><div class="subrow" data-search="and that brings us to step three critique"><span class="subtime">04:09</span><span class="subtext">And that brings us to
+step three, critique.</span></div><div class="subrow" data-search="at this point"><span class="subtime">04:12</span><span class="subtext">At this point,</span></div><div class="subrow" data-search="i&#x27;m going to watch through the video and i&#x27;m going to look"><span class="subtime">04:12</span><span class="subtext">I&#x27;m going to watch through the
+video and I&#x27;m going to look</span></div><div class="subrow" data-search="for again three things"><span class="subtime">04:14</span><span class="subtext">for, again, three things.</span></div><div class="subrow" data-search="number one factual errors"><span class="subtime">04:15</span><span class="subtext">Number one, <button type="button" class="subword" data-en="factual errors" data-ru="фактические ошибки">factual errors</button>.</span></div><div class="subrow" data-search="so for example at one point in the video"><span class="subtime">04:17</span><span class="subtext">So for example, at one point in the video,</span></div><div class="subrow" data-search="i mentioned the carpals of the hand"><span class="subtime">04:19</span><span class="subtext">I mentioned the carpals of the hand</span></div><div class="subrow" data-search="and the carpals of the feet"><span class="subtime">04:20</span><span class="subtext">and the carpals of the feet.</span></div><div class="subrow" data-search="those are the tarsals"><span class="subtime">04:22</span><span class="subtext">Those are the tarsals.</span></div><div class="subrow" data-search="i&#x27;m going to also look for anything"><span class="subtime">04:23</span><span class="subtext">I&#x27;m going to also look for anything</span></div><div class="subrow" data-search="where i could be a little bit more clear"><span class="subtime">04:24</span><span class="subtext">where I could be a little bit more clear</span></div><div class="subrow" data-search="or more correct in my explanation"><span class="subtime">04:26</span><span class="subtext">or more correct in my explanation.</span></div><div class="subrow" data-search="so at one point i mentioned the joint between the metacarpo"><span class="subtime">04:29</span><span class="subtext">So at one point I mentioned
+the joint between the metacarpo</span></div><div class="subrow" data-search="and the phalangeal bones here in the thumb"><span class="subtime">04:34</span><span class="subtext">and the phalangeal
+bones here in the thumb.</span></div><div class="subrow" data-search="well that is a joint"><span class="subtime">04:36</span><span class="subtext">Well, that is a joint,</span></div><div class="subrow" data-search="but it&#x27;s called the metacarpophalangeal joint"><span class="subtime">04:38</span><span class="subtext">but it&#x27;s called the
+metacarpophalangeal joint.</span></div><div class="subrow" data-search="so i should actually use the name of the joint"><span class="subtime">04:40</span><span class="subtext">So I should actually use
+the name of the joint.</span></div><div class="subrow" data-search="and finally number three"><span class="subtime">04:42</span><span class="subtext">And finally, number three,</span></div><div class="subrow" data-search="if i have any questions that come up"><span class="subtime">04:43</span><span class="subtext">if I have any questions that come up</span></div><div class="subrow" data-search="in this critique process and i almost always do"><span class="subtime">04:44</span><span class="subtext">in this critique process,
+and I almost always do,</span></div><div class="subrow" data-search="i want to go out and get answers to those questions"><span class="subtime">04:47</span><span class="subtext">I want to go out and get
+answers to those questions.</span></div><div class="subrow" data-search="and this is just another way that encourages"><span class="subtime">04:50</span><span class="subtext">And this is just another
+way that encourages</span></div><div class="subrow" data-search="me to deepen my understanding"><span class="subtime">04:52</span><span class="subtext">me to <button type="button" class="subword" data-en="deepen my understanding" data-ru="углубить моё понимание">deepen my understanding</button></span></div><div class="subrow" data-search="often by using supplemental resources"><span class="subtime">04:53</span><span class="subtext">often by using supplemental resources.</span></div><div class="subrow" data-search="so how is this method better than the original"><span class="subtime">04:56</span><span class="subtext">So how is this method
+better than the original</span></div><div class="subrow" data-search="feynman technique"><span class="subtime">04:58</span><span class="subtext">Feynman Technique?</span></div><div class="subrow" data-search="well i am not going to stand"><span class="subtime">04:58</span><span class="subtext">Well, I am not going to stand</span></div><div class="subrow" data-search="by that claim for every subject or every concept out there"><span class="subtime">05:00</span><span class="subtext">by that claim for every subject
+or every concept out there,</span></div><div class="subrow" data-search="but i do think that for certain types of information"><span class="subtime">05:03</span><span class="subtext">but I do think that for
+certain types of information,</span></div><div class="subrow" data-search="certain concepts this is much better"><span class="subtime">05:05</span><span class="subtext">certain concepts, this is much better</span></div><div class="subrow" data-search="than the feynman technique in terms of roi"><span class="subtime">05:07</span><span class="subtext">than the Feynman
+Technique <button type="button" class="subword" data-en="in terms of ROI" data-ru="с точки зрения отдачи">in terms of ROI</button>.</span></div><div class="subrow" data-search="and it&#x27;s because you&#x27;re using a different mode of learning"><span class="subtime">05:10</span><span class="subtext">And it&#x27;s because you&#x27;re using
+a different mode of learning</span></div><div class="subrow" data-search="or mode of active learning specifically to deepen"><span class="subtime">05:12</span><span class="subtext">or <button type="button" class="subword" data-en="mode of active learning" data-ru="форма активного обучения">mode of active learning</button>
+specifically to deepen</span></div><div class="subrow" data-search="your understanding of the subject material"><span class="subtime">05:15</span><span class="subtext">your understanding of
+the subject material.</span></div><div class="subrow" data-search="going back to my example of the synovial joints in the body"><span class="subtime">05:17</span><span class="subtext">Going back to my example of the
+synovial joints in the body,</span></div><div class="subrow" data-search="if i get on camera and i verbally explain"><span class="subtime">05:21</span><span class="subtext">if I get on camera and I verbally explain</span></div><div class="subrow" data-search="how these joints work"><span class="subtime">05:23</span><span class="subtext">how these joints work,</span></div><div class="subrow" data-search="but also use body language to demonstrate how they work"><span class="subtime">05:24</span><span class="subtext">but also use <button type="button" class="subword" data-en="body language" data-ru="язык тела">body language</button>
+to demonstrate how they work</span></div><div class="subrow" data-search="and point out where they are on my own anatomy"><span class="subtime">05:27</span><span class="subtext">and point out where they
+are on my own anatomy,</span></div><div class="subrow" data-search="i am using multimodal learning to deepen"><span class="subtime">05:29</span><span class="subtext">I am using multimodal learning to deepen</span></div><div class="subrow" data-search="my own understanding"><span class="subtime">05:32</span><span class="subtext">my own understanding.</span></div><div class="subrow" data-search="and if i wanted to do that with the feynman technique"><span class="subtime">05:33</span><span class="subtext">And if I wanted to do that
+with the Feynman Technique</span></div><div class="subrow" data-search="i would have two different options"><span class="subtime">05:35</span><span class="subtext">I would have two different options.</span></div><div class="subrow" data-search="i would either have to write out in text"><span class="subtime">05:37</span><span class="subtext">I would either have to write out in text</span></div><div class="subrow" data-search="how these things work"><span class="subtime">05:39</span><span class="subtext">how these things work.</span></div><div class="subrow" data-search="that&#x27;s a very abstract way of learning"><span class="subtime">05:40</span><span class="subtext">That&#x27;s a very abstract way of learning.</span></div><div class="subrow" data-search="it&#x27;s going to take me a lot longer"><span class="subtime">05:41</span><span class="subtext">It&#x27;s going to take me a lot longer.</span></div><div class="subrow" data-search="or i would have to draw them"><span class="subtime">05:43</span><span class="subtext">Or I would have to draw them.</span></div><div class="subrow" data-search="that is a more iconic type of learning using iconography"><span class="subtime">05:45</span><span class="subtext">That is a more iconic type of
+learning, using iconography.</span></div><div class="subrow" data-search="it&#x27;s much better in terms of me"><span class="subtime">05:48</span><span class="subtext">It&#x27;s much better in terms of me</span></div><div class="subrow" data-search="being able to visually see how something works"><span class="subtime">05:50</span><span class="subtext">being able to visually
+see how something works,</span></div><div class="subrow" data-search="but drawing takes a lot more time than just pointing out"><span class="subtime">05:52</span><span class="subtext">but drawing takes a lot more
+time than just pointing out</span></div><div class="subrow" data-search="and moving my arm to show a hinge joint works"><span class="subtime">05:55</span><span class="subtext">and moving my arm to
+show a hinge joint works.</span></div><div class="subrow" data-search="so in terms of time spent studying versus retention"><span class="subtime">05:58</span><span class="subtext">So in terms of time spent
+studying versus retention</span></div><div class="subrow" data-search="of information for certain kinds of topics"><span class="subtime">06:00</span><span class="subtext">of information for
+certain kinds of topics,</span></div><div class="subrow" data-search="this is going to be superior"><span class="subtime">06:02</span><span class="subtext">this is going to be superior.</span></div><div class="subrow" data-search="though i think the real improvement"><span class="subtime">06:04</span><span class="subtext">Though I think the real improvement</span></div><div class="subrow" data-search="to the five technique here is to combine"><span class="subtime">06:06</span><span class="subtext">to the five technique here is to combine</span></div><div class="subrow" data-search="your use of both of these techniques"><span class="subtime">06:08</span><span class="subtext">your use of both of these techniques,</span></div><div class="subrow" data-search="either separately based"><span class="subtime">06:10</span><span class="subtext">either separately based</span></div><div class="subrow" data-search="on the type of concept you&#x27;re studying"><span class="subtime">06:12</span><span class="subtext">on the type of concept you&#x27;re studying,</span></div><div class="subrow" data-search="or maybe even lumping them all into one big technique"><span class="subtime">06:13</span><span class="subtext">or maybe even lumping them
+all into one big technique.</span></div><div class="subrow" data-search="there is nothing stopping you from breaking out a whiteboard"><span class="subtime">06:16</span><span class="subtext">There is nothing stopping you
+from breaking out a whiteboard</span></div><div class="subrow" data-search="and actually writing out or diagramming"><span class="subtime">06:19</span><span class="subtext">and actually writing out or diagramming</span></div><div class="subrow" data-search="while you film yourself"><span class="subtime">06:21</span><span class="subtext">while you film yourself.</span></div><div class="subrow" data-search="but that extra step of critiquing yourself afterwards"><span class="subtime">06:22</span><span class="subtext">But that extra step of
+critiquing yourself afterwards</span></div><div class="subrow" data-search="is another thing that&#x27;s going"><span class="subtime">06:25</span><span class="subtext">is another thing that&#x27;s going</span></div><div class="subrow" data-search="to help deepen your understanding"><span class="subtime">06:26</span><span class="subtext">to help deepen your understanding.</span></div><div class="subrow" data-search="in general you want to pursue"><span class="subtime">06:28</span><span class="subtext">In general, you want to pursue</span></div><div class="subrow" data-search="a multimodal learning strategy"><span class="subtime">06:29</span><span class="subtext">a <button type="button" class="subword" data-en="multimodal learning strategy" data-ru="мультимодальная стратегия обучения">multimodal learning strategy</button></span></div><div class="subrow" data-search="because no one way of learning is better than any other"><span class="subtime">06:30</span><span class="subtext">because no one way of learning
+is better than any other.</span></div><div class="subrow" data-search="you may have seen this often cited learning pyramid"><span class="subtime">06:34</span><span class="subtext">You may have seen this
+often cited learning pyramid</span></div><div class="subrow" data-search="floating around the internet"><span class="subtime">06:36</span><span class="subtext">floating around the internet,</span></div><div class="subrow" data-search="where people will say things like you only retain 10%"><span class="subtime">06:37</span><span class="subtext">where people will say things
+like you only retain 10%</span></div><div class="subrow" data-search="of what you hear 20% of what you read etcetera"><span class="subtime">06:39</span><span class="subtext">of what you hear, 20% of
+what you read, etcetera.</span></div><div class="subrow" data-search="well as it turns out the original version of that pyramid"><span class="subtime">06:42</span><span class="subtext">Well, as it turns out the
+original version of that pyramid,</span></div><div class="subrow" data-search="number one it wasn&#x27;t even called a pyramid"><span class="subtime">06:44</span><span class="subtext">number one, it wasn&#x27;t
+even called a pyramid,</span></div><div class="subrow" data-search="it was a cone"><span class="subtime">06:46</span><span class="subtext">it was a cone.</span></div><div class="subrow" data-search="- it&#x27;s about the cones"><span class="subtime">06:47</span><span class="subtext">- It&#x27;s about the cones.</span></div><div class="subrow" data-search="- but number two it did not include"><span class="subtime">06:49</span><span class="subtext">- But number two, it did not include</span></div><div class="subrow" data-search="those percentages at all"><span class="subtime">06:51</span><span class="subtext">those percentages at all.</span></div><div class="subrow" data-search="and as far as research has been able to find"><span class="subtime">06:52</span><span class="subtext">And as far as research
+has been able to find</span></div><div class="subrow" data-search="those percentages are completely made up"><span class="subtime">06:54</span><span class="subtext">those percentages are completely made up.</span></div><div class="subrow" data-search="the original version of the cone"><span class="subtime">06:56</span><span class="subtext">The original version of the cone</span></div><div class="subrow" data-search="was called the cone of experience"><span class="subtime">06:58</span><span class="subtext">was called the cone of experience.</span></div><div class="subrow" data-search="it was created by edgar dale who was a very well-respected"><span class="subtime">06:59</span><span class="subtext">It was created by Edgar Dale
+who was a very well-respected</span></div><div class="subrow" data-search="education researcher"><span class="subtime">07:02</span><span class="subtext">education researcher.</span></div><div class="subrow" data-search="and his whole point in creating this cone was to just create"><span class="subtime">07:03</span><span class="subtext">And his whole point in creating
+this cone was to just create</span></div><div class="subrow" data-search="a model that showed visually the differences in levels"><span class="subtime">07:05</span><span class="subtext">a model that showed visually
+the differences in levels</span></div><div class="subrow" data-search="of abstraction between different methods of learning"><span class="subtime">07:08</span><span class="subtext">of abstraction, between
+different methods of learning,</span></div><div class="subrow" data-search="be it verbal or text-based or audiovisual"><span class="subtime">07:11</span><span class="subtext">be it verbal or text-based or audiovisual.</span></div><div class="subrow" data-search="and his whole point was that mixing up different methods"><span class="subtime">07:13</span><span class="subtext">And his whole point was that
+mixing up different methods</span></div><div class="subrow" data-search="of learning is more powerful than using any one"><span class="subtime">07:16</span><span class="subtext">of learning is more
+powerful than using any one.</span></div><div class="subrow" data-search="in fact back in 1969"><span class="subtime">07:19</span><span class="subtext">In fact, back in 1969,</span></div><div class="subrow" data-search="he wrote that direct hands-on experience"><span class="subtime">07:21</span><span class="subtext">he wrote that direct <button type="button" class="subword" data-en="hands-on experience" data-ru="практический опыт">hands-on experience</button>,</span></div><div class="subrow" data-search="what we often think of as the gold standard for learning"><span class="subtime">07:23</span><span class="subtext">what we often think of as the
+gold standard for learning</span></div><div class="subrow" data-search="anything is often not the best way to learn something"><span class="subtime">07:26</span><span class="subtext">anything is often not the
+best way to learn something.</span></div><div class="subrow" data-search="and more recent cognitive research has confirmed this"><span class="subtime">07:28</span><span class="subtext">And more recent cognitive
+research has confirmed this</span></div><div class="subrow" data-search="and shown that for basic concepts"><span class="subtime">07:31</span><span class="subtext">and shown that for basic concepts,</span></div><div class="subrow" data-search="a more abstract learning model"><span class="subtime">07:33</span><span class="subtext">a more abstract learning model</span></div><div class="subrow" data-search="is actually better"><span class="subtime">07:34</span><span class="subtext">is actually better.</span></div><div class="subrow" data-search="and once you get into higher order learning concepts"><span class="subtime">07:35</span><span class="subtext">And once you get into higher
+order learning concepts,</span></div><div class="subrow" data-search="then hands on experience is better"><span class="subtime">07:38</span><span class="subtext">then hands on experience is better.</span></div><div class="subrow" data-search="so as far as cognitive research has found"><span class="subtime">07:39</span><span class="subtext">So as far as cognitive research has found,</span></div><div class="subrow" data-search="a multimodal approach truly is the best"><span class="subtime">07:41</span><span class="subtext">a multimodal approach truly is the best.</span></div><div class="subrow" data-search="so talk about what you&#x27;re learning and demonstrate it"><span class="subtime">07:43</span><span class="subtext">So talk about what you&#x27;re
+learning and demonstrate it</span></div><div class="subrow" data-search="with body language draw it"><span class="subtime">07:46</span><span class="subtext">with <button type="button" class="subword" data-en="body language" data-ru="язык тела">body language</button>, draw it,</span></div><div class="subrow" data-search="find a way to get a new perspective"><span class="subtime">07:47</span><span class="subtext">find a way to get a new perspective</span></div><div class="subrow" data-search="and a new view on what you&#x27;re learning"><span class="subtime">07:50</span><span class="subtext">and a new view on what you&#x27;re learning.</span></div><div class="subrow" data-search="and you&#x27;re going to find your long-term memory"><span class="subtime">07:51</span><span class="subtext">And you&#x27;re going to find
+your <button type="button" class="subword" data-en="long-term memory" data-ru="долговременная память">long-term memory</button>,</span></div><div class="subrow" data-search="your long-term ability to retain and recall that information"><span class="subtime">07:53</span><span class="subtext">your long-term ability to retain
+and recall that information</span></div><div class="subrow" data-search="and master it truly understand it"><span class="subtime">07:56</span><span class="subtext">and master it truly understand it</span></div><div class="subrow" data-search="is going to improve as well"><span class="subtime">07:58</span><span class="subtext">is going to improve as well.</span></div><div class="subrow" data-search="before i end this video"><span class="subtime">08:00</span><span class="subtext">Before I end this video,</span></div><div class="subrow" data-search="i want to let you know about one more resource"><span class="subtime">08:01</span><span class="subtext">I want to let you know
+about one more resource</span></div><div class="subrow" data-search="that i&#x27;m using in this independent learning project of mine"><span class="subtime">08:02</span><span class="subtext">that I&#x27;m using in this independent
+learning project of mine</span></div><div class="subrow" data-search="and that is brilliant"><span class="subtime">08:05</span><span class="subtext">and that is Brilliant.</span></div><div class="subrow" data-search="specifically their chemistry course"><span class="subtime">08:06</span><span class="subtext">Specifically their chemistry course.</span></div><div class="subrow" data-search="because believe it or not"><span class="subtime">08:08</span><span class="subtext">Because believe it or not,</span></div><div class="subrow" data-search="i never took chemistry in college"><span class="subtime">08:09</span><span class="subtext">I never took chemistry in college.</span></div><div class="subrow" data-search="and in my current study of bioenergetics"><span class="subtime">08:10</span><span class="subtext">And in my current study of bioenergetics,</span></div><div class="subrow" data-search="i am learning that a little bit of chemistry"><span class="subtime">08:13</span><span class="subtext">I am learning that a
+little bit of chemistry</span></div><div class="subrow" data-search="knowledge is actually very useful"><span class="subtime">08:15</span><span class="subtext">knowledge is actually very useful.</span></div><div class="subrow" data-search="so i&#x27;m currently going through brilliant&#x27;s chemistry course"><span class="subtime">08:16</span><span class="subtext">So I&#x27;m currently going through
+Brilliant&#x27;s chemistry course,</span></div><div class="subrow" data-search="and i&#x27;m finding it very helpful for understanding"><span class="subtime">08:18</span><span class="subtext">and I&#x27;m finding it very
+helpful for understanding</span></div><div class="subrow" data-search="how chemical reactions work"><span class="subtime">08:20</span><span class="subtext">how chemical reactions work.</span></div><div class="subrow" data-search="and i&#x27;m also using some more passive supplemental resources"><span class="subtime">08:22</span><span class="subtext">And I&#x27;m also using some more
+<button type="button" class="subword" data-en="passive supplemental resources" data-ru="пассивные дополнительные ресурсы">passive supplemental resources</button>,</span></div><div class="subrow" data-search="lecture materials videos"><span class="subtime">08:24</span><span class="subtext">lecture, materials, videos,</span></div><div class="subrow" data-search="but brilliant is built with active learning in mind"><span class="subtime">08:26</span><span class="subtext">but Brilliant is built with
+active learning in mind,</span></div><div class="subrow" data-search="which means while i&#x27;m going through their course"><span class="subtime">08:28</span><span class="subtext">which means while I&#x27;m
+going through their course,</span></div><div class="subrow" data-search="i&#x27;m constantly being quizzed"><span class="subtime">08:30</span><span class="subtext">I&#x27;m constantly being quizzed.</span></div><div class="subrow" data-search="i&#x27;m constantly being asked to solve problems"><span class="subtime">08:32</span><span class="subtext">I&#x27;m constantly being
+asked to solve problems.</span></div><div class="subrow" data-search="and if you know anything about the cognitive science"><span class="subtime">08:34</span><span class="subtext">And if you know anything
+about the cognitive science</span></div><div class="subrow" data-search="behind active learning"><span class="subtime">08:36</span><span class="subtext">behind active learning,</span></div><div class="subrow" data-search="you will know that this is a much more effective efficient"><span class="subtime">08:37</span><span class="subtext">you will know that this is a
+much more effective, efficient,</span></div><div class="subrow" data-search="and interesting way to learn"><span class="subtime">08:40</span><span class="subtext">and interesting way to learn</span></div><div class="subrow" data-search="and it is the methodology they use to build all the courses"><span class="subtime">08:41</span><span class="subtext">and it is the methodology they
+use to build all the courses</span></div><div class="subrow" data-search="in their library of which there are more than 60"><span class="subtime">08:44</span><span class="subtext">in their library of which
+there are more than 60.</span></div><div class="subrow" data-search="so if you want to get better"><span class="subtime">08:47</span><span class="subtext">So if you want to get better</span></div><div class="subrow" data-search="at math at science and computer science"><span class="subtime">08:48</span><span class="subtext">at math, at science and computer science,</span></div><div class="subrow" data-search="you&#x27;re going to want to check out brilliant"><span class="subtime">08:50</span><span class="subtext">you&#x27;re going to want
+to check out Brilliant.</span></div><div class="subrow" data-search="in all their courses"><span class="subtime">08:52</span><span class="subtext">In all their courses,</span></div><div class="subrow" data-search="you&#x27;re going to find logically sequenced bite-sized quizzes"><span class="subtime">08:52</span><span class="subtext">you&#x27;re going to find logically
+sequenced bite-sized quizzes</span></div><div class="subrow" data-search="and interactive puzzles that keep you actively engaged"><span class="subtime">08:55</span><span class="subtext">and interactive puzzles that
+keep you <button type="button" class="subword" data-en="actively engaged" data-ru="активно вовлечённый">actively engaged</button></span></div><div class="subrow" data-search="and help you to master the material more effectively"><span class="subtime">08:58</span><span class="subtext">and help you to master the
+material more effectively.</span></div><div class="subrow" data-search="and by solving problems more frequently"><span class="subtime">09:00</span><span class="subtext">And by solving problems more frequently,</span></div><div class="subrow" data-search="you become a better problem solver overall"><span class="subtime">09:03</span><span class="subtext">you become a better
+<button type="button" class="subword" data-en="problem solver overall" data-ru="в целом лучше решать проблемы">problem solver overall</button>.</span></div><div class="subrow" data-search="so if you wanna get started learning today"><span class="subtime">09:05</span><span class="subtext">So if you wanna get
+started learning today,</span></div><div class="subrow" data-search="go over to brilliant org thomasfrank"><span class="subtime">09:07</span><span class="subtext">go over to brilliant.org/ThomasFrank</span></div><div class="subrow" data-search="to sign up and to support this channel"><span class="subtime">09:09</span><span class="subtext">to sign up and to support this channel.</span></div><div class="subrow" data-search="hopefully you found this video helpful"><span class="subtime">09:11</span><span class="subtext">Hopefully you found this video helpful.</span></div><div class="subrow" data-search="i&#x27;m finding this very helpful in my own study"><span class="subtime">09:12</span><span class="subtext">I&#x27;m finding this very
+helpful in my own study,</span></div><div class="subrow" data-search="so hopefully you will as well"><span class="subtime">09:14</span><span class="subtext">so hopefully you will as well.</span></div><div class="subrow" data-search="if you enjoyed this video"><span class="subtime">09:15</span><span class="subtext">If you enjoyed this video,</span></div><div class="subrow" data-search="likes and comments definitely help the algorithm"><span class="subtime">09:16</span><span class="subtext">likes and comments definitely
+help the algorithm.</span></div><div class="subrow" data-search="and i&#x27;ll have one more video right here"><span class="subtime">09:18</span><span class="subtext">And I&#x27;ll have one more video right here</span></div><div class="subrow" data-search="and another one right here"><span class="subtime">09:20</span><span class="subtext">and another one right here,</span></div><div class="subrow" data-search="if you want to keep watching stuff on this channel"><span class="subtime">09:21</span><span class="subtext">if you want to keep watching
+stuff on this channel,</span></div><div class="subrow" data-search="thanks as always for watching"><span class="subtime">09:23</span><span class="subtext">thanks as always for watching,</span></div><div class="subrow" data-search="and i&#x27;ll see you in the next video"><span class="subtime">09:24</span><span class="subtext">and I&#x27;ll see you in the next video.</span></div></div>
+<details class="raw"><summary>Show original raw SRT file</summary><pre class="rawpre">1
+00:00:00,180 --&gt; 00:00:01,900
+- [Thomas] Thanks to brilliant
+for sponsoring this video
+
+2
+00:00:01,900 --&gt; 00:00:02,870
+and supporting my channel.
+
+3
+00:00:02,870 --&gt; 00:00:03,703
+A few years ago,
+
+4
+00:00:03,703 --&gt; 00:00:06,290
+I made a video about something
+called the Feynman Technique.
+
+5
+00:00:06,290 --&gt; 00:00:08,820
+This is a simple but highly
+effective study technique,
+
+6
+00:00:08,820 --&gt; 00:00:11,340
+where you deepen your own
+understanding of a concept
+
+7
+00:00:11,340 --&gt; 00:00:14,770
+by attempting to simplify it
+and explain it to someone else.
+
+8
+00:00:14,770 --&gt; 00:00:16,990
+In other words, you teach to learn.
+
+9
+00:00:16,990 --&gt; 00:00:17,823
+In this video,
+
+10
+00:00:17,823 --&gt; 00:00:19,960
+I want to present a modified
+version of that original,
+
+11
+00:00:19,960 --&gt; 00:00:22,340
+Feynman Technique that I&#x27;ve
+been using in my own independent
+
+12
+00:00:22,340 --&gt; 00:00:23,820
+learning projects as of late.
+
+13
+00:00:23,820 --&gt; 00:00:25,300
+Conceptually, it is very similar
+
+14
+00:00:25,300 --&gt; 00:00:26,540
+to the original Feynman Technique
+
+15
+00:00:26,540 --&gt; 00:00:29,070
+but in execution, it is quite different.
+
+16
+00:00:29,070 --&gt; 00:00:30,310
+So I&#x27;m going to give it its own name,
+
+17
+00:00:30,310 --&gt; 00:00:31,510
+to keep things distinct.
+
+18
+00:00:31,510 --&gt; 00:00:33,570
+And that name is the LPC method,
+
+19
+00:00:33,570 --&gt; 00:00:36,220
+which stands for learn, present, critique.
+
+20
+00:00:36,220 --&gt; 00:00:38,630
+And I&#x27;ve been using this
+LPC method in my own studies
+
+21
+00:00:38,630 --&gt; 00:00:41,300
+of anatomy, biomechanics,
+and bioenergetics,
+
+22
+00:00:41,300 --&gt; 00:00:44,940
+as part of my goal to earn both
+CSCS and PBC certifications,
+
+23
+00:00:44,940 --&gt; 00:00:47,210
+which if you&#x27;re curious are
+certifications in the strength
+
+24
+00:00:47,210 --&gt; 00:00:48,610
+training and coaching industry.
+
+25
+00:00:48,610 --&gt; 00:00:50,250
+And I&#x27;ve learned through using this,
+
+26
+00:00:50,250 --&gt; 00:00:54,170
+that this technique has a very
+high ROI on helping me retain
+
+27
+00:00:54,170 --&gt; 00:00:57,070
+lots of information without
+having to spend a lot of time
+
+28
+00:00:57,070 --&gt; 00:00:58,300
+actually studying it.
+
+29
+00:00:58,300 --&gt; 00:00:59,133
+So in this video,
+
+30
+00:00:59,133 --&gt; 00:01:01,050
+I&#x27;m going to walk you through
+exactly how to use the LPC
+
+31
+00:01:01,050 --&gt; 00:01:02,640
+method along with some examples.
+
+32
+00:01:02,640 --&gt; 00:01:03,800
+And I&#x27;m also going to compare it
+
+33
+00:01:03,800 --&gt; 00:01:05,017
+to the original Feynman Technique.
+
+34
+00:01:05,017 --&gt; 00:01:06,970
+And you can see in the
+timestamps below exactly
+
+35
+00:01:06,970 --&gt; 00:01:08,050
+where those sections are.
+
+36
+00:01:08,050 --&gt; 00:01:08,883
+But first,
+
+37
+00:01:08,883 --&gt; 00:01:10,100
+if you haven&#x27;t seen my original video,
+
+38
+00:01:10,100 --&gt; 00:01:10,933
+or if it&#x27;s been a while,
+
+39
+00:01:10,933 --&gt; 00:01:12,400
+I want to give you a very quick refresher
+
+40
+00:01:12,400 --&gt; 00:01:14,170
+on what the Feynman Technique is.
+
+41
+00:01:14,170 --&gt; 00:01:15,790
+The heart of this technique
+can be found in a quote
+
+42
+00:01:15,790 --&gt; 00:01:17,620
+that is often attributed
+to Albert Einstein,
+
+43
+00:01:17,620 --&gt; 00:01:19,530
+though he probably didn&#x27;t actually say it,
+
+44
+00:01:19,530 --&gt; 00:01:20,580
+but it goes like this.
+
+45
+00:01:20,580 --&gt; 00:01:22,210
+If you can&#x27;t explain it simply,
+
+46
+00:01:22,210 --&gt; 00:01:24,230
+then you don&#x27;t understand it well enough.
+
+47
+00:01:24,230 --&gt; 00:01:26,550
+The idea behind the Feynman
+Technique is to break down
+
+48
+00:01:26,550 --&gt; 00:01:28,370
+a concept and simplify it
+
+49
+00:01:28,370 --&gt; 00:01:29,520
+to the point where you could easily
+
+50
+00:01:29,520 --&gt; 00:01:31,050
+explain it to a lay person.
+
+51
+00:01:31,050 --&gt; 00:01:32,440
+If you can&#x27;t do that,
+
+52
+00:01:32,440 --&gt; 00:01:34,590
+then you don&#x27;t understand
+it well enough yourself.
+
+53
+00:01:34,590 --&gt; 00:01:36,000
+And in going through this exercise,
+
+54
+00:01:36,000 --&gt; 00:01:38,210
+actually trying to explain
+it on a piece of paper,
+
+55
+00:01:38,210 --&gt; 00:01:40,620
+you expose gaps in your understanding,
+
+56
+00:01:40,620 --&gt; 00:01:42,470
+where you can then go and try to shore up.
+
+57
+00:01:42,470 --&gt; 00:01:43,510
+So again, conceptually,
+
+58
+00:01:43,510 --&gt; 00:01:46,420
+the LPC method is very similar
+to the Feynman Technique
+
+59
+00:01:46,420 --&gt; 00:01:49,106
+We&#x27;re trying to achieve the
+same goal except for replacing
+
+60
+00:01:49,106 --&gt; 00:01:52,210
+the act of writing on
+paper, drawing diagrams,
+
+61
+00:01:52,210 --&gt; 00:01:54,870
+with actually presenting to a camera.
+
+62
+00:01:54,870 --&gt; 00:01:57,890
+Here is the TLDR version
+of the LPC method.
+
+63
+00:01:57,890 --&gt; 00:01:59,480
+First you go out and learn.
+
+64
+00:01:59,480 --&gt; 00:02:00,580
+Go to the lecture material,
+
+65
+00:02:00,580 --&gt; 00:02:02,000
+watch a video, read a book,
+
+66
+00:02:02,000 --&gt; 00:02:03,500
+take your notes as normal.
+
+67
+00:02:03,500 --&gt; 00:02:05,550
+Second, present a concept,
+
+68
+00:02:05,550 --&gt; 00:02:08,190
+present something you&#x27;ve
+learned to your phone camera
+
+69
+00:02:08,190 --&gt; 00:02:10,550
+as if you&#x27;re explaining it
+to a friend or explaining it
+
+70
+00:02:10,550 --&gt; 00:02:12,480
+to a classroom like a speech.
+
+71
+00:02:12,480 --&gt; 00:02:14,350
+And third upload that video,
+
+72
+00:02:14,350 --&gt; 00:02:15,480
+paste it into your notes
+
+73
+00:02:15,480 --&gt; 00:02:17,920
+and finally watch it and critique it.
+
+74
+00:02:17,920 --&gt; 00:02:18,753
+And in your critique,
+
+75
+00:02:18,753 --&gt; 00:02:20,210
+you&#x27;re looking for three different things.
+
+76
+00:02:20,210 --&gt; 00:02:22,350
+Number one, any errors, factual errors
+
+77
+00:02:22,350 --&gt; 00:02:23,250
+that you need to correct.
+
+78
+00:02:23,250 --&gt; 00:02:25,260
+Number two, any areas where you are vague,
+
+79
+00:02:25,260 --&gt; 00:02:27,730
+where you can add
+clarification and number three,
+
+80
+00:02:27,730 --&gt; 00:02:30,800
+any questions that your critique
+brings up after the fact,
+
+81
+00:02:30,800 --&gt; 00:02:33,120
+you can then go and learn
+about through supplemental
+
+82
+00:02:33,120 --&gt; 00:02:35,850
+material or through
+revisiting the actual material
+
+83
+00:02:35,850 --&gt; 00:02:36,700
+you&#x27;re learning from.
+
+84
+00:02:36,700 --&gt; 00:02:39,070
+So here&#x27;s a real world
+example from my own study
+
+85
+00:02:39,070 --&gt; 00:02:39,903
+of human anatomy.
+
+86
+00:02:39,903 --&gt; 00:02:40,997
+And if you look through
+my notes here on motion,
+
+87
+00:02:40,997 --&gt; 00:02:42,780
+you&#x27;ll see lots of different videos
+
+88
+00:02:42,780 --&gt; 00:02:44,230
+where I&#x27;m explaining lots of concepts,
+
+89
+00:02:44,230 --&gt; 00:02:45,510
+but the one that I want to show you here
+
+90
+00:02:45,510 --&gt; 00:02:47,710
+is my explanation of the
+different moving joints
+
+91
+00:02:47,710 --&gt; 00:02:48,550
+in the human body,
+
+92
+00:02:48,550 --&gt; 00:02:50,380
+which are called synovial joints.
+
+93
+00:02:50,380 --&gt; 00:02:52,810
+So at first I went through
+that learning process.
+
+94
+00:02:52,810 --&gt; 00:02:53,643
+In this case,
+
+95
+00:02:53,643 --&gt; 00:02:55,900
+the material that I&#x27;m working
+through is Barbell Logic&#x27;s
+
+96
+00:02:55,900 --&gt; 00:02:56,760
+principles course,
+
+97
+00:02:56,760 --&gt; 00:02:58,430
+which goes through pretty much
+everything you need to learn
+
+98
+00:02:58,430 --&gt; 00:03:00,260
+to become a beginner strength coach,
+
+99
+00:03:00,260 --&gt; 00:03:02,280
+so biomechanics, bioenergetics,
+
+100
+00:03:02,280 --&gt; 00:03:03,760
+the basics of human anatomy,
+
+101
+00:03:03,760 --&gt; 00:03:06,720
+as well as how to coach the
+four main power lifting lifts.
+
+102
+00:03:06,720 --&gt; 00:03:08,800
+So I&#x27;m going through this
+course and I&#x27;m taking my notes
+
+103
+00:03:08,800 --&gt; 00:03:11,600
+on the different joints in
+the body and how they move.
+
+104
+00:03:11,600 --&gt; 00:03:13,780
+And I use a pretty
+typical outline style note
+
+105
+00:03:13,780 --&gt; 00:03:15,150
+taking technique here in notion
+
+106
+00:03:15,150 --&gt; 00:03:17,220
+with the one exception
+that I often will clip
+
+107
+00:03:17,220 --&gt; 00:03:18,640
+a lot of screenshots and add
+
+108
+00:03:18,640 --&gt; 00:03:20,080
+a lot of multimedia elements
+
+109
+00:03:20,080 --&gt; 00:03:22,980
+into my notes to take advantage
+of multimodal learning.
+
+110
+00:03:22,980 --&gt; 00:03:24,590
+And I&#x27;ll touch on that a little bit later,
+
+111
+00:03:24,590 --&gt; 00:03:26,470
+but now it&#x27;s time to move on to step two,
+
+112
+00:03:26,470 --&gt; 00:03:27,670
+which is present.
+
+113
+00:03:27,670 --&gt; 00:03:28,503
+At this point.
+
+114
+00:03:28,503 --&gt; 00:03:31,280
+I want to put my phone on
+a tripod and pick a concept
+
+115
+00:03:31,280 --&gt; 00:03:33,580
+or a set of facts to present and explain
+
+116
+00:03:33,580 --&gt; 00:03:35,930
+to my phone as if I were
+explaining it to you
+
+117
+00:03:35,930 --&gt; 00:03:36,790
+or to a friend.
+
+118
+00:03:36,790 --&gt; 00:03:37,623
+So in this case,
+
+119
+00:03:37,623 --&gt; 00:03:39,770
+I picked these six different
+diarthrodial joints in the body
+
+120
+00:03:39,770 --&gt; 00:03:41,830
+and explain how they work in the video.
+
+121
+00:03:41,830 --&gt; 00:03:45,940
+So a way to imagine a saddle
+type joint and how it moves
+
+122
+00:03:45,940 --&gt; 00:03:48,040
+is if you took your knuckles here
+
+123
+00:03:48,040 --&gt; 00:03:49,600
+and took the other knuckles here
+
+124
+00:03:49,600 --&gt; 00:03:51,010
+and sort of sandwiched them together.
+
+125
+00:03:51,010 --&gt; 00:03:52,240
+Now, this is my own analogy.
+
+126
+00:03:52,240 --&gt; 00:03:53,550
+They did not teach this in the course,
+
+127
+00:03:53,550 --&gt; 00:03:56,580
+but it sort of is analogous to
+how you&#x27;ll see illustration.
+
+128
+00:03:56,580 --&gt; 00:03:57,413
+Once I am recording,
+
+129
+00:03:57,413 --&gt; 00:03:59,870
+I use the YouTube app to
+upload an unlisted copy
+
+130
+00:03:59,870 --&gt; 00:04:01,640
+of this video to a second YouTube channel.
+
+131
+00:04:01,640 --&gt; 00:04:04,339
+I have specifically for my own learning
+
+132
+00:04:04,339 --&gt; 00:04:05,172
+and for this LPC technique.
+
+133
+00:04:05,172 --&gt; 00:04:06,290
+And because it&#x27;s on YouTube,
+
+134
+00:04:06,290 --&gt; 00:04:08,710
+I can then go ahead and
+paste it into my notion,
+
+135
+00:04:08,710 --&gt; 00:04:09,720
+which will embed it.
+
+136
+00:04:09,720 --&gt; 00:04:12,090
+And that brings us to
+step three, critique.
+
+137
+00:04:12,090 --&gt; 00:04:12,923
+At this point,
+
+138
+00:04:12,923 --&gt; 00:04:14,520
+I&#x27;m going to watch through the
+video and I&#x27;m going to look
+
+139
+00:04:14,520 --&gt; 00:04:15,830
+for, again, three things.
+
+140
+00:04:15,830 --&gt; 00:04:17,390
+Number one, factual errors.
+
+141
+00:04:17,390 --&gt; 00:04:19,040
+So for example, at one point in the video,
+
+142
+00:04:19,040 --&gt; 00:04:20,550
+I mentioned the carpals of the hand
+
+143
+00:04:20,550 --&gt; 00:04:22,170
+and the carpals of the feet.
+
+144
+00:04:22,170 --&gt; 00:04:23,350
+Those are the tarsals.
+
+145
+00:04:23,350 --&gt; 00:04:24,620
+I&#x27;m going to also look for anything
+
+146
+00:04:24,620 --&gt; 00:04:26,920
+where I could be a little bit more clear
+
+147
+00:04:26,920 --&gt; 00:04:29,420
+or more correct in my explanation.
+
+148
+00:04:29,420 --&gt; 00:04:33,520
+So at one point I mentioned
+the joint between the metacarpo
+
+149
+00:04:34,803 --&gt; 00:04:36,870
+and the phalangeal
+bones here in the thumb.
+
+150
+00:04:36,870 --&gt; 00:04:38,040
+Well, that is a joint,
+
+151
+00:04:38,040 --&gt; 00:04:40,560
+but it&#x27;s called the
+metacarpophalangeal joint.
+
+152
+00:04:40,560 --&gt; 00:04:42,450
+So I should actually use
+the name of the joint.
+
+153
+00:04:42,450 --&gt; 00:04:43,350
+And finally, number three,
+
+154
+00:04:43,350 --&gt; 00:04:44,850
+if I have any questions that come up
+
+155
+00:04:44,850 --&gt; 00:04:47,710
+in this critique process,
+and I almost always do,
+
+156
+00:04:47,710 --&gt; 00:04:50,330
+I want to go out and get
+answers to those questions.
+
+157
+00:04:50,330 --&gt; 00:04:52,330
+And this is just another
+way that encourages
+
+158
+00:04:52,330 --&gt; 00:04:53,870
+me to deepen my understanding
+
+159
+00:04:53,870 --&gt; 00:04:56,110
+often by using supplemental resources.
+
+160
+00:04:56,110 --&gt; 00:04:58,070
+So how is this method
+better than the original
+
+161
+00:04:58,070 --&gt; 00:04:58,940
+Feynman Technique?
+
+162
+00:04:58,940 --&gt; 00:05:00,230
+Well, I am not going to stand
+
+163
+00:05:00,230 --&gt; 00:05:03,250
+by that claim for every subject
+or every concept out there,
+
+164
+00:05:03,250 --&gt; 00:05:05,560
+but I do think that for
+certain types of information,
+
+165
+00:05:05,560 --&gt; 00:05:07,820
+certain concepts, this is much better
+
+166
+00:05:07,820 --&gt; 00:05:10,130
+than the Feynman
+Technique in terms of ROI.
+
+167
+00:05:10,130 --&gt; 00:05:12,970
+And it&#x27;s because you&#x27;re using
+a different mode of learning
+
+168
+00:05:12,970 --&gt; 00:05:15,760
+or mode of active learning
+specifically to deepen
+
+169
+00:05:15,760 --&gt; 00:05:17,900
+your understanding of
+the subject material.
+
+170
+00:05:17,900 --&gt; 00:05:21,270
+Going back to my example of the
+synovial joints in the body,
+
+171
+00:05:21,270 --&gt; 00:05:23,390
+if I get on camera and I verbally explain
+
+172
+00:05:23,390 --&gt; 00:05:24,320
+how these joints work,
+
+173
+00:05:24,320 --&gt; 00:05:27,300
+but also use body language
+to demonstrate how they work
+
+174
+00:05:27,300 --&gt; 00:05:29,910
+and point out where they
+are on my own anatomy,
+
+175
+00:05:29,910 --&gt; 00:05:32,900
+I am using multimodal learning to deepen
+
+176
+00:05:32,900 --&gt; 00:05:33,830
+my own understanding.
+
+177
+00:05:33,830 --&gt; 00:05:35,610
+And if I wanted to do that
+with the Feynman Technique
+
+178
+00:05:35,610 --&gt; 00:05:37,560
+I would have two different options.
+
+179
+00:05:37,560 --&gt; 00:05:39,320
+I would either have to write out in text
+
+180
+00:05:39,320 --&gt; 00:05:40,330
+how these things work.
+
+181
+00:05:40,330 --&gt; 00:05:41,910
+That&#x27;s a very abstract way of learning.
+
+182
+00:05:41,910 --&gt; 00:05:43,330
+It&#x27;s going to take me a lot longer.
+
+183
+00:05:43,330 --&gt; 00:05:45,000
+Or I would have to draw them.
+
+184
+00:05:45,000 --&gt; 00:05:48,360
+That is a more iconic type of
+learning, using iconography.
+
+185
+00:05:48,360 --&gt; 00:05:50,100
+It&#x27;s much better in terms of me
+
+186
+00:05:50,100 --&gt; 00:05:52,330
+being able to visually
+see how something works,
+
+187
+00:05:52,330 --&gt; 00:05:55,180
+but drawing takes a lot more
+time than just pointing out
+
+188
+00:05:55,180 --&gt; 00:05:58,200
+and moving my arm to
+show a hinge joint works.
+
+189
+00:05:58,200 --&gt; 00:06:00,087
+So in terms of time spent
+studying versus retention
+
+190
+00:06:00,087 --&gt; 00:06:02,770
+of information for
+certain kinds of topics,
+
+191
+00:06:02,770 --&gt; 00:06:04,730
+this is going to be superior.
+
+192
+00:06:04,730 --&gt; 00:06:06,510
+Though I think the real improvement
+
+193
+00:06:06,510 --&gt; 00:06:08,610
+to the five technique here is to combine
+
+194
+00:06:08,610 --&gt; 00:06:10,420
+your use of both of these techniques,
+
+195
+00:06:10,420 --&gt; 00:06:12,020
+either separately based
+
+196
+00:06:12,020 --&gt; 00:06:13,750
+on the type of concept you&#x27;re studying,
+
+197
+00:06:13,750 --&gt; 00:06:16,860
+or maybe even lumping them
+all into one big technique.
+
+198
+00:06:16,860 --&gt; 00:06:19,150
+There is nothing stopping you
+from breaking out a whiteboard
+
+199
+00:06:19,150 --&gt; 00:06:21,180
+and actually writing out or diagramming
+
+200
+00:06:21,180 --&gt; 00:06:22,510
+while you film yourself.
+
+201
+00:06:22,510 --&gt; 00:06:25,410
+But that extra step of
+critiquing yourself afterwards
+
+202
+00:06:25,410 --&gt; 00:06:26,340
+is another thing that&#x27;s going
+
+203
+00:06:26,340 --&gt; 00:06:28,070
+to help deepen your understanding.
+
+204
+00:06:28,070 --&gt; 00:06:29,030
+In general, you want to pursue
+
+205
+00:06:29,030 --&gt; 00:06:30,960
+a multimodal learning strategy
+
+206
+00:06:30,960 --&gt; 00:06:34,000
+because no one way of learning
+is better than any other.
+
+207
+00:06:34,000 --&gt; 00:06:36,420
+You may have seen this
+often cited learning pyramid
+
+208
+00:06:36,420 --&gt; 00:06:37,320
+floating around the internet,
+
+209
+00:06:37,320 --&gt; 00:06:39,780
+where people will say things
+like you only retain 10%
+
+210
+00:06:39,780 --&gt; 00:06:42,430
+of what you hear, 20% of
+what you read, etcetera.
+
+211
+00:06:42,430 --&gt; 00:06:44,927
+Well, as it turns out the
+original version of that pyramid,
+
+212
+00:06:44,927 --&gt; 00:06:46,810
+number one, it wasn&#x27;t
+even called a pyramid,
+
+213
+00:06:46,810 --&gt; 00:06:47,710
+it was a cone.
+
+214
+00:06:47,710 --&gt; 00:06:49,560
+- It&#x27;s about the cones.
+
+215
+00:06:49,560 --&gt; 00:06:51,110
+- But number two, it did not include
+
+216
+00:06:51,110 --&gt; 00:06:52,260
+those percentages at all.
+
+217
+00:06:52,260 --&gt; 00:06:54,350
+And as far as research
+has been able to find
+
+218
+00:06:54,350 --&gt; 00:06:56,760
+those percentages are completely made up.
+
+219
+00:06:56,760 --&gt; 00:06:58,150
+The original version of the cone
+
+220
+00:06:58,150 --&gt; 00:06:59,710
+was called the cone of experience.
+
+221
+00:06:59,710 --&gt; 00:07:02,380
+It was created by Edgar Dale
+who was a very well-respected
+
+222
+00:07:02,380 --&gt; 00:07:03,580
+education researcher.
+
+223
+00:07:03,580 --&gt; 00:07:05,860
+And his whole point in creating
+this cone was to just create
+
+224
+00:07:05,860 --&gt; 00:07:08,360
+a model that showed visually
+the differences in levels
+
+225
+00:07:08,360 --&gt; 00:07:11,000
+of abstraction, between
+different methods of learning,
+
+226
+00:07:11,000 --&gt; 00:07:13,970
+be it verbal or text-based or audiovisual.
+
+227
+00:07:13,970 --&gt; 00:07:16,500
+And his whole point was that
+mixing up different methods
+
+228
+00:07:16,500 --&gt; 00:07:19,610
+of learning is more
+powerful than using any one.
+
+229
+00:07:19,610 --&gt; 00:07:21,300
+In fact, back in 1969,
+
+230
+00:07:21,300 --&gt; 00:07:23,810
+he wrote that direct hands-on experience,
+
+231
+00:07:23,810 --&gt; 00:07:26,130
+what we often think of as the
+gold standard for learning
+
+232
+00:07:26,130 --&gt; 00:07:28,650
+anything is often not the
+best way to learn something.
+
+233
+00:07:28,650 --&gt; 00:07:31,250
+And more recent cognitive
+research has confirmed this
+
+234
+00:07:31,250 --&gt; 00:07:33,160
+and shown that for basic concepts,
+
+235
+00:07:33,160 --&gt; 00:07:34,990
+a more abstract learning model
+
+236
+00:07:34,990 --&gt; 00:07:35,950
+is actually better.
+
+237
+00:07:35,950 --&gt; 00:07:38,160
+And once you get into higher
+order learning concepts,
+
+238
+00:07:38,160 --&gt; 00:07:39,690
+then hands on experience is better.
+
+239
+00:07:39,690 --&gt; 00:07:41,610
+So as far as cognitive research has found,
+
+240
+00:07:41,610 --&gt; 00:07:43,960
+a multimodal approach truly is the best.
+
+241
+00:07:43,960 --&gt; 00:07:46,300
+So talk about what you&#x27;re
+learning and demonstrate it
+
+242
+00:07:46,300 --&gt; 00:07:47,950
+with body language, draw it,
+
+243
+00:07:47,950 --&gt; 00:07:50,370
+find a way to get a new perspective
+
+244
+00:07:50,370 --&gt; 00:07:51,890
+and a new view on what you&#x27;re learning.
+
+245
+00:07:51,890 --&gt; 00:07:53,930
+And you&#x27;re going to find
+your long-term memory,
+
+246
+00:07:53,930 --&gt; 00:07:56,920
+your long-term ability to retain
+and recall that information
+
+247
+00:07:56,920 --&gt; 00:07:58,640
+and master it truly understand it
+
+248
+00:07:58,640 --&gt; 00:08:00,220
+is going to improve as well.
+
+249
+00:08:00,220 --&gt; 00:08:01,053
+Before I end this video,
+
+250
+00:08:01,053 --&gt; 00:08:02,590
+I want to let you know
+about one more resource
+
+251
+00:08:02,590 --&gt; 00:08:05,030
+that I&#x27;m using in this independent
+learning project of mine
+
+252
+00:08:05,030 --&gt; 00:08:06,380
+and that is Brilliant.
+
+253
+00:08:06,380 --&gt; 00:08:08,140
+Specifically their chemistry course.
+
+254
+00:08:08,140 --&gt; 00:08:09,210
+Because believe it or not,
+
+255
+00:08:09,210 --&gt; 00:08:10,920
+I never took chemistry in college.
+
+256
+00:08:10,920 --&gt; 00:08:13,190
+And in my current study of bioenergetics,
+
+257
+00:08:13,190 --&gt; 00:08:15,250
+I am learning that a
+little bit of chemistry
+
+258
+00:08:15,250 --&gt; 00:08:16,810
+knowledge is actually very useful.
+
+259
+00:08:16,810 --&gt; 00:08:18,870
+So I&#x27;m currently going through
+Brilliant&#x27;s chemistry course,
+
+260
+00:08:18,870 --&gt; 00:08:20,870
+and I&#x27;m finding it very
+helpful for understanding
+
+261
+00:08:20,870 --&gt; 00:08:22,430
+how chemical reactions work.
+
+262
+00:08:22,430 --&gt; 00:08:24,930
+And I&#x27;m also using some more
+passive supplemental resources,
+
+263
+00:08:24,930 --&gt; 00:08:26,160
+lecture, materials, videos,
+
+264
+00:08:26,160 --&gt; 00:08:28,790
+but Brilliant is built with
+active learning in mind,
+
+265
+00:08:28,790 --&gt; 00:08:30,510
+which means while I&#x27;m
+going through their course,
+
+266
+00:08:30,510 --&gt; 00:08:32,260
+I&#x27;m constantly being quizzed.
+
+267
+00:08:32,260 --&gt; 00:08:34,510
+I&#x27;m constantly being
+asked to solve problems.
+
+268
+00:08:34,510 --&gt; 00:08:36,370
+And if you know anything
+about the cognitive science
+
+269
+00:08:36,370 --&gt; 00:08:37,310
+behind active learning,
+
+270
+00:08:37,310 --&gt; 00:08:40,140
+you will know that this is a
+much more effective, efficient,
+
+271
+00:08:40,140 --&gt; 00:08:41,920
+and interesting way to learn
+
+272
+00:08:41,920 --&gt; 00:08:44,660
+and it is the methodology they
+use to build all the courses
+
+273
+00:08:44,660 --&gt; 00:08:47,240
+in their library of which
+there are more than 60.
+
+274
+00:08:47,240 --&gt; 00:08:48,370
+So if you want to get better
+
+275
+00:08:48,370 --&gt; 00:08:50,700
+at math, at science and computer science,
+
+276
+00:08:50,700 --&gt; 00:08:52,030
+you&#x27;re going to want
+to check out Brilliant.
+
+277
+00:08:52,030 --&gt; 00:08:52,960
+In all their courses,
+
+278
+00:08:52,960 --&gt; 00:08:55,620
+you&#x27;re going to find logically
+sequenced bite-sized quizzes
+
+279
+00:08:55,620 --&gt; 00:08:58,260
+and interactive puzzles that
+keep you actively engaged
+
+280
+00:08:58,260 --&gt; 00:09:00,930
+and help you to master the
+material more effectively.
+
+281
+00:09:00,930 --&gt; 00:09:03,330
+And by solving problems more frequently,
+
+282
+00:09:03,330 --&gt; 00:09:05,820
+you become a better
+problem solver overall.
+
+283
+00:09:05,820 --&gt; 00:09:07,320
+So if you wanna get
+started learning today,
+
+284
+00:09:07,320 --&gt; 00:09:09,190
+go over to brilliant.org/ThomasFrank
+
+285
+00:09:09,190 --&gt; 00:09:11,260
+to sign up and to support this channel.
+
+286
+00:09:11,260 --&gt; 00:09:12,680
+Hopefully you found this video helpful.
+
+287
+00:09:12,680 --&gt; 00:09:14,570
+I&#x27;m finding this very
+helpful in my own study,
+
+288
+00:09:14,570 --&gt; 00:09:15,990
+so hopefully you will as well.
+
+289
+00:09:15,990 --&gt; 00:09:16,990
+If you enjoyed this video,
+
+290
+00:09:16,990 --&gt; 00:09:18,820
+likes and comments definitely
+help the algorithm.
+
+291
+00:09:18,820 --&gt; 00:09:20,450
+And I&#x27;ll have one more video right here
+
+292
+00:09:20,450 --&gt; 00:09:21,310
+and another one right here,
+
+293
+00:09:21,310 --&gt; 00:09:23,230
+if you want to keep watching
+stuff on this channel,
+
+294
+00:09:23,230 --&gt; 00:09:24,250
+thanks as always for watching,
+
+295
+00:09:24,250 --&gt; 00:09:26,000
+and I&#x27;ll see you in the next video.</pre></details>
+</section>
+
+<div class="footer">Source video: Thomas Frank · How to Double Your Learning Speed – The LPC Method<br>Workbook vocabulary and subtitle-line exercises were generated from the user-supplied SRT.</div>
+</div>
+<div class="pop" id="pop" role="status" aria-live="polite"></div>
+<script>
+(() => {
+ const root=document.getElementById('app'), player=document.getElementById('player'), vid=root.dataset.video;
+ const base='https://www.youtube-nocookie.com/embed/'+vid+'?rel=0&cc_load_policy=1&cc_lang_pref=en';
+ const checked=new Set();
+ function updateProgress(){
+   const total=document.querySelectorAll('.checkone,.checkgaps').length;
+   const pct=total?Math.round(100*checked.size/total):0;
+   document.getElementById('progress').style.width=pct+'%';
+   document.getElementById('progressText').textContent=checked.size+' of '+total+' checked activities';
+ }
+ function speak(t){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.92;speechSynthesis.speak(u)}
+ const pop=document.getElementById('pop');
+ function showWord(en,ru){pop.innerHTML='<b>'+en+'</b><small>'+ru+'</small>';pop.classList.add('show');speak(en);clearTimeout(pop._t);pop._t=setTimeout(()=>pop.classList.remove('show'),3300)}
+ document.querySelectorAll('.vocab,.subword').forEach(b=>b.addEventListener('click',()=>showWord(b.dataset.en,b.dataset.ru)));
+ document.querySelectorAll('.flash').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('revealed')));
+ document.querySelectorAll('.playpart').forEach(b=>b.addEventListener('click',()=>{
+   const s=Math.floor(Number(b.dataset.start)||0), e=Math.floor(Number(b.dataset.end)||0);
+   player.src=base+'&autoplay=1&start='+s+'&end='+e;document.getElementById('video').scrollIntoView({behavior:'smooth',block:'start'});
+ }));
+ document.querySelectorAll('.subtoggle').forEach(b=>b.addEventListener('click',()=>{
+   const box=b.closest('.part').querySelector('.subtitle-box');box.classList.toggle('show');
+   b.textContent=box.classList.contains('show')?'Hide full subtitles for this part':'Show full subtitles for this part';
+ }));
+ document.querySelectorAll('.checkone').forEach(b=>b.addEventListener('click',()=>{
+   const q=b.closest('.quizq'), chosen=q.querySelector('input:checked'), fb=q.querySelector('.feedback');
+   const ok=chosen && Number(chosen.value)===Number(q.dataset.answer);fb.textContent=ok?'✓ Correct':'Try again';fb.className='feedback '+(ok?'good':'bad');checked.add(b);updateProgress();
+ }));
+ const n=s=>String(s||'').trim().toLowerCase().replace(/[’]/g,"'").replace(/[.,!?;:]/g,'').replace(/\s+/g,' ');
+ document.querySelectorAll('.checkgaps').forEach(b=>b.addEventListener('click',()=>{
+   const card=b.closest('.card');card.querySelectorAll('.gapq').forEach(q=>{const inp=q.querySelector('input'),fb=q.querySelector('.feedback');const ok=n(inp.value)===n(q.dataset.answer);fb.textContent=ok?'✓ Exact subtitle expression':'Try again';fb.className='feedback '+(ok?'good':'bad')});
+   checked.add(b);updateProgress();
+ }));
+ document.querySelectorAll('.sampletoggle').forEach(b=>b.addEventListener('click',()=>{const box=b.parentElement.querySelector('.sample');box.classList.toggle('show');b.textContent=box.classList.contains('show')?'Hide sample answer':'Show sample answer'}));
+ const search=document.getElementById('subsearch'), all=document.getElementById('allsubs');
+ search.addEventListener('input',()=>{const q=n(search.value);all.querySelectorAll('.subrow').forEach(r=>{r.style.display=!q||r.dataset.search.includes(q)?'grid':'none'})});
+ document.getElementById('clearsearch').addEventListener('click',()=>{search.value='';search.dispatchEvent(new Event('input'));search.focus()});
+ updateProgress();
+})();
+</script>
+</body></html>
