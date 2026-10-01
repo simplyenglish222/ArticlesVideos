@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tatiana — Memory Palace: 20 Collocations</title>
+<style>
+:root {
+ --bg:#f4f1ed; --paper:#fffdf9; --ink:#252321; --muted:#6f6964; --line:#ddd5ce;
+ --accent:#d85b38; --soft:#fff2ea; --ok:#2a7650; --bad:#b4473e;
+ --shadow:0 10px 28px rgba(50,38,28,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#ece7e1,#f8f5f1 360px);color:var(--ink);
+font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+button,a{font:inherit}
+button{cursor:pointer}
+.wrap{width:min(920px,100%);margin:auto;padding:16px 12px 70px}
+.hero,.section{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.hero{padding:clamp(18px,4vw,28px);margin-bottom:15px}
+.kicker{font-size:.78rem;font-weight:900;letter-spacing:.075em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:Georgia,serif;font-size:clamp(2rem,6vw,3.2rem);line-height:1.06;margin:.25rem 0 .55rem}
+h2{font-size:1.35rem;margin:0 0 8px}
+p{margin:.5rem 0}
+.muted,.instruction{color:var(--muted)}
+.section{padding:clamp(15px,3vw,24px);margin:15px 0}
+.watch{display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:var(--accent);color:white;
+font-weight:800;border-radius:11px;padding:11px 14px;margin-top:12px;min-height:44px}
+.modebar,.actions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.btn{border:0;border-radius:10px;min-height:44px;padding:9px 13px;font-weight:800;background:var(--accent);color:#fff}
+.btn.secondary{background:#eee8e2;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.mode.active{background:var(--accent);color:#fff}
+.deck-shell{display:grid;grid-template-columns:48px minmax(0,1fr) 48px;gap:10px;align-items:center;margin-top:12px}
+.arrow{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:1.35rem}
+.flashcard{min-height:280px;border:1px solid var(--line);border-radius:18px;background:#fff;display:flex;align-items:center;justify-content:center;
+text-align:center;padding:24px;position:relative;overflow:hidden;box-shadow:0 8px 20px rgba(50,38,28,.05)}
+.flashcard .side{width:100%}
+.flashcard .front,.flashcard.revealed .back{display:block}
+.flashcard .back,.flashcard.revealed .front{display:none}
+.term{font-size:clamp(1.6rem,5vw,2.5rem);font-weight:900;line-height:1.12}
+.hint{color:var(--muted);margin-top:10px}
+.counter{position:absolute;top:12px;right:14px;color:var(--muted);font-size:.85rem}
+.progress{height:9px;background:#e9e1da;border-radius:999px;overflow:hidden;margin-top:12px}
+.progress>div{height:100%;width:0;background:var(--accent);transition:width .2s}
+.knownbar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.status{font-size:.9rem;color:var(--muted);text-align:center;margin-top:8px}
+.summary{font-size:1.03rem}
+.inline-word{border:0;background:var(--soft);color:#76351e;border-bottom:1px dashed #b7694e;border-radius:5px;padding:1px 4px;font-weight:700}
+.list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.item{border:1px solid var(--line);border-radius:11px;padding:9px 10px;background:#fff}
+.item b{display:block}
+.item span{color:var(--muted);font-size:.9rem}
+.pop{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);width:min(520px,calc(100% - 22px));background:#242120;color:#fff;
+padding:11px 13px;border-radius:12px;display:none;z-index:20;box-shadow:0 12px 35px rgba(0,0,0,.25)}
+.pop.show{display:block} .pop small{display:block;color:#ddd;margin-top:2px}
+@media(max-width:650px){
+ .deck-shell{grid-template-columns:1fr}
+ .arrow{display:none}
+ .flashcard{min-height:240px}
+ .list{grid-template-columns:1fr}
+}
+@media(max-width:430px){
+ .wrap{padding-left:9px;padding-right:9px}
+ .hero,.section{border-radius:15px;padding:14px}
+ h1{font-size:2.05rem}
+ .btn{flex:1 1 130px}
+}
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+<header class="hero">
+  <div class="kicker">Tatiana · B1–B2 · Memory & Learning</div>
+  <h1>20 collocations from the WIRED memory video</h1>
+  <p class="muted">All 20 expressions were selected from the published WIRED transcript of <i>This Hack Will Help You Memorise Almost Anything</i>.</p>
+  <a class="watch" href="https://www.wired.com/video/watch/this-hack-will-help-you-memorise-almost-anything-wired-explains" target="_blank" rel="noopener">▶ Watch the WIRED video</a>
+</header>
+
+<section class="section">
+  <h2>Flashcards</h2>
+  <p class="instruction">Try to recall the answer before tapping the card. Use the audio button for English pronunciation.</p>
+
+  <div class="modebar">
+    <button class="btn secondary mode active" id="enru">EN → RU</button>
+    <button class="btn secondary mode" id="ruen">RU → EN</button>
+    <button class="btn ghost" id="shuffle">Shuffle</button>
+  </div>
+
+  <div class="deck-shell">
+    <button class="arrow" id="prev" aria-label="Previous card">←</button>
+    <button class="flashcard" id="card" type="button">
+      <span class="counter" id="counter">1 / 20</span>
+      <span class="side front">
+        <span class="term" id="frontText"></span>
+        <span class="hint">Tap to reveal</span>
+      </span>
+      <span class="side back">
+        <span class="term" id="backText"></span>
+        <span class="hint">Tap to return</span>
+      </span>
+    </button>
+    <button class="arrow" id="next" aria-label="Next card">→</button>
+  </div>
+
+  <div class="actions" style="justify-content:center">
+    <button class="btn secondary" id="speak">🔊 English audio</button>
+  </div>
+
+  <div class="knownbar">
+    <button class="btn ghost" id="again">× Needs review</button>
+    <button class="btn" id="know">✓ I know it</button>
+  </div>
+  <div class="progress"><div id="bar"></div></div>
+  <div class="status" id="status">0 known · 0 marked for review</div>
+</section>
+
+<section class="section">
+  <h2>Short summary</h2>
+  <p class="instruction">The highlighted collocations are clickable: tap them for Russian meaning and English audio.</p>
+  <div class="summary">
+<p>
+The video explains how people can <button class="inline-word" data-en="hack your own memory" data-ru="прокачать собственную память">hack your own memory</button>
+by learning to <button class="inline-word" data-en="apply this technique" data-ru="применить этот метод">apply this technique</button>
+deliberately. First, you need <button class="inline-word" data-en="full attention" data-ru="полное внимание">full attention</button>
+and you have to <button class="inline-word" data-en="focus on the task at hand" data-ru="сосредоточиться на текущей задаче">focus on the task at hand</button>.
+You then <button class="inline-word" data-en="turn them into a picture" data-ru="превратить их в образ">turn them into a picture</button>
+and create vivid <button class="inline-word" data-en="multi-sensory memories" data-ru="мультисенсорные воспоминания">multi-sensory memories</button>.
+</p>
+<p>
+The image should appear clearly as a <button class="inline-word" data-en="picture in your mind's eye" data-ru="образ в воображении">picture in your mind's eye</button>,
+because unusual details can <button class="inline-word" data-en="make an image stick in your mind" data-ru="закрепить образ в памяти">make an image stick in your mind</button>.
+Next, you <button class="inline-word" data-en="organize those pictures" data-ru="организовать эти образы">organize those pictures</button>
+inside a familiar place and later <button class="inline-word" data-en="retrace that same path" data-ru="мысленно пройти тот же путь">retrace that same path</button>
+to retrieve them.
+</p>
+<p>
+Finally, you need to <button class="inline-word" data-en="repeat the information" data-ru="повторять информацию">repeat the information</button>
+so that it can enter <button class="inline-word" data-en="long-term memory" data-ru="долговременная память">long-term memory</button>
+and <button class="inline-word" data-en="strengthen those connections" data-ru="укрепить эти связи">strengthen those connections</button>.
+The main message is rather inconvenient for anyone hoping for a magical shortcut: strong memory still requires attention, review and practice.
+</p>
+</div>
+</section>
+
+<section class="section">
+  <h2>All 20 collocations</h2>
+  <div class="list">
+    <button type="button" class="item inline-word" data-en="hack your own memory" data-ru="прокачать собственную память"><b>hack your own memory</b><span>прокачать собственную память</span></button><button type="button" class="item inline-word" data-en="apply this technique" data-ru="применить этот метод"><b>apply this technique</b><span>применить этот метод</span></button><button type="button" class="item inline-word" data-en="turn them into a picture" data-ru="превратить их в образ"><b>turn them into a picture</b><span>превратить их в образ</span></button><button type="button" class="item inline-word" data-en="multi-sensory memories" data-ru="мультисенсорные воспоминания"><b>multi-sensory memories</b><span>мультисенсорные воспоминания</span></button><button type="button" class="item inline-word" data-en="full attention" data-ru="полное внимание"><b>full attention</b><span>полное внимание</span></button><button type="button" class="item inline-word" data-en="focus on the task at hand" data-ru="сосредоточиться на текущей задаче"><b>focus on the task at hand</b><span>сосредоточиться на текущей задаче</span></button><button type="button" class="item inline-word" data-en="picture in your mind&#x27;s eye" data-ru="образ в воображении"><b>picture in your mind&#x27;s eye</b><span>образ в воображении</span></button><button type="button" class="item inline-word" data-en="make an image stick in your mind" data-ru="закрепить образ в памяти"><b>make an image stick in your mind</b><span>закрепить образ в памяти</span></button><button type="button" class="item inline-word" data-en="processing emotion" data-ru="обработка эмоций"><b>processing emotion</b><span>обработка эмоций</span></button><button type="button" class="item inline-word" data-en="store memories" data-ru="хранить воспоминания"><b>store memories</b><span>хранить воспоминания</span></button><button type="button" class="item inline-word" data-en="working memory" data-ru="рабочая память"><b>working memory</b><span>рабочая память</span></button><button type="button" class="item inline-word" data-en="decision making" data-ru="принятие решений"><b>decision making</b><span>принятие решений</span></button><button type="button" class="item inline-word" data-en="organize those pictures" data-ru="организовать эти образы"><b>organize those pictures</b><span>организовать эти образы</span></button><button type="button" class="item inline-word" data-en="order of information" data-ru="порядок информации"><b>order of information</b><span>порядок информации</span></button><button type="button" class="item inline-word" data-en="existing memory" data-ru="уже существующее воспоминание"><b>existing memory</b><span>уже существующее воспоминание</span></button><button type="button" class="item inline-word" data-en="retrace that same path" data-ru="мысленно пройти тот же путь"><b>retrace that same path</b><span>мысленно пройти тот же путь</span></button><button type="button" class="item inline-word" data-en="encoded the information" data-ru="закодировали информацию"><b>encoded the information</b><span>закодировали информацию</span></button><button type="button" class="item inline-word" data-en="strengthen those connections" data-ru="укрепить эти связи"><b>strengthen those connections</b><span>укрепить эти связи</span></button><button type="button" class="item inline-word" data-en="long-term memory" data-ru="долговременная память"><b>long-term memory</b><span>долговременная память</span></button><button type="button" class="item inline-word" data-en="repeat the information" data-ru="повторять информацию"><b>repeat the information</b><span>повторять информацию</span></button>
+  </div>
+</section>
+</div>
+
+<div class="pop" id="pop" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+ const original=[{"en": "hack your own memory", "ru": "прокачать собственную память"}, {"en": "apply this technique", "ru": "применить этот метод"}, {"en": "turn them into a picture", "ru": "превратить их в образ"}, {"en": "multi-sensory memories", "ru": "мультисенсорные воспоминания"}, {"en": "full attention", "ru": "полное внимание"}, {"en": "focus on the task at hand", "ru": "сосредоточиться на текущей задаче"}, {"en": "picture in your mind's eye", "ru": "образ в воображении"}, {"en": "make an image stick in your mind", "ru": "закрепить образ в памяти"}, {"en": "processing emotion", "ru": "обработка эмоций"}, {"en": "store memories", "ru": "хранить воспоминания"}, {"en": "working memory", "ru": "рабочая память"}, {"en": "decision making", "ru": "принятие решений"}, {"en": "organize those pictures", "ru": "организовать эти образы"}, {"en": "order of information", "ru": "порядок информации"}, {"en": "existing memory", "ru": "уже существующее воспоминание"}, {"en": "retrace that same path", "ru": "мысленно пройти тот же путь"}, {"en": "encoded the information", "ru": "закодировали информацию"}, {"en": "strengthen those connections", "ru": "укрепить эти связи"}, {"en": "long-term memory", "ru": "долговременная память"}, {"en": "repeat the information", "ru": "повторять информацию"}];
+ let deck=[...original], index=0, mode='enru';
+ const known=new Set(), review=new Set();
+ const card=document.getElementById('card'), front=document.getElementById('frontText'), back=document.getElementById('backText');
+ const counter=document.getElementById('counter'), pop=document.getElementById('pop');
+
+ function current(){return deck[index]}
+ function render(){
+   card.classList.remove('revealed');
+   const c=current();
+   front.textContent=mode==='enru'?c.en:c.ru;
+   back.textContent=mode==='enru'?c.ru:c.en;
+   counter.textContent=(index+1)+' / '+deck.length;
+ }
+ function next(){index=(index+1)%deck.length;render()}
+ function prev(){index=(index-1+deck.length)%deck.length;render()}
+ function speakEnglish(text){
+   if(!('speechSynthesis' in window))return;
+   speechSynthesis.cancel();
+   const u=new SpeechSynthesisUtterance(text);u.lang='en-GB';u.rate=.9;speechSynthesis.speak(u);
+ }
+ function update(){
+   document.getElementById('bar').style.width=(known.size/original.length*100)+'%';
+   document.getElementById('status').textContent=known.size+' known · '+review.size+' marked for review';
+ }
+ function showPop(en,ru){
+   pop.innerHTML='<b>'+en+'</b><small>'+ru+'</small>';
+   pop.classList.add('show');speakEnglish(en);
+   clearTimeout(pop._t);pop._t=setTimeout(()=>pop.classList.remove('show'),3300);
+ }
+ card.addEventListener('click',()=>card.classList.toggle('revealed'));
+ document.getElementById('next').addEventListener('click',next);
+ document.getElementById('prev').addEventListener('click',prev);
+ document.getElementById('speak').addEventListener('click',()=>speakEnglish(current().en));
+ document.getElementById('enru').addEventListener('click',e=>{
+   mode='enru';document.getElementById('enru').classList.add('active');document.getElementById('ruen').classList.remove('active');render();
+ });
+ document.getElementById('ruen').addEventListener('click',e=>{
+   mode='ruen';document.getElementById('ruen').classList.add('active');document.getElementById('enru').classList.remove('active');render();
+ });
+ document.getElementById('shuffle').addEventListener('click',()=>{
+   for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]]}
+   index=0;render();
+ });
+ document.getElementById('know').addEventListener('click',()=>{
+   known.add(current().en);review.delete(current().en);update();next();
+ });
+ document.getElementById('again').addEventListener('click',()=>{
+   review.add(current().en);known.delete(current().en);update();next();
+ });
+ document.querySelectorAll('.inline-word').forEach(b=>b.addEventListener('click',e=>{
+   e.preventDefault();e.stopPropagation();showPop(b.dataset.en,b.dataset.ru);
+ }));
+ document.addEventListener('keydown',e=>{
+   if(e.target.matches('input,textarea'))return;
+   if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev();if(e.key===' '){e.preventDefault();card.classList.toggle('revealed')}
+ });
+ render();update();
+})();
+</script>
+</body>
+</html>
