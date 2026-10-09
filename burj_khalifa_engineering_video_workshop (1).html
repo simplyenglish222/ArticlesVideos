@@ -1,0 +1,458 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Burj Khalifa Engineering Workshop</title>
+<style>
+:root{--ink:#17233b;--muted:#667085;--blue:#1769e0;--cyan:#dff6ff;--gold:#ffcc66;--paper:#f4f7fb;--card:#fff;--good:#147d52;--bad:#b42318}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#0e1b35 0,#173f6b 330px,#f4f7fb 700px);font:16px/1.6 Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink)}button,input,textarea{font:inherit}button{cursor:pointer}.wrap{width:min(1100px,calc(100% - 28px));margin:auto}header{padding:46px 0 24px;color:white}.eyebrow{color:#91dfff;font-weight:800;letter-spacing:.12em;text-transform:uppercase}h1{font-size:clamp(2.1rem,6vw,4.4rem);line-height:1.02;margin:.25em 0;max-width:850px}header p{max-width:720px;font-size:1.08rem}.badges{display:flex;flex-wrap:wrap;gap:8px}.badge{background:#ffffff18;border:1px solid #ffffff40;padding:7px 12px;border-radius:999px}nav{position:sticky;top:0;z-index:20;background:#ffffffed;backdrop-filter:blur(12px);border-bottom:1px solid #dbe4f0}nav .wrap{display:flex;gap:6px;overflow:auto;padding:8px 0}nav a{white-space:nowrap;text-decoration:none;color:#20314f;padding:8px 11px;border-radius:10px;font-weight:700}nav a:hover{background:#eaf3ff}main{padding:22px 0 70px}.card{background:var(--card);border:1px solid #dce5f0;box-shadow:0 12px 35px #10234412;border-radius:22px;padding:clamp(18px,4vw,32px);margin:20px 0}h2{font-size:clamp(1.55rem,4vw,2.35rem);line-height:1.15;margin:.2em 0 .6em}h3{margin-top:1.4em}.video{position:relative;padding-top:56.25%;overflow:hidden;border-radius:18px;background:#000}.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.flash{min-height:190px;border:0;border-radius:18px;padding:20px;text-align:left;background:linear-gradient(135deg,#e9f6ff,#fff5d8);color:var(--ink);box-shadow:inset 0 0 0 1px #d4e3ef;position:relative}.flash b{font-size:1.24rem;display:block}.flash .back{display:none}.flash.flipped .front{display:none}.flash.flipped .back{display:block}.speaker{position:absolute;right:13px;top:12px;border:0;border-radius:50%;width:42px;height:42px;background:white}.direction{display:flex;gap:8px;margin:10px 0 18px}.direction button,.primary,.play,.check-tf,.builder button{border:0;border-radius:12px;padding:11px 15px;font-weight:800}.direction button.active,.primary,.play{background:var(--blue);color:white}.summary-text p{font-size:1.06rem}.vocab,.chip{border:0}.inline-vocab{background:#e7f5ff;border-bottom:2px dotted #1981c7;color:#0f527c;padding:0 3px;border-radius:5px;font-weight:750}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0}.chip{background:#eef5ff;color:#174f9a;border-radius:999px;padding:8px 12px}.chapter-head{display:flex;gap:14px;align-items:center}.num{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:#102d55;color:#fff;font-size:1.3rem;font-weight:900}.time{margin:0;color:var(--muted);font-weight:800}.think{background:#fff6da;border-left:5px solid var(--gold);padding:13px 15px;border-radius:10px;margin:15px 0}.play{margin:4px 0 14px}details{background:#f7f9fc;border:1px solid #dce4ef;border-radius:14px;padding:12px 14px}details summary{font-weight:800;cursor:pointer}.transcript{max-height:350px;overflow:auto;white-space:normal;color:#344054}.retell{font-size:1.08rem;border-left:4px solid #52bfe6;padding-left:15px}.choice{display:block;padding:9px 11px;margin:7px 0;background:#f7f9fc;border-radius:10px}.check-tf{background:#263b5d;color:white;margin-top:8px}.feedback{font-weight:800;margin-left:10px}.plan{font-weight:800;display:block;margin-top:18px}textarea{width:100%;min-height:105px;border:1px solid #cdd8e6;border-radius:13px;padding:12px;margin-top:7px;resize:vertical}.builder{border:1px solid #dce4ef;border-radius:16px;padding:15px;margin:11px 0}.bank,.answer{display:flex;flex-wrap:wrap;gap:7px;min-height:48px;padding:8px;border-radius:10px}.bank{background:#f1f5f9}.answer{border:2px dashed #bfd0e4}.word{background:white;border:1px solid #b9c9db!important;border-radius:9px!important;padding:7px 10px!important;color:#233b5c!important}.popup{position:fixed;z-index:50;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));width:min(390px,calc(100% - 24px));background:#102d55;color:white;border-radius:18px;padding:17px 52px 17px 18px;box-shadow:0 18px 55px #0005;display:none}.popup.show{display:block}.popup .close{position:absolute;right:10px;top:10px;border:0;background:#ffffff22;color:white;border-radius:50%;width:36px;height:36px}.popup small{display:block;color:#aaddff}.full-script{max-height:600px;overflow:auto;white-space:pre-wrap;background:#f7f9fc;padding:18px;border-radius:14px}.progress{height:8px;background:#e2e8f0;border-radius:999px;overflow:hidden}.progress span{display:block;height:100%;background:#20a66b;width:0}@media(max-width:600px){body{background:linear-gradient(180deg,#0e1b35 0,#173f6b 250px,#f4f7fb 520px)}header{padding-top:30px}.wrap{width:min(100% - 18px,1100px)}.card{border-radius:17px;padding:17px}.grid{grid-template-columns:1fr}nav a{font-size:.9rem}.flash{min-height:165px}.chapter-head{align-items:flex-start}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+}
+</style></head><body>
+<header><div class="wrap"><div class="eyebrow">Interactive video study guide · B1</div><h1>How the Burj Khalifa Works as a Vertical City</h1><p>Learn high-value engineering collocations, read a detailed five-chapter retelling of the entire video, and consult the complete timestamped script.</p><div class="badges"><span class="badge">14:29 video</span><span class="badge">20 collocations</span><span class="badge">Complete retelling</span><span class="badge">EN ⇄ RU flashcards</span></div></div></header>
+<nav><div class="wrap"><a href="#video">Video</a><a href="#vocab">Flashcards</a><a href="#summary">Overview</a><a href="#chapters">Complete retelling</a><a href="#script">Full script</a></div></nav>
+<main class="wrap"><section id="video" class="card"><h2>Watch once for the main idea</h2><div class="video"><iframe id="player" src="https://www.youtube.com/embed/ifYmCyI9kwY?rel=0" title="How Does Burj Khalifa Get Water to the 163rd Floor" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div></section>
+<section id="vocab" class="card"><h2>Core collocation flashcards</h2><p>Tap a card to reveal the other language. Use 🔊 to hear the English phrase.</p><div class="direction"><button id="enru" class="active">EN → RU</button><button id="ruen">RU → EN</button></div><div id="cards" class="grid"></div></section>
+<section id="summary" class="card"><h2>Overview</h2><p>Read this short orientation first. The five chapters below provide a substantially complete retelling. Click highlighted expressions for Russian support and audio.</p><div class="summary-text">
+<p>The Burj Khalifa is not simply a very tall building; it is <button class="inline-vocab vocab" data-en="a vertical city" data-ru="вертикальный город">a vertical city</button>. Its engineers had to move water, waste, heat, people and construction materials through more than 160 floors.</p>
+<p>Water cannot be sent directly from the basement to the top because extreme pressure could make the pipes <button class="inline-vocab vocab" data-en="burst under pressure" data-ru="лопнуть под давлением">burst under pressure</button>. The solution is to <button class="inline-vocab vocab" data-en="divide the system into zones" data-ru="разделить систему на зоны">divide the system into zones</button>. Each group of pumps only needs to <button class="inline-vocab vocab" data-en="fight gravity" data-ru="преодолевать силу тяжести">fight gravity</button> for part of the journey.</p>
+<p>The tower must also control heat and traffic. Reflective glass helps <button class="inline-vocab vocab" data-en="reduce solar heat gain" data-ru="снизить поступление солнечного тепла">reduce solar heat gain</button>, while ice is produced <button class="inline-vocab vocab" data-en="during off-peak hours" data-ru="в часы минимальной нагрузки">during off-peak hours</button>. Express elevators carry people to sky lobbies, where they <button class="inline-vocab vocab" data-en="transfer to a local elevator" data-ru="пересесть на местный лифт">transfer to a local elevator</button>.</p>
+<p>Even construction required unusual methods. Concrete was cooled with ice so that it would not <button class="inline-vocab vocab" data-en="harden inside the pipe" data-ru="затвердеть внутри трубы">harden inside the pipe</button>. Together, these solutions show how skyscrapers <button class="inline-vocab vocab" data-en="push the limits of engineering" data-ru="расширять границы инженерных возможностей">push the limits of engineering</button>.</p></div></section>
+<div id="chapters"><section class="chapter card" id="chapter1">
+      <div class="chapter-head"><span class="num">1</span><div><h2>A Vertical City</h2><p class="time">Listen: 00:00–01:40</p></div></div>
+      <div class="think"><b>Before watching:</b> Why do ordinary city systems become difficult inside a skyscraper?</div>
+      <button class="play" data-start="0">▶ Watch from 00:00</button>
+      <details><summary>Read the full script for this chapter</summary><p class="transcript">The Burj Khalifa&#x27;s over 2,700 ft tall. So, by every rule of physics, there should be zero water pressure on the top floor. And yet, there is. The trick they used? It&#x27;s not one system. The math is unforgiving. To push water up 2,700 ft, you need pressure that would burst steel pipes. How does the Burj Khalifa do it every day without exploding? Here&#x27;s how. A vertical city within a city. A steel and glass heat box stabbed half a mile into the sky. That&#x27;s the Burj Khalifa. From the ground,  it looks like something humanity shouldn&#x27;t have built. And maybe we shouldn&#x27;t have. Because everything we know about building a city assumes the ground is flat. Water pipes, sewage, electricity, air conditioning, roads, restaurants, subways, all of it was designed to run horizontally. Gravity pulls down, always. And when you try to force a horizontal system into a vertical city, nothing works the way it should. Water doesn&#x27;t want to climb. Push it too hard and the pipes burst. You effectively get a geyser inside someone&#x27;s apartment. Elevators stop being convenient and become entire traffic systems. With 35,000 people and a normal life setup, wait times wouldn&#x27;t just be minutes, they&#x27;d be hours. And Dubai&#x27;s heat? It pushes 122° Fahrenheit. That temperature, cooling isn&#x27;t just about comfort, it&#x27;s survival. A normal city spreads outward. The Burj Khalifa spreads upward. And that one change, horizontal to vertical, turns every single rule of urban living inside</p></details>
+      <h3>Complete chapter retelling</h3><div class="retell"><p>The Burj Khalifa is more than 828 metres high, so it behaves like <b>a vertical city</b> rather than an ordinary building. Systems that normally spread horizontally across a city—water, sewage, electricity, transport and air conditioning—must operate vertically. This creates several connected problems. Gravity makes it difficult to lift water, but it also makes falling wastewater dangerous. Thousands of residents and visitors need to move between more than 160 floors, while the desert temperature can reach about 50°C.</p><p>The video argues that every ordinary activity becomes an engineering challenge at this height. A single water system could create destructive pressure; conventional elevators would cause extremely long queues; glass walls could turn apartments into greenhouses; and concrete might harden before reaching the upper floors. The rest of the video explains how engineers divided these large problems into smaller, manageable systems.</p></div>
+      <div class="chips"><button class="chip vocab" data-en="a vertical city" data-ru="вертикальный город">a vertical city</button><button class="chip vocab" data-en="burst under pressure" data-ru="лопнуть под давлением">burst under pressure</button><button class="chip vocab" data-en="divide the system into zones" data-ru="разделить систему на зоны">divide the system into zones</button><button class="chip vocab" data-en="pump water up" data-ru="перекачивать воду наверх">pump water up</button></div>
+    </section><section class="chapter card" id="chapter2">
+      <div class="chapter-head"><span class="num">2</span><div><h2>Water Up, Waste Down</h2><p class="time">Listen: 01:40–06:12</p></div></div>
+      <div class="think"><b>Before watching:</b> Why would one enormous pump be dangerous?</div>
+      <button class="play" data-start="100">▶ Watch from 01:40</button>
+      <details><summary>Read the full script for this chapter</summary><p class="transcript">out. Let&#x27;s start with the first problem, the one you really can&#x27;t ignore. Water. How on Earth do you push 250,000 gallons of it up 163 floors every day? Here&#x27;s what happens if you try the obvious way. One giant pipe, one giant pump, straight from the basement. The pressure at the bottom would hit roughly 1,200 PSI. Let me put  that in perspective. Your home faucet, about 50 PSI. A fire hose, around 150 PSI. At that pressure, a standard joint would fail. Not leak,  fail violently. You&#x27;d get a geyser blasting through walls, flooding floors, destroying entire apartments. And because the pressure would be pushing from below, that geyser wouldn&#x27;t stop until someone shut the whole system down. For that reason, the engineers gave up on the idea of one giant pump. Instead, they divided the building into seven mechanical zones, roughly every 30 floors. Each zone has its own water tanks and pumps. Here&#x27;s how it works. Water starts in the basement. A pump pushes it up to the first tank on the 40th floor.  That tank fills. Then a second pump, located next to the tank, takes the same water and pushes it higher to the next zone. Then a third pump, then a fourth, and so forth. Each pump only fights gravity for about 30 floors. The pressure never gets dangerous. The pipes stay intact, no geysers in the halls. And because every zone operates independently, if a pipe bursts on floor 80, the zones above and below keep working. That covers water going up. Now, let&#x27;s talk about the return trip. Because what goes up must come down.  And when it does, it becomes a completely different kind of engineering nightmare. In the Burj Khalifa, wastewater reaches terminal velocity at about 10 to 16 ft. The issue begins when it reaches the bottom. When a column of waste suddenly has to go from vertical to horizontal, it doesn&#x27;t just stop. It stacks. It surges. It creates something called a hydraulic jump. The pipes temporarily fill more than intended, and a pressure wave shoots back up through the system. If you didn&#x27;t design for this, here&#x27;s what happens. Sewer smells seeps into the hallways, gurgling echoes through the walls, and on a lower floor, a toilet turns into a sewage geyser on an unsuspecting buyer. The solution was surprisingly simple. Widen the pipes as you descend. The Burj Khalifa&#x27;s main waste pipes are massive, roughly 24 inches in diameter. That&#x27;s wider than a large pizza. For comparison, a normal house uses a 4-in diameter pipe. The wider pipe gives falling water room to spiral along the walls, keeping that air column intact at the center. Next, you use staged collection points. Wastewater isn&#x27;t dropped straight from the top to the bottom. It&#x27;s collected at designated points at various levels, which slows the flow and reduces pressure before it continues its descent. That&#x27;s waste going down. Problem solved. Almost. Because getting it down is one thing, getting it out is another. Once the waste reaches the bottom floor, it hits a wall that has nothing to do with pipes or pressure. A debt wall. Dubai in the mid-2000s was building faster than it could support. The population was surging. Construction cranes dotted every horizon. The city was 80 billion in debt and gambling on one dazzling idea. Build first, deal with the waste later. That meant some of Dubai&#x27;s new high-rises opened before they were fully connected to the sewer network. Instead, they relied on temporary solutions. Holding tanks, pumping systems, and waste hauled away by trucks. The Burj Khalifa was no exception. For the first 3 years after it opened, a fleet of orange trucks would arrive at the base of the spire every morning. Gallons of waste were vacuumed into the trucks and driven across the desert to treatment plants that could handle the volume. By September 2011, the city&#x27;s underground network had finally bridged the gap, and the Burj Khalifa was connected to the grid. But, for a brief, absurd window in Dubai&#x27;s history, the world&#x27;s tallest building depended on a fleet of trucks to carry its waste across the desert. It was a 163-story marvel of 21st century engineering, serviced by a 19th century bucket brigade. Now, while engineers were fretting about how to get waste out of the Burj Khalifa, another threat was trying desperately to get in, the</p></details>
+      <h3>Complete chapter retelling</h3><div class="retell"><p>The tower uses roughly 250,000 gallons of water each day. One enormous pump could theoretically send water from the basement to the top, but the pressure near the bottom would reach approximately 1,200 PSI. This is far greater than normal domestic water pressure and could make pipe joints fail violently. Engineers therefore <b>divided the system into seven pressure zones</b>. Water is pumped from the basement to a tank on a mechanical floor. Another pump then moves it to the next zone. Because each pump only has to <b>fight gravity</b> for about thirty floors, the pressure remains manageable. The zones also <b>operate independently</b>, so a failure in one area does not necessarily stop the entire building.</p><p>Wastewater creates the opposite problem. As it falls, it quickly reaches terminal velocity. When a fast vertical flow suddenly enters a horizontal pipe, it can cause a hydraulic jump and send a pressure wave back through the system. To prevent smells, noise and sewage geysers, the tower uses very wide pipes. Water spirals down their walls while air remains in the centre. Waste is also collected at intermediate points, which slows the flow and <b>reduces the pressure</b>.</p><p>The video then describes a controversial historical detail. Dubai was developing faster than its sewage infrastructure, and some buildings temporarily used holding tanks and trucks to <b>haul waste away</b>. The narrator presents this as evidence that even an advanced skyscraper still depends on the surrounding city. Once the external sewage network was completed, this temporary arrangement ended.</p></div>
+      <div class="chips"><button class="chip vocab" data-en="fight gravity" data-ru="преодолевать силу тяжести">fight gravity</button><button class="chip vocab" data-en="operate independently" data-ru="работать независимо">operate independently</button><button class="chip vocab" data-en="keep the pipes intact" data-ru="сохранять трубы целыми">keep the pipes intact</button><button class="chip vocab" data-en="reduce the pressure" data-ru="снизить давление">reduce the pressure</button><button class="chip vocab" data-en="reach terminal velocity" data-ru="достичь предельной скорости">reach terminal velocity</button><button class="chip vocab" data-en="haul waste away" data-ru="вывозить отходы">haul waste away</button></div>
+    </section><section class="chapter card" id="chapter3">
+      <div class="chapter-head"><span class="num">3</span><div><h2>Keeping the Tower Cool</h2><p class="time">Listen: 06:12–08:35</p></div></div>
+      <div class="think"><b>Before watching:</b> How can glass and ice reduce daytime energy demand?</div>
+      <button class="play" data-start="372">▶ Watch from 06:12</button>
+      <details><summary>Read the full script for this chapter</summary><p class="transcript">Arabian heat. Here&#x27;s an interesting fact. Tenants who live above the 80th floor see the sunset 2 minutes later than people on the ground. Above floor 150, 3 minutes. They are, in every measurable way, closer to the sun. Which is a beautiful thing to say at sunset with a glass of champagne. Less beautiful at noon in July, when the desert heat is pounding against 26,000 glass panels and turning your apartment into a greenhouse. The question then becomes, how do you keep a glass tower livable when it&#x27;s 122° outside? You stop the heat before it gets in. The Burj Khalifa&#x27;s wrapped in more than 26,000 specialized glass panels, covering over 1.5 million square feet. Each panel is treated with a high-performance reflective coating designed to  do one thing, bounce sunlight back where it came from. This coating reduces solar heat gain dramatically, cutting the building&#x27;s cooling needs before the air conditioners even turn on. But, reflective glass alone isn&#x27;t enough. To account for this, engineers built a second line of defense, and it&#x27;s weird. The Burj Khalifa doesn&#x27;t cool itself the way a normal building does. It doesn&#x27;t just run air conditioners during the day and pray the grid holds up. Instead, it makes ice at night. Here&#x27;s how it works. During off-peak hours, when electricity is cheaper and demand across the city is low, a cooling plant in the building&#x27;s basement produces tons of ice slurry. Then, during the day, when the sun is hammering those 26,000 glass panels, that ice slurry is melted. The chilled water flows through 30-in pipes up into the building through plate heat exchangers and into the entire indoor air conditioning and tap water systems. At peak cooling times, the tower&#x27;s cooling capacity is equivalent to melting 13,000 tons of ice in a single day. That&#x27;s the thing about super tall buildings. Every problem requires a solution that creates another problem, which requires another solution. The reflective glass stops heat before it starts. The heat creates condensation, which then becomes irrigation water, which then freezes into ice. The ice made at night cools the building during the day, and so on. None of it is simple. All of it is brilliant. But, we&#x27;ve talked about water, waste, heat. There&#x27;s one more</p></details>
+      <h3>Complete chapter retelling</h3><div class="retell"><p>People living on the highest floors see the sunset several minutes later than people at ground level, but this height also exposes the tower to intense desert heat. Its 26,000 glass panels could create a greenhouse effect. To <b>reduce solar heat gain</b>, the outer glass has a metallic coating that reflects much of the sunlight before it enters the building. This reduces the amount of energy required for air conditioning.</p><p>The tower does not rely exclusively on daytime cooling. <b>During off-peak hours</b>, when electricity is cheaper and demand across the city is lower, equipment in the basement produces ice slurry. During the hottest part of the day, this stored ice melts and chilled water travels through large pipes and heat exchangers. In this way, the building can <b>meet cooling demand</b> without placing the same pressure on the electricity grid at peak time. The video also notes that condensation from the cooling system is collected and reused for irrigation. One solution therefore supports another: reflective glass reduces heat, night-time ice stores cooling energy, and recovered water helps maintain the surrounding landscape.</p></div>
+      <div class="chips"><button class="chip vocab" data-en="reduce solar heat gain" data-ru="снизить поступление солнечного тепла">reduce solar heat gain</button><button class="chip vocab" data-en="during off-peak hours" data-ru="в часы минимальной нагрузки">during off-peak hours</button><button class="chip vocab" data-en="meet cooling demand" data-ru="удовлетворять потребность в охлаждении">meet cooling demand</button></div>
+    </section><section class="chapter card" id="chapter4">
+      <div class="chapter-head"><span class="num">4</span><div><h2>Moving Thousands of People</h2><p class="time">Listen: 08:35–10:56</p></div></div>
+      <div class="think"><b>Before watching:</b> Why are sky lobbies similar to transport stations?</div>
+      <button class="play" data-start="515">▶ Watch from 08:35</button>
+      <details><summary>Read the full script for this chapter</summary><p class="transcript">thing that has to move seamlessly through a vertical city. People. Here&#x27;s a question most people never ask until they&#x27;re standing in a lobby late for a meeting on the 90th floor. How do you move 35,000 people through a half-mile tower without losing your mind? In a normal building, you put in a few elevators. They stop at every floor, people get on and off. It&#x27;s slow, but it works. That math quickly falls apart at 163 floors. If the Burj Khalifa used a standard elevator system, here&#x27;s what would happen. An elevator leaving the lobby would stop at each floor. By the time it reached the top, the first passengers would have been standing inside for 20 minutes, and the people on floor 150, they&#x27;d never get an empty car. Every elevator would be packed by floor 40. The fix was brilliant. The engineers took inspiration from a highway. Think about how you drive across a city. You don&#x27;t take local streets with stop signs every block. You take the interstate. You get off at an exit ramp. Then, you take local roads to your destination. That&#x27;s exactly how the Burj Khalifa&#x27;s elevator system works. The building has 57 elevators and eight escalators, but they&#x27;re not all the same. First, you have express elevators. These are the interstates.  They run non-stop from the ground floor to something called a sky lobby. The Burj has three sky lobbies on floors 43, 76, and 123. Once you arrive at a sky lobby, you get out. Then, you board a local elevator that serves just the floors around that sky lobby. Here&#x27;s an example. You need to get the floor 55. You don&#x27;t take an elevator all the way from the ground. You board a high-speed shuttle elevator that whisks you up to the sky lobby on floor 43. Then, you step out and take a local elevator up 12 more floors to your destination. Without the system, you&#x27;d be stuck in an elevator that stops at every floor between the lobby and floor 55. With the system, you&#x27;re at your desk in under 2 minutes. Now, all of this is fine and good in theory. Actually creating a building that could do that was the hard part. When you&#x27;re drafting blueprints, weighing costs and benefits,  and trying to figure out how things should work, all of that sounds impressive once the building is complete. But during construction, the questions became far more extreme. And that&#x27;s where the real challenge begins. How do you pour concrete at 2,000 ft in</p></details>
+      <h3>Complete chapter retelling</h3><div class="retell"><p>A conventional elevator arrangement would be impractical in a tower containing thousands of people. If every lift started at the ground floor and stopped throughout the building, passengers would face long queues, crowded cabins and journeys containing dozens of stops. The Burj Khalifa therefore treats elevators as a complete transport network rather than a set of independent lifts.</p><p>The building has 57 elevators and eight escalators. High-speed express elevators carry passengers rapidly from the ground to a sky lobby. The sky lobby functions like a transport station: passengers leave the express lift and <b>transfer to a local elevator</b> serving a smaller group of floors. Someone travelling to a very high apartment may use a shuttle elevator and then a local one for the final part of the journey. Dividing passenger traffic into sections allows people to <b>move seamlessly through</b> the vertical city. It also reduces the number of shafts that would otherwise occupy valuable floor space. According to the video, the fastest elevators travel at approximately ten metres per second, although speed alone is not the solution; organisation and transfers are equally important.</p></div>
+      <div class="chips"><button class="chip vocab" data-en="move seamlessly through" data-ru="беспрепятственно перемещаться по">move seamlessly through</button><button class="chip vocab" data-en="transfer to a local elevator" data-ru="пересесть на местный лифт">transfer to a local elevator</button></div>
+    </section><section class="chapter card" id="chapter5">
+      <div class="chapter-head"><span class="num">5</span><div><h2>Concrete in the Sky</h2><p class="time">Listen: 10:56–14:29</p></div></div>
+      <div class="think"><b>Before watching:</b> Why were ice and night-time construction necessary?</div>
+      <button class="play" data-start="656">▶ Watch from 10:56</button>
+      <details><summary>Read the full script for this chapter</summary><p class="transcript">the air? To build the hexagonal core of the Burj Khalifa, engineers faced problems on two fronts: heat and height. Heat and concrete are natural enemies. Pumping concrete to extreme heights makes it even worse. Here&#x27;s why. It&#x27;s a process called concrete hydration. Basically, this is the process through which concrete hardens. Heat speeds up this process, and in Dubai&#x27;s blazing desert, this happens insanely fast. Fast curing sounds good, right? Wrong. When concrete hardens too quickly, some areas set before others. Think of it like when you set the oven too high when baking a cake, the exterior crusts over while the inside is still wet. The result, cracks, weak spots, a structure with uneven weight-bearing and integrity. But the other problem was this. The concrete would harden inside the pipes before it ever reached the top. Half a mile up and the pipes clogged solid, game over. At lower heights, you can manage this reaction. But when you&#x27;re funneling concrete from the basement to the hundredth floor, the problem compounds with every single floor. To fix this, they invented a new kind of concrete. A custom formula designed to survive the desert, a mix of high-performance C50 and C80 grade concrete. But even this new concrete couldn&#x27;t beat the heat on its own. They needed a completely new solution, something no one had ever tried before. They mixed the concrete with ice, lots of it. The whole mixture would drop to near freezing temperatures before it ever touched a pipe. This kept the concrete cool enough to reach the required heights while maintaining a consistent hardening rate and full structural integrity. Even then, the ice wasn&#x27;t enough. To ensure the icy mixtures wouldn&#x27;t melt too fast and begin hardening, they also started working at night. Every single pour happened after sunset using the cooler desert air as their ally. The temperature still hovered around 85 to 95° Fahrenheit, not exactly cold, but compared to the 122° daytime furnace, it was a lifesaver. Ice, night pours, a custom concrete recipe, that&#x27;s how they did it. All of that, the ice, the night shifts, the custom formula, the staged water, the pumps, the elevator sectioning, the waste trucks, was just to make one building work. One half-mile tower in the desert. The Burj Khalifa is an incredible feat of human ingenuity, a stunning reach to the skies. But, here&#x27;s the thing about reaching. There&#x27;s always someone reaching higher. Right now, towers are rising that will surpass the Burj Khalifa. The Jeddah Tower in Saudi Arabia aims for over 3,200 ft. The Rise Tower, also in Saudi Arabia, plans to reach over 6,500 ft. A new generation of skyscrapers is coming. Each one promising to reach higher and push harder. And that raises a question that no one can answer. Just because we can, does that mean we should? The Burj Khalifa solved these problems, but each new tower will have to solve them again at greater heights, with greater risks, and greater costs. The question isn&#x27;t whether we can build taller, the question is how hard are we willing to fight to drink a glass of water on the 300th floor? If you&#x27;re interested in other videos like this, check out how close is Pisa to collapse and how long can the Eiffel Tower actually survive. Thank you for watching.</p></details>
+      <h3>Complete chapter retelling</h3><div class="retell"><p>Constructing the tower created another challenge: engineers had to <b>pump concrete to extreme heights</b> through narrow pipes. Concrete hardens through a chemical process called hydration, and heat accelerates that process. In Dubai's climate, ordinary concrete could begin to <b>harden inside the pipe</b>. A blockage high above the ground would be extremely difficult to remove and could stop construction.</p><p>The engineers developed a special concrete mixture that remained workable for longer. They also replaced some of the mixing water with ice and chilled the remaining water before it touched the concrete. Most major pours took place at night, when the desert air was cooler. These measures kept the mixture fluid long enough to reach the required level and helped it harden evenly, thereby <b>preserving structural integrity</b>. The video states that concrete was pumped to a record height of more than 600 metres.</p><p>The final message is that super-tall buildings frequently <b>solve one problem but create another</b>. Greater height requires more pumping stages, more complicated transport, additional cooling and stronger materials. Future projects may exceed the Burj Khalifa, but they will have to repeat these solutions at a larger scale, with higher costs and greater risks. The narrator ends with a broader question: simply because engineers can build higher, does that mean society should continue to <b>push the limits of engineering</b>?</p></div>
+      <div class="chips"><button class="chip vocab" data-en="pump concrete to extreme heights" data-ru="перекачивать бетон на огромную высоту">pump concrete to extreme heights</button><button class="chip vocab" data-en="harden inside the pipe" data-ru="затвердеть внутри трубы">harden inside the pipe</button><button class="chip vocab" data-en="preserve structural integrity" data-ru="сохранить конструкционную целостность">preserve structural integrity</button><button class="chip vocab" data-en="solve one problem but create another" data-ru="решить одну проблему, но создать другую">solve one problem but create another</button><button class="chip vocab" data-en="push the limits of engineering" data-ru="расширять границы инженерных возможностей">push the limits of engineering</button></div>
+    </section></div>
+<section id="script" class="card"><h2>Complete timestamped script</h2><p>Use this after listening, not before. Obvious caption noise has been removed, while the wording remains faithful to the subtitles.</p><details><summary>Open the full script</summary><div class="full-script">[00:00] The Burj Khalifa&#x27;s over 2,700 ft tall.
+[00:04] So, by every rule of physics, there
+[00:06] should be zero water pressure on the top
+[00:08] floor. And yet, there is.
+[00:11] The trick they used? It&#x27;s not one
+[00:13] system. The math is unforgiving.
+[00:16] To push water up 2,700 ft, you need
+[00:19] pressure that would burst steel pipes.
+[00:23] How does the Burj Khalifa do it every
+[00:25] day without exploding? Here&#x27;s how.
+[00:28] A vertical city within a city. A steel
+[00:31] and glass heat box stabbed half a mile
+[00:33] into the sky. That&#x27;s the Burj Khalifa.
+[00:36] From the ground,  it looks like
+[00:38] something humanity shouldn&#x27;t have built.
+[00:40] And maybe we shouldn&#x27;t have. Because
+[00:42] everything we know about building a city
+[00:43] assumes the ground is flat.
+[00:46] Water pipes, sewage, electricity, air
+[00:49] conditioning, roads, restaurants,
+[00:50] subways, all of it was designed to run
+[00:53] horizontally. Gravity pulls down,
+[00:56] always. And when you try to force a
+[00:58] horizontal system into a vertical city,
+[01:00] nothing works the way it should. Water
+[01:02] doesn&#x27;t want to climb. Push it too hard
+[01:05] and the pipes burst. You effectively get
+[01:07] a geyser inside someone&#x27;s apartment.
+[01:09] Elevators stop being convenient and
+[01:11] become entire traffic systems.
+[01:14] With 35,000 people and a normal life
+[01:16] setup, wait times wouldn&#x27;t just be
+[01:18] minutes, they&#x27;d be hours. And Dubai&#x27;s
+[01:21] heat? It pushes 122°
+[01:25] Fahrenheit. That temperature, cooling
+[01:27] isn&#x27;t just about comfort, it&#x27;s survival.
+[01:30] A normal city spreads outward. The Burj
+[01:32] Khalifa spreads upward. And that one
+[01:34] change, horizontal to vertical, turns
+[01:37] every single rule of urban living inside
+[01:40] out. Let&#x27;s start with the first problem,
+[01:42] the one you really can&#x27;t ignore.
+[01:44] Water.
+[01:45] How on Earth do you push 250,000
+[01:49] gallons of it up 163 floors every day?
+[01:52] Here&#x27;s what happens if you try the
+[01:53] obvious way. One giant pipe, one giant
+[01:56] pump, straight from the basement. The
+[01:58] pressure at the bottom would hit roughly
+[02:00] 1,200 PSI. Let me put  that in
+[02:02] perspective. Your home faucet, about 50
+[02:05] PSI. A fire hose, around 150 PSI.
+[02:09] At that pressure, a standard joint would
+[02:12] fail. Not leak,
+[02:13] 
+[02:13] fail violently. You&#x27;d get a geyser
+[02:16] blasting through walls, flooding floors,
+[02:18] destroying entire apartments.
+[02:21] And because the pressure would be
+[02:22] pushing from below, that geyser wouldn&#x27;t
+[02:25] stop until someone shut the whole system
+[02:27] down.
+[02:28] For that reason, the engineers gave up
+[02:30] on the idea of one giant pump.
+[02:33] Instead, they divided the building into
+[02:35] seven mechanical zones, roughly every 30
+[02:38] floors.
+[02:39] Each zone has its own water tanks and
+[02:41] pumps. Here&#x27;s how it works. Water starts
+[02:44] in the basement. A pump pushes it up to
+[02:46] the first tank on the 40th floor.
+[02:48] 
+[02:49] That tank fills.
+[02:50] Then a second pump, located next to the
+[02:52] tank, takes the same water and pushes it
+[02:54] higher to the next zone. Then a third
+[02:56] pump, then a fourth, and so forth.
+[02:59] Each pump only fights gravity for about
+[03:01] 30 floors.
+[03:03] The pressure never gets dangerous. The
+[03:04] pipes stay intact, no geysers in the
+[03:07] halls.
+[03:08] And because every zone operates
+[03:09] independently, if a pipe bursts on floor
+[03:11] 80, the zones above and below keep
+[03:14] working. That covers water going up.
+[03:17] Now, let&#x27;s talk about the return trip.
+[03:19] Because what goes up must come down.
+[03:21] 
+[03:21] And when it does, it becomes a
+[03:23] completely different kind of engineering
+[03:25] nightmare.
+[03:27] In the Burj Khalifa, wastewater reaches
+[03:29] terminal velocity at about 10 to 16 ft.
+[03:33] The issue begins when it reaches the
+[03:34] bottom.
+[03:35] When a column of waste suddenly has to
+[03:37] go from vertical to horizontal, it
+[03:40] doesn&#x27;t just stop. It stacks. It surges.
+[03:43] It creates something called a hydraulic
+[03:45] jump. The pipes temporarily fill more
+[03:47] than intended, and a pressure wave
+[03:49] shoots back up through the system.
+[03:51] If you didn&#x27;t design for this, here&#x27;s
+[03:53] what happens.
+[03:54] Sewer smells seeps into the hallways,
+[03:57] gurgling echoes through the walls, and
+[04:00] on a lower floor, a toilet turns into a
+[04:02] sewage geyser on an unsuspecting buyer.
+[04:06] The solution was surprisingly simple.
+[04:08] Widen the pipes as you descend.
+[04:11] The Burj Khalifa&#x27;s main waste pipes are
+[04:12] massive, roughly 24 inches in diameter.
+[04:16] That&#x27;s wider than a large pizza. For
+[04:18] comparison, a normal house uses a 4-in
+[04:20] diameter pipe. The wider pipe gives
+[04:23] falling water room to spiral along the
+[04:25] walls, keeping that air column intact at
+[04:27] the center. Next, you use staged
+[04:29] collection points.
+[04:31] Wastewater isn&#x27;t dropped straight from
+[04:32] the top to the bottom. It&#x27;s collected at
+[04:35] designated points at various levels,
+[04:37] which slows the flow and reduces
+[04:39] pressure before it continues its
+[04:40] descent. That&#x27;s waste going down.
+[04:43] Problem solved. Almost. Because getting
+[04:46] it down is one thing, getting it out is
+[04:48] another.
+[04:49] Once the waste reaches the bottom floor,
+[04:52] it hits a wall that has nothing to do
+[04:53] with pipes or pressure. A debt wall.
+[04:56] Dubai in the mid-2000s was building
+[04:58] faster than it could support. The
+[05:00] population was surging. Construction
+[05:03] cranes dotted every horizon. The city
+[05:05] was 80 billion in debt and gambling on
+[05:08] one dazzling idea. Build first, deal
+[05:11] with the waste later.
+[05:12] That meant some of Dubai&#x27;s new
+[05:14] high-rises opened before they were fully
+[05:16] connected to the sewer network. Instead,
+[05:18] they relied on temporary solutions.
+[05:20] Holding tanks, pumping systems, and
+[05:23] waste hauled away by trucks.
+[05:25] The Burj Khalifa was no exception.
+[05:27] For the first 3 years after it opened, a
+[05:30] fleet of orange trucks would arrive at
+[05:32] the base of the spire every morning.
+[05:34] Gallons of waste were vacuumed into the
+[05:36] trucks and driven across the desert to
+[05:38] treatment plants that could handle the
+[05:40] volume. By September 2011, the city&#x27;s
+[05:43] underground network had finally bridged
+[05:44] the gap, and the Burj Khalifa was
+[05:46] connected to the grid. But, for a brief,
+[05:49] absurd window in Dubai&#x27;s history, the
+[05:51] world&#x27;s tallest building depended on a
+[05:53] fleet of trucks to carry its waste
+[05:55] across the desert. It was a 163-story
+[05:58] marvel of 21st century engineering,
+[06:01] serviced by a 19th century bucket
+[06:03] brigade. Now, while engineers were
+[06:06] fretting about how to get waste out of
+[06:08] the Burj Khalifa, another threat was
+[06:10] trying desperately to get in, the
+[06:12] Arabian heat.
+[06:14] Here&#x27;s an interesting fact. Tenants who
+[06:16] live above the 80th floor see the sunset
+[06:19] 2 minutes later than people on the
+[06:20] ground. Above floor 150, 3 minutes.
+[06:24] They are, in every measurable way,
+[06:26] closer to the sun.
+[06:28] Which is a beautiful thing to say at
+[06:29] sunset with a glass of champagne.
+[06:32] Less beautiful at noon in July, when the
+[06:34] desert heat is pounding against 26,000
+[06:36] glass panels and turning your apartment
+[06:38] into a greenhouse. The question then
+[06:40] becomes, how do you keep a glass tower
+[06:43] livable when it&#x27;s 122°
+[06:46] outside? You stop the heat before it
+[06:48] gets in. The Burj Khalifa&#x27;s wrapped in
+[06:50] more than 26,000 specialized glass
+[06:53] panels, covering over 1.5 million square
+[06:56] feet.
+[06:57] Each panel is treated with a
+[06:58] high-performance reflective coating
+[07:00] designed to  do one thing, bounce
+[07:02] sunlight back where it came from. This
+[07:05] coating reduces solar heat gain
+[07:07] dramatically, cutting the building&#x27;s
+[07:08] cooling needs before the air
+[07:10] conditioners even turn on.
+[07:12] But, reflective glass alone isn&#x27;t
+[07:14] enough. To account for this, engineers
+[07:17] built a second line of defense, and it&#x27;s
+[07:19] weird.
+[07:20] The Burj Khalifa doesn&#x27;t cool itself the
+[07:22] way a normal building does. It doesn&#x27;t
+[07:24] just run air conditioners during the day
+[07:26] and pray the grid holds up.
+[07:28] Instead, it makes ice at night. Here&#x27;s
+[07:31] how it works.
+[07:33] During off-peak hours, when electricity
+[07:35] is cheaper and demand across the city is
+[07:37] low, a cooling plant in the building&#x27;s
+[07:39] basement produces tons of ice slurry.
+[07:43] Then, during the day, when the sun is
+[07:45] hammering those 26,000 glass panels,
+[07:48] that ice slurry is melted.
+[07:50] The chilled water flows through 30-in
+[07:52] pipes up into the building through plate
+[07:54] heat exchangers and into the entire
+[07:56] indoor air conditioning and tap water
+[07:57] systems.
+[07:59] At peak cooling times, the tower&#x27;s
+[08:01] cooling capacity is equivalent to
+[08:03] melting 13,000 tons of ice in a single
+[08:05] day.
+[08:07] That&#x27;s the thing about super tall
+[08:08] buildings. Every problem requires a
+[08:11] solution that creates another problem,
+[08:13] which requires another solution.
+[08:15] The reflective glass stops heat before
+[08:17] it starts. The heat creates
+[08:19] condensation, which then becomes
+[08:21] irrigation water, which then freezes
+[08:23] into ice.
+[08:24] The ice made at night cools the building
+[08:26] during the day, and so on.
+[08:28] None of it is simple. All of it is
+[08:30] brilliant. But, we&#x27;ve talked about
+[08:32] water, waste, heat. There&#x27;s one more
+[08:35] thing that has to move seamlessly
+[08:37] through a vertical city.
+[08:38] People.
+[08:40] Here&#x27;s a question most people never ask
+[08:41] until they&#x27;re standing in a lobby late
+[08:43] for a meeting on the 90th floor. How do
+[08:45] you move 35,000 people through a
+[08:47] half-mile tower without losing your
+[08:49] mind? In a normal building, you put in a
+[08:52] few elevators. They stop at every floor,
+[08:54] people get on and off. It&#x27;s slow, but it
+[08:56] works. That math quickly falls apart at
+[08:59] 163 floors. If the Burj Khalifa used a
+[09:02] standard elevator system, here&#x27;s what
+[09:04] would happen.
+[09:05] An elevator leaving the lobby would stop
+[09:07] at each floor. By the time it reached
+[09:09] the top, the first passengers would have
+[09:10] been standing inside for 20 minutes, and
+[09:13] the people on floor 150,
+[09:15] they&#x27;d never get an empty car. Every
+[09:17] elevator would be packed by floor 40.
+[09:20] The fix was brilliant. The engineers
+[09:23] took inspiration from a highway.
+[09:25] Think about how you drive across a city.
+[09:27] You don&#x27;t take local streets with stop
+[09:29] signs every block. You take the
+[09:31] interstate. You get off at an exit ramp.
+[09:33] Then, you take local roads to your
+[09:35] destination. That&#x27;s exactly how the Burj
+[09:38] Khalifa&#x27;s elevator system works.
+[09:40] The building has 57 elevators and eight
+[09:43] escalators, but they&#x27;re not all the
+[09:45] same.
+[09:46] First, you have express elevators. These
+[09:48] are the interstates.
+[09:50] 
+[09:50] They run non-stop from the ground floor
+[09:52] to something called a sky lobby.
+[09:55] The Burj has three sky lobbies on floors
+[09:57] 43, 76, and 123.
+[10:01] Once you arrive at a sky lobby, you get
+[10:03] out. Then, you board a local elevator
+[10:05] that serves just the floors around that
+[10:07] sky lobby. Here&#x27;s an example. You need
+[10:09] to get the floor 55. You don&#x27;t take an
+[10:11] elevator all the way from the ground.
+[10:13] You board a high-speed shuttle elevator
+[10:15] that whisks you up to the sky lobby on
+[10:17] floor 43.
+[10:19] Then, you step out and take a local
+[10:20] elevator up 12 more floors to your
+[10:22] destination. Without the system, you&#x27;d
+[10:24] be stuck in an elevator that stops at
+[10:26] every floor between the lobby and floor
+[10:28] 55.
+[10:30] With the system, you&#x27;re at your desk in
+[10:32] under 2 minutes.
+[10:34] Now, all of this is fine and good in
+[10:36] theory. Actually creating a building
+[10:38] that could do that was the hard part.
+[10:40] When you&#x27;re drafting blueprints,
+[10:41] weighing costs and benefits,  and
+[10:43] trying to figure out how things should
+[10:45] work, all of that sounds impressive once
+[10:47] the building is complete. But during
+[10:49] construction, the questions
+[10:51] became far more extreme. And that&#x27;s
+[10:53] where the real challenge begins.
+[10:55] How do you pour concrete at 2,000 ft in
+[10:58] the air? To build the hexagonal core of
+[11:00] the Burj Khalifa, engineers faced
+[11:02] problems on two fronts: heat and height.
+[11:06] Heat and concrete are natural enemies.
+[11:09] Pumping concrete to extreme heights
+[11:11] makes it even worse. Here&#x27;s why. It&#x27;s a
+[11:13] process called concrete hydration.
+[11:16] Basically, this is the process through
+[11:18] which concrete hardens. Heat speeds up
+[11:20] this process, and in Dubai&#x27;s blazing
+[11:22] desert, this happens insanely fast. Fast
+[11:25] curing sounds good, right? Wrong. When
+[11:28] concrete hardens too quickly, some areas
+[11:30] set before others. Think of it like when
+[11:33] you set the oven too high when baking a
+[11:34] cake, the exterior crusts over while the
+[11:37] inside is still wet. The result, cracks,
+[11:40] weak spots, a structure with uneven
+[11:43] weight-bearing and integrity. But the
+[11:45] other problem was this.
+[11:46] The concrete would harden inside the
+[11:48] pipes before it ever reached the top.
+[11:51] Half a mile up and the pipes clogged
+[11:53] solid, game over. At lower heights, you
+[11:56] can manage this reaction. But when
+[11:58] you&#x27;re funneling concrete from the
+[12:00] basement to the hundredth floor, the
+[12:02] problem compounds with every single
+[12:04] floor. To fix this, they invented a new
+[12:07] kind of concrete. A custom formula
+[12:10] designed to survive the desert, a mix of
+[12:12] high-performance C50 and C80 grade
+[12:15] concrete.
+[12:16] But even this new concrete couldn&#x27;t beat
+[12:18] the heat on its own. They needed a
+[12:20] completely new solution, something no
+[12:22] one had ever tried before. They mixed
+[12:24] the concrete with ice, lots of it. The
+[12:28] whole mixture would drop to near
+[12:29] freezing temperatures before it ever
+[12:31] touched a pipe. This kept the concrete
+[12:33] cool enough to reach the required
+[12:35] heights while maintaining a consistent
+[12:36] hardening rate and full structural
+[12:38] integrity. Even then, the ice wasn&#x27;t
+[12:40] enough. To ensure the icy mixtures
+[12:43] wouldn&#x27;t melt too fast and begin
+[12:44] hardening, they also started working at
+[12:46] night. Every single pour happened after
+[12:49] sunset using the cooler desert air as
+[12:52] their ally.
+[12:53] The temperature still hovered around 85
+[12:55] to 95° Fahrenheit, not exactly cold, but
+[12:59] compared to the 122° daytime furnace, it
+[13:02] was a lifesaver. Ice, night pours, a
+[13:05] custom concrete recipe, that&#x27;s how they
+[13:07] did it.
+[13:08] All of that, the ice, the night shifts,
+[13:11] the custom formula, the staged water,
+[13:14] the pumps, the elevator sectioning, the
+[13:16] waste trucks, was just to make one
+[13:18] building work. One half-mile tower in
+[13:21] the desert. The Burj Khalifa is an
+[13:23] incredible feat of human ingenuity, a
+[13:25] stunning reach to the skies. But, here&#x27;s
+[13:28] the thing about reaching. There&#x27;s always
+[13:30] someone reaching higher.
+[13:32] Right now, towers are rising that will
+[13:34] surpass the Burj Khalifa. The Jeddah
+[13:36] Tower in Saudi Arabia aims for over
+[13:39] 3,200 ft. The Rise Tower, also in Saudi
+[13:43] Arabia, plans to reach over 6,500
+[13:46] ft.
+[13:47] A new generation of skyscrapers is
+[13:49] coming.
+[13:50] Each one promising to reach higher and
+[13:52] push harder.
+[13:54] And that raises a question that no one
+[13:55] can answer. Just because we can, does
+[13:58] that mean we should?
+[13:59] The Burj Khalifa solved these problems,
+[14:02] but each new tower will have to solve
+[14:04] them again at greater heights, with
+[14:06] greater risks, and greater costs.
+[14:09] The question isn&#x27;t whether we can build
+[14:10] taller, the question is how hard are we
+[14:13] willing to fight to drink a glass of
+[14:15] water on the 300th floor?
+[14:18] If you&#x27;re interested in other videos
+[14:19] like this, check out how close is Pisa
+[14:22] to collapse and how long can the Eiffel
+[14:24] Tower actually survive. Thank you for
+[14:26] watching.</div></details></section>
+</main>
+<div class="popup" id="popup" role="dialog" aria-live="polite"><button class="close" aria-label="Close">×</button><small id="popEn"></small><strong id="popRu"></strong><br><button class="speaker" id="popSpeak" aria-label="Play pronunciation">🔊</button></div>
+<script>
+const PHRASES=[{"en": "a vertical city", "ru": "вертикальный город", "ex": "The tower operates like a vertical city."}, {"en": "burst under pressure", "ru": "лопнуть под давлением", "ex": "Ordinary pipes could burst under pressure."}, {"en": "divide the system into zones", "ru": "разделить систему на зоны", "ex": "Engineers divided the system into seven zones."}, {"en": "pump water up", "ru": "перекачивать воду наверх", "ex": "Several pumps move the water up in stages."}, {"en": "fight gravity", "ru": "преодолевать силу тяжести", "ex": "Each pump only has to fight gravity for about thirty floors."}, {"en": "operate independently", "ru": "работать независимо", "ex": "Each pressure zone can operate independently."}, {"en": "keep the pipes intact", "ru": "сохранять трубы целыми", "ex": "Lower pressure helps keep the pipes intact."}, {"en": "reduce the pressure", "ru": "снизить давление", "ex": "Collection points reduce the pressure of falling wastewater."}, {"en": "reach terminal velocity", "ru": "достичь предельной скорости", "ex": "Falling wastewater quickly reaches terminal velocity."}, {"en": "haul waste away", "ru": "вывозить отходы", "ex": "Trucks temporarily hauled some waste away."}, {"en": "reduce solar heat gain", "ru": "снизить поступление солнечного тепла", "ex": "A special coating reduces solar heat gain."}, {"en": "during off-peak hours", "ru": "в часы минимальной нагрузки", "ex": "The system produces ice during off-peak hours."}, {"en": "meet cooling demand", "ru": "удовлетворять потребность в охлаждении", "ex": "Stored cooling helps meet daytime demand."}, {"en": "move seamlessly through", "ru": "беспрепятственно перемещаться по", "ex": "People must move seamlessly through the tower."}, {"en": "transfer to a local elevator", "ru": "пересесть на местный лифт", "ex": "Passengers transfer to a local elevator at a sky lobby."}, {"en": "pump concrete to extreme heights", "ru": "перекачивать бетон на огромную высоту", "ex": "The team pumped concrete to extreme heights."}, {"en": "harden inside the pipe", "ru": "затвердеть внутри трубы", "ex": "Hot concrete could harden inside the pipe."}, {"en": "preserve structural integrity", "ru": "сохранить конструкционную целостность", "ex": "Cooling helped preserve structural integrity."}, {"en": "solve one problem but create another", "ru": "решить одну проблему, но создать другую", "ex": "Tall buildings often solve one problem but create another."}, {"en": "push the limits of engineering", "ru": "расширять границы инженерных возможностей", "ex": "Skyscrapers push the limits of engineering."}];let direction='enru';
+function speak(t){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.86;speechSynthesis.speak(u)}
+function renderCards(){const box=document.querySelector('#cards');box.innerHTML='';PHRASES.forEach((p,i)=>{const b=document.createElement('button');b.className='flash';b.innerHTML=direction==='enru'?`<span class="front"><b>${p.en}</b><small>Tap to translate</small></span><span class="back"><b>${p.ru}</b><small>${p.ex}</small></span><span class="speaker">🔊</span>`:`<span class="front"><b>${p.ru}</b><small>Нажмите, чтобы проверить</small></span><span class="back"><b>${p.en}</b><small>${p.ex}</small></span><span class="speaker">🔊</span>`;b.addEventListener('click',e=>{if(e.target.classList.contains('speaker')){e.stopPropagation();speak(p.en)}else{b.classList.toggle('flipped')}});box.append(b)})}
+document.querySelector('#enru').onclick=()=>{direction='enru';document.querySelector('#enru').classList.add('active');document.querySelector('#ruen').classList.remove('active');renderCards()};document.querySelector('#ruen').onclick=()=>{direction='ruen';document.querySelector('#ruen').classList.add('active');document.querySelector('#enru').classList.remove('active');renderCards()};renderCards();
+document.querySelectorAll('.retell b').forEach(b=>{const p=PHRASES.find(x=>x.en.toLowerCase()===b.textContent.trim().toLowerCase());if(!p)return;const v=document.createElement('button');v.className='inline-vocab vocab';v.dataset.en=p.en;v.dataset.ru=p.ru;v.textContent=b.textContent;b.replaceWith(v)});
+const popup=document.querySelector('#popup');document.addEventListener('click',e=>{const v=e.target.closest('.vocab');if(!v)return;document.querySelector('#popEn').textContent=v.dataset.en;document.querySelector('#popRu').textContent=v.dataset.ru;popup.classList.add('show');document.querySelector('#popSpeak').onclick=()=>speak(v.dataset.en)});document.querySelector('.popup .close').onclick=()=>popup.classList.remove('show');
+document.querySelectorAll('.play').forEach(b=>b.onclick=()=>{document.querySelector('#player').src=`https://www.youtube.com/embed/ifYmCyI9kwY?start=${b.dataset.start}&autoplay=1&rel=0`;document.querySelector('#video').scrollIntoView();});
+</script></body></html>
