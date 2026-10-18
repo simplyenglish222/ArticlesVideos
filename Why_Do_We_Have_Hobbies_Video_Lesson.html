@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6f8f7">
+<title>Why Do We Have Hobbies? · Video Lesson</title>
+<style>
+:root{
+ --ink:#17282f;--muted:#667980;--bg:#f3f6f5;--paper:#fff;--line:#dbe5e1;
+ --teal:#177d78;--teal2:#e7f6f3;--orange:#dd7445;--orange2:#fff0e8;
+ --blue:#4d73a5;--blue2:#edf3fb;--yellow:#f2c94c;--yellow2:#fff9dd;
+ --purple:#7755a4;--purple2:#f4effa;--shadow:0 15px 40px rgba(27,51,59,.08);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#fbfcfb,var(--bg));color:var(--ink);
+ font:16px/1.58 Inter,"Aptos","Segoe UI",system-ui,-apple-system,sans-serif;
+ -webkit-text-size-adjust:100%;padding-bottom:env(safe-area-inset-bottom)}
+button{font:inherit;font-size:16px;touch-action:manipulation}
+button:focus-visible,.target:focus-visible{outline:3px solid rgba(23,125,120,.23);outline-offset:2px}
+.wrap{width:min(1080px,100%);margin:auto;padding:14px}
+.hero{background:linear-gradient(135deg,#fff,#eff9f7 52%,#f0f3fa);border:1px solid var(--line);border-radius:29px;
+ box-shadow:var(--shadow);padding:29px;margin:10px 0 16px;position:relative;overflow:hidden}
+.hero:after{content:"HOBBIES";position:absolute;right:-18px;top:-5px;font-size:7rem;font-weight:1000;letter-spacing:-.08em;color:rgba(23,40,47,.035)}
+.kicker{position:relative;font-size:.72rem;font-weight:950;letter-spacing:.12em;color:var(--orange);text-transform:uppercase}
+h1{position:relative;font-size:clamp(2.7rem,7vw,5rem);line-height:.95;letter-spacing:-.055em;margin:.4rem 0 .65rem}
+.hero p{position:relative;max-width:760px;color:var(--muted)}
+.video-btn{position:relative;display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;text-decoration:none;
+ border-radius:11px;padding:10px 14px;font-weight:950;margin-top:7px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px;margin:15px 0}
+.head{display:flex;justify-content:space-between;gap:12px;align-items:start;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:13px}
+.label{font-size:.7rem;font-weight:950;letter-spacing:.1em;color:var(--orange);text-transform:uppercase}
+h2{margin:.3rem 0 .2rem;font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.05;letter-spacing:-.035em}
+.head p{margin:.2rem 0;color:var(--muted)}
+.badge{background:var(--teal2);color:#126b66;border-radius:999px;padding:7px 10px;font-weight:950;white-space:nowrap}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;font-weight:900}
+.tab.active{background:var(--teal);color:#fff;border-color:var(--teal)}
+.flashgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.flash{min-height:122px;border:1px solid var(--line);border-radius:16px;padding:12px;background:#fbfcfc;
+ display:flex;flex-direction:column;justify-content:center;text-align:center;cursor:pointer}
+.flash .front{font-weight:950} .flash .back{display:none;margin-top:7px;color:var(--muted);font-weight:800}
+.flash.open{background:var(--teal2);border-color:#b6dcd5} .flash.open .back{display:block}
+.tts{border:0;background:#fff;border-radius:8px;min-width:34px;height:34px;cursor:pointer;margin-left:4px}
+.qcard{border:1px solid var(--line);border-radius:17px;padding:14px;margin:10px 0}
+.qhead{display:grid;grid-template-columns:36px 1fr;gap:9px;align-items:start}
+.qnum{width:34px;height:34px;border-radius:10px;background:var(--orange2);color:var(--orange);display:grid;place-items:center;font-weight:950}
+.qtext{font-size:1.04rem;font-weight:900}
+.speak-label{display:inline-block;margin-top:9px;font-size:.68rem;font-weight:950;letter-spacing:.08em;color:var(--blue);text-transform:uppercase}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.chip{display:inline-flex;align-items:center;gap:3px;background:var(--blue2);border:1px solid #cad7e8;border-radius:999px;padding:5px 7px 5px 9px;font-size:.79rem;font-weight:850}
+.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.btn{border:0;border-radius:10px;min-height:42px;padding:8px 11px;font-weight:900;cursor:pointer}
+.secondary{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.sample{display:none;margin-top:8px;background:var(--teal2);border:1px solid #b8ddd6;border-radius:11px;padding:10px}
+.sample.show{display:block}
+.transcript{display:none;margin-top:12px;background:#fbfcfb;border:1px solid var(--line);border-radius:17px;padding:18px;line-height:1.75}
+.transcript.show{display:block}
+.transcript p{margin:.8rem 0}
+.target{background:var(--yellow2);border-bottom:2px solid #d8b530;border-radius:4px;padding:0 2px;font-weight:850;cursor:pointer}
+.wordpop{display:none;margin-top:10px;background:var(--yellow2);border:1px solid #e8d78e;border-radius:10px;padding:9px}
+.wordpop.show{display:block}
+.note{font-size:.82rem;color:var(--muted)}
+@media(max-width:800px){.flashgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.wrap{padding:8px}.hero,.panel{padding:15px;border-radius:19px}.hero:after{font-size:4.3rem;top:20px}.head{display:block}.badge{display:inline-block;margin-top:8px}.flashgrid{grid-template-columns:1fr}.qhead{grid-template-columns:32px 1fr}}
+</style>
+</head>
+<body><main class="wrap">
+
+<section class="hero">
+<div class="kicker">Unit 5 · Relax · Video supplement</div>
+<h1>WHY DO WE HAVE HOBBIES?</h1>
+<p>Watch the video once for the main ideas. Then review the target language, answer the five discussion questions and use the transcript only when you need it.</p>
+<a class="video-btn" href="https://www.pbs.org/video/why-do-we-have-hobbies-pqudzs/" target="_blank" rel="noopener">▶ Watch the video on PBS</a>
+</section>
+
+<section class="panel" id="vocab">
+<div class="head"><div><span class="label">TARGET LANGUAGE</span><h2>Collocations to learn</h2><p>Use both directions. Click a card to turn it over.</p></div><div class="badge">19 expressions</div></div>
+<div class="tabs"><button class="tab active" type="button" data-mode="enru">EN → RU</button><button class="tab" type="button" data-mode="ruen">RU → EN</button></div>
+<div class="flashgrid" id="flashGrid"></div>
+</section>
+
+<section class="panel" id="questions">
+<div class="head"><div><span class="label">DISCUSSION</span><h2>Five general questions</h2><p>Answer aloud first. Use the recommended target language where it fits. Open the sample only afterwards.</p></div></div>
+<div id="questionList"></div>
+</section>
+
+<section class="panel" id="script">
+<div class="head"><div><span class="label">TRANSCRIPT</span><h2>Full transcript</h2><p>The transcript is hidden by default. Target expressions are highlighted inside it.</p></div></div>
+<div class="actions"><button class="btn secondary" id="toggleTranscript" type="button">Show transcript</button></div>
+<div class="wordpop" id="wordPop"></div>
+<div class="transcript" id="transcript"><p>From the early 1400s until the 19th century, the word &quot;hobby&quot; was mostly a descriptor for a pony or small horse.</p><p>But in the wake of the Industrial Revolution, the diminutive word had taken on a new life as a term used to describe a recreational activity performed outside of your normal work hours.</p><p>And today, whether it&#x27;s running marathons, baking Instagram-worthy cakes, or collecting rare weird stuff, it seems like everybody has a productive hobby.</p><p>And they&#x27;re getting so productive that leisure time is quickly leaking back into our productive hours in the forms of <span class="target" tabindex="0" data-en="side hustles" data-ru="подработки / проекты для дополнительного дохода">side hustles</span>, hobby competitions, and the gig economy.</p><p>But why and when did we develop non-compensatory skills outside of our usual nine-to-five, AKA things we do for fun, but not for money, but we still work actively at getting better at?</p><p>And did you know that the origin of the hobby as a practice <span class="target" tabindex="0" data-en="stems from" data-ru="происходит из / берёт начало в">stems from</span> the 19th century rise of middle-class culture and efforts by this burgeoning conservative middle class to keep people productive and away from more decadent and frivolous <span class="target" tabindex="0" data-en="off-the-clock pursuits" data-ru="занятия вне рабочего времени">off-the-clock pursuits</span>?</p><p>So, let&#x27;s just skip over the tiny-horse part of hobby&#x27;s history and get right into the way we use it today.</p><p>Industrialization across Europe and the U.S. in the 18th and 19th centuries brought work largely out of the home or the local sphere and into larger cities and factories.</p><p>As a result, labor became something that was commodified by hours spent at work, which <span class="target" tabindex="0" data-en="were increasingly sold" data-ru="всё чаще продавались">were increasingly sold</span> by poor and working-class laborers to wealthy business owners.</p><p>But although the emergence of more industrial labor brought a sharper divide between work life and home life than, say, agriculture did, where folks often lived on the farms where they worked, work and leisure weren&#x27;t as sharply separated as you&#x27;d think.</p><p>In his book, &quot;Hobbies: Leisure and the Culture of Work in America,&quot; Historian Steven M. Gelber notes that, in the early days, hobbies in the U.S., &quot;Developed as a category &quot;of socially valued leisure activity in the 19th century because they bridged the world of work and home.&quot;</p><p><span class="target" tabindex="0" data-en="according to" data-ru="согласно / по словам">According to</span> Gelber, hobbies brought the values of maximized productivity from the external workplace into the home for women, and allowed men who worked outside of the home, to create a business-like space.</p><p>He also notes that, while hobbies offered <span class="target" tabindex="0" data-en="relief from" data-ru="отдых / облегчение от">relief from</span> the old grindstone, they also occupied a space tied to productive leisure.</p><p>So, instead of coming home to kick off your shoes and eat a bunch of snacks before taking a nap, you were expected to put your hands to use in some fun but also constructive way.</p><p>Gelber states that for the middle class worker, this created a process of disguised affirmation where you still feel rewarded and happy for not working slash taking it easy, but you&#x27;re also unconsciously mirroring the kind of productivity you experience and are rewarded for at work.</p><p>So, you learn to play an instrument or whittle or knit.</p><p>Although, if I learned to whittle, I would have zero fingers left.</p><p>But you don&#x27;t just bang away aimlessly at the keys or hack into a piece of wood or knit endless ribbons of material with no aim in sight.</p><p>You start off shaky, but, over time, you build strength behind the skill, pushing yourself to play harder music, make bigger wood projects, or make three sets of baby clothing for your best friend before she gives birth.</p><p>And all of a sudden, you have a workplace level skill that you do for fun but don&#x27;t get paid for.</p><p>Hobbies!</p><p>But hobbies&#x27; popularity in the 19th century was also divided by class and gender.</p><p>Gelber notes that both working-class and middle-class men could be <span class="target" tabindex="0" data-en="encouraged to have hobbies" data-ru="поощрялись иметь хобби">encouraged to have hobbies</span> because their lives were equally structured outside of the home by the work week.</p><p>However, for the emerging group of middle-class women in the United States in the 19th century, hobbies were a distinctive pastime that was separate from the kind of work they were expected to do in the home, and a sign of crafting.</p><p>So, instead of sewing in the home to repair your family&#x27;s worn-out items or threadbare stockings, perhaps a middle-class woman can now take time to do things like complicated needle work, which is pretty but not always attached to a practical use.</p><p>And while both men and women who <span class="target" tabindex="0" data-en="develop hobbies" data-ru="развивать хобби / увлечения">develop hobbies</span> are often interested in perfecting their crafts, trades and collections, it only remains a hobby if you are uninterested in profiting from it as your main source of income.</p><p>So, you may be able to make world-class wooden canoes, but you can&#x27;t think of selling them as your primary livelihood because then it becomes a job.</p><p>So, essentially, you&#x27;re Ron Swanson.</p><p>And hobbies could also continue to <span class="target" tabindex="0" data-en="enforce the ideologies" data-ru="закреплять / навязывать определённые идеологии">enforce the ideologies</span> of the workplace on off-the-clock workers because it unconsciously enforces a stricter code of conduct than if all those 19th-century folks were left to their own devices and vices.</p><p>So, instead of sleeping all day, eating a bunch of food, getting drunk, or gambling, you can figure out how to stuff a ship into a bottle.</p><p>Which would honestly drive me to drink because I&#x27;m pretty impatient.</p><p>But hobbies can also show a sign of conspicuous leisure, especially if it&#x27;s something you share with others.</p><p>For example, women abolitionists in the late 1820s and 1830s organized fancy fairs where they could make, display, and sell their handicrafts for charity.</p><p>And, by the 1880s, middle-class women had returned to the traditions established by fancy fairs to display intricate needlework by decayed gentlewomen or upper-class ladies without money, with the less fancy and more humble work still going to charity donations or fundraising bazaars.</p><p>So, when did we make the shift from hobby to hustle?</p><p>Because whether you know someone selling their handiwork on Etsy or entering their pastime into a competition with a cash prize, it seems like the hobbies of the past are becoming even less about leisure every day.</p><p>Well, that brings our timeline lurching forward into the early 20th century.</p><p>In 1908, a New England mill <span class="target" tabindex="0" data-en="<span class="target" tabindex="0" data-en="implement" data-ru="внедрять / вводить">implement</span>" data-ru="внедрять / вводить">implemented</span> a weekend in order to accommodate Jewish workers who observed the Sabbath on Saturdays.</p><p>While the workers often made up their hours on Sundays, this sometimes offended the Christian majority who considered Sunday their holy day.</p><p>As a result, the mill gave the workers both days off, and other factories and mills began to follow suit.</p><p>And thus, the institutionalized weekend was born-- the part of the calendar, not the singer.</p><p>Now, when the Great Depression set in by 1929 and continued through the 1930s, the weekend suddenly became a solution for employers who were looking to shorten the work week to save money in the face of economic disaster.</p><p>And suddenly, all of those handcrafts and hobbies that you learned for fun <span class="target" tabindex="0" data-en="to <span class="target" tabindex="0" data-en="to become essential" data-ru="становиться необходимым">become essential</span>" data-ru="становиться необходимым">became a bit more essential</span>.</p><p>So, people&#x27;s recreational pursuits, like intense baking, building, sewing, crafting, pickling vegetables, started making ends meet between uncertain paychecks.</p><p>In that way, the hobby actually served as ample preparation for economic downturns because they already functioned as pseudo work.</p><p>And in the mid 20th century, hobbies actually turned into big business for stores that catered to hobbyists.</p><p>Think train building kits, specialty albums to store all of your rare baseball cards in, and magazines full of sewing patterns.</p><p>So, the connection between structured leisure and the workplace grew even stronger since some folks made their livings selling hobbies.</p><p>And the persistent idea of hobbies as a form of self-sustenance continued even after the Depression and into the 1950s and 1960s.</p><p>But after the latter half of the 20th century, hobbies took on a slight bite to become more competitive, <span class="target" tabindex="0" data-en="<span class="target" tabindex="0" data-en="eliminate the illusion" data-ru="устранять иллюзию">eliminate the illusion</span>" data-ru="устранять иллюзию">eliminating the illusion</span> of leisure almost altogether.</p><p>Now we all probably see a million posts from our friends who used to be casual joggers, but now regularly compete in half marathons.</p><p>Or a person who you <span class="target" tabindex="0" data-en="<span class="target" tabindex="0" data-en="vaguely know" data-ru="смутно знать / быть немного знакомым с">vaguely know</span>" data-ru="смутно знать / быть немного знакомым с">vaguely knew</span> liked to bake, who now has tens of thousands of social media followers <span class="target" tabindex="0" data-en="<span class="target" tabindex="0" data-en="admire the pies" data-ru="любоваться пирогами">admire the pies</span>" data-ru="любоваться пирогами">admiring their artful geometric pies</span>.</p><p>I mean, even people who started off vlogging for fun on YouTube are quickly finding ways to cash in on their formerly recreational pursuits.</p><p>Think about Ninja, who&#x27;s been recently making headlines for revealing that he makes $500,000 a month from playing &quot;Fortnite&quot; and streaming it on Twitch and YouTube.</p><p>And, <span class="target" tabindex="0" data-en="according to" data-ru="согласно / по словам">according to</span> an article in &quot;The Guardian&quot; by Richard Godwin, this desire to turn hobby into hustle could stem from a couple of impulses.</p><p>The first is that we&#x27;re often presented with the fabled hobbies of the super wealthy and successful people we aim to emulate.</p><p>So, if we hear that a notable CEO runs eight marathons a year and made a billion dollars, we automatically connect this no-days-off <span class="target" tabindex="0" data-en="attitude" data-ru="отношение / установка">attitude</span> with her <span class="target" tabindex="0" data-en="thirst for success" data-ru="жажда успеха">thirst for success</span>.</p><p>The second is a desire to <span class="target" tabindex="0" data-en="find meaning and purpose" data-ru="находить смысл и цель">find meaning and purpose</span> in our lives through increased human perfectionism.</p><p>So, it&#x27;s not just okay to make kind of misshapen and ugly cookies that taste great and everyone in your family enjoys.</p><p>Suddenly your ugly &quot;butta-face&quot; cookies are out and you&#x27;re watching two hours of YouTube tutorials trying to figure out how to do a mirror glaze on a four-year-old&#x27;s birthday cake.</p><p>And the last reason is that we now have the tools and technology to quantify our progress in various hobbies, which brings out the iron person in all of us.</p><p>So, your smartwatch can track the number of steps you take, how many squats you took, and your resting heart rate.</p><p>You can make blogs and videos about your progress in a video game or keep a public Instagram tracking your evolution as a jean jacket bedazzler.</p><p>And the ability to track makes the progress you make feel <span class="target" tabindex="0" data-en="more concrete and satisfying" data-ru="более конкретный и приносящий удовлетворение">more concrete and satisfying</span>, especially since you can compare it with others.</p><p>So, the 21st century hobby is marked by technology, tracking progress and <span class="target" tabindex="0" data-en="innate competition" data-ru="врождённая склонность к соперничеству">innate competition</span> as people look to improve and also to find meaning in their lives outside of their nine to five.</p><p>Accessibility provided by the U.S. Department of Education.</p></div>
+</section>
+
+</main>
+<script>
+const COLLOCS=[["side hustles", "подработки / проекты для дополнительного дохода"], ["stems from", "происходит из / берёт начало в"], ["off-the-clock pursuits", "занятия вне рабочего времени"], ["were increasingly sold", "всё чаще продавались"], ["according to", "согласно / по словам"], ["relief from", "отдых / облегчение от"], ["encouraged to have hobbies", "поощрялись иметь хобби"], ["develop hobbies", "развивать хобби / увлечения"], ["enforce the ideologies", "закреплять / навязывать определённые идеологии"], ["implement", "внедрять / вводить"], ["to become essential", "становиться необходимым"], ["attitude", "отношение / установка"], ["thirst for success", "жажда успеха"], ["find meaning and purpose", "находить смысл и цель"], ["vaguely know", "смутно знать / быть немного знакомым с"], ["eliminate the illusion", "устранять иллюзию"], ["admire the pies", "любоваться пирогами"], ["more concrete and satisfying", "более конкретный и приносящий удовлетворение"], ["innate competition", "врождённая склонность к соперничеству"]];
+const QUESTIONS=[{"q": "How has the idea of a hobby changed from the 19th century to today?", "targets": ["stems from", "off-the-clock pursuits", "side hustles", "to become essential"], "sample": "The modern idea of a hobby partly stems from the 19th century. At that time, hobbies were useful off-the-clock pursuits that still encouraged productivity. Later, some hobbies became essential during difficult economic periods. Today, many hobbies can even turn into side hustles or competitive activities."}, {"q": "Why were people encouraged to have hobbies in the past?", "targets": ["encouraged to have hobbies", "relief from", "enforce the ideologies", "according to"], "sample": "According to the video, people were encouraged to have hobbies because hobbies were seen as productive leisure. They offered some relief from work, but they also kept people active and disciplined. In this way, hobbies could even enforce the ideologies of the workplace at home."}, {"q": "When does a hobby stop being a hobby and start becoming work?", "targets": ["side hustles", "develop hobbies", "implement", "to become essential"], "sample": "I think a hobby starts becoming work when a person depends on it for income or feels pressure to perform. People can develop hobbies for fun, but some later turn them into side hustles. This is not always negative, especially if the extra income becomes essential, but the activity may stop feeling relaxing."}, {"q": "How have technology and social media changed the way people experience hobbies?", "targets": ["vaguely know", "admire the pies", "more concrete and satisfying", "innate competition", "eliminate the illusion"], "sample": "Technology makes progress easier to measure and share. Someone you vaguely know may suddenly have thousands of followers who admire the pies they bake or the videos they make. Tracking progress can make improvement feel more concrete and satisfying. At the same time, comparison can create innate competition and eliminate the illusion that a hobby is purely for relaxation."}, {"q": "Should a hobby always have a useful result, or is doing something simply for pleasure enough?", "targets": ["attitude", "thirst for success", "find meaning and purpose", "side hustles"], "sample": "I think doing something simply for pleasure is enough. Our attitude to hobbies does not always need to be connected to a thirst for success. A hobby can help us find meaning and purpose without becoming a side hustle. Sometimes an activity is valuable precisely because there is no pressure to achieve anything."}];
+let mode='enru';
+let voices=[];
+
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]))}
+function loadVoices(){if('speechSynthesis' in window)voices=speechSynthesis.getVoices()||[]}
+loadVoices();if('speechSynthesis' in window)speechSynthesis.onvoiceschanged=loadVoices;
+function speak(t){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.88;const v=voices.find(x=>/^en-GB$/i.test(x.lang))||voices.find(x=>/^en/i.test(x.lang));if(v)u.voice=v;speechSynthesis.speak(u)}
+
+function renderFlash(){
+ const g=document.getElementById('flashGrid');
+ g.innerHTML=COLLOCS.map(([en,ru])=>{
+   const front=mode==='enru'?en:ru, back=mode==='enru'?ru:en;
+   const audio=`<button class="tts" type="button" data-say="${esc(en)}">🔊</button>`;
+   return `<article class="flash" tabindex="0"><div class="front">${esc(front)} ${mode==='enru'?audio:''}</div><div class="back">${esc(back)} ${mode==='ruen'?audio:''}</div></article>`;
+ }).join('');
+}
+renderFlash();
+
+document.getElementById('questionList').innerHTML=QUESTIONS.map((x,i)=>`
+<article class="qcard">
+  <div class="qhead"><div class="qnum">${i+1}</div><div><div class="qtext">${esc(x.q)}</div>
+  <span class="speak-label">Recommended target language</span>
+  <div class="chips">${x.targets.map(t=>`<span class="chip">${esc(t)} <button class="tts" type="button" data-say="${esc(t)}">🔊</button></span>`).join('')}</div>
+  <div class="actions"><button class="btn secondary sampleBtn" type="button">Show sample answer</button></div>
+  <div class="sample">${esc(x.sample)}</div>
+  </div></div>
+</article>`).join('');
+
+document.addEventListener('click',e=>{
+ const t=e.target.closest('.tts');if(t){e.stopPropagation();speak(t.dataset.say);return}
+ const f=e.target.closest('.flash');if(f&&!e.target.closest('button')){f.classList.toggle('open');return}
+ const tab=e.target.closest('.tab');if(tab){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));tab.classList.add('active');mode=tab.dataset.mode;renderFlash();return}
+ const sb=e.target.closest('.sampleBtn');if(sb){const s=sb.parentElement.nextElementSibling;s.classList.toggle('show');sb.textContent=s.classList.contains('show')?'Hide sample answer':'Show sample answer';return}
+ const target=e.target.closest('.target');if(target){
+   const p=document.getElementById('wordPop');p.classList.add('show');p.innerHTML=`<b>${target.dataset.en}</b> — ${target.dataset.ru} <button class="tts" type="button" data-say="${target.dataset.en}">🔊</button>`;return
+ }
+});
+
+document.addEventListener('keydown',e=>{
+ if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('flash')){e.preventDefault();e.target.click()}
+ if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('target')){e.preventDefault();e.target.click()}
+});
+
+document.getElementById('toggleTranscript').onclick=()=>{
+ const t=document.getElementById('transcript');t.classList.toggle('show');
+ document.getElementById('toggleTranscript').textContent=t.classList.contains('show')?'Hide transcript':'Show transcript';
+};
+</script>
+</body>
+</html>
