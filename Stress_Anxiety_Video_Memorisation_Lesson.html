@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f7f6">
+<title>6 Daily Habits to Reduce Stress & Anxiety · Video Lesson</title>
+<style>
+:root{
+ --ink:#17282f;--muted:#667980;--bg:#f4f7f5;--paper:#fff;--line:#dbe5e1;
+ --teal:#177d78;--teal2:#e7f6f3;--orange:#dc7445;--orange2:#fff0e8;
+ --blue:#4d73a5;--blue2:#edf3fb;--green:#347c5a;--green2:#edf8f2;
+ --red:#a64a43;--red2:#fff1ef;--yellow:#e6c34b;--yellow2:#fff8d9;
+ --shadow:0 14px 38px rgba(26,51,59,.08)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(#fbfcfb,var(--bg));color:var(--ink);
+ font:16px/1.58 Inter,"Aptos","Segoe UI",system-ui,-apple-system,sans-serif;
+ -webkit-text-size-adjust:100%;padding-bottom:env(safe-area-inset-bottom)}
+button,input{font:inherit;font-size:16px}button{touch-action:manipulation}
+.wrap{width:min(1080px,100%);margin:auto;padding:14px}
+.hero,.panel{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+.hero{border-radius:28px;padding:28px;margin:10px 0 15px;background:linear-gradient(135deg,#fff,#eff9f6 55%,#f0f3fa)}
+.kicker{font-size:.71rem;font-weight:950;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+h1{font-size:clamp(2.5rem,7vw,4.8rem);line-height:.95;letter-spacing:-.055em;margin:.4rem 0 .7rem}
+.hero p{max-width:790px;color:var(--muted)}
+.video{display:inline-flex;text-decoration:none;background:var(--teal);color:#fff;border-radius:10px;padding:10px 13px;font-weight:950;margin-top:8px}
+.nav{display:flex;gap:7px;overflow:auto;padding:4px 0 10px;position:sticky;top:0;z-index:20;background:rgba(244,247,245,.93);backdrop-filter:blur(10px)}
+.nav a{flex:0 0 auto;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 10px;font-size:.76rem;font-weight:900}
+.panel{border-radius:22px;padding:20px;margin:15px 0;scroll-margin-top:55px}
+.head{display:flex;justify-content:space-between;gap:12px;align-items:start;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:13px}
+.label{font-size:.69rem;font-weight:950;letter-spacing:.1em;color:var(--orange);text-transform:uppercase}
+h2{margin:.3rem 0 .2rem;font-size:clamp(1.75rem,4vw,2.5rem);line-height:1.05;letter-spacing:-.035em}
+.head p{margin:.2rem 0;color:var(--muted)}
+.badge{background:var(--teal2);color:#126963;border-radius:999px;padding:7px 10px;font-weight:950;white-space:nowrap}
+.memory{background:linear-gradient(135deg,#fff0e8,#fff8dd);border:2px solid #e7a16f;border-radius:16px;padding:15px;margin:12px 0 16px}
+.memory strong{display:block;font-size:1.15rem;color:#9b4e2d}
+.memory span{color:#6d5d50}
+.tabs,.actions,.chips{display:flex;gap:7px;flex-wrap:wrap}.tabs{margin-bottom:10px}.actions{margin-top:9px}.chips{margin-top:7px}
+.btn,.tab{border:0;border-radius:10px;min-height:41px;padding:8px 11px;font-weight:900;cursor:pointer}
+.secondary,.tab{background:#fff;border:1px solid var(--line);color:var(--ink)}.primary{background:var(--teal);color:#fff}.tab.active{background:var(--teal);color:#fff;border-color:var(--teal)}
+.flashgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.flash{min-height:120px;border:1px solid var(--line);border-radius:16px;padding:12px;background:#fbfcfc;display:flex;flex-direction:column;justify-content:center;text-align:center;cursor:pointer}
+.flash .front{font-weight:950}.flash .back{display:none;margin-top:7px;color:var(--muted);font-weight:800}.flash.open{background:var(--teal2);border-color:#b6ddd6}.flash.open .back{display:block}
+.tts{border:0;background:#fff;border-radius:8px;min-width:34px;height:34px;cursor:pointer}
+.gap,.qcard{border:1px solid var(--line);border-radius:16px;padding:13px;margin:9px 0}
+.qtext{font-weight:900;font-size:1.02rem}
+input[type=text]{width:100%;border:1px solid #b9c8c3;border-radius:10px;background:#fff;padding:9px 10px;min-height:44px;margin-top:8px}
+.feedback{min-height:1.1rem;font-size:.82rem;color:var(--muted);margin-top:5px}
+.answer{display:none;margin-top:7px;background:var(--yellow2);border:1px solid #e5d486;border-radius:9px;padding:8px}.answer.show{display:block}
+.correct{background:var(--green2);border-color:#acd1bb}.wrong{background:var(--red2);border-color:#dfaaa6}
+.speak-label{display:inline-block;margin-top:9px;font-size:.67rem;font-weight:950;letter-spacing:.08em;color:var(--blue);text-transform:uppercase}
+.chip{display:inline-flex;align-items:center;gap:4px;background:var(--blue2);border:1px solid #cbd8e8;border-radius:999px;padding:5px 7px 5px 9px;font-size:.79rem;font-weight:850}
+.sample{display:none;margin-top:8px;background:var(--teal2);border:1px solid #b8ddd5;border-radius:10px;padding:10px}.sample.show{display:block}
+.part-title{display:flex;align-items:center;gap:10px;margin:4px 0 10px}.part-num{width:39px;height:39px;border-radius:11px;background:var(--orange2);color:var(--orange);display:grid;place-items:center;font-weight:1000}
+.note{font-size:.82rem;color:var(--muted)}
+@media(max-width:650px){.wrap{padding:8px}.hero,.panel{padding:15px;border-radius:19px}.head{display:block}.badge{display:inline-block;margin-top:8px}.flashgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body><main class="wrap">
+
+<section class="hero">
+<div class="kicker">Unit 5 · Relax · Video supplement</div>
+<h1>6 DAILY HABITS TO REDUCE STRESS & ANXIETY</h1>
+<p>Learn the core phrases first, then check the video content and discuss which habits could work in real life.</p>
+<a class="video" href="https://youtu.be/o18I23HCQtE" target="_blank" rel="noopener">▶ Watch the video</a>
+</section>
+
+<nav class="nav">
+<a href="#part1">Memorisation Part 1</a>
+<a href="#part2">Memorisation Part 2</a>
+<a href="#questions">Video questions</a>
+</nav>
+
+<section class="panel" id="part1">
+<div class="head"><div><span class="label">MEMORISATION · PART 1</span><h2>Core phrases 1–7</h2></div><div class="badge">7 phrases</div></div>
+<div class="memory"><strong>These 7 phrases MUST BE MEMORISED BY HEART.</strong><span>Do not just recognise them. You should be able to produce each phrase from memory without seeing the English version.</span></div>
+<div class="tabs"><button class="tab active" data-part="1" data-mode="enru" type="button">EN → RU</button><button class="tab" data-part="1" data-mode="ruen" type="button">RU → EN</button></div>
+<div class="flashgrid" id="flash1"></div>
+
+<div class="part-title"><div class="part-num">A</div><div><b>Gap filling</b><div class="note">Type the complete memorised phrase. Each Check immediately shows the correct answer.</div></div></div>
+<div id="gaps1"></div>
+</section>
+
+<section class="panel" id="part2">
+<div class="head"><div><span class="label">MEMORISATION · PART 2</span><h2>Core phrases 8–14</h2></div><div class="badge">7 phrases</div></div>
+<div class="memory"><strong>These 7 phrases MUST ALSO BE MEMORISED BY HEART.</strong><span>The goal is active recall: Russian meaning → exact English phrase, without prompts.</span></div>
+<div class="tabs"><button class="tab active" data-part="2" data-mode="enru" type="button">EN → RU</button><button class="tab" data-part="2" data-mode="ruen" type="button">RU → EN</button></div>
+<div class="flashgrid" id="flash2"></div>
+
+<div class="part-title"><div class="part-num">B</div><div><b>Gap filling</b><div class="note">Use the exact phrase from the flashcards.</div></div></div>
+<div id="gaps2"></div>
+</section>
+
+<section class="panel" id="questions">
+<div class="head"><div><span class="label">VIDEO CHECK & DISCUSSION</span><h2>Questions in video order</h2><p>Questions 1–8 check comprehension. Questions 9–10 move into personal B1+ speaking.</p></div><div class="badge">10 questions</div></div>
+<div id="questionList"></div>
+</section>
+
+</main>
+
+<script>
+const DATA={"part1": [["relieve stress and anxiety", "снять стресс и тревогу"], ["have a positive effect on your well-being", "положительно влиять на ваше самочувствие"], ["a decrease in nervousness", "снижение нервозности"], ["focus on your surroundings", "сосредоточиться на окружающей обстановке"], ["maintain good posture", "поддерживать правильную осанку"], ["reduce fatigue", "снижать усталость"], ["view stress as a challenge", "воспринимать стресс как вызов"]], "part2": [["reframe a stressful event", "переосмыслить стрессовую ситуацию"], ["put aside five or ten minutes", "выделить пять или десять минут"], ["take it in baby steps", "двигаться маленькими шагами"], ["get enough sleep", "высыпаться / получать достаточно сна"], ["sleep deprivation", "недостаток сна / лишение сна"], ["intensify anxiety and stress levels", "усиливать уровень тревоги и стресса"], ["make something a daily habit", "сделать что-то ежедневной привычкой"]], "gaps1": [{"sentence": "Simple mindful activities can help ________ after a difficult day.", "answer": "relieve stress and anxiety"}, {"sentence": "Researchers found that mindful dishwashing can ________.", "answer": "have a positive effect on your well-being"}, {"sentence": "The students who washed dishes mindfully reported ________.", "answer": "a decrease in nervousness"}, {"sentence": "Grounding yourself in reality means trying to ________.", "answer": "focus on your surroundings"}, {"sentence": "The video suggests trying to ________ for several minutes if you feel tired or inattentive.", "answer": "maintain good posture"}, {"sentence": "According to the study mentioned in the video, upright posture may ________.", "answer": "reduce fatigue"}, {"sentence": "Instead of treating stress only as an enemy, the speaker suggests that you ________.", "answer": "view stress as a challenge"}], "gaps2": [{"sentence": "One strategy is to ________ and see it as an opportunity to grow.", "answer": "reframe a stressful event"}, {"sentence": "If your morning is going to be busy, ________ for meditation.", "answer": "put aside five or ten minutes"}, {"sentence": "Do not begin with an hour of meditation. It is better to ________.", "answer": "take it in baby steps"}, {"sentence": "It is vital to our mental health to ________.", "answer": "get enough sleep"}, {"sentence": "________ can make anxiety worse.", "answer": "sleep deprivation"}, {"sentence": "Not getting enough rest can ________.", "answer": "intensify anxiety and stress levels"}, {"sentence": "The final piece of advice is to ________, such as going to bed on time.", "answer": "make something a daily habit"}], "questions": [{"q": "Why can washing dishes reduce stress?", "targets": ["relieve stress and anxiety", "focus on your surroundings", "be aware of your senses"], "sample": "Mindful dishwashing can relieve stress and anxiety because it makes you focus on your surroundings and your senses instead of stressful thoughts."}, {"q": "What happened to nervousness and mental inspiration in the dishwashing study?", "targets": ["a decrease in nervousness", "an increase in mental inspiration", "have a positive effect on"], "sample": "The participants who washed dishes mindfully reported a decrease in nervousness and an increase in mental inspiration."}, {"q": "Why can hugging or holding hands help people relax?", "targets": ["increase endorphins", "reduce cortisol", "have a positive effect on your well-being"], "sample": "The video says that affectionate contact can increase endorphins while reducing the release of cortisol, so it may have a positive effect on your well-being."}, {"q": "How can good posture affect the way we feel?", "targets": ["maintain good posture", "reduce fatigue", "increase positive affect"], "sample": "According to the study mentioned in the video, maintaining good posture may increase positive feelings and reduce fatigue."}, {"q": "What does the video suggest doing instead of seeing stress as an enemy?", "targets": ["view stress as a challenge", "reframe a stressful event", "an opportunity to grow"], "sample": "The video suggests viewing stress as a challenge and reframing a stressful event as an opportunity to grow."}, {"q": "Why does the speaker recommend starting meditation with only five minutes?", "targets": ["put aside five or ten minutes", "take it in baby steps", "feel comfortable"], "sample": "Starting with a full hour could be difficult, so the speaker recommends taking it in baby steps and beginning with only five minutes."}, {"q": "What did the meditation research suggest about changes in brain activity?", "targets": ["changes in brain activity", "remain after meditation", "everyday tasks"], "sample": "The research suggested that changes in brain activity remained even when the participants were no longer meditating and were doing everyday tasks."}, {"q": "Why is going to bed on time important for anxiety?", "targets": ["get enough sleep", "sleep deprivation", "intensify anxiety and stress levels"], "sample": "Getting enough sleep is important because sleep deprivation can intensify anxiety and stress levels."}, {"q": "Which of the six habits seems the easiest to introduce into your daily life? Why?", "targets": ["the easiest habit", "make something a daily habit", "put aside five or ten minutes"], "sample": "Going to bed on time seems the easiest habit for me to introduce because it does not require any special equipment. I would just need to make it a daily habit."}, {"q": "Which habit do you think would be the most effective for you personally? Why?", "targets": ["the most effective habit", "relieve stress and anxiety", "reduce fatigue", "get enough sleep"], "sample": "For me, getting enough sleep would probably be the most effective habit because tiredness makes stress harder to deal with."}]};
+let modes={1:'enru',2:'enru'}, voices=[];
+
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+function norm(s){return String(s).toLowerCase().replace(/[’‘]/g,"'").replace(/[.,!?;:]/g,"").replace(/\s+/g," ").trim()}
+function loadVoices(){if('speechSynthesis' in window)voices=speechSynthesis.getVoices()||[]}
+loadVoices();if('speechSynthesis' in window)speechSynthesis.onvoiceschanged=loadVoices;
+function speak(t){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.88;const v=voices.find(x=>/^en-GB$/i.test(x.lang))||voices.find(x=>/^en/i.test(x.lang));if(v)u.voice=v;speechSynthesis.speak(u)}
+
+function renderFlash(part){
+ const list=part===1?DATA.part1:DATA.part2, mode=modes[part], target=document.getElementById('flash'+part);
+ target.innerHTML=list.map(([en,ru])=>{
+   const front=mode==='enru'?en:ru, back=mode==='enru'?ru:en;
+   return `<article class="flash" tabindex="0"><div class="front">${esc(front)} ${mode==='enru'?`<button class="tts" type="button" data-say="${esc(en)}">🔊</button>`:''}</div><div class="back">${esc(back)} ${mode==='ruen'?`<button class="tts" type="button" data-say="${esc(en)}">🔊</button>`:''}</div></article>`;
+ }).join('');
+}
+renderFlash(1);renderFlash(2);
+
+function renderGaps(id,items){
+ document.getElementById(id).innerHTML=items.map((x,i)=>`
+ <article class="gap closed" data-answer="${esc(x.answer)}">
+   <div class="qtext">${i+1}. ${esc(x.sentence)}</div>
+   <input type="text" placeholder="Type the complete phrase">
+   <div class="actions"><button class="btn primary checkGap" type="button">Check</button></div>
+   <div class="feedback"></div>
+   <div class="answer"><b>Answer:</b> ${esc(x.answer)}</div>
+ </article>`).join('');
+}
+renderGaps('gaps1',DATA.gaps1);
+renderGaps('gaps2',DATA.gaps2);
+
+document.getElementById('questionList').innerHTML=DATA.questions.map((x,i)=>`
+<article class="qcard">
+ <div class="qtext">${i+1}. ${esc(x.q)}</div>
+ <span class="speak-label">Recommended target language</span>
+ <div class="chips">${x.targets.map(t=>`<span class="chip">${esc(t)} <button class="tts" type="button" data-say="${esc(t)}">🔊</button></span>`).join('')}</div>
+ <div class="actions"><button class="btn secondary sampleBtn" type="button">Show sample answer</button></div>
+ <div class="sample">${esc(x.sample)}</div>
+</article>`).join('');
+
+document.addEventListener('click',e=>{
+ const t=e.target.closest('.tts');if(t){e.stopPropagation();speak(t.dataset.say);return}
+ const f=e.target.closest('.flash');if(f&&!e.target.closest('button')){f.classList.toggle('open');return}
+ const tab=e.target.closest('.tab');if(tab){
+   const part=Number(tab.dataset.part);
+   document.querySelectorAll(`.tab[data-part="${part}"]`).forEach(x=>x.classList.remove('active'));
+   tab.classList.add('active');modes[part]=tab.dataset.mode;renderFlash(part);return
+ }
+ const cg=e.target.closest('.checkGap');if(cg){
+   const item=cg.closest('.closed'), input=item.querySelector('input'), ok=norm(input.value)===norm(item.dataset.answer);
+   item.classList.remove('correct','wrong');item.classList.add(ok?'correct':'wrong');
+   item.querySelector('.feedback').textContent=ok?'Correct.':'Not quite. Memorise the exact phrase.';
+   item.querySelector('.answer').classList.add('show');return
+ }
+ const sb=e.target.closest('.sampleBtn');if(sb){
+   const s=sb.parentElement.nextElementSibling;s.classList.toggle('show');
+   sb.textContent=s.classList.contains('show')?'Hide sample answer':'Show sample answer';return
+ }
+});
+document.addEventListener('keydown',e=>{
+ if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('flash')){e.preventDefault();e.target.click()}
+});
+</script>
+</body></html>
